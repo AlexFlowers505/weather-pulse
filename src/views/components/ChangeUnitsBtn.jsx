@@ -1,7 +1,7 @@
 import React from 'react'
-import SeparateSymbolBtn from '../SeparateSymbolBtn/SeparateSymbolBtn'
-import separateSymbolBtnTypes from '../../../constants/separateSymbolBtnTypes'
-import temperatureUnits from '../../../constants/temperatureUnits'
+import SeparateSymbolBtn from './SeparateSymbolBtn'
+import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
+import temperatureUnits from '../../constants/temperatureUnits'
 
 const locateMeBtnData = {
   contentType: separateSymbolBtnTypes.text,

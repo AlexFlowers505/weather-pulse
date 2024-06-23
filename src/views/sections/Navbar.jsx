@@ -1,8 +1,8 @@
 import React from 'react'
 
-import LogoMin from '../../components/LogoMin/LogoMin'
-import navLinksData from '../../../data/navLinksData' 
-import NavLink from '../../components/NavLink/NavLink'
+import LogoMin from '../components/LogoMin'
+import navLinksData from '../../data/navLinksData' 
+import NavLink from '../components/NavLink'
 
 const className = `
     flex

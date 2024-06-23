@@ -1,6 +1,6 @@
 import React from 'react'
-import separateSymbolBtnTypes from '../../../constants/separateSymbolBtnTypes'
-import SpriteSvg from '../SpriteSvg/SpriteSvg'
+import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
+import SpriteSvg from './SpriteSvg'
 
 const className = `
     flex

@@ -1,6 +1,6 @@
 import React from 'react'
-import SeparateSymbolBtn from '../SeparateSymbolBtn/SeparateSymbolBtn'
-import separateSymbolBtnTypes from '../../../constants/separateSymbolBtnTypes'
+import SeparateSymbolBtn from './SeparateSymbolBtn'
+import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
 
 const locateMeBtnData = {
   contentType: separateSymbolBtnTypes.icon,

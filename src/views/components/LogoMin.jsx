@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../../../assets/images/logos/weather-pulse-logo.png'
+import img from '../../assets/images/logos/weather-pulse-logo.png'
 
 const imgAttrs = {
     altText: 'Weather Pulse',

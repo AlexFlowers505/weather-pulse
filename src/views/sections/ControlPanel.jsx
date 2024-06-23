@@ -1,7 +1,7 @@
 import React from 'react'
-import ChangeUnitsBtn from '../../components/ChangeUnitsBtn/ChangeUnitsBtn'
-import LocateMeBtn from '../../components/LocateMeBtn/LocateMeBtn'
-import Search from '../../components/Search/Search'
+import ChangeUnitsBtn from '../components/ChangeUnitsBtn'
+import LocateMeBtn from '../components/LocateMeBtn'
+import Search from '../components/Search'
 
 const className = `
     flex
