@@ -1,7 +1,9 @@
 import MainLayout from "../views/layouts/MainLayout"
-import MainSVGsprite from "../assets/images/svg-sprites/MainSVGsprite"
+import MainSVGsprite from "../assets/svg-sprites/MainSVGsprite"
 import Navbar from "../views/sections/Navbar"
 import ControlPanel from "../views/sections/ControlPanel"
+import TodayForecast from "../views/sections/TodayForecast"
+import SevenDaysForecast from "../views/sections/SevenDaysForecast"
 
 export default function App() {
   return (
@@ -10,7 +12,11 @@ export default function App() {
       
       <MainLayout>
         <Navbar />
-        <ControlPanel />
+        <div className='flex flex-col justify-between items-start w-full gap-base'>
+          <ControlPanel />
+          <TodayForecast />
+        </div>
+        <SevenDaysForecast />
       </MainLayout>
     </>
   )

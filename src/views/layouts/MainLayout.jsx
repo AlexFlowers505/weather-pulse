@@ -15,7 +15,7 @@ const className = {
     flex-row
     mx-auto
     justify-center
-    align-top
+    items-top
     max-w-7xl
     gap-base
   `,

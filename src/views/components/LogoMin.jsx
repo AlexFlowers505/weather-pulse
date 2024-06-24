@@ -1,11 +1,11 @@
 import React from 'react'
-import img from '../../assets/images/logos/weather-pulse-logo.png'
 
 const imgAttrs = {
     altText: 'Weather Pulse',
+    src: '/assets/images/logos/weather-pulse-logo.png'
 }
 const className = "w-14 p-baseSM pb-2 box-content"
 
 export default function LogoMin() {
-  return <img className={className} src={img} alt={imgAttrs.altText} />
+  return <img className={className} src={imgAttrs.src} alt={imgAttrs.altText} />
 }

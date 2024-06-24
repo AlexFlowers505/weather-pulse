@@ -13,6 +13,7 @@ module.exports = {
         textInactive: '#637590',
         hoverState: '#243E63',
         activeState: '#0E213C',
+        borderColor: '#727983'
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
