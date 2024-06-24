@@ -10,10 +10,9 @@ const className = `
     flex-col
     justify-start
     items-center
-    gap-12
+    gap-5
     bg-bgPrimary
-    px-baseSM
-    py-baseSM
+    p-2
     rounded-base
 `
 

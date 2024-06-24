@@ -10,7 +10,9 @@ module.exports = {
         bgPrimary: '#202B3B',
         primary: '#0095FF',
         text: '#FFFFFF',
-        textInactive: '#637590'
+        textInactive: '#637590',
+        hoverState: '#243E63',
+        activeState: '#0E213C',
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],

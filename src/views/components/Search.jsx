@@ -10,8 +10,20 @@ const className = {
     p-baseXS
     w-full
     h-full
+    text-text
     bg-bgPrimary
     rounded-base
+    hover:bg-hoverState
+    active:bg-activeState
+    border-solid
+    border-2
+    border-transparent
+    outline-none
+    focus:border-primary
+    focus:bg-bgPrimary
+    transition-colors
+    ease-in-out
+    duration-200
   `
 }
 const searchBarAttrs = {

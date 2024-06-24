@@ -19,6 +19,11 @@ const className = `
     font-black
     text-2xl
     font-montserrat
+    hover:bg-hoverState
+    active:bg-activeState
+    transition-colors
+    ease-in-out
+    duration-200
 `
 export default function SeparateSymbolBtn(btnData) {
     const {contentType, content, extraStyles} = btnData

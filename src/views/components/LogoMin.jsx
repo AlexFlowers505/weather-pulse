@@ -4,7 +4,7 @@ import img from '../../assets/images/logos/weather-pulse-logo.png'
 const imgAttrs = {
     altText: 'Weather Pulse',
 }
-const className = "w-14"
+const className = "w-14 p-baseSM pb-2 box-content"
 
 export default function LogoMin() {
   return <img className={className} src={img} alt={imgAttrs.altText} />

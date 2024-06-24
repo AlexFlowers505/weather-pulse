@@ -3,17 +3,21 @@ import React from 'react'
 const className = {
     link_TW: `
         flex
-        w-fit
         flex-col
         justify-start
         items-center
         gap-0
-        text-base
+        text-sm
         text-text
-        hover:text-primary
         transition-colors
         ease-in-out
         duration-200
+        bg-bgPrimary
+        p-3
+        w-full
+        rounded-base
+        hover:bg-hoverState
+        active:bg-activeState
     `,
     icon_TW: `
         w-10
