@@ -21,12 +21,12 @@ const className = `
     font-montserrat
 `
 export default function SeparateSymbolBtn(btnData) {
-    const {contentType, content} = btnData
+    const {contentType, content, extraStyles} = btnData
     return (  
         <button className={className}>
             { 
                 contentType == separateSymbolBtnTypes.text ? content : 
-                contentType == separateSymbolBtnTypes.icon ? <SpriteSvg id={content}/> : ''
+                contentType == separateSymbolBtnTypes.icon ? <SpriteSvg id={content} extraStyles={extraStyles}/> : ''
             }
         </button>
     )
