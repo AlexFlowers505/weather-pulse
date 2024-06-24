@@ -4,8 +4,19 @@ import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
 import temperatureUnits from '../../constants/temperatureUnits'
 
 const locateMeBtnData = {
-  contentType: separateSymbolBtnTypes.text,
-  content: temperatureUnits.celsius.symbol
+  contentType: separateSymbolBtnTypes.icon,
+  content: temperatureUnits.celsius.icon,
+  extraStyles: {
+    width: '200%',
+    maxHeight: 'unset',
+    maxWidth: 'unset',
+    display: 'inlineBlock',
+    height: '200%',
+    position: 'absolute',
+    left: '43%',
+    transform: 'translate(-50%, -50%)',
+    top: '50%',
+  }
 }
 const {contentType, content} = locateMeBtnData
 

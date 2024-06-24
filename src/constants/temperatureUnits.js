@@ -1,10 +1,12 @@
 export default {
     celsius: {
         name: 'celsius',
-        symbol: '℃'
+        symbol: '℃',
+        icon: 'icon-celsius'
     },
     fahrenheit: {
         name: 'Fahrenheit',
-        symbol: '°F'
+        symbol: '°F',
+        icon: 'icon-fahrenheit'
     }
 }
