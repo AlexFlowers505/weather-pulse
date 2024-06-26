@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 .btn-filled {
   @apply bg-bgPrimary;
   @apply hover:bg-hoverState;
@@ -26,11 +22,4 @@
   @apply p-baseXS;
   @apply text-text;
   @apply text-2xl;
-}
-
-.container-visuals {
-  @apply bg-bgPrimary;
-  @apply px-baseSM;
-  @apply py-baseSM;
-  @apply rounded-base;
-}/*# sourceMappingURL=global-styles.css.map */
+}/*# sourceMappingURL=separateSymbolBtn.css.map */

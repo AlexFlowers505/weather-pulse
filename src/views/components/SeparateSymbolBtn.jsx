@@ -1,37 +1,28 @@
 import React from 'react'
 import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
 import SpriteSvg from './SpriteSvg'
+import btnStyles from '../../constants/separateSymbolBtnStyle'
 
 const className = `
-    flex
-    min-w-6
-    min-h-6
-    w-6
-    h-6
-    flex-row
-    justify-start
-    items-center
-    rounded-base
-    bg-bgPrimary
-    p-baseXS
-    text-text
-    box-content
-    font-black
-    text-2xl
-    font-montserrat
-    hover:bg-hoverState
-    active:bg-activeState
-    transition-colors
-    ease-in-out
-    duration-200
-`
-export default function SeparateSymbolBtn(btnData) {
-    const {contentType, content, extraStyles} = btnData
+        flex
+        flex-row
+        justify-start
+        items-center
+        rounded-base
+        box-content
+        font-black
+        font-montserrat
+        transition-colors
+        ease-in-out
+        duration-200
+    `
+
+export default function SeparateSymbolBtn({contentType, content, extraSVGstyle, btnSize=btnStyles.size.base, btnStyle=btnStyles.style.filled}) {
     return (  
-        <button className={className}>
+        <button className={`${className} ${btnSize} ${btnStyle}`}>
             { 
                 contentType === separateSymbolBtnTypes.text ? content : 
-                contentType === separateSymbolBtnTypes.icon ? <SpriteSvg id={content} extraStyles={extraStyles}/> : ''
+                contentType === separateSymbolBtnTypes.icon ? <SpriteSvg id={content} extraSVGstyle={extraSVGstyle}/> : ''
             }
         </button>
     )

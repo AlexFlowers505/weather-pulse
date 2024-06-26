@@ -1,12 +1,14 @@
+import svgSymbols from "../constants/svgSymbols"
+
 export default [
     {
         text: 'Погода',
         url: '/weather-search',
-        icon: 'icon-weather',
+        icon: svgSymbols.iconWeather,
     },
     {
         text: 'Избранное',
         url: '/favourite',
-        icon: 'icon-add-to-favourite',
+        icon: svgSymbols.iconAddToFavourite,
     },
 ]

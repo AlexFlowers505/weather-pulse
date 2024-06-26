@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function SpriteSvg({id, extraStyles}) {
+export default function SpriteSvg({id, extraSVGstyle}) {
   return (
-    <svg className='w-full h-full' style={extraStyles}><use href={`#${id}`} /></svg>
+    <svg className='w-full h-full' style={extraSVGstyle}><use href={`#${id}`} /></svg>
   )
 }

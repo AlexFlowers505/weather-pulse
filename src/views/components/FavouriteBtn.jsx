@@ -1,10 +1,11 @@
 import React from 'react'
 import SeparateSymbolBtn from './SeparateSymbolBtn'
 import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
+import svgSymbolsController from '../../constants/svgSymbols'
 
 const btnData = {
   contentType: separateSymbolBtnTypes.icon,
-  content: 'icon-add-to-favourite'
+  content: svgSymbolsController.iconAddToFavourite
 }
 
 const {contentType, content} = btnData
@@ -14,3 +15,4 @@ export default function FavouriteBtn() {
     <SeparateSymbolBtn contentType={contentType} content={content} />
   )
 }
+
