@@ -19,7 +19,7 @@ const className = {
 const {horizontalLayout, verticalLayout} = className
 
 export default function ForecastItems({layout}) {
-    const layoutStyles = layout == forecastLayoutTypes.vertical ? verticalLayout : layout == forecastLayoutTypes.horizontal ? horizontalLayout : ''
+    const layoutStyles = layout === forecastLayoutTypes.vertical ? verticalLayout : layout === forecastLayoutTypes.horizontal ? horizontalLayout : ''
 
     return (
         <div className={`forecast-items ${layoutStyles}`}>

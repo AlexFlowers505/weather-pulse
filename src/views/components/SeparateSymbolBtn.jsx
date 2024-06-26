@@ -30,8 +30,8 @@ export default function SeparateSymbolBtn(btnData) {
     return (  
         <button className={className}>
             { 
-                contentType == separateSymbolBtnTypes.text ? content : 
-                contentType == separateSymbolBtnTypes.icon ? <SpriteSvg id={content} extraStyles={extraStyles}/> : ''
+                contentType === separateSymbolBtnTypes.text ? content : 
+                contentType === separateSymbolBtnTypes.icon ? <SpriteSvg id={content} extraStyles={extraStyles}/> : ''
             }
         </button>
     )

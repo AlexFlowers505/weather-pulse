@@ -3,7 +3,9 @@ import React from 'react'
 const className = {
   mainLayout: `
     w-screen
-    min-h-screen
+    h-screen
+    min-w-fit
+    min-h-fit
     bg-gradient-to-r
     from-bgLinearStart
     to-bgLinearEnd

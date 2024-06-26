@@ -4,6 +4,7 @@ import Navbar from "../views/sections/Navbar"
 import ControlPanel from "../views/sections/ControlPanel"
 import TodayForecast from "../views/sections/TodayForecast"
 import SevenDaysForecast from "../views/sections/SevenDaysForecast"
+import CurrentCityForecastDisplay from "../views/sections/CurrentCityForecastDisplay"
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Navbar />
         <div className='flex flex-col justify-between items-start w-full gap-base'>
           <ControlPanel />
+          <CurrentCityForecastDisplay />
           <TodayForecast />
         </div>
         <SevenDaysForecast />

@@ -40,7 +40,7 @@ const {forecastItem, forecastItemTime, forecastItemPic, forecastItemTemp} = clas
 
 
 export default function ForecastItem({layout}) {
-    const layoutStyles = layout == forecastLayoutTypes.vertical ? forecastItem.horizontalLayout : layout == forecastLayoutTypes.horizontal ? forecastItem.verticalLayout : ''
+    const layoutStyles = layout === forecastLayoutTypes.vertical ? forecastItem.horizontalLayout : layout === forecastLayoutTypes.horizontal ? forecastItem.verticalLayout : ''
 
     return (
     <div className={`forecast-item ${layoutStyles}`}>
