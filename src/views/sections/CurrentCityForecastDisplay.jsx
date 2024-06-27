@@ -1,5 +1,6 @@
 import React from 'react'
 import FavouriteBtn from '../components/FavouriteBtn'
+import iconBtnStyles from '../styles/iconBtnStyles'
 
 const className = {
   wrapperTW: `
@@ -33,7 +34,7 @@ export default function CurrentCityForecastDisplay() {
   return (
     <section className={`${wrapperTW}`}>
         <div className={`${nameBlockTW}`}>
-            <FavouriteBtn />
+            <FavouriteBtn btnSize={iconBtnStyles.size.md} btnStyle={iconBtnStyles.style.outlined}/>
             <h6 className={`${nameTW}`}>Москва</h6>
         </div>
         <div className="">

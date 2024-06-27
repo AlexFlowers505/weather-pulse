@@ -1,17 +1,14 @@
 import React from 'react'
-import SeparateSymbolBtn from './SeparateSymbolBtn'
-import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
+import IconBtn from './IconBtn'
 import svgSymbols from '../../constants/svgSymbols'
-import btnStyles from '../../constants/separateSymbolBtnStyle'
 
 const locateMeBtnData = {
-  contentType: separateSymbolBtnTypes.icon,
   content: svgSymbols.iconLocation
 }
-const {contentType, content} = locateMeBtnData
+const {content} = locateMeBtnData
 
-export default function LocateMeBtn() {
+export default function LocateMeBtn({btnSize, btnStyle}) {
   return (
-    <SeparateSymbolBtn contentType={contentType} content={content} btnSize={btnStyles.size.base} btnStyle={btnStyles.style.filled} />
+    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} />
   )
 }

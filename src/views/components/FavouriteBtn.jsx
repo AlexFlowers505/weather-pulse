@@ -1,18 +1,16 @@
 import React from 'react'
-import SeparateSymbolBtn from './SeparateSymbolBtn'
-import separateSymbolBtnTypes from '../../constants/separateSymbolBtnTypes'
-import svgSymbolsController from '../../constants/svgSymbols'
+import IconBtn from './IconBtn'
+import svgSymbols from '../../constants/svgSymbols'
 
 const btnData = {
-  contentType: separateSymbolBtnTypes.icon,
-  content: svgSymbolsController.iconAddToFavourite
+  content: svgSymbols.iconAddToFavourite
 }
 
-const {contentType, content} = btnData
+const {content} = btnData
 
-export default function FavouriteBtn() {
+export default function FavouriteBtn({btnSize, btnStyle}) {
   return (
-    <SeparateSymbolBtn contentType={contentType} content={content} />
+    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} />
   )
 }
 

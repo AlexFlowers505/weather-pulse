@@ -1,12 +1,14 @@
+import svgSymbols from "./svgSymbols"
+
 export default {
     celsius: {
         name: 'celsius',
         symbol: '℃',
-        icon: 'icon-celsius'
+        icon: svgSymbols.iconCelsius
     },
     fahrenheit: {
         name: 'Fahrenheit',
         symbol: '°F',
-        icon: 'icon-fahrenheit'
+        icon: svgSymbols.iconFahrenheit
     }
 }
