@@ -16,6 +16,9 @@ const className = {
     items-start
     w-full
     h-full
+    relative
+    overflow-hidden
+    z-10
   `,
   nameBlockTW: `
     flex
@@ -31,18 +34,31 @@ const className = {
   `,
   degreesTW: `
     text-text
-    text-8xl
+    text-9xl
     font-light
   `,
+  weatherDataWrapper: `
+    flex
+    flex-row
+    justify-start
+    items-start
+    gap-0
+  `,
   picTW: `
-  
+    w-28
+    relative
+    -top-6
   `,
   bgPicTW: `
-  
+  absolute
+  -top-40
+  -right-48
+  -z-10
+  opacity-20
   `
 }
 
-const {wrapperTW, nameBlockTW, nameTW, degreesTW, picTW, bgPicTW} = className
+const {wrapperTW, nameBlockTW, nameTW, degreesTW, picTW, bgPicTW, weatherDataWrapper} = className
 
 export default function CurrentCityForecastDisplay() {
   return (
@@ -51,7 +67,7 @@ export default function CurrentCityForecastDisplay() {
             <FavouriteBtn btnSize={iconBtnStyles.size.md} btnStyle={iconBtnStyles.style.outlined}/>
             <h6 className={`${nameTW}`}>Москва</h6>
         </div>
-        <div className="">
+        <div className={`${weatherDataWrapper}`}>
           <span className={`${degreesTW}`}>31°</span>
           <img className={`${picTW}`} src={`${imgPath}${imgNames.sunny}${imgType}`} alt="" />
         </div>
