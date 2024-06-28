@@ -1,6 +1,9 @@
 import React from 'react'
 import FavouriteBtn from '../components/FavouriteBtn'
 import iconBtnStyles from '../styles/iconBtnStyles'
+import weatherPicturesNames from '../../constants/weatherPicturesNames'
+
+const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames
 
 const className = {
   wrapperTW: `
@@ -25,10 +28,21 @@ const className = {
     text-text
     text-4xl
     font-bold
+  `,
+  degreesTW: `
+    text-text
+    text-8xl
+    font-light
+  `,
+  picTW: `
+  
+  `,
+  bgPicTW: `
+  
   `
 }
 
-const {wrapperTW, nameBlockTW, nameTW} = className
+const {wrapperTW, nameBlockTW, nameTW, degreesTW, picTW, bgPicTW} = className
 
 export default function CurrentCityForecastDisplay() {
   return (
@@ -38,10 +52,10 @@ export default function CurrentCityForecastDisplay() {
             <h6 className={`${nameTW}`}>Москва</h6>
         </div>
         <div className="">
-          <span>31°</span>
-          <img src="" alt="" />
+          <span className={`${degreesTW}`}>31°</span>
+          <img className={`${picTW}`} src={`${imgPath}${imgNames.sunny}${imgType}`} alt="" />
         </div>
-        <img src="" alt="" />
+        <img className={`${bgPicTW}`} src="/assets/images/weather-pictures/sunny.png" alt="" />
     </section>
   )
 }

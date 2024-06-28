@@ -3,14 +3,17 @@ import IconBtn from './IconBtn'
 import svgSymbols from '../../constants/svgSymbols'
 
 const btnData = {
-  content: svgSymbols.iconAddToFavourite
+  content: svgSymbols.iconAddToFavourite,
+  extraSVGstyle: {
+    transform: 'scale(1.2)',
+  }
 }
 
-const {content} = btnData
+const {content, extraSVGstyle} = btnData
 
 export default function FavouriteBtn({btnSize, btnStyle}) {
   return (
-    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} />
+    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} extraSVGstyle={extraSVGstyle} />
   )
 }
 

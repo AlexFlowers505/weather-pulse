@@ -13,15 +13,17 @@ export default {
         duration-200
     `,
     size: {
-        md: `
-            min-w-6
-            min-h-6
-            w-6
-            h-6
-            p-baseXS
-            text-text
-            text-2xl
-        `
+        md: {
+            btn: `
+                p-baseXS
+                text-text
+                text-2xl
+            `,
+            icon: `
+                w-7
+                h-7
+            `
+        }
     },
     style: {
         filled: `
