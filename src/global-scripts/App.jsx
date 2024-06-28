@@ -5,6 +5,7 @@ import ControlPanel from "../views/sections/ControlPanel"
 import TodayForecast from "../views/sections/TodayForecast"
 import SevenDaysForecast from "../views/sections/SevenDaysForecast"
 import CurrentCityForecastDisplay from "../views/sections/CurrentCityForecastDisplay"
+import HelloSection from "../views/sections/HelloSection"
 
 export default function App() {
   return (
@@ -12,13 +13,14 @@ export default function App() {
       <MainSVGsprite />
       
       <MainLayout>
-        <Navbar />
+        {/* <Navbar />
         <div className='flex flex-col justify-between items-start w-full gap-base'>
           <ControlPanel />
           <CurrentCityForecastDisplay />
           <TodayForecast />
         </div>
-        <SevenDaysForecast />
+        <SevenDaysForecast /> */}
+        <HelloSection />
       </MainLayout>
     </>
   )

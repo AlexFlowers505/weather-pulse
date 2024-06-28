@@ -32,9 +32,9 @@ const searchBarAttrs = {
 
 const { searchBlock, searchBar } = className
 
-export default function Search() {
+export default function Search(styles='') {
   return (
-    <div className={`search-block ${searchBlock}`}>
+    <div className={`search-block ${searchBlock} ${styles}`}>
       <input 
         className={`search-bar ${searchBar}`} 
         type="text" 

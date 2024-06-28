@@ -1,5 +1,5 @@
 import React from 'react'
-import ForecastLayout from '../layouts/ForecastLayout'
+import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 
 const props = {
