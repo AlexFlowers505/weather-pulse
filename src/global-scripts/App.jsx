@@ -13,14 +13,14 @@ export default function App() {
       <MainSVGsprite />
       
       <MainLayout>
-        {/* <Navbar />
+        <Navbar />
         <div className='flex flex-col justify-between items-start w-full gap-base'>
           <ControlPanel />
           <CurrentCityForecastDisplay />
           <TodayForecast />
         </div>
-        <SevenDaysForecast /> */}
-        <HelloSection />
+        <SevenDaysForecast />
+        {/* <HelloSection /> */}
       </MainLayout>
     </>
   )

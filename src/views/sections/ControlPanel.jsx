@@ -2,7 +2,7 @@ import React from 'react'
 import ChangeUnitsBtn from '../components/ChangeUnitsBtn'
 import LocateMeBtn from '../components/LocateMeBtn'
 import Search from '../components/Search'
-import iconBtnStyles from '../styles/iconBtnStyles'
+import btnStyles from '../styles/btnStyles'
 
 const className = `
     flex
@@ -18,8 +18,8 @@ export default function ControlPanel() {
   return (
     <section className={className}>
         <Search />
-        <LocateMeBtn btnSize={iconBtnStyles.size.base} btnStyle={iconBtnStyles.style.filled} />
-        <ChangeUnitsBtn  btnSize={iconBtnStyles.size.base} btnStyle={iconBtnStyles.style.filled} />
+        <LocateMeBtn btnSize={btnStyles.size.base} btnStyle={btnStyles.style.filled} />
+        <ChangeUnitsBtn  btnSize={btnStyles.size.base} btnStyle={btnStyles.style.filled} />
     </section>
   )
 }

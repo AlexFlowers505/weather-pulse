@@ -1,19 +1,21 @@
 import React from 'react'
-import IconBtn from './IconBtn'
+import Btn from './Btn'
 import svgSymbols from '../../constants/svgSymbols'
+import btnContentTypes from '../../constants/btnContentTypes'
 
 const btnData = {
   content: svgSymbols.iconAddToFavourite,
+  contentType: btnContentTypes.icon,
   extraSVGstyle: {
     transform: 'scale(1.2)',
   }
 }
 
-const {content, extraSVGstyle} = btnData
+const {content, contentType, extraSVGstyle} = btnData
 
 export default function FavouriteBtn({btnSize, btnStyle}) {
   return (
-    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} extraSVGstyle={extraSVGstyle} />
+    <Btn content={content} contentType={contentType} btnSize={btnSize} btnStyle={btnStyle} extraSVGstyle={extraSVGstyle} />
   )
 }
 

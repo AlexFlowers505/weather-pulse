@@ -1,14 +1,16 @@
 import React from 'react'
-import IconBtn from './IconBtn'
+import Btn from './Btn'
 import svgSymbols from '../../constants/svgSymbols'
+import btnContentTypes from '../../constants/btnContentTypes'
 
 const locateMeBtnData = {
-  content: svgSymbols.iconLocation
+  content: svgSymbols.iconLocation,
+  contentType: btnContentTypes.icon
 }
-const {content} = locateMeBtnData
+const {content, contentType} = locateMeBtnData
 
 export default function LocateMeBtn({btnSize, btnStyle}) {
   return (
-    <IconBtn content={content} btnSize={btnSize} btnStyle={btnStyle} />
+    <Btn content={content} contentType={contentType} btnSize={btnSize} btnStyle={btnStyle} />
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import FavouriteBtn from '../components/FavouriteBtn'
-import iconBtnStyles from '../styles/iconBtnStyles'
+import btnStyles from '../styles/btnStyles'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
 
 const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames
@@ -64,7 +64,7 @@ export default function CurrentCityForecastDisplay() {
   return (
     <section className={`${wrapperTW}`}>
         <div className={`${nameBlockTW}`}>
-            <FavouriteBtn btnSize={iconBtnStyles.size.md} btnStyle={iconBtnStyles.style.outlined}/>
+            <FavouriteBtn btnSize={btnStyles.size.md} btnStyle={btnStyles.style.outlined}/>
             <h6 className={`${nameTW}`}>Москва</h6>
         </div>
         <div className={`${weatherDataWrapper}`}>
