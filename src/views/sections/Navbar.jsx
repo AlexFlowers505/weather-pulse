@@ -2,7 +2,7 @@ import React from 'react'
 
 import LogoMin from '../components/LogoMin'
 import navLinksData from '../../data/navLinksData' 
-import NavLink from '../components/NavLink'
+import NavbarLink from '../components/NavbarLink'
 
 const className = {
     navbarTW: `
@@ -29,7 +29,7 @@ export default function Navbar() {
         <nav className={navbarTW}>
             <LogoMin styles={logoTW} />
             { navLinksData.map( (linkData, i) => { return (
-                <NavLink link={linkData} key={i}/> )}
+                <NavbarLink link={linkData} key={i}/> )}
             )}
         </nav>  
     )

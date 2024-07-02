@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const className = {
     link_TW: `
@@ -19,20 +20,24 @@ const className = {
         hover:bg-hoverState
         active:bg-activeState
     `,
+    active_link_TW: `
+        bg-slate-600
+    `,
     icon_TW: `
         w-10
         h-10
     `
 }
-const { link_TW, icon_TW } = className
+const { link_TW, active_link_TW, icon_TW } = className
 
-export default function NavLink({link}) {
+export default function NavbarLink({link}) {
     const { url, text, icon } = link
+    const getIsActive = ({isActive}) => isActive && active_link_TW
     
     return (
-        <a className={link_TW} href={url}>
+        <NavLink className={({isActive}) => `${link_TW} ${getIsActive({isActive})}`} to={url}>
             <svg className={icon_TW}><use href={`#${icon}`}/></svg>
             <span>{text}</span>
-        </a>
+        </NavLink>
     )
 }

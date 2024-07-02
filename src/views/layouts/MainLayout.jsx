@@ -1,4 +1,7 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import MainSVGsprite from '../../assets/svg-sprites/MainSVGsprite'
+
 
 const className = {
   mainLayout: `
@@ -25,10 +28,13 @@ const className = {
 
 const {mainLayout, contentWrapper} = className
 
-export default function MainLayout({children}) {
+export default function MainLayout() {
   return (
-    <div className={`main-layout ${mainLayout}`}>
-      <div className={`content-wrapper ${contentWrapper}`}>{children}</div>
-    </div>
+    <>
+      <MainSVGsprite />
+      <div className={`main-layout ${mainLayout}`}>
+        <div className={`content-wrapper ${contentWrapper}`}><Outlet /></div>
+      </div>
+    </>
   )
 }
