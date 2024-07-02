@@ -33,6 +33,8 @@ export default {
         `,
         outlined: `
             border-text
+            font-light
+            text-base
             border-2
             border-solid
             bg-transparent

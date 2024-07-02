@@ -1,6 +1,9 @@
 import React from 'react'
 import Search from '../components/Search'
 import LogoMin from '../components/LogoMin'
+import Btn from '../components/Btn'
+import {default as btnTypes} from '../../constants/btnContentTypes'
+import btnStyles from '../styles/btnStyles'
 
 
 const styles = {
@@ -26,7 +29,12 @@ export default function HelloSection() {
         </div>
         <div className="flex flex-col gap-12 w-full justify-start items-center">
             <Search styles={searchTW} />
-            <button className='text-text rounded-base border border-solid border-text py-baseXS px-baseSM text-base w-fit'>Определить автоматически</button>
+            <Btn 
+                contentType={btnTypes.text} 
+                content={`Определить автоматически`}
+                btnSize={btnStyles.size.md}
+                btnStyle={btnStyles.style.outlined}
+            />
         </div>
     </section>
   )

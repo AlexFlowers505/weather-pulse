@@ -6,5 +6,6 @@ export default {
     iconClose: 'icon-close',
     iconCelsius: 'icon-celsius',
     iconFahrenheit: 'icon-fahrenheit',
+    iconExpand: 'icon-expand',
 }
 
