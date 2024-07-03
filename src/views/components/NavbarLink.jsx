@@ -32,10 +32,10 @@ const { link_TW, active_link_TW, icon_TW } = className
 
 export default function NavbarLink({link}) {
     const { url, text, icon } = link
-    const getIsActive = ({isActive}) => isActive && active_link_TW
+    const getFinalLinkTWstyle = ({isActive}) => isActive ? `${link_TW} ${active_link_TW}` : link_TW
     
     return (
-        <NavLink className={({isActive}) => `${link_TW} ${getIsActive({isActive})}`} to={url}>
+        <NavLink className={getFinalLinkTWstyle} to={url}>
             <svg className={icon_TW}><use href={`#${icon}`}/></svg>
             <span>{text}</span>
         </NavLink>
