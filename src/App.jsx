@@ -5,29 +5,27 @@ import FavouriteCitiesOverviewPage from "./views/pages/FavouriteCitiesOverviewPa
 import NotFoundPage from "./views/pages/NotFoundPage"
 import WelcomePage from "./views/pages/WelcomePage"
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
-import { fetchWeather } from "./api/openWeatherMap"
+import { fetchCitySuggestions } from "./api/dadata"
 
 export default function App() {
 
   useEffect(() => {
-    async function getWeather() {
+    const fetchData = async () => {
         try {
-            const weatherData = await fetchWeather('London')
-            console.log('Weather data:', weatherData)
+            const weatherData = await fetchCitySuggestions('Mos')
+            console.log(weatherData)
         } catch (error) {
             console.error('Error:', error)
         }
     }
-
-    getWeather()
-}, [])
+    fetchData()
+  }, [])
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />} >
         <Route index element={<WelcomePage />} />
         <Route path='/forecast' element={<CityOverviewPage />} />
-        <Route path='/forecast/:id' element={<CityOverviewPage />} />
         <Route path='/favourites' element={<FavouriteCitiesOverviewPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>

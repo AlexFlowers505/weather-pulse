@@ -21,7 +21,6 @@ export default function ChangeUnitsBtn({btnSize, btnStyle}) {
       extraSVGstyle={extraSVGstyle} 
       btnSize={btnSize} 
       btnStyle={btnStyle} 
-      onClick={() => console.log('hey')}
     />
   )
 }
