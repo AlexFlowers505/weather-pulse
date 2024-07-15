@@ -12,21 +12,22 @@ export default function App() {
   useEffect(() => {
     async function getWeather() {
         try {
-            const weatherData = await fetchWeather('London');
-            console.log('Weather data:', weatherData);
+            const weatherData = await fetchWeather('London')
+            console.log('Weather data:', weatherData)
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error:', error)
         }
     }
 
-    getWeather();
-}, []); // Empty dependency array to run only once on mount
+    getWeather()
+}, [])
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />} >
         <Route index element={<WelcomePage />} />
         <Route path='/forecast' element={<CityOverviewPage />} />
+        <Route path='/forecast/:id' element={<CityOverviewPage />} />
         <Route path='/favourites' element={<FavouriteCitiesOverviewPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>

@@ -28,6 +28,7 @@ export default function ForecastItems({layout}) {
             <ForecastItem layout={layout}/>
             <ForecastItem layout={layout}/>
             <ForecastItem layout={layout}/>
+            <ForecastItem layout={layout}/>
         </div>  
     )
 }
