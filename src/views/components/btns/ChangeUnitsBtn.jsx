@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Btn from './Btn'
-import temperatureUnits from '../../constants/temperatureUnits'
-import btnContentTypes from '../../constants/btnContentTypes'
+import Btn from '../Btn'
+import temperatureUnits from '../../../constants/temperatureUnits'
+import btnContentTypes from '../../../constants/btnContentTypes'
 
 const locateMeBtnData = {
   content: temperatureUnits.celsius.icon,

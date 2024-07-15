@@ -9,17 +9,17 @@ import { fetchCitySuggestions } from "./api/dadata"
 
 export default function App() {
 
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const weatherData = await fetchCitySuggestions('Mos')
-            console.log(weatherData)
-        } catch (error) {
-            console.error('Error:', error)
-        }
-    }
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //       try {
+  //           const weatherData = await fetchCitySuggestions('Mos')
+  //           console.log(weatherData)
+  //       } catch (error) {
+  //           console.error('Error:', error)
+  //       }
+  //   }
+  //   fetchData()
+  // }, [])
 
   const router = createBrowserRouter(
     createRoutesFromElements(

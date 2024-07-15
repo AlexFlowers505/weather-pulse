@@ -13,20 +13,20 @@ export default function CityOverviewPage() {
   const [forecast, setForecast] = useState({})
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    async function getWeather() {
-        try {
-            const weatherData = await fetchWeather('London')
-            console.log('Weather data:', weatherData)
-        } catch (error) {
-            console.error('Error:', error)
-        } finally {
-          setLoading(false)
-        }
-    }
+  // useEffect(() => {
+  //   async function getWeather() {
+  //       try {
+  //           const weatherData = await fetchWeather('London')
+  //           console.log('Weather data:', weatherData)
+  //       } catch (error) {
+  //           console.error('Error:', error)
+  //       } finally {
+  //         setLoading(false)
+  //       }
+  //   }
 
-    getWeather()
-  }, [])
+  //   getWeather()
+  // }, [])
 
   return (
     <>

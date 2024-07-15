@@ -1,5 +1,5 @@
 import React from 'react'
-import FavouriteBtn from '../components/FavouriteBtn'
+import FavouriteBtn from '../components/btns/FavouriteBtn'
 import btnStyles from '../styles/btnStyles'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
 

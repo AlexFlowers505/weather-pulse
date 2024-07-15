@@ -8,7 +8,7 @@ export default {
         box-content
         font-black
         font-montserrat
-        transition-colors
+        transition-all
         ease-in-out
         duration-200
     `,
@@ -23,7 +23,7 @@ export default {
                 w-7
                 h-7
             `
-        }
+        },
     },
     style: {
         filled: `
@@ -38,9 +38,16 @@ export default {
             border-2
             border-solid
             bg-transparent
-            @apply hover:bg-hoverState
+            hover:bg-hoverState
             active:bg-activeState
             active:border-transparent
+        `,
+        contentOnly: `
+            border-0
+            p-0
+            font-light
+            text-base
+            bg-transparent
         `
     }
 }

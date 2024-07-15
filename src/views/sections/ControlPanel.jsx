@@ -1,6 +1,6 @@
 import React from 'react'
-import ChangeUnitsBtn from '../components/ChangeUnitsBtn'
-import LocateMeBtn from '../components/LocateMeBtn'
+import ChangeUnitsBtn from '../components/btns/ChangeUnitsBtn'
+import LocateMeBtn from '../components/btns/LocateMeBtn'
 import Search from '../components/Search'
 import btnStyles from '../styles/btnStyles'
 

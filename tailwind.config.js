@@ -13,6 +13,7 @@ module.exports = {
         textInactive: '#637590',
         hoverState: '#243E63',
         activeState: '#0E213C',
+        activeStateLight: '#0051C4',
         borderColor: '#727983'
       },
       fontFamily: {

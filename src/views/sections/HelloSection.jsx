@@ -14,7 +14,6 @@ const styles = {
     searchTW: `
         w-full
         relative
-        bg-orange-600
         translate-x-2
     `
 }

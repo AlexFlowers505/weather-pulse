@@ -1,5 +1,5 @@
 import React from 'react'
-import FavouriteBtn from './FavouriteBtn'
+import FavouriteBtn from './btns/FavouriteBtn'
 import {default as picData}  from '../../constants/weatherPicturesNames'
 
 export default function   CityShortForecastItem() {
