@@ -7,4 +7,9 @@
   @apply px-baseSM;
   @apply py-baseSM;
   @apply rounded-base;
+}
+
+.container-visuals--custom-p {
+  @apply bg-bgPrimary;
+  @apply rounded-base;
 }/*# sourceMappingURL=global-styles.css.map */

@@ -11,6 +11,8 @@ export default {
         transition-all
         ease-in-out
         duration-200
+        outline-none
+        focus:outline-none
     `,
     size: {
         md: {

@@ -8,6 +8,7 @@ module.exports = {
         bgLinearStart: '#0B131E',
         bgLinearEnd: '#410E1D',
         bgPrimary: '#202B3B',
+        lineColor: '#19212D',
         primary: '#0095FF',
         text: '#FFFFFF',
         textInactive: '#637590',
@@ -32,6 +33,9 @@ module.exports = {
       },
       borderRadius: {
         base: '20px'
+      },
+      animation: {
+        'pulse-base': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       }
     },
     theme: {
