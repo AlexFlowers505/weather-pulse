@@ -19,13 +19,18 @@ export async function fetchCitySuggestions(query) {
     }
     try {
       const response = await fetch(entryURL, options)
-      
       const data = await response.json()
-      let citiesWithRegion = data.suggestions.map(suggestion => ({
+
+      let citiesWithRegion = data.suggestions
+      .filter(suggestion => suggestion.data.city_type === "г")
+      .map(suggestion => ({
         city: suggestion.data.city,
-        region: suggestion.data.region_with_type
+        region: suggestion.data.region_with_type,
+        lat: suggestion.data.geo_lat,
+        lon: suggestion.data.geo_lon
       }))
       return citiesWithRegion
+
     } catch (error) {
       console.error('Error fetching city suggestions:', error)
       return []

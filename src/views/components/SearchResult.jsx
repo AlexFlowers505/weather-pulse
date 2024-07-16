@@ -1,4 +1,3 @@
-import React from 'react'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
 
 const twStyles = {
@@ -74,21 +73,20 @@ const twStyles = {
 
 const { wrapper, innerWrapper, forecastWrapper, locationNameWrapper, name, nameMatch, region, temp, tempPic } = twStyles
 
-export default function SearchResult() {
-  return (
+export default function SearchResult({locName='Москва', locRegion='г Москва', locTemp=31}) { return (
     <li>
         <a className={`${wrapper}`} tabIndex={0}>
           <div className={`${innerWrapper}`}>
             <div className={`location-name-wrapper ${locationNameWrapper}`}>
               <span className={`location-name ${name} ${nameMatch}`}>Мос</span>
-              <span className={`location-name ${name}`}>ква</span>
+              <span className={`location-name ${name}`}>{locName}</span>
             </div>
             <div className={`location-forecast ${forecastWrapper}`}>
-                <span className={`location-temp ${temp}`}>31°</span>
+                <span className={`location-temp ${temp}`}>{locTemp}°</span>
                 <img className={`location-temp-pic ${tempPic}`} src="/assets/images/weather-pictures/sunny.png" alt="" />
             </div>
           </div>
-          <span className={`location-region ${region}`}>г Москва</span>
+          <span className={`location-region ${region}`}>{locRegion}</span>
         </a>
     </li>
   )

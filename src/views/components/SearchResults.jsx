@@ -1,7 +1,6 @@
 import React from 'react'
 import SearchResult from './SearchResult'
-import LoaderSkeleton from './LoaderSkeleton'
-import LoaderSkeletonBlock from './LoaderSkeletonBlock'
+import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 
 const twStyles = {
     container: `
@@ -15,33 +14,28 @@ const twStyles = {
         gap-1
     `
 }
+const { container, list } = twStyles
 
+const loaderSkeletonProps = {
+    blocksQnt: 5,
+    skeletonsPerBlock: 2
+}
 
-
-export default function SearchResults() {
+export default function SearchResults({loading}) {
   return (
-    <div className={`search-results container-visuals--custom-p px-3 py-3 ${twStyles.container}`}>
-        {/* <ul className={`search-results-list ${twStyles.list}`}>
-            <SearchResult />
-            <hr className={`border-lineColor mx-2`}/>
-            <SearchResult />
-            <hr className={`border-lineColor mx-2`}/>
-            <SearchResult />
-            <hr className={`border-lineColor mx-2`}/>
-            <SearchResult />
-            <hr className={`border-lineColor mx-2`}/>
-            <SearchResult />
-        </ul> */}
+    <div className={`search-results container-visuals--custom-p px-3 py-3 ${container}`}>
         <ul className={`search-results-list ${twStyles.list}`}>
-            <LoaderSkeletonBlock />
+            {loading && generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock) }
+        
+            {/* <SearchResult />
             <hr className={`border-lineColor mx-2`}/>
-            <LoaderSkeletonBlock />
+            <SearchResult />
             <hr className={`border-lineColor mx-2`}/>
-            <LoaderSkeletonBlock />
+            <SearchResult />
             <hr className={`border-lineColor mx-2`}/>
-            <LoaderSkeletonBlock />
+            <SearchResult />
             <hr className={`border-lineColor mx-2`}/>
-            <LoaderSkeletonBlock />
+            <SearchResult /> */}
         </ul>
     </div>
   )

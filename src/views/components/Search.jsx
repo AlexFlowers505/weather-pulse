@@ -1,7 +1,10 @@
-import React from 'react'
+import { useEffect, useState } from "react"
 import btnStyles from '../styles/btnStyles'
 import CloseBtn from './btns/CloseBtn'
 import SearchResults from './SearchResults'
+import { fetchCitySuggestions } from "../../api/dadata"
+import { fetchWeather } from "../../api/openWeatherMap"
+import { removeMultipleSpaces } from "../../utils/utils"
 
 const className = {
   searchBlock: `
@@ -47,19 +50,71 @@ const className = {
     active:text-activeStateLight
   `,
 }
+const { searchBlock, searchBar, closeBtn } = className
+
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название города'
 }
 
-const { searchBlock, searchBar, closeBtn } = className
-
 export default function Search({styles=''}) {
+
+  const [request, setRequest] = useState('')
+  const [loading, setLoading] = useState(true)
+  const handleRequestChange = evt => {
+    setRequest(evt.target.value)
+    console.log(evt.target.value)
+  }
+
+  useEffect( () => {
+    const cleanRequest = removeMultipleSpaces(request)
+
+    if (cleanRequest) {
+      setLoading(true)
+      const getCitySuggestions = async () => {
+        try {
+          const cityRawSuggestions = await fetchCitySuggestions(cleanRequest)
+          return cityRawSuggestions
+        } catch (error) {
+          console.error('Error:', error)
+          return []
+        }
+      }
+
+      const fetchWeatherData = async locations => {
+        try {
+          const forecastsArray = await Promise.all(
+            locations.map(async elm => {
+              const forecast = await fetchWeather(elm.lat, elm.lon)
+              return { ...elm, forecast }
+            })
+          );
+          console.log(forecastsArray)
+          // setWeatherData(forecastsArray)
+        } catch (error) {
+          console.error('Error fetching weather data:', error)
+        } finally {
+          setLoading(false)
+        }
+      }
+
+      getCitySuggestions()
+        .then(data => fetchWeatherData(data))
+    } else {
+      // setWeatherData([])
+      return
+    }
+  }, [request])
+
+
+
   return (
     <div className={`search-block ${searchBlock} ${styles}`}>
       <div className="relative">
         <input 
           className={`search-bar ${searchBar}`} 
           type="text" 
+          value={request}
+          onChange={ handleRequestChange }
           placeholder={searchBarAttrs.placeHolder} />
           <CloseBtn
             extraBtnStyles={closeBtn}
@@ -67,7 +122,7 @@ export default function Search({styles=''}) {
             btnStyle={btnStyles.style.contentOnly}
           />
       </div>
-      <SearchResults />
+      <SearchResults loading={loading} />
     </div>
   )
 }

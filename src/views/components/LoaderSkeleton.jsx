@@ -1,5 +1,3 @@
-import React from 'react'
-
 const twStyles = {
     skeleton: `
         h-4
@@ -15,6 +13,6 @@ const { skeleton } = twStyles
 
 export default function LoaderSkeleton({width}) {
   return (
-    <div className={`skeleton ${skeleton} ${width}`}></div>
+    <div className={`skeleton ${skeleton}`} style={{width: `${width}%`}}></div>
   )
 }
