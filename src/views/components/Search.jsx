@@ -64,6 +64,7 @@ export default function Search({styles=''}) {
 
   const [request, setRequest] = useState('')
   const [loading, setLoading] = useState(IDLE)
+  const [suggestions, setSuggestions] = useState([])
   const inputRef = useRef(null)
 
   const handleRequestChange = evt => {
@@ -85,10 +86,18 @@ export default function Search({styles=''}) {
 
         fetchCitySuggestions(formattedRequest)
           .then(data => fetchLocationsForecasts(data))
-          .catch(error => { console.error(error) })
-          .finally( () => setLoading(false))
+          .then( data => {
+            setSuggestions(data)
+            setLoading(!!data.length ? SUCCESS : NO_RESULTS)
+          })
+          .catch(error => { 
+            setLoading(ERROR)
+            console.error(error) 
+          })
+          // .finally( () => setLoading(IDLE))
       } else {
         setLoading(IDLE)
+        setSuggestions([])
       }
     }, options.debounceTimeInMilisec)
 
@@ -113,7 +122,7 @@ export default function Search({styles=''}) {
             onClick={ handleDismissBtnClick }
           />
       </div>
-      <SearchResults suggestions={[]} loading={loading} />
+      <SearchResults suggestions={suggestions} loading={loading} />
     </div>
   )
 }

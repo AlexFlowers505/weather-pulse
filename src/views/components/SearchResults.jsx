@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react'
 import SearchResult from './SearchResult'
 import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 import searchResultsStates from "../../constants/searchResultsStates"
@@ -26,6 +27,7 @@ const loaderSkeletonProps = {
 }
 
 export default function SearchResults({loading, suggestions=[]}) {
+    console.log(suggestions)
   return (
     <>
         { 
