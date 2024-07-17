@@ -94,7 +94,6 @@ export default function Search({styles=''}) {
             setLoading(ERROR)
             console.error(error) 
           })
-          // .finally( () => setLoading(IDLE))
       } else {
         setLoading(IDLE)
         setSuggestions([])
