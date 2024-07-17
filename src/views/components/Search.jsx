@@ -6,6 +6,9 @@ import { fetchCitySuggestions } from "../../api/dadata"
 import { fetchLocationsForecasts } from "../../api/openWeatherMap"
 import { removeMultipleSpaces } from "../../utils/utils"
 import options from "../../constants/fetchingSuggestionsOptions"
+import searchResultsStates from "../../constants/searchResultsStates"
+
+const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
 const twStyles = {
   searchBlockTW: `
@@ -60,18 +63,17 @@ const searchBarAttrs = {
 export default function Search({styles=''}) {
 
   const [request, setRequest] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(IDLE)
   const inputRef = useRef(null)
 
   const handleRequestChange = evt => {
     setRequest(evt.target.value)
-    console.log(evt.target.value)
   }
 
   const handleDismissBtnClick = () => {
-    setRequest('')
     setLoading(false)
     inputRef.current.focus()
+    setRequest('')
   }
 
   useEffect( () => {
@@ -79,14 +81,14 @@ export default function Search({styles=''}) {
 
     const debounceFetch = setTimeout( () => {
       if (formattedRequest.length > options.minRequestSymbolsQnt) {
-        setLoading(true)
+        setLoading(LOADING)
 
         fetchCitySuggestions(formattedRequest)
           .then(data => fetchLocationsForecasts(data))
           .catch(error => { console.error(error) })
           .finally( () => setLoading(false))
       } else {
-        setLoading(false)
+        setLoading(IDLE)
       }
     }, options.debounceTimeInMilisec)
 
