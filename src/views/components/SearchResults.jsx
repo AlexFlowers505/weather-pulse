@@ -20,14 +20,13 @@ const loaderSkeletonProps = {
     skeletonsPerBlock: 2
 }
 
-export default function SearchResults({loading}) {
+export default function SearchResults({loading, suggestions=[]}) {
   return (
     <div className={`search-results container-visuals--custom-p px-3 py-3 ${container}`}>
         <ul className={`search-results-list ${twStyles.list}`}>
-            {loading 
-                ? 
+            {loading ? 
                     generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock) 
-                : 
+            : !!suggestions.length ?
                     <>
                         <SearchResult />
                         <hr className={`border-lineColor mx-2`}/>
@@ -39,6 +38,7 @@ export default function SearchResults({loading}) {
                         <hr className={`border-lineColor mx-2`}/>
                         <SearchResult />
                     </>
+            : null
             }
         
         </ul>

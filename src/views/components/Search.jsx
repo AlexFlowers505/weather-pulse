@@ -94,8 +94,6 @@ export default function Search({styles=''}) {
 
   }, [request])
 
-
-
   return (
     <div className={`search-block ${searchBlockTW} ${styles}`}>
       <div className="relative">
@@ -113,7 +111,7 @@ export default function Search({styles=''}) {
             onClick={ handleDismissBtnClick }
           />
       </div>
-      <SearchResults loading={loading} />
+      <SearchResults suggestions={[]} loading={loading} />
     </div>
   )
 }
