@@ -9,8 +9,14 @@ const locateMeBtnData = {
 }
 const {content, contentType} = locateMeBtnData
 
-export default function LocateMeBtn({btnSize, btnStyle}) {
+export default function LocateMeBtn({btnSize, btnStyle, onClick}) {
   return (
-    <Btn content={content} contentType={contentType} btnSize={btnSize} btnStyle={btnStyle} />
+    <Btn 
+      content={content} 
+      contentType={contentType} 
+      btnSize={btnSize} 
+      btnStyle={btnStyle} 
+      onClick={onClick}  
+    />
   )
 }

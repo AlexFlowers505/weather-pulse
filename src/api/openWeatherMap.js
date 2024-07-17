@@ -1,7 +1,7 @@
 const key = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY
 const entryURL =  `https://api.openweathermap.org/`
 
-export async function fetchWeather(lat, lon) {
+export async function fetchLocationForecast(lat, lon) {
     let url = `${entryURL}data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`
     try {
         const response = await fetch(url)
@@ -20,4 +20,16 @@ export async function fetchWeather(lat, lon) {
         console.error('Error fetching weather data:', error)
         throw error
     }
+}
+
+export async function fetchLocationsForecasts( locations ) {
+    try {
+        const forecastsArray = await Promise.all(
+            locations.map(async elm => {
+                const forecast = await fetchLocationForecast(elm.lat, elm.lon)
+                return { ...elm, forecast }
+            })
+        )
+        console.log(forecastsArray)
+    } catch (error) { console.error('Error fetching weather data:', error) }
 }

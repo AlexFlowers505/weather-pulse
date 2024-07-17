@@ -13,9 +13,16 @@ const btnData = {
 
 const {content, contentType, extraSVGstyle} = btnData
 
-export default function FavouriteBtn({btnSize, btnStyle}) {
+export default function FavouriteBtn({btnSize, btnStyle, onClick}) {
   return (
-    <Btn content={content} contentType={contentType} btnSize={btnSize} btnStyle={btnStyle} extraSVGstyle={extraSVGstyle} />
+    <Btn 
+      content={content} 
+      contentType={contentType} 
+      btnSize={btnSize} 
+      btnStyle={btnStyle} 
+      extraSVGstyle={extraSVGstyle} 
+      onClick={onClick}  
+    />
   )
 }
 

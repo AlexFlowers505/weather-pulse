@@ -12,7 +12,7 @@ const locateMeBtnData = {
 }
 const {content, extraSVGstyle, contentType} = locateMeBtnData
 
-export default function ChangeUnitsBtn({btnSize, btnStyle}) {
+export default function ChangeUnitsBtn({btnSize, btnStyle, onClick}) {
   const [degreesUnits, setDegreesUnits] = useState(temperatureUnits.celsius.name)
   return (
     <Btn 
@@ -21,6 +21,7 @@ export default function ChangeUnitsBtn({btnSize, btnStyle}) {
       extraSVGstyle={extraSVGstyle} 
       btnSize={btnSize} 
       btnStyle={btnStyle} 
+      onClick={onClick}
     />
   )
 }

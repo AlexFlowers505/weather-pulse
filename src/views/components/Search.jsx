@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import btnStyles from '../styles/btnStyles'
-import CloseBtn from './btns/CloseBtn'
+import DismissBtn from './btns/CloseBtn'
 import SearchResults from './SearchResults'
 import { fetchCitySuggestions } from "../../api/dadata"
-import { fetchWeather } from "../../api/openWeatherMap"
+import { fetchLocationsForecasts } from "../../api/openWeatherMap"
 import { removeMultipleSpaces } from "../../utils/utils"
+import options from "../../constants/fetchingSuggestionsOptions"
 
-const className = {
-  searchBlock: `
+const twStyles = {
+  searchBlockTW: `
     relative
     w-full
     h-full
   `,
-  searchBar: `
+  searchBarTW: `
     p-baseXS
     w-full
     h-full
@@ -31,7 +32,7 @@ const className = {
     ease-in-out
     duration-200
   `,
-  closeBtn: `
+  DismissBtnTW: `
     absolute
     right-0
     top-2/4
@@ -50,7 +51,7 @@ const className = {
     active:text-activeStateLight
   `,
 }
-const { searchBlock, searchBar, closeBtn } = className
+const { searchBlockTW, searchBarTW, DismissBtnTW } = twStyles
 
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название города'
@@ -60,66 +61,56 @@ export default function Search({styles=''}) {
 
   const [request, setRequest] = useState('')
   const [loading, setLoading] = useState(true)
+  const inputRef = useRef(null)
+
   const handleRequestChange = evt => {
     setRequest(evt.target.value)
     console.log(evt.target.value)
   }
 
+  const handleDismissBtnClick = () => {
+    setRequest('')
+    setLoading(false)
+    inputRef.current.focus()
+  }
+
   useEffect( () => {
-    const cleanRequest = removeMultipleSpaces(request)
+    const formattedRequest = removeMultipleSpaces(request)
 
-    if (cleanRequest) {
-      setLoading(true)
-      const getCitySuggestions = async () => {
-        try {
-          const cityRawSuggestions = await fetchCitySuggestions(cleanRequest)
-          return cityRawSuggestions
-        } catch (error) {
-          console.error('Error:', error)
-          return []
-        }
+    const debounceFetch = setTimeout( () => {
+      if (formattedRequest.length > options.minRequestSymbolsQnt) {
+        setLoading(true)
+
+        fetchCitySuggestions(formattedRequest)
+          .then(data => fetchLocationsForecasts(data))
+          .catch(error => { console.error(error) })
+          .finally( () => setLoading(false))
+      } else {
+        setLoading(false)
       }
+    }, options.debounceTimeInMilisec)
 
-      const fetchWeatherData = async locations => {
-        try {
-          const forecastsArray = await Promise.all(
-            locations.map(async elm => {
-              const forecast = await fetchWeather(elm.lat, elm.lon)
-              return { ...elm, forecast }
-            })
-          );
-          console.log(forecastsArray)
-          // setWeatherData(forecastsArray)
-        } catch (error) {
-          console.error('Error fetching weather data:', error)
-        } finally {
-          setLoading(false)
-        }
-      }
+    return () => clearTimeout(debounceFetch)
 
-      getCitySuggestions()
-        .then(data => fetchWeatherData(data))
-    } else {
-      // setWeatherData([])
-      return
-    }
   }, [request])
 
 
 
   return (
-    <div className={`search-block ${searchBlock} ${styles}`}>
+    <div className={`search-block ${searchBlockTW} ${styles}`}>
       <div className="relative">
         <input 
-          className={`search-bar ${searchBar}`} 
+          className={`search-bar ${searchBarTW}`} 
+          ref={inputRef}
           type="text" 
           value={request}
           onChange={ handleRequestChange }
           placeholder={searchBarAttrs.placeHolder} />
-          <CloseBtn
-            extraBtnStyles={closeBtn}
+          <DismissBtn
+            extraBtnStyles={DismissBtnTW}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
+            onClick={ handleDismissBtnClick }
           />
       </div>
       <SearchResults loading={loading} />
