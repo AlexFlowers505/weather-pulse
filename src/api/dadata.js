@@ -32,6 +32,7 @@ export async function fetchCitySuggestions(query) {
         lat: suggestion.data.geo_lat,
         lon: suggestion.data.geo_lon
       }))
+      // console.log(citiesWithRegion)
       return citiesWithRegion
   
     } catch (error) {

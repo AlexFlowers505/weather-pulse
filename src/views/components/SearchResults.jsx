@@ -35,8 +35,8 @@ export default function SearchResults({loading, suggestions=[]}) {
             <div className={`search-results container-visuals--custom-p ${container}`}>
                 <ul className={`search-results-list ${list}`}>
                     {loading == LOADING ? generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock)
-                    : loading == NO_RESULTS ? console.log('hey')
-                    : loading == ERROR ? console.log('hey')
+                    : loading == NO_RESULTS ? null
+                    : loading == ERROR ? null
                     : loading == SUCCESS ?
                             <>
                                 <SearchResult />
