@@ -73,13 +73,42 @@ const twStyles = {
 
 const { wrapper, innerWrapper, forecastWrapper, locationNameWrapper, name, nameMatch, region, temp, tempPic } = twStyles
 
-export default function SearchResult({locName='Москва', locRegion='г Москва', locTemp=31}) { return (
+// function handleHighlightMatchText(textWithMatch, request) {
+//   if (!!request.length) {
+//       const regex = new RegExp(`(${request})`, 'gi')
+//       const matchedText = textWithMatch.replace(regex, `<span class="highlight">$1</span>`)
+
+//       return matchedText
+//   }
+// }
+
+function handleHighlightMatchText(textWithMatch, request) {
+  if (request.length) {
+    const regex = new RegExp(`(${request})`, 'gi')
+    const parts = textWithMatch.split(regex)
+
+    return parts.map((part, index) => {
+      if (part.toLowerCase() === request.toLowerCase()) {
+        return <span key={index} className={`location-name ${name} ${nameMatch}`}>{part}</span>
+      }
+      return part
+    })
+  }
+  return textWithMatch
+}
+
+
+export default function SearchResult({locName='', locRegion='', locTemp=null, request=''}) { 
+  const suggText = handleHighlightMatchText(locName, request)
+  return (
     <li>
         <a className={`${wrapper}`} tabIndex={0}>
           <div className={`${innerWrapper}`}>
             <div className={`location-name-wrapper ${locationNameWrapper}`}>
-              <span className={`location-name ${name} ${nameMatch}`}>Мос</span>
-              <span className={`location-name ${name}`}>{locName}</span>
+              {/* <span className={`location-name ${name} ${nameMatch}`}>{locNameMatch}</span>
+              <span className={`location-name ${name}`}>{locNameSugg}</span> */}
+              {/* <span className={`location-name ${name}`}>{suggText}</span> */}
+              <span className={`location-name ${name}`}>{handleHighlightMatchText(locName, request)}</span>
             </div>
             <div className={`location-forecast ${forecastWrapper}`}>
                 <span className={`location-temp ${temp}`}>{locTemp}°</span>

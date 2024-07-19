@@ -126,7 +126,11 @@ export default function Search({styles=''}) {
             onClick={ handleDismissBtnClick }
           />}
       </div>
-      <SearchResults suggestions={suggestions} loading={loading} />
+      <SearchResults 
+        suggestions={suggestions} 
+        loading={loading} 
+        request={request}
+      />
     </div>
   )
 }
