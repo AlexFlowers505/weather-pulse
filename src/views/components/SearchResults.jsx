@@ -26,9 +26,8 @@ const loaderSkeletonProps = {
     skeletonsPerBlock: 2
 }
 
-export default function SearchResults({loading, suggestions=[]}) {
-    console.log(suggestions)
-  return (
+export default function SearchResults({loading, suggestions=[]}) {      
+    return (
     <>
         { 
             loading == IDLE ? null :
@@ -39,19 +38,24 @@ export default function SearchResults({loading, suggestions=[]}) {
                     : loading == ERROR ? null
                     : loading == SUCCESS ?
                             <>
-                                <SearchResult />
-                                <hr className={`border-lineColor mx-2`}/>
-                                <SearchResult />
-                                <hr className={`border-lineColor mx-2`}/>
-                                <SearchResult />
-                                <hr className={`border-lineColor mx-2`}/>
-                                <SearchResult />
-                                <hr className={`border-lineColor mx-2`}/>
-                                <SearchResult />
+                                {
+                                    suggestions.map( (sugg, i, arr) => {
+                                        const { city, region, forecast } = sugg
+                                        return (
+                                            <>
+                                                <SearchResult 
+                                                    key={i}
+                                                    locName={city}
+                                                    locRegion={region}
+                                                    locTemp={Math.round(forecast.main.temp)}
+                                                />
+                                                { arr.length-1 > i ? <hr className={`border-lineColor mx-2`}/> : null }
+                                            </>
+                                        )
+                                })}
                             </>
                     : null
                     }
-                
                 </ul>
             </div>
         }

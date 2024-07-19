@@ -72,7 +72,7 @@ export default function Search({styles=''}) {
   }
 
   const handleDismissBtnClick = () => {
-    setLoading(false)
+    setLoading(IDLE)
     inputRef.current.focus()
     setRequest('')
   }
@@ -86,9 +86,9 @@ export default function Search({styles=''}) {
 
         fetchCitySuggestions(formattedRequest)
           .then(data => fetchLocationsForecasts(data))
-          .then( data => {
-            setSuggestions(data)
-            setLoading(!!data.length ? SUCCESS : NO_RESULTS)
+          .then( data => { 
+            setSuggestions(data) 
+            setLoading(data.length ? SUCCESS : NO_RESULTS)
           })
           .catch(error => { 
             setLoading(ERROR)

@@ -29,6 +29,6 @@ export async function fetchLocationsForecasts( locations ) {
                 return { ...elm, forecast }
             })
         )
-        console.log(forecastsArray)
+        return forecastsArray
     } catch (error) { console.error('Error fetching weather data:', error) }
 }
