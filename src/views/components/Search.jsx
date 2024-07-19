@@ -63,7 +63,7 @@ const searchBarAttrs = {
 export default function Search({styles=''}) {
 
   const [request, setRequest] = useState('')
-  const [loading, setLoading] = useState(IDLE)
+  const [fetchState, setFetchState] = useState(IDLE)
   const [suggestions, setSuggestions] = useState([])
   const inputRef = useRef(null)
 
@@ -72,7 +72,7 @@ export default function Search({styles=''}) {
   }
 
   const handleDismissBtnClick = () => {
-    setLoading(IDLE)
+    setFetchState(IDLE)
     inputRef.current.focus()
     setRequest('')
   }
@@ -87,20 +87,20 @@ export default function Search({styles=''}) {
 
     const debounceFetch = setTimeout( () => {
       if (formattedRequest.length > options.minRequestSymbolsQnt) {
-        setLoading(LOADING)
+        setFetchState(LOADING)
 
         fetchCitySuggestions(formattedRequest)
           .then(data => fetchLocationsForecasts(data))
           .then( data => { 
             setSuggestions(data) 
-            setLoading(data.length ? SUCCESS : NO_RESULTS)
+            setFetchState(data.length ? SUCCESS : NO_RESULTS)
           })
           .catch(error => { 
-            setLoading(ERROR)
+            setFetchState(ERROR)
             console.error(error) 
           })
       } else {
-        setLoading(IDLE)
+        setFetchState(IDLE)
         setSuggestions([])
       }
     }, options.debounceTimeInMilisec)
@@ -128,7 +128,7 @@ export default function Search({styles=''}) {
       </div>
       <SearchResults 
         suggestions={suggestions} 
-        loading={loading} 
+        fetchState={fetchState} 
         request={request}
       />
     </div>
