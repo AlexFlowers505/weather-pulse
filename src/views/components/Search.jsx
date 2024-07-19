@@ -77,6 +77,11 @@ export default function Search({styles=''}) {
     setRequest('')
   }
 
+  // page loaded handler
+  useEffect( () => {
+    inputRef.current.focus()
+  }, [])
+  // request handler
   useEffect( () => {
     const formattedRequest = removeMultipleSpaces(request)
 
@@ -114,12 +119,12 @@ export default function Search({styles=''}) {
           value={request}
           onChange={ handleRequestChange }
           placeholder={searchBarAttrs.placeHolder} />
-          <DismissBtn
+          {!!request.length && <DismissBtn
             extraBtnStyles={DismissBtnTW}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
             onClick={ handleDismissBtnClick }
-          />
+          />}
       </div>
       <SearchResults suggestions={suggestions} loading={loading} />
     </div>

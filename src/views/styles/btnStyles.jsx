@@ -31,6 +31,7 @@ export default {
         filled: `
             bg-bgPrimary
             hover:bg-hoverState
+            focus:bg-hoverState
             active:bg-activeState
         `,
         outlined: `
@@ -40,6 +41,7 @@ export default {
             border-2
             border-solid
             bg-transparent
+            focus:bg-hoverState
             hover:bg-hoverState
             active:bg-activeState
             active:border-transparent
