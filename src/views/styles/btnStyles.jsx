@@ -7,6 +7,7 @@ export default {
         rounded-base
         box-content
         font-black
+        text-text
         font-montserrat
         transition-all
         ease-in-out
@@ -18,14 +19,21 @@ export default {
         md: {
             btn: `
                 p-baseXS
-                text-text
                 text-2xl
             `,
             icon: `
                 w-7
                 h-7
-            `
+            `,
         },
+        sm: {
+            btn: `
+                px-4
+                pt-2
+                pb-3
+                rounded-2xl
+            `,
+        }
     },
     style: {
         filled: `

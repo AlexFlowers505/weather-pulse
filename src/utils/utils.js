@@ -1,3 +1,7 @@
+import searchResultsStates from "../constants/searchResultsStates"
+const { IDLE } = searchResultsStates
+
+
 export function getRandomItemFromArray(array) {
     const randomIndex = Math.floor(Math.random() * array.length)
     return randomIndex
@@ -18,4 +22,15 @@ export function debounce(fn, delay) {
         clearTimeout(timeoutId)
         timeoutId = setTimeout( () => fn.apply(this, args), delay)
     }
+}
+
+
+export function handleClearSearchBtnClick(inputRef, setFetchState, setRequest) {
+  setFetchState(IDLE)
+  inputRef.current.focus()
+  setRequest('')
+}
+
+export function repeatFetchRequest() {
+    console.log('hey')
 }

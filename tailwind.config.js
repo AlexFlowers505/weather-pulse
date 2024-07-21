@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-  ],  theme: {
+  ], 
+  theme: {
     extend: {
       colors: {
         bgLinearStart: '#0B131E',
@@ -19,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
+        arial: ['Arial', 'serif']
       },
       padding: {
         baseXS: '1.25rem', // 20px
@@ -35,8 +37,24 @@ module.exports = {
         base: '20px'
       },
       animation: {
-        'pulse-base': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-      }
+        pulseBase: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        zoomIn: 'zoom-in 1s ease-in-out 0.25s forwards',
+      },
+      keyframes: {
+        "zoom-in": {
+          "0%": {
+            opacity: 0,
+            transform: "scale3d(.9, .9, .9)",
+          },
+          "80%": {
+            opacity: 0.8,
+            transform: "scale3d(1.01, 1.01, 1.01)",
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
+      },
     },
     theme: {
     }

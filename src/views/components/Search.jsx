@@ -7,6 +7,7 @@ import { fetchLocationsForecasts } from "../../api/openWeatherMap"
 import { removeMultipleSpaces } from "../../utils/utils"
 import options from "../../constants/fetchingSuggestionsOptions"
 import searchResultsStates from "../../constants/searchResultsStates"
+import { handleClearSearchBtnClick } from "../../utils/utils"
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -71,12 +72,6 @@ export default function Search({styles=''}) {
     setRequest(evt.target.value)
   }
 
-  const handleDismissBtnClick = () => {
-    setFetchState(IDLE)
-    inputRef.current.focus()
-    setRequest('')
-  }
-
   // page loaded handler
   useEffect( () => {
     inputRef.current.focus()
@@ -123,13 +118,16 @@ export default function Search({styles=''}) {
             extraBtnStyles={DismissBtnTW}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
-            onClick={ handleDismissBtnClick }
+            onClick={ ()=> handleClearSearchBtnClick(inputRef, setFetchState, setRequest) }
           />}
       </div>
       <SearchResults 
         suggestions={suggestions} 
         fetchState={fetchState} 
         request={request}
+        inputRef={inputRef}
+        setFetchState={setFetchState}
+        setRequest={setRequest}
       />
     </div>
   )

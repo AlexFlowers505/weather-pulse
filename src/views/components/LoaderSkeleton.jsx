@@ -5,7 +5,7 @@ const twStyles = {
         rounded-sm
         mx-2
         my-1
-        animate-pulse-base
+        animate-pulseBase
     `
 }
 
