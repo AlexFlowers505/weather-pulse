@@ -65,6 +65,7 @@ export default function Search({styles=''}) {
 
   const [request, setRequest] = useState('')
   const [fetchState, setFetchState] = useState(IDLE)
+  const [repeatFetch, setRepeatFetch] = useState(false)
   const [suggestions, setSuggestions] = useState([])
   const inputRef = useRef(null)
 
@@ -102,7 +103,7 @@ export default function Search({styles=''}) {
 
     return () => clearTimeout(debounceFetch)
 
-  }, [request])
+  }, [request, repeatFetch])
 
   return (
     <div className={`search-block ${searchBlockTW} ${styles}`}>
@@ -128,6 +129,7 @@ export default function Search({styles=''}) {
         inputRef={inputRef}
         setFetchState={setFetchState}
         setRequest={setRequest}
+        setRepeatFetch={setRepeatFetch}
       />
     </div>
   )

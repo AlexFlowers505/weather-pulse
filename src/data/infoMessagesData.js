@@ -1,7 +1,8 @@
-import { handleClearSearchBtnClick, repeatFetchRequest } from "../utils/utils"
+import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
 
 export const searchMessages = {
     nothingFound: {
+        hasEmoticon: true,
         emoticon: `¯\\_(ツ)_/¯`,
         heading: `Ничего не найдено`,
         desc: [
@@ -12,15 +13,16 @@ export const searchMessages = {
         handleBtnClick: handleClearSearchBtnClick,
     },
     fetchError: {
+        hasEmoticon: true,
         emoticon: `( ⚆ _ ⚆ )`,
         heading: `Что-то пошло не так`,
         desc: [
             `Случилась ошибка на стороне сервера.`,
-            `Попробуйте отправить запрос еще раз`,
-            `или попробуйте отправить позднее.`,
+            `Попробуйте повторить запрос.`,
+            `Или отправьте запрос позднее.`,
         ],
         hasBtn: true,
         btnText: `Отправить еще раз`,
-        handleBtnClick: repeatFetchRequest,
+        handleBtnClick: handleRepeatSearchBtnClick,
     }
 }

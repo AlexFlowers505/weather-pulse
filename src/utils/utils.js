@@ -25,12 +25,13 @@ export function debounce(fn, delay) {
 }
 
 
-export function handleClearSearchBtnClick(inputRef, setFetchState, setRequest) {
+export function handleClearSearchBtnClick(inputRef, setFetchState, setRequest, request=null) {
   setFetchState(IDLE)
   inputRef.current.focus()
   setRequest('')
 }
 
-export function repeatFetchRequest() {
-    console.log('hey')
+export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, setRepeatFeatch=null, setRequest=null, request=null) {
+    setRepeatFeatch( prev => !prev )
+    inputRef.current.focus()
 }

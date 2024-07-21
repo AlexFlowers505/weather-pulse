@@ -29,8 +29,7 @@ export default {
         sm: {
             btn: `
                 px-4
-                pt-2
-                pb-3
+                py-3
                 rounded-2xl
             `,
         }

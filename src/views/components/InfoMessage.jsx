@@ -18,6 +18,8 @@ const tw = {
         items-center
         gap-5
         p-6
+        animate-zoomIn
+        opacity-0
     `,
     headWrapepr: `
         w-full
@@ -26,8 +28,6 @@ const tw = {
         justify-start
         items-center
         gap-5
-        animate-zoomIn
-        opacity-0
     `,
     illustration: `
         text-5xl
@@ -47,7 +47,7 @@ const tw = {
         text-3xl
         text-borderColor
     `,
-    messageText: `
+    descLine: `
         text-borderColor
         text-base
     `,
@@ -55,26 +55,27 @@ const tw = {
     
     `,
 }
-export default function InfoMessage({inputRef, setFetchState, setRequest, message}) {
-    const { emoticon, heading, desc, handleBtnClick } = message
+export default function InfoMessage({inputRef, setFetchState, setRequest, setRepeatFetch=null, request, message}) {
+    const { hasEmoticon, emoticon='', heading='', desc=[], handleBtnClick=null, hasBtn, btnText='' } = message
   return (
     <div className={`wrapper ${tw.wrapper}`}>
         <div className={`head-wrapper ${tw.headWrapepr}`}>
-            <span className={`illustration ${tw.illustration}`}>{emoticon}</span>
+            { hasEmoticon && <span className={`illustration ${tw.illustration}`}>{emoticon}</span> }
             <span className={`heading-text ${tw.headingText}`}>{heading}</span>
         </div>
         <div className={`${tw.descWrapper}`}>
-            {desc.map( line => (
-                <span className={`message-text ${tw.messageText}`}>{line}</span>
+            {desc.map( (line, i) => (
+                <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>
             ))}
         </div>
-        <Btn 
-            btnSize={btnStyles.size.sm}
-            btnStyle={btnStyles.style.outlined}
-            contentType={btnContentTypes.text}
-            content='Очистить поле поиска'
-            onClick={() => handleBtnClick(inputRef, setFetchState, setRequest)}
-        />
+        { hasBtn && <Btn 
+                btnSize={btnStyles.size.sm}
+                btnStyle={btnStyles.style.outlined}
+                contentType={btnContentTypes.text}
+                content={btnText}
+                onClick={() => handleBtnClick(inputRef, setFetchState, setRepeatFetch, setRequest, request)}
+            />
+        }
     </div>
   )
 }

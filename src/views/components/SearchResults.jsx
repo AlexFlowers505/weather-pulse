@@ -47,19 +47,46 @@ const generateSearchResults = (suggestions, request) => {
     }</>)
 }
 
-export default function SearchResults({fetchState, suggestions=[], request='', inputRef=null, setFetchState=null, setRequest=null}) {      
-    
-    return (
+export default function SearchResults(
+    {
+        fetchState, 
+        suggestions=[], 
+        request='', 
+        inputRef=null, 
+        setFetchState=null, 
+        setRequest=null, 
+        setRepeatFetch=null 
+    }) 
+    { return (
     <>
         { 
             fetchState === IDLE ? null :
             <div className={`search-results container-visuals--custom-p ${container}`}>
                 <ul className={`search-results-list ${list}`}>
-                    {fetchState === LOADING ? generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock)
-                    : fetchState === NO_RESULTS ? <InfoMessage inputRef={inputRef} setFetchState={setFetchState} setRequest={setRequest} message={searchMessages.nothingFound} />
-                    : fetchState === ERROR ? null
-                    : fetchState === SUCCESS ? generateSearchResults(suggestions, request)
-                    : null
+                    {
+                        fetchState === LOADING ? 
+                            generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock)
+                        : fetchState === NO_RESULTS ? 
+                            <InfoMessage 
+                                inputRef={inputRef} 
+                                setFetchState={setFetchState} 
+                                setRepeatFetch={setRepeatFetch}
+                                request={request}
+                                setRequest={setRequest} 
+                                message={searchMessages.nothingFound} 
+                            />
+                        : fetchState === ERROR ? 
+                            <InfoMessage 
+                                inputRef={inputRef} 
+                                setFetchState={setFetchState} 
+                                setRepeatFetch={setRepeatFetch}
+                                setRequest={setRequest} 
+                                request={request}
+                                message={searchMessages.fetchError} 
+                            />
+                        : fetchState === SUCCESS ? 
+                            generateSearchResults(suggestions, request)
+                        : null
                     }
                 </ul>
             </div>
