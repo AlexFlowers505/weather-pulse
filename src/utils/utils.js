@@ -24,11 +24,10 @@ export function debounce(fn, delay) {
     }
 }
 
-
-export function handleClearSearchBtnClick(inputRef, setFetchState, setRequest, request=null) {
-  setFetchState(IDLE)
-  inputRef.current.focus()
-  setRequest('')
+export function handleClearSearchBtnClick(inputRef=null, setFetchState=null, setRepeatFeatch=null, setRequest=null, request=null) {
+    setRequest('')
+    setFetchState(IDLE)
+    inputRef.current.focus()
 }
 
 export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, setRepeatFeatch=null, setRequest=null, request=null) {
