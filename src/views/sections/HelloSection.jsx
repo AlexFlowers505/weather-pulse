@@ -3,7 +3,7 @@ import Search from '../components/Search'
 import LogoMin from '../components/LogoMin'
 import Btn from '../components/Btn'
 import {default as btnTypes} from '../../constants/btnContentTypes'
-import btnStyles from '../styles/btnStyles'
+import btnStyles from '../../styles/components/btnStyles'
 
 
 const styles = {

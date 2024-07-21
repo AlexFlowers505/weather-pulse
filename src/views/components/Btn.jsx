@@ -1,6 +1,6 @@
 import React from 'react'
 import SpriteSvg from './SpriteSvg'
-import btnStyles from '../styles/btnStyles'
+import btnStyles from '../../styles/components/btnStyles'
 import btnContentTypes from '../../constants/btnContentTypes'
 
 export default function Btn({extraSVGstyle, content, contentType, btnSize=btnStyles.size.md, btnStyle=btnStyles.style.filled, extraBtnStyles='', onClick}) {

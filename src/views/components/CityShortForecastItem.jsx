@@ -1,17 +1,22 @@
 import React from 'react'
 import FavouriteBtn from './btns/FavouriteBtn'
 import {default as picData}  from '../../constants/weatherPicturesNames'
+import { cityShortForecastItemStyle as tw } from '../../styles/components/CityShortForecastItem.style'
 
-export default function   CityShortForecastItem() {
+export default function CityShortForecastItem() {
   return (
-    <div className='w-full flex flex-row justify-between items-center rounded-base bg-bgPrimary p-3'>
-        <div className="flex flex-row justify-start items-center gap-2">
+    <div className={`wrapper ${tw.wrapper}`}>
+        <div className={`heading-wrapper ${tw.headingWrapper}`}>
             <FavouriteBtn />
-            <span className='text-text font-bold text-4xl'>Москва</span>
+            <span className={`name ${tw.name}`}>Москва</span>
         </div>
-        <div className="flex flex-row justify-start items-center gap-2">
-            <span className='text-text text-5xl font-light'>31°</span>
-            <img className='min-w-20 w-20 min-h-20 h-20 block' src={`${picData.path}${picData.names.sunny}${picData.fileType}`} alt="" />
+        <div className={`temp-wrapper ${tw.tempWrapper}`}>
+            <span className={`degrees ${tw.degrees}`}>31°</span>
+            <img 
+              className={`temp-icon ${tw.tempIcon}`} 
+              src={`${picData.path}${picData.names.sunny}${picData.fileType}`} 
+              alt="" 
+            />
         </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import FavouriteBtn from '../components/btns/FavouriteBtn'
-import btnStyles from '../styles/btnStyles'
+import btnStyles from '../../styles/components/btnStyles'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
 
 const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames

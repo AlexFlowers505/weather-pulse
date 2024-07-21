@@ -7,18 +7,19 @@ import CurrentCityForecastDisplay from '../sections/CurrentCityForecastDisplay'
 import TodayForecast from '../sections/TodayForecast'
 import SevenDaysForecast from '../sections/SevenDaysForecast'
 import Spinner from '../components/Spinner'
+import { cityOverviewPageStyle as tw } from '../../styles/pages/CityOverviewPage.style'
 
 export default function CityOverviewPage() {
 
   const [forecast, setForecast] = useState({})
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   return (
     <>
         { loading ? <Spinner /> : (
           <>
             <Navbar />
-            <div className='flex flex-col justify-between items-start w-full gap-base'>
+            <div className={`${tw.sectionsWrapper}`}>
                 <ControlPanel />
                 <CurrentCityForecastDisplay />
                 <TodayForecast />

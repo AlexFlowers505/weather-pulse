@@ -3,45 +3,31 @@ import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 import searchResultsStates from "../../constants/searchResultsStates"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
+import { SearchResultsStyle as tw } from '../../styles/components/SearchResults.style'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
-const twStyles = {
-    container: `
-        absolute
-        top-20
-        w-full
-        px-3 
-        py-3 
-        shadow-md
-    `,
-    list: `
-        flex
-        flex-col
-        gap-1
-    `
-}
-const { container, list } = twStyles
 
 const loaderSkeletonProps = {
     blocksQnt: 5,
     skeletonsPerBlock: 2
 }
 
-const generateSearchResults = (suggestions, request) => {
+const generateSearchResults = ({suggestions, request}) => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
             const { city, region, forecast } = sugg
-            const locaNameMatch = request
+            const { main: {temp} } = forecast
+            const locNameMatch = request
             return (<>
                 <SearchResult 
                     key={i}
-                    locNameMatch={locaNameMatch}
+                    locNameMatch={locNameMatch}
                     locRegion={region}
                     locName={city}
-                    locTemp={Math.round(forecast.main.temp)}
+                    locTemp={Math.round(temp)}
                     request={request}
                 />
-                { arr.length-1 > i ? <hr className={`border-lineColor mx-2`}/> : null }
+                { arr.length-1 > i ? <hr className={`${tw.horLine}`}/> : null }
             </>)
         })
     }</>)
@@ -61,8 +47,8 @@ export default function SearchResults(
     <>
         { 
             fetchState === IDLE ? null :
-            <div className={`search-results container-visuals--custom-p ${container}`}>
-                <ul className={`search-results-list ${list}`}>
+            <div className={`search-results container-visuals--custom-p ${tw.container}`}>
+                <ul className={`search-results-list ${tw.list}`}>
                     {
                         fetchState === LOADING ? 
                             generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock)

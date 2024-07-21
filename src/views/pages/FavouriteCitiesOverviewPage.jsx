@@ -4,22 +4,13 @@ import ControlPanel from '../sections/ControlPanel'
 import CitiesForecastsList from '../sections/CitiesForecastsList'
 import TodayForecast from '../sections/TodayForecast'
 import DiverseForecast from '../sections/DiverseForecast'
+import { favouriteCitiesOverviewPageStyle as tw } from '../../styles/pages/FavouriteCitiesOverviewPage.style'
 
 export default function FavouriteCitiesOverviewPage() {
-    const twStyles = {
-        wrapper: `
-            flex
-            flex-col
-            justify-between
-            items-start
-            w-full
-            gap-base
-        `,
-    }
   return (
     <>
         <Navbar />
-        <div className={twStyles.wrapper}>
+        <div className={tw.wrapper}>
             <ControlPanel />
             <CitiesForecastsList />
             <TodayForecast />

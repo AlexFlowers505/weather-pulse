@@ -1,22 +1,11 @@
 import LoaderSkeleton from './LoaderSkeleton'
 import { getRandomNum } from '../../utils/utils'
+import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style'
 
-const twStyles = {
-    wrapper: `
-        flex 
-        flex-col 
-        justify-start 
-        items-start 
-        my-1
-        gap- 0.5
-    `,
-}
-
-const { wrapper } = twStyles
 
 export default function LoaderSkeletonBlock({qnt=2}) {
   return (
-    <div className={`skeleton-block ${wrapper}`}>
+    <div className={`skeleton-block ${tw.wrapper}`}>
       { Array.from({ length: qnt }, (_, i) => (<LoaderSkeleton width={getRandomNum(10, 90)} key={i} />)) }
     </div>
   )

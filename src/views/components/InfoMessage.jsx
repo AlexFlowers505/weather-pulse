@@ -1,60 +1,11 @@
 import Btn from "./Btn"
-import btnStyles from "../styles/btnStyles"
+import btnStyles from "../../styles/components/btnStyles"
 import btnContentTypes from "../../constants/btnContentTypes"
 import searchResultsStates from "../../constants/searchResultsStates"
-import { infoMessagesData } from "../../data/infoMessagesData"
-import { handleClearSearchBtnClick } from "../../utils/utils"
+import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 
 const {IDLE} = searchResultsStates
 
-
-
-const tw = {
-    wrapper: `
-        w-full
-        flex
-        flex-col
-        justify-start
-        items-center
-        gap-5
-        p-6
-        animate-zoomIn
-        opacity-0
-    `,
-    headWrapepr: `
-        w-full
-        flex
-        flex-col
-        justify-start
-        items-center
-        gap-5
-    `,
-    illustration: `
-        text-5xl
-        font-semibold
-        font-arial
-        text-borderColor
-    `,
-    descWrapper: `
-        flex
-        flex-col
-        justify-start
-        items-center
-        gap-0
-    `,
-    headingText: `
-        font-semibold
-        text-3xl
-        text-borderColor
-    `,
-    descLine: `
-        text-borderColor
-        text-base
-    `,
-    dismissBtn: `
-    
-    `,
-}
 export default function InfoMessage({inputRef, setFetchState, setRequest, setRepeatFetch=null, request, message}) {
     const { hasEmoticon, emoticon='', heading='', desc=[], handleBtnClick=null, hasBtn, btnText='' } = message
   return (
@@ -64,9 +15,7 @@ export default function InfoMessage({inputRef, setFetchState, setRequest, setRep
             <span className={`heading-text ${tw.headingText}`}>{heading}</span>
         </div>
         <div className={`${tw.descWrapper}`}>
-            {desc.map( (line, i) => (
-                <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>
-            ))}
+            {desc.map( (line, i) => <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>)}
         </div>
         { hasBtn && <Btn 
                 btnSize={btnStyles.size.sm}

@@ -1,18 +1,11 @@
 import React from 'react'
 import CityShortForecastItem from '../components/CityShortForecastItem'
+import { citiesForecastsListStyle as tw } from '../../styles/sections/CitiesForecastsList.style'
 
-const className = `
-  flex
-  flex-col
-  justify-start
-  items-start
-  w-full
-  gap-baseXS
-`
 
 export default function CitiesForecastsList() {
   return (
-    <section className={className}>
+    <section className={tw.base}>
         <CityShortForecastItem />
         <CityShortForecastItem />
         <CityShortForecastItem />

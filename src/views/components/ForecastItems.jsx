@@ -1,25 +1,10 @@
 import React from 'react'
 import ForecastItem from './ForecastItem'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
-
-const className = {
-    horizontalLayout: `
-        flex
-        flex-row
-        justify-between
-        items-center
-    `,
-    verticalLayout: `
-        flex
-        flex-col
-        justify-between
-        items-start
-    `,
-}
-const {horizontalLayout, verticalLayout} = className
+import { forecastItemsStyle as tw } from '../../styles/components/ForecastItems.style'
 
 export default function ForecastItems({layout}) {
-    const layoutStyles = layout === forecastLayoutTypes.vertical ? verticalLayout : layout === forecastLayoutTypes.horizontal ? horizontalLayout : ''
+    const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.verticalLayout : layout === forecastLayoutTypes.horizontal ? tw.horizontalLayout : ''
 
     return (
         <div className={`forecast-items ${layoutStyles}`}>
