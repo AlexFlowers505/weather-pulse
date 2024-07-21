@@ -1,4 +1,3 @@
-import React from 'react'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
 

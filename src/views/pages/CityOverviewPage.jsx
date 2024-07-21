@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { fetchWeather } from "../../api/openWeatherMap"
 
 import Navbar from '../sections/Navbar'

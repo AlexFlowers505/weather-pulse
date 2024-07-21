@@ -1,4 +1,3 @@
-import React from 'react'
 import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 

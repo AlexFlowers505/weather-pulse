@@ -1,4 +1,3 @@
-import React from 'react'
 import SpriteSvg from './SpriteSvg'
 import btnStyles from '../../styles/components/btnStyles'
 import btnContentTypes from '../../constants/btnContentTypes'

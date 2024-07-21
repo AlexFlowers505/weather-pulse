@@ -1,33 +1,12 @@
-import React from 'react'
-
 import LogoMin from '../components/LogoMin'
 import navLinksData from '../../data/navLinksData' 
 import NavbarLink from '../components/NavbarLink'
-
-const className = {
-    navbarTW: `
-        flex
-        w-fit
-        flex-col
-        justify-start
-        items-center
-        gap-5
-        bg-bgPrimary
-        p-2
-        rounded-base
-    `,
-    logoTW: `
-        w-14 
-        p-baseSM 
-        pb-2
-    `
-}
-const {navbarTW, logoTW} = className
+import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style'
 
 export default function Navbar() {
   return (
-        <nav className={navbarTW}>
-            <LogoMin styles={logoTW} />
+        <nav className={tw.base}>
+            <LogoMin styles={tw.logo} />
             { navLinksData.map( (linkData, i) => { return (
                 <NavbarLink link={linkData} key={i}/> )}
             )}

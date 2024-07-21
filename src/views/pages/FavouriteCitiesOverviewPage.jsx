@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import CitiesForecastsList from '../sections/CitiesForecastsList'

@@ -1,4 +1,3 @@
-import React from 'react'
 import Btn from '../Btn'
 import svgSymbols from '../../../constants/svgSymbols'
 import btnContentTypes from '../../../constants/btnContentTypes'

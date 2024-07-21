@@ -1,4 +1,3 @@
-import React from 'react'
 import { spriteSvgStyle as tw } from '../../styles/components/SpriteSvg.style'
 
 export default function SpriteSvg({id, extraSVGstyle}) {

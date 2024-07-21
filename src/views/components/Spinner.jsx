@@ -1,5 +1,4 @@
 import HashLoader from "react-spinners/HashLoader"
-import React from "react"
 
 export default function Spinner({loading}) {
   return (

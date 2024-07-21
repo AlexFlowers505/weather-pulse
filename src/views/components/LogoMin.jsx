@@ -1,5 +1,3 @@
-import React from 'react'
-
 const imgAttrs = {
     altText: 'Weather Pulse',
     src: '/assets/images/logos/weather-pulse-logo.png'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Btn from '../Btn'
 import temperatureUnits from '../../../constants/temperatureUnits'
 import btnContentTypes from '../../../constants/btnContentTypes'

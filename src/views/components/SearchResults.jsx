@@ -12,7 +12,7 @@ const loaderSkeletonProps = {
     skeletonsPerBlock: 2
 }
 
-const generateSearchResults = ({suggestions, request}) => {
+const generateSearchResults = (suggestions, request) => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
             const { city, region, forecast } = sugg
@@ -33,16 +33,7 @@ const generateSearchResults = ({suggestions, request}) => {
     }</>)
 }
 
-export default function SearchResults(
-    {
-        fetchState, 
-        suggestions=[], 
-        request='', 
-        inputRef=null, 
-        setFetchState=null, 
-        setRequest=null, 
-        setRepeatFetch=null 
-    }) 
+export default function SearchResults({fetchState, suggestions=[], request='', inputRef=null, setFetchState=null, setRequest=null, setRepeatFetch=null }) 
     { return (
     <>
         { 

@@ -1,4 +1,3 @@
-import React from 'react'
 import FavouriteBtn from './btns/FavouriteBtn'
 import {default as picData}  from '../../constants/weatherPicturesNames'
 import { cityShortForecastItemStyle as tw } from '../../styles/components/CityShortForecastItem.style'

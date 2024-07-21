@@ -49,7 +49,7 @@ export const searchResultStyle = {
       group-hover:bg-primary/50
       group-active:bg-primary/50
       rounded-sm
-      px-0.5
+      px-0
     `,
     region: `
       text-base
