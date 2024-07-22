@@ -8,14 +8,13 @@ export const SearchResultsStyle = {
         
         md:p-3
         md:top-20
-        block
-        hidden/
+        hidden
 
         group-focus-within/search-block:block
     `,
     list: `
         overflow-y-auto
-        max-h-[400px]
+        max-h-[350px]
         flex
         flex-col
         gap-2
@@ -29,6 +28,7 @@ export const SearchResultsStyle = {
 export const SearchResultStyleArbitrary = {
     list: {
         scrollbarGutter: 'stable',
-        scrollbarWidth: 'thin'
+        scrollbarWidth: 'thin',
+        scrollbarColor: '#3C5577 #141C27'
     }
 }

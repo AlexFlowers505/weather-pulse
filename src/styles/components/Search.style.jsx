@@ -2,7 +2,7 @@ export const searchStyle = {
     searchBlock: `
       relative
       w-full
-      max-w-full
+      max-w-2xl
       h-full
 
       group/search-block

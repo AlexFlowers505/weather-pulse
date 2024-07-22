@@ -39,8 +39,8 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
     <>
         { 
             fetchState === IDLE ? null :
-            <div className={`search-results container-visuals--custom-p ${tw.container}`} style={{...customStyles.container}}>
-                <ul className={`search-results-list ${tw.list}`}>
+            <div className={`search-results container-visuals--custom-p ${tw.container}`}>
+                <ul className={`search-results-list ${tw.list}`} style={{...customStyles.list}}>
                     {
                         fetchState === LOADING ? 
                             generateLoaderSkeletons(
