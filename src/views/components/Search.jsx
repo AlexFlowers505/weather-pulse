@@ -74,7 +74,7 @@ export default function Search({styles=''}) {
             extraBtnStyles={tw.DismissBtn}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
-            onClick={ ()=> handleClearSearchBtnClick(inputRef, setFetchState, setRequest) }
+            onClick={ ()=> handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest) }
           />}
       </div>
       <SearchResults 
