@@ -1,12 +1,12 @@
 export const helloSectionStyle = {
     logo: `
-        w-1/2
         max-w-7xl
+        w-3/4
+        md:w-1/2
     `,
     search: `
         w-full
         relative
-        translate-x-2
     `,
     section: `
         flex 
@@ -14,26 +14,32 @@ export const helloSectionStyle = {
         justify-start 
         items-center 
         gap-16 
-        absolute 
+
+        absolute
+        w-full
         left-1/2 
         -translate-x-1/2 
-        -translate-y-1/2 
-        min-w-fit 
         top-1/3
+        -translate-y-1/2 
     `,
     logoWrapper: `
         flex 
         flex-col 
         justify-start 
         items-center 
-        gap-12
+        max-w-full
+        gap-8
+
+        md:gap-12
     `,
     logotype: `
         text-text 
         font-bold 
-        text-9xl 
+        text-5xl
         text-center 
         w-max
+
+        md:text-9xl 
     `,
     interactionBlock: `
         flex 

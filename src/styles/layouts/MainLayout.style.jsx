@@ -2,7 +2,7 @@ export const mainLayoutStyle = {
     mainLayout: `
       w-screen
       h-screen
-      min-w-fit
+      min-w-[348px]
       min-h-fit
       bg-gradient-to-r
       from-bgLinearStart
@@ -17,6 +17,9 @@ export const mainLayoutStyle = {
       justify-center
       items-top
       max-w-7xl
+      w-full
+      min-h-full
       gap-base
+      relative
     `,
   }
