@@ -9,7 +9,7 @@ export const searchResultStyle = {
       transition-all
       ease-in-out
       duration-200
-      rounded-md
+      rounded-xl
       px-3
       py-1
       outline-none

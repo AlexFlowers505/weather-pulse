@@ -42,7 +42,10 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
                 <ul className={`search-results-list ${tw.list}`}>
                     {
                         fetchState === LOADING ? 
-                            generateLoaderSkeletons(loaderSkeletonProps.blocksQnt, loaderSkeletonProps.skeletonsPerBlock)
+                            generateLoaderSkeletons(
+                                loaderSkeletonProps.blocksQnt, 
+                                loaderSkeletonProps.skeletonsPerBlock
+                            )
                         : fetchState === NO_RESULTS ? 
                             <InfoMessage 
                                 inputRef={inputRef} 
@@ -62,7 +65,10 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
                                 message={searchMessages.fetchError} 
                             />
                         : fetchState === SUCCESS ? 
-                            generateSearchResults(suggestions, request)
+                            generateSearchResults(
+                                suggestions, 
+                                request
+                            )
                         : null
                     }
                 </ul>

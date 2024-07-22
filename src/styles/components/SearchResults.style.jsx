@@ -2,7 +2,7 @@ export const SearchResultsStyle = {
     container: `
         absolute
         w-full
-        p-1
+        p-2
         shadow-md
         top-16
         
@@ -15,7 +15,7 @@ export const SearchResultsStyle = {
     list: `
         flex
         flex-col
-        gap-1
+        gap-2
     `,
     horLine: `
         border-lineColor 
