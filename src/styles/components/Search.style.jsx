@@ -4,14 +4,17 @@ export const searchStyle = {
       w-full
       max-w-full
       h-full
+
+      group/search-block
     `,
     searchBar: `
-      p-baseXS
       w-full
       h-full
+      p-4
+      pr-10
+      rounded-2xl
       text-text
       bg-bgPrimary
-      rounded-base
       hover:bg-hoverState
       active:bg-activeState
       border-solid
@@ -21,8 +24,15 @@ export const searchStyle = {
       focus:border-primary
       focus:bg-bgPrimary
       transition-colors
+      placeholder:text-ellipsis
       ease-in-out
       duration-200
+      text-base-mobile
+
+      md:text-base
+      md:p-baseXS
+      md:pr-14
+      md:rounded-base
     `,
     inputWrapper: `
       relative

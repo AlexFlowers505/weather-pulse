@@ -4,12 +4,12 @@
 @tailwind utilities;
 .container-visuals {
   @apply bg-bgPrimary;
-  @apply px-baseSM;
-  @apply py-baseSM;
+  @apply p-baseSM;
   @apply rounded-base;
 }
 
 .container-visuals--custom-p {
   @apply bg-bgPrimary;
-  @apply rounded-base;
+  @apply rounded-2xl;
+  @apply md:rounded-base;
 }/*# sourceMappingURL=global-styles.css.map */

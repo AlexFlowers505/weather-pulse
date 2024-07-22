@@ -1,7 +1,7 @@
 export const helloSectionStyle = {
     logo: `
         max-w-7xl
-        w-3/4
+        w-2/3
         md:w-1/2
     `,
     search: `
@@ -13,7 +13,7 @@ export const helloSectionStyle = {
         flex-col 
         justify-start 
         items-center 
-        gap-16 
+        gap-12
 
         absolute
         w-full
@@ -28,14 +28,14 @@ export const helloSectionStyle = {
         justify-start 
         items-center 
         max-w-full
-        gap-8
+        gap-6
 
         md:gap-12
     `,
     logotype: `
         text-text 
         font-bold 
-        text-5xl
+        text-[2.5rem]
         text-center 
         w-max
 
@@ -44,7 +44,7 @@ export const helloSectionStyle = {
     interactionBlock: `
         flex 
         flex-col 
-        gap-12 
+        gap-8
         w-full 
         justify-start 
         items-center

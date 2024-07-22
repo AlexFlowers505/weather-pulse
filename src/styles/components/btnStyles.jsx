@@ -19,7 +19,9 @@ export default {
         md: {
             btn: `
                 p-baseXS
-                text-2xl
+                rounded-2xl
+
+                md:text-2xl
             `,
             icon: `
                 w-7
@@ -30,7 +32,13 @@ export default {
             btn: `
                 px-4
                 py-3
-                rounded-2xl
+                rounded-xl
+
+                md:rounded-2xl
+            `,
+            icon: `
+                w-5
+                h-5
             `,
         }
     },
@@ -44,7 +52,6 @@ export default {
         outlined: `
             border-text
             font-light
-            text-base
             border-2
             border-solid
             bg-transparent
@@ -52,13 +59,18 @@ export default {
             hover:bg-hoverState
             active:bg-activeState
             active:border-transparent
+            text-base-mobile
+
+            md:text-base
         `,
         contentOnly: `
             border-0
             p-0
             font-light
-            text-base
             bg-transparent
+            text-base-mobile
+
+            md:text-base
         `
     }
 }

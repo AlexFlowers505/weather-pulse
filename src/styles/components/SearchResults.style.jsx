@@ -1,11 +1,16 @@
 export const SearchResultsStyle = {
     container: `
         absolute
-        top-20
         w-full
-        px-3 
-        py-3 
+        p-1
         shadow-md
+        top-16
+        
+        md:p-3
+        md:top-20
+        hidden
+
+        group-focus-within/search-block:block
     `,
     list: `
         flex

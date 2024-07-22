@@ -22,6 +22,9 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         arial: ['Arial', 'serif']
       },
+      fontSize: {
+        'base-mobile': ['1rem', '1rem'],
+      },
       padding: {
         baseXS: '1.25rem', // 20px
         baseSM: '2rem', // 30px
