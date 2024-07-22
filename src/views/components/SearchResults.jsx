@@ -3,7 +3,7 @@ import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 import searchResultsStates from "../../constants/searchResultsStates"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
-import { SearchResultsStyle as tw } from '../../styles/components/SearchResults.style'
+import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -15,7 +15,7 @@ const loaderSkeletonProps = {
 const generateSearchResults = (suggestions, request) => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
-            const { city, region, forecast } = sugg
+            const { city, region, country, forecast } = sugg
             const { main: {temp} } = forecast
             const locNameMatch = request
             return (<>
@@ -23,6 +23,7 @@ const generateSearchResults = (suggestions, request) => {
                     key={i}
                     locNameMatch={locNameMatch}
                     locRegion={region}
+                    locCountry={country}
                     locName={city}
                     locTemp={Math.round(temp)}
                     request={request}
@@ -38,7 +39,7 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
     <>
         { 
             fetchState === IDLE ? null :
-            <div className={`search-results container-visuals--custom-p ${tw.container}`}>
+            <div className={`search-results container-visuals--custom-p ${tw.container}`} style={{...customStyles.container}}>
                 <ul className={`search-results-list ${tw.list}`}>
                     {
                         fetchState === LOADING ? 

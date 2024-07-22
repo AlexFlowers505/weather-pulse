@@ -2,7 +2,7 @@ import weatherPicturesNames from '../../constants/weatherPicturesNames'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 
 
-function handleHighlightMatchText(textWithMatch, request) {
+function handleHighlightMatchText(textWithMatch='', request) {
   if (request.length) {
     const regex = new RegExp(`(${request})`, 'gi')
     const parts = textWithMatch.split(regex)
@@ -19,8 +19,7 @@ function handleHighlightMatchText(textWithMatch, request) {
 
 
 export default function SearchResult({...props}) { 
-  const { locName = '', locRegion = '', locTemp = null, request = '' } = props
-  const suggText = handleHighlightMatchText(locName, request)
+  const { locName='', locRegion='', locCountry='', locTemp = null, request='' } = props
   return (
     <li>
         <a className={`${tw.wrapper}`} tabIndex={0}>
@@ -33,7 +32,7 @@ export default function SearchResult({...props}) {
                 <img className={`location-temp-pic ${tw.tempPic}`} src="/assets/images/weather-pictures/sunny.png" alt="" />
             </div>
           </div>
-          <span className={`location-region ${tw.region}`}>{locRegion}</span>
+          <span className={`location-info ${tw.locationInfo}`}>{!!locRegion.length && `${locRegion} ➔ `}{locCountry}</span>
         </a>
     </li>
   )

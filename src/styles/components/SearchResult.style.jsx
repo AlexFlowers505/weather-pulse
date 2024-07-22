@@ -51,7 +51,7 @@ export const searchResultStyle = {
       rounded-sm
       px-0
     `,
-    region: `
+    locationInfo: `
       text-base
       text-borderColor
     `,
