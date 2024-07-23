@@ -3,7 +3,7 @@ const entryURL =  `https://api.openweathermap.org/`
 const iconsURL = {
     entry: `https://openweathermap.org/`,
     iconPath: `img/wn/`,
-    modifier: `@2x`,
+    modifier: `@4x`,
     extention: `.png`
 }
 
