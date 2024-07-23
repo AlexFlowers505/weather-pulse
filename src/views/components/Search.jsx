@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 import btnStyles from '../../styles/components/btnStyles'
+import btnContentTypes from "../../constants/btnContentTypes"
 import DismissBtn from './btns/CloseBtn'
 import SearchResults from './SearchResults'
 import { fetchAreasSuggestions } from "../../api/dadata"
@@ -9,11 +10,13 @@ import options from "../../constants/fetchingSuggestionsOptions"
 import searchResultsStates from "../../constants/searchResultsStates"
 import { handleClearSearchBtnClick } from "../../utils/utils"
 import { searchStyle as tw } from "../../styles/components/Search.style"
+import temperatureUnits from "../../constants/temperatureUnits"
+import Btn from "./Btn"
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
 const searchBarAttrs = {
-  placeHolder: 'Начните вводить название города'
+  placeHolder: 'Начните вводить название населенного пункта'
 }
 
 export default function Search({styles=''}) {
@@ -70,12 +73,22 @@ export default function Search({styles=''}) {
           value={request}
           onChange={ handleRequestChange }
           placeholder={searchBarAttrs.placeHolder} />
+          <div className={`btn-wrapper ${tw.btnWrapper}`}>
           {!!request.length && <DismissBtn
             extraBtnStyles={tw.DismissBtn}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
             onClick={ ()=> handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest) }
           />}
+          <Btn 
+            extraBtnStyles={tw.unitsBtn}
+            contentType={btnContentTypes.text}
+            content={temperatureUnits.celsius.symbol}
+            btnSize={btnStyles.size.md}
+            btnStyle={btnStyles.style.contentOnly}
+            onClick={ ()=> handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest) }            
+          />
+          </div>
       </div>
       <SearchResults 
         suggestions={suggestions} 

@@ -71,6 +71,15 @@ export default {
             text-base-mobile
 
             md:text-base
+
+            transition 
+            ease-in-out 
+            duration-200
+
+            hover:scale-125
+            focus:scale-125
+
+            active:scale-105
         `
     }
 }

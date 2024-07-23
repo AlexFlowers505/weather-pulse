@@ -11,7 +11,8 @@ export const searchStyle = {
       w-full
       h-full
       p-4
-      pr-10
+      pr-20
+      md:pr-24
       rounded-2xl
       text-text
       bg-bgPrimary
@@ -37,11 +38,21 @@ export const searchStyle = {
     inputWrapper: `
       relative
     `,
-    DismissBtn: `
+    btnWrapper: `
       absolute
-      right-0
+      right-3
       top-2/4
       -translate-y-2/4
+
+      flex
+      flex-row
+      justify-end
+      items-center
+      gap-0
+    `,
+    DismissBtn: `
+      !p-1
+      md:!p-2
   
       hover:scale-125
       hover:-rotate-180
@@ -55,4 +66,10 @@ export const searchStyle = {
       active:scale-110
       active:text-activeStateLight
     `,
+    unitsBtn: `
+      !p-1
+      md:!p-2
+      !text-[21px]
+      md:!text-[25px]
+    `
   }

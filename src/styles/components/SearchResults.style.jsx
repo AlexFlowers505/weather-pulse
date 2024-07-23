@@ -18,6 +18,17 @@ export const SearchResultsStyle = {
         flex
         flex-col
         gap-2
+        border-transparent
+        border-2
+        border-solid
+        rounded-xl
+
+        transition 
+        ease-in-out 
+        duration-200
+
+        focus:outline-none
+        focus:border-text
     `,
     horLine: `
         border-lineColor 
