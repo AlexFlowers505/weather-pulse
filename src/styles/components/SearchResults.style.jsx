@@ -14,7 +14,7 @@ export const SearchResultsStyle = {
     `,
     list: `
         overflow-y-auto
-        max-h-[350px]
+        max-h-[385px]
         flex
         flex-col
         gap-2
