@@ -5,7 +5,7 @@ import { currentAreaForecastDisplayStyle as tw } from '../../styles/sections/Cur
 
 const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames
 
-export default function CurrentCityForecastDisplay() {
+export default function CurrentAreaForecastDisplay() {
   return (
     <section className={`${tw.wrapper}`}>
         <div className={`${tw.nameBlock}`}>
