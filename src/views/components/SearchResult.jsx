@@ -1,6 +1,6 @@
-import weatherPicturesNames from '../../constants/weatherPicturesNames'
+import { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
-
+import { fetchIcon } from '../../api/openWeatherMap'
 
 function handleHighlightMatchText(textWithMatch='', request) {
   if (request.length) {
@@ -19,7 +19,23 @@ function handleHighlightMatchText(textWithMatch='', request) {
 
 
 export default function SearchResult({...props}) { 
-  const { locName='', locRegion='', locCountry='', locTemp = null, request='' } = props
+  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='' } = props
+
+  const [iconUrl, setIconUrl] = useState('')
+
+  useEffect( () => {
+    const loadIcon = async () => {
+      try {
+        const url = await fetchIcon(locTempIcon)
+        setIconUrl(url)
+      } catch (error) {
+        console.error('Error fetching icon:', error)
+      }
+    };
+
+    loadIcon()
+  }, [locTempIcon])
+
   return (
     <li>
         <a className={`${tw.wrapper}`} tabIndex={0}>
@@ -29,7 +45,7 @@ export default function SearchResult({...props}) {
             </div>
             <div className={`location-forecast ${tw.forecastWrapper}`}>
                 <span className={`location-temp ${tw.temp}`}>{locTemp}°</span>
-                <img className={`location-temp-pic ${tw.tempPic}`} src="/assets/images/weather-pictures/sunny.png" alt="" />
+                <img className={`location-temp-pic ${tw.tempPic}`} src={iconUrl} alt="" />
             </div>
           </div>
           <span className={`location-info ${tw.locationInfo}`}>{!!locRegion.length && `${locRegion} ➔ `}{locCountry}</span>

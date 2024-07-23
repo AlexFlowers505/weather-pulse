@@ -27,14 +27,15 @@ export async function fetchCitySuggestions(query) {
       let locationsWithRegion = data.suggestions
         .map(suggestion => ({
           country: suggestion.data.country,
-          city: suggestion.data.city || suggestion.data.settlement,
+          locality: suggestion.data.city || suggestion.data.settlement,
           region: suggestion.data.region_with_type,
           lat: suggestion.data.geo_lat,
           lon: suggestion.data.geo_lon,
           settlementType: suggestion.data.city_type || suggestion.data.settlement_type
         }))
-        .filter(location => location.city)
+        .filter(location => location.locality)
 
+      console.log('suggestions')
       console.log(locationsWithRegion)
       return locationsWithRegion
 
