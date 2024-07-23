@@ -1,7 +1,7 @@
 import FavouriteBtn from '../components/btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btnStyles'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
-import { currentCityForecastDisplayStyle as tw } from '../../styles/sections/CurrentCityForecastDisplay.style'
+import { currentAreaForecastDisplayStyle as tw } from '../../styles/sections/CurrentAreaForecastDisplay.style'
 
 const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames
 

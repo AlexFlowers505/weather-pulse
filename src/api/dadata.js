@@ -3,7 +3,7 @@ import fetchOptions from "../constants/fetchingSuggestionsOptions"
 const key = process.env.REACT_APP_DADATA_API_KEY
 const entryURL = `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address/`
 
-export async function fetchCitySuggestions(query) {
+export async function fetchAreasSuggestions(query) {
 
   if (query) {
     const options = {
@@ -27,13 +27,13 @@ export async function fetchCitySuggestions(query) {
       let locationsWithRegion = data.suggestions
         .map(suggestion => ({
           country: suggestion.data.country,
-          locality: suggestion.data.city || suggestion.data.settlement,
+          area: suggestion.data.city || suggestion.data.settlement,
           region: suggestion.data.region_with_type,
           lat: suggestion.data.geo_lat,
           lon: suggestion.data.geo_lon,
           settlementType: suggestion.data.city_type || suggestion.data.settlement_type
         }))
-        .filter(location => location.locality)
+        .filter(location => location.area)
 
       console.log('suggestions')
       console.log(locationsWithRegion)

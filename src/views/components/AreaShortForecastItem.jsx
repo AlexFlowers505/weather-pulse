@@ -1,8 +1,8 @@
 import FavouriteBtn from './btns/FavouriteBtn'
 import {default as picData}  from '../../constants/weatherPicturesNames'
-import { cityShortForecastItemStyle as tw } from '../../styles/components/CityShortForecastItem.style'
+import { areaShortForecastItemStyle as tw } from '../../styles/components/AreaShortForecastItem.style'
 
-export default function CityShortForecastItem() {
+export default function AreaShortForecastItem() {
   return (
     <div className={`wrapper ${tw.wrapper}`}>
         <div className={`heading-wrapper ${tw.headingWrapper}`}>

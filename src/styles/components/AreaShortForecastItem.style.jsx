@@ -1,4 +1,4 @@
-export const cityShortForecastItemStyle = {
+export const areaShortForecastItemStyle = {
     wrapper: `
       w-full 
       flex 

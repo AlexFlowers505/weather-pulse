@@ -15,7 +15,7 @@ const loaderSkeletonProps = {
 const generateSearchResults = (suggestions, request) => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
-            const { locality, region, country, forecast } = sugg
+            const { area, region, country, forecast } = sugg
             const { main: {temp} } = forecast
             // const { weather[0]: {icon}} = forecast
             const locNameMatch = request
@@ -25,7 +25,7 @@ const generateSearchResults = (suggestions, request) => {
                     locNameMatch={locNameMatch}
                     locRegion={region}
                     locCountry={country}
-                    locName={locality}
+                    locName={area}
                     locTemp={Math.round(temp)}
                     locTempIcon={forecast.weather[0].icon}
                     request={request}

@@ -1,4 +1,4 @@
-export const citiesForecastsListStyle = {
+export const areasForecastsListStyle = {
     base: `
       flex
       flex-col

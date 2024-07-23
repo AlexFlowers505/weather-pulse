@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import btnStyles from '../../styles/components/btnStyles'
 import DismissBtn from './btns/CloseBtn'
 import SearchResults from './SearchResults'
-import { fetchCitySuggestions } from "../../api/dadata"
+import { fetchAreasSuggestions } from "../../api/dadata"
 import { fetchLocationsForecasts } from "../../api/openWeatherMap"
 import { removeMultipleSpaces } from "../../utils/utils"
 import options from "../../constants/fetchingSuggestionsOptions"
@@ -40,7 +40,7 @@ export default function Search({styles=''}) {
       if (formattedRequest.length > options.minRequestSymbolsQnt) {
         setFetchState(LOADING)
 
-        fetchCitySuggestions(formattedRequest)
+        fetchAreasSuggestions(formattedRequest)
           .then(data => fetchLocationsForecasts(data))
           .then( data => { 
             setSuggestions(data) 

@@ -1,4 +1,4 @@
-export const currentCityForecastDisplayStyle = {
+export const currentAreaForecastDisplayStyle = {
     wrapper: `
     rounded-base
     bg-bgPrimary

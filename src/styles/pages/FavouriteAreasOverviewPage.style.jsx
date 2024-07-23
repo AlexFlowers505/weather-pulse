@@ -1,4 +1,4 @@
-export const favouriteCitiesOverviewPageStyle = {
+export const favouriteAreasOverviewPageStyle = {
     wrapper: `
         flex
         flex-col

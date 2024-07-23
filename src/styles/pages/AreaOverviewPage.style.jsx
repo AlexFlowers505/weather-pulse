@@ -1,4 +1,4 @@
-export const cityOverviewPageStyle = {
+export const areaOverviewPageStyle = {
     sectionsWrapper: `
       flex 
       flex-col 
