@@ -1,8 +1,8 @@
-import { forwardRef } from 'react';
-import SpriteSvg from './SpriteSvg';
-import btnStyles from '../../styles/components/btnStyles';
-import btnContentTypes from '../../constants/btnContentTypes';
-import { Tooltip } from '@mui/material';
+import { forwardRef } from 'react'
+import SpriteSvg from './SpriteSvg'
+import btnStyles from '../../styles/components/btnStyles'
+import btnContentTypes from '../../constants/btnContentTypes'
+import { Tooltip } from '@mui/material'
 
 const Btn = forwardRef(({
   extraSVGstyle,
@@ -11,8 +11,10 @@ const Btn = forwardRef(({
   btnSize = btnStyles.size.md,
   btnStyle = btnStyles.style.filled,
   extraBtnStyles = '',
+  tooltipOffset = [0, 0],
   hasTooltip = false,
   tooltipContent = '',
+  tooltipClasses = '',
   onClick,
   ...props
 }, ref) => {
@@ -26,28 +28,18 @@ const Btn = forwardRef(({
       {contentType === btnContentTypes.icon && <SpriteSvg id={content} className={btnSize.icon} extraSVGstyle={extraSVGstyle} />}
       {contentType === btnContentTypes.text && content}
     </button>
-  );
+  )
+  console.log(tooltipOffset)
 
   return hasTooltip ? (
     <Tooltip
       title={tooltipContent}
       placement="top"
-      PopperProps={{
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: [10, 0], // adjust the offset here, [x-axis, y-axis]
-            },
-          },
-        ],
-      }}
-    >
-      <span>{button}</span>
+      PopperProps={{modifiers: [{ name: 'offset', options: { offset: tooltipOffset } }]}}
+      classes={tooltipClasses}
+    ><span>{button}</span>
     </Tooltip>
-  ) : (
-    button
-  );
-});
+  ) : button
+})
 
-export default Btn;
+export default Btn

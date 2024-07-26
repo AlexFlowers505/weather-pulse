@@ -89,7 +89,9 @@ export default function Search({styles=''}) {
             contentType={btnContentTypes.text}
             content={temperatureUnits.celsius.symbol}
             hasTooltip={true}
-            tooltipContent={'Switch Units'}
+            tooltipContent={'перевести в градусы Фаренгейта'}
+            tooltipOffset={[10, 0]}
+            tooltipClasses={`text-primary`}
             btnSize={btnStyles.size.md}
             btnStyle={btnStyles.style.contentOnly}
             onClick={() => handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest)}
