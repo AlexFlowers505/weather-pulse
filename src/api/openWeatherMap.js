@@ -1,3 +1,7 @@
+
+import temperatureUnits from "../constants/temperatureUnits"
+const {celsius, fahrenheit} = temperatureUnits
+
 const key = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY
 const entryURL =  `https://api.openweathermap.org/`
 const iconsURL = {
@@ -26,8 +30,9 @@ export const fetchIcon = async iconName => {
     }
 }
 
-export async function fetchLocationForecast(lat, lon) {
-    let url = `${entryURL}data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`
+export async function fetchLocationForecast(lat, lon, units=celsius.name) {
+    let urlUnits = units === celsius.name ? celsius.__type : fahrenheit.__type
+    let url = `${entryURL}data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=${urlUnits}&lang=ru`
     try {
         const response = await fetch(url)
         if (!response.ok) {
@@ -46,11 +51,11 @@ export async function fetchLocationForecast(lat, lon) {
     }
 }
 
-export async function fetchLocationsForecasts( locations ) {
+export async function fetchLocationsForecasts( locations, units=celsius.name ) {
     try {
         const forecastsArray = await Promise.all(
             locations.map(async elm => {
-                const forecast = await fetchLocationForecast(elm.lat, elm.lon)
+                const forecast = await fetchLocationForecast(elm.lat, elm.lon, units)
                 return { ...elm, forecast }
             })
         )

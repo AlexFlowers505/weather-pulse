@@ -1,27 +1,41 @@
+import { useState, useEffect } from 'react'
 import Btn from '../Btn'
-import svgSymbols from '../../../constants/svgSymbols'
 import btnContentTypes from '../../../constants/btnContentTypes'
+import svgSymbols from '../../../constants/svgSymbols'
 
 const btnData = {
-  content: svgSymbols.iconAddToFavourite,
+  content: {
+    favourite: svgSymbols.iconFavourite,
+    notFavourite: svgSymbols.iconAddToFavourite,
+  },
   contentType: btnContentTypes.icon,
   extraSVGstyle: {
     transform: 'scale(1.2)',
-  }
+  },
+  tooltipTexts: {
+    addToFavourite: 'Добавить в избранное',
+    removeFromFavourite: 'Убрать из избранного',
+  },
 }
 
-const {content, contentType, extraSVGstyle} = btnData
+const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
-export default function FavouriteBtn({btnSize, btnStyle, onClick}) {
+export default function FavouriteBtn({ btnSize, btnStyle }) {
+  const [isFavourite, setIsFavourite] = useState(false)
+  const handleFavouriteBtnClick = () => setIsFavourite(prevState => !prevState)
+  const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
+  const icon = isFavourite ? content.favourite : content.notFavourite
+
   return (
-    <Btn 
-      content={content} 
-      contentType={contentType} 
-      btnSize={btnSize} 
-      btnStyle={btnStyle} 
-      extraSVGstyle={extraSVGstyle} 
-      onClick={onClick}  
+    <Btn
+      content={icon}
+      contentType={contentType}
+      btnSize={btnSize}
+      btnStyle={btnStyle}
+      extraSVGstyle={extraSVGstyle}
+      onClick={handleFavouriteBtnClick}
+      hasTooltip={true}
+      tooltipContent={tooltipContent}
     />
   )
 }
-

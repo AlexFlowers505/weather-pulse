@@ -3,25 +3,32 @@ import Btn from '../Btn'
 import temperatureUnits from '../../../constants/temperatureUnits'
 import btnContentTypes from '../../../constants/btnContentTypes'
 
-const locateMeBtnData = {
-  content: temperatureUnits.celsius.icon,
-  contentType: btnContentTypes.icon,
-  extraSVGstyle: {
-    transform: 'scale(1.5) translateX(-2px)',
-  }
-}
-const {content, extraSVGstyle, contentType} = locateMeBtnData
+const { celsius, fahrenheit } = temperatureUnits
 
-export default function ChangeUnitsBtn({btnSize, btnStyle, onClick}) {
-  const [degreesUnits, setDegreesUnits] = useState(temperatureUnits.celsius.name)
+export default function ChangeUnitsBtn({ extraBtnStyles, extraSVGstyle, btnSize, btnStyle }) {
+  const [units, setUnits] = useState(celsius.symbol)
+
+  const getTooltipContent = (unitsFullName) => `Считать ${unitsFullName}`
+
+  const handleChangeUnitsBtnClick = () => {
+    setUnits(prevUnits => prevUnits === celsius.symbol ? fahrenheit.symbol : celsius.symbol)
+  }
+
+  const tooltipUnits = units === celsius.symbol ? fahrenheit.fullName : celsius.fullName
+  const tooltipContent = getTooltipContent(tooltipUnits)
+
   return (
-    <Btn 
-      content={content} 
-      contentType={contentType} 
-      extraSVGstyle={extraSVGstyle} 
-      btnSize={btnSize} 
-      btnStyle={btnStyle} 
-      onClick={onClick}
+    <Btn
+      contentType={btnContentTypes.text}
+      content={units}
+      extraBtnStyles={extraBtnStyles}
+      extraSVGstyle={extraSVGstyle}
+      btnSize={btnSize}
+      btnStyle={btnStyle}
+      onClick={handleChangeUnitsBtnClick}
+      hasTooltip={true}
+      tooltipContent={tooltipContent}
+      tooltipOffset={[10, 0]}
     />
   )
 }

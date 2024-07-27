@@ -2,7 +2,9 @@ import { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg'
 import btnStyles from '../../styles/components/btnStyles'
 import btnContentTypes from '../../constants/btnContentTypes'
-import { Tooltip } from '@mui/material'
+import CustomTooltip from './Tooltip'
+
+
 
 const Btn = forwardRef(({
   extraSVGstyle,
@@ -14,7 +16,6 @@ const Btn = forwardRef(({
   tooltipOffset = [0, 0],
   hasTooltip = false,
   tooltipContent = '',
-  tooltipClasses = '',
   onClick,
   ...props
 }, ref) => {
@@ -29,16 +30,15 @@ const Btn = forwardRef(({
       {contentType === btnContentTypes.text && content}
     </button>
   )
-  console.log(tooltipOffset)
 
   return hasTooltip ? (
-    <Tooltip
+    <CustomTooltip
       title={tooltipContent}
       placement="top"
-      PopperProps={{modifiers: [{ name: 'offset', options: { offset: tooltipOffset } }]}}
-      classes={tooltipClasses}
-    ><span>{button}</span>
-    </Tooltip>
+      PopperProps={{ modifiers: [{ name: 'offset', options: { offset: tooltipOffset } }] }}
+    >
+      <span>{button}</span>
+    </CustomTooltip>
   ) : button
 })
 
