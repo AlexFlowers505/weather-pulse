@@ -5,7 +5,9 @@ import { useGeolocation } from '../../hooks/useGeolocation'
 import {default as states} from '../../constants/locationAccessStates'
 import {default as codes} from '../../constants/locationAccessErrorCodes'
 
-const handleGeolocationStatus = (status, position, error, getCurrentPosition) => {
+const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading) => {
+    if (loading) return <p>Loading...</p>
+
     switch (status) {
         case states.UNSUPPORTED: return (
             <>
@@ -66,11 +68,11 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition) =>
 
 
 export default function GeolocationBlock() {
-    const { status, position, error, getCurrentPosition } = useGeolocation()
+    const { status, position, error, getCurrentPosition, loading, permissionAwait } = useGeolocation()
 
     return (
         <>
-            {handleGeolocationStatus(status, position, error, getCurrentPosition)}
+            {handleGeolocationStatus(status, position, error, getCurrentPosition, loading, permissionAwait)}
         </>
     )
 }
