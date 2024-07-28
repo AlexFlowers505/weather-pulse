@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 import { fetchIcon } from '../../api/openWeatherMap'
+import FavouriteBtn from './btns/FavouriteBtn'
+import btnStyles from '../../styles/components/btnStyles'
 
 function handleHighlightMatchText(textWithMatch='', request) {
   if (request.length) {
@@ -37,7 +39,13 @@ export default function SearchResult({...props}) {
   }, [locTempIcon])
 
   return (
-    <li>
+    <li className={`${tw.externalWrapper}`}>
+        <FavouriteBtn 
+          btnSize={btnStyles.size.sm}
+          btnStyle={btnStyles.style.contentOnly}
+          extraBtnClass={`${tw.favouriteBtn}`}
+          extraSVGClass={`${tw.favouriteBtnIcon}`}
+        />
         <a className={`${tw.wrapper}`} tabIndex={0}>
           <div className={`${tw.innerWrapper}`}>
             <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>

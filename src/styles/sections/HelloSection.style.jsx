@@ -1,13 +1,4 @@
 export const helloSectionStyle = {
-    logo: `
-        max-w-7xl
-        w-2/3
-        md:w-1/2
-    `,
-    search: `
-        w-full
-        relative
-    `,
     section: `
         flex 
         flex-col 
@@ -21,12 +12,16 @@ export const helloSectionStyle = {
         -translate-x-1/2 
         top-1/3
         -translate-y-1/2 
+        
+        sm:top-1/4
+        sm:-translate-y-1/3 
     `,
     logoWrapper: `
         flex 
         flex-col 
         justify-start 
         items-center 
+        w-xl
         max-w-full
         gap-6
 
@@ -35,11 +30,12 @@ export const helloSectionStyle = {
     logotype: `
         text-text 
         font-bold 
-        text-[2.5rem]
+        text-[2.3rem]
         text-center 
         w-max
+        cursor-default
 
-        md:text-9xl 
+        sm:text-7xl 
     `,
     interactionBlock: `
         flex 
@@ -48,5 +44,15 @@ export const helloSectionStyle = {
         w-full 
         justify-start 
         items-center
-    `
+    `,
+    logo: `
+        w-72
+        max-w-full
+        
+        sm:w-96
+    `,
+    search: `
+        w-full
+        relative
+    `,
 }

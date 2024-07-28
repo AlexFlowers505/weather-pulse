@@ -4,9 +4,7 @@ export const mainLayoutStyle = {
       h-screen
       min-w-[348px]
       min-h-fit
-      bg-gradient-to-r
-      from-bgLinearStart
-      to-bgLinearEnd
+      max-h-fit
       font-montserrat
       p-5
     `,

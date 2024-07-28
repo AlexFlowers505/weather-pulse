@@ -6,7 +6,7 @@ const CustomTooltip = styled(({ className, ...props }) => (
   ))({
     [`& .MuiTooltip-tooltip`]: {
       fontFamily: 'Montserrat, sans-serif',
-      fontSize: '12px', 
+      fontSize: '14px', 
       fontWeight: 300,
       backgroundColor: 'rgba(0,0,0,.4)',
       backdropFilter: 'blur(6px)',

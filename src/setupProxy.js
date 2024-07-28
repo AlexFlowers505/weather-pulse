@@ -7,8 +7,8 @@ module.exports = function(app) {
       target: 'https://suggestions.dadata.ru',
       changeOrigin: true,
       pathRewrite: { '^/api/dadata': '' },
-      timeout: 10000,
-      proxyTimeout: 10000
+      timeout: 20000,
+      proxyTimeout: 20000
     })
   );
 
@@ -18,8 +18,8 @@ module.exports = function(app) {
       target: 'https://api.openweathermap.org',
       changeOrigin: true,
       pathRewrite: { '^/api/openweathermap': '' },
-      timeout: 10000,
-      proxyTimeout: 10000
+      timeout: 20000,
+      proxyTimeout: 20000
     })
   )
 }

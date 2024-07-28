@@ -4,14 +4,14 @@ const {celsius, fahrenheit} = temperatureUnits
 
 const key = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY
 const entryURL =  `https://api.openweathermap.org/`
-const iconsURL = {
-    entry: `https://openweathermap.org/`,
-    iconPath: `img/wn/`,
-    modifier: `@4x`,
-    extention: `.png`
-}
 
 export const fetchIcon = async iconName => {
+    const iconsURL = {
+        entry: `https://openweathermap.org/`,
+        iconPath: `img/wn/`,
+        modifier: `@4x`,
+        extention: `.png`
+    }
     try {
         const url = `${iconsURL.entry}${iconsURL.iconPath}${iconName}${iconsURL.modifier}${iconsURL.extention}` 
         const response = await fetch(url)

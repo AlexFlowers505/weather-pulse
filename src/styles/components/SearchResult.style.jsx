@@ -1,4 +1,11 @@
 export const searchResultStyle = {
+    externalWrapper: `
+      flex 
+      flex-row 
+      align-start 
+      justify-start
+      relative
+    `,
     wrapper: `
       flex 
       flex-col
@@ -12,6 +19,8 @@ export const searchResultStyle = {
       rounded-xl
       px-3
       py-1
+      pl-8
+      w-full
       outline-none
       focus:outline-none
       hover:bg-hoverState
@@ -28,6 +37,19 @@ export const searchResultStyle = {
     `,
     locationNameWrapper: `
   
+    `,
+    favouriteBtn: `
+      !p-1.5
+      absolute 
+      h-fit
+      group/btn
+      `,
+      favouriteBtnIcon: `
+      !w-5 
+      !h-5 
+      text-borderColor
+      group-hover/btn:text-favourite
+      group-focus/btn:text-favourite
     `,
     forecastWrapper: `
       flex

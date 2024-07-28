@@ -2,7 +2,7 @@ import Btn from '../Btn'
 import svgSymbols from '../../../constants/svgSymbols'
 import btnContentTypes from '../../../constants/btnContentTypes'
 
-export default function DismissBtn({btnSize, btnStyle, extraBtnStyles, onClick}) {
+export default function DismissBtn({btnSize, btnStyle, extraBtnClass, onClick, hasTooltip=false, tooltipContent=''}) {
 
     const closeBtnData = {
         content: svgSymbols.iconClose,
@@ -16,10 +16,12 @@ export default function DismissBtn({btnSize, btnStyle, extraBtnStyles, onClick})
         <Btn 
             content={content} 
             contentType={contentType} 
-            extraBtnStyles={extraBtnStyles} 
+            extraBtnClass={extraBtnClass} 
             btnSize={btnSize} 
             btnStyle={btnStyle} 
             onClick={onClick}
+            hasTooltip={hasTooltip}
+            tooltipContent={tooltipContent}
         />  
     )
 }

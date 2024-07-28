@@ -11,7 +11,7 @@ export default function DiverseForecast() {
   return (
     <section className={`forecast container-visuals ${tw.wrapper}`}>
         <Btn 
-            extraBtnStyles={tw.expandBtn}
+            extraBtnClass={tw.expandBtn}
             contentType={btnContentTypes.icon}
             content={svgSymbols.iconExpand}
             btnSize={btnStyles.size.md}

@@ -4,5 +4,9 @@ export const spriteSvgStyle = {
         h-6
         md:w-7 
         md:h-7
+
+        transition-all
+        ease-in-out
+        duration-200
     `,
 }

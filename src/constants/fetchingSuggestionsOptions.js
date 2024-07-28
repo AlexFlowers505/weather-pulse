@@ -1,6 +1,6 @@
 const fetchingSuggestionsOptions = {
     minRequestSymbolsQnt: 2,
-    suggestionsQnt: 8,
+    suggestionsQnt: 5,
     debounceTimeInMilisec: 550
 }
 

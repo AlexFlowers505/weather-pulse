@@ -1,67 +1,29 @@
-import { useEffect, useState, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import btnStyles from '../../styles/components/btnStyles'
-import btnContentTypes from "../../constants/btnContentTypes"
 import DismissBtn from './btns/CloseBtn'
 import SearchResults from './SearchResults'
-import { fetchAreasSuggestions } from "../../api/dadata"
-import { fetchLocationsForecasts } from "../../api/openWeatherMap"
-import { removeMultipleSpaces } from "../../utils/utils"
-import options from "../../constants/fetchingSuggestionsOptions"
-import searchResultsStates from "../../constants/searchResultsStates"
 import { handleClearSearchBtnClick } from "../../utils/utils"
 import { searchStyle as tw } from "../../styles/components/Search.style"
-import temperatureUnits from "../../constants/temperatureUnits"
-import Btn from "./Btn"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
-
-const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
+import useFetchSuggestions from '../../hooks/useFetchSuggestions'
 
 const searchBarAttrs = {
-  placeHolder: 'Начните вводить название населенного пункта'
-};
+  placeHolder: 'Начните вводить название населенного пункта',
+  dismissBtnTooltipContent: 'Очистить поле поиска',
+}
 
 export default function Search({styles=''}) {
-
   const [request, setRequest] = useState('')
-  const [fetchState, setFetchState] = useState(IDLE)
   const [repeatFetch, setRepeatFetch] = useState(false)
-  const [suggestions, setSuggestions] = useState([])
   const inputRef = useRef(null)
+  const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch)
 
   const handleRequestChange = evt => {
-    setRequest(evt.target.value);
-  };
+    setRequest(evt.target.value)
+  }
 
-  // page loaded handler
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
-  // request handler
-  useEffect(() => {
-    const formattedRequest = removeMultipleSpaces(request)
-
-    const debounceFetch = setTimeout(() => {
-      if (formattedRequest.length > options.minRequestSymbolsQnt) {
-        setFetchState(LOADING)
-
-        fetchAreasSuggestions(formattedRequest)
-          .then(data => fetchLocationsForecasts(data))
-          .then(data => { 
-            setSuggestions(data)
-            setFetchState(data.length ? SUCCESS : NO_RESULTS)
-          })
-          .catch(error => { 
-            setFetchState(ERROR)
-            console.error(error)
-          });
-      } else {
-        setFetchState(IDLE)
-        setSuggestions([])
-      }
-    }, options.debounceTimeInMilisec)
-
-    return () => clearTimeout(debounceFetch)
-  }, [request, repeatFetch])
+  // Focus the input on page load
+  useEffect(() => inputRef.current.focus(), [])
 
   return (
     <div className={`search-block ${tw.searchBlock} ${styles}`}>
@@ -77,18 +39,17 @@ export default function Search({styles=''}) {
         <div className={`btn-wrapper ${tw.btnWrapper}`}>
           {!!request.length && (
             <DismissBtn
-              extraBtnStyles={tw.DismissBtn}
+              extraBtnClass={tw.DismissBtn}
               hasTooltip={true}
-              tooltipContent={'Очистить'}
+              tooltipContent={searchBarAttrs.dismissBtnTooltipContent}
               btnSize={btnStyles.size.md}
               btnStyle={btnStyles.style.contentOnly}
               onClick={() => handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest)}
             />
           )}
           <ChangeUnitsBtn 
-            extraBtnStyles={tw.unitsBtn}
+            extraBtnClass={tw.unitsBtn}
             btnStyle={btnStyles.style.contentOnly}
-            
             btnSize={btnStyles.size.md}
             onClick={() => handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest)}          
           />
@@ -99,8 +60,8 @@ export default function Search({styles=''}) {
         fetchState={fetchState}
         request={request}
         inputRef={inputRef}
-        setFetchState={setFetchState}
         setRequest={setRequest}
+        setFetchState={setFetchState}
         setRepeatFetch={setRepeatFetch}
       />
     </div>

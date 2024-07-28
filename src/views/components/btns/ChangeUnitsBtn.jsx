@@ -5,7 +5,7 @@ import btnContentTypes from '../../../constants/btnContentTypes'
 
 const { celsius, fahrenheit } = temperatureUnits
 
-export default function ChangeUnitsBtn({ extraBtnStyles, extraSVGstyle, btnSize, btnStyle }) {
+export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, btnStyle }) {
   const [units, setUnits] = useState(celsius.symbol)
 
   const getTooltipContent = (unitsFullName) => `Считать ${unitsFullName}`
@@ -21,7 +21,7 @@ export default function ChangeUnitsBtn({ extraBtnStyles, extraSVGstyle, btnSize,
     <Btn
       contentType={btnContentTypes.text}
       content={units}
-      extraBtnStyles={extraBtnStyles}
+      extraBtnClass={extraBtnClass}
       extraSVGstyle={extraSVGstyle}
       btnSize={btnSize}
       btnStyle={btnStyle}

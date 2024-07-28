@@ -17,7 +17,6 @@ const generateSearchResults = (suggestions, request) => {
         suggestions.map( (sugg, i, arr) => {
             const { area, region, country, forecast } = sugg
             const { main: {temp} } = forecast
-            // const { weather[0]: {icon}} = forecast
             const locNameMatch = request
             return (<>
                 <SearchResult 
@@ -42,7 +41,11 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
         { 
             fetchState === IDLE ? null :
             <div className={`search-results container-visuals--custom-p ${tw.container}`}>
-                <ul className={`search-results-list ${tw.list}`} style={{...customStyles.list}}>
+                <ul 
+                    className={`search-results-list ${tw.list}`} 
+                    style={{...customStyles.list}}
+                    tabIndex={-1}    
+                >
                     {
                         fetchState === LOADING ? 
                             generateLoaderSkeletons(

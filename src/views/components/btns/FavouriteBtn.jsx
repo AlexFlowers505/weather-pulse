@@ -20,7 +20,7 @@ const btnData = {
 
 const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
-export default function FavouriteBtn({ btnSize, btnStyle }) {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass }) {
   const [isFavourite, setIsFavourite] = useState(false)
   const handleFavouriteBtnClick = () => setIsFavourite(prevState => !prevState)
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
@@ -33,9 +33,12 @@ export default function FavouriteBtn({ btnSize, btnStyle }) {
       btnSize={btnSize}
       btnStyle={btnStyle}
       extraSVGstyle={extraSVGstyle}
+      extraBtnClass={extraBtnClass}
+      extraSVGClass={extraSVGClass}
       onClick={handleFavouriteBtnClick}
       hasTooltip={true}
       tooltipContent={tooltipContent}
+      tooltipOffset={[0, -10]}
     />
   )
 }
