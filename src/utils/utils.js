@@ -34,3 +34,7 @@ export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, se
     setRepeatFeatch( prev => !prev )
     inputRef.current.focus()
 }
+
+export function test() {
+    console.log('hey')
+}

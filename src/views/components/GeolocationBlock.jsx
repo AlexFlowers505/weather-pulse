@@ -4,6 +4,8 @@ import btnStyles from '../../styles/components/btnStyles'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import {default as states} from '../../constants/locationAccessStates'
 import {default as codes} from '../../constants/locationAccessErrorCodes'
+import InfoMessage from '../components/InfoMessage'
+import { geolocationMessages } from '../../data/infoMessagesData'
 
 const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading) => {
     if (loading) return <p>Loading...</p>
@@ -25,6 +27,9 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
         )
         case states.GRANTED: return (
             <div>
+                <InfoMessage 
+                    message={geolocationMessages.nothingFound} 
+                />
                 <p>Your location is:</p>
                 <p>Latitude: {position.coords.latitude}</p>
                 <p>Longitude: {position.coords.longitude}</p>

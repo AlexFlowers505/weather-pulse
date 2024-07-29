@@ -7,6 +7,9 @@ export const mainLayoutStyle = {
       max-h-fit
       font-montserrat
       p-5
+      bg-gradient-to-r 
+      from-bgLinearStart 
+      to-bgLinearEnd
     `,
     contentWrapper: `
       flex
