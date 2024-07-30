@@ -22,7 +22,7 @@ export default function InfoMessage({
         hasDesc=true,
         desc=[], 
         hasCustomContent=false,
-        customContent=null,
+        customContent='',
         handleBtnClick=null, 
         hasBtn, 
         btnText='',
@@ -57,9 +57,7 @@ export default function InfoMessage({
                 {desc.map( (line, i) => <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>)}
             </div>
         )}
-        { hasCustomContent && {
-            customContent
-        }}
+        { hasCustomContent && customContent }
         { hasBtn && <Btn 
                 btnSize={btnStyles.size.sm}
                 btnStyle={btnStyles.style.outlined}
