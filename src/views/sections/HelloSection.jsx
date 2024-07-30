@@ -15,9 +15,6 @@ export default function HelloSection() {
             <Search styles={`${tw.search}`} />
             <GeolocationBlock />
         </div>
-        <div>
-
-        </div>
     </section>
   )
 }

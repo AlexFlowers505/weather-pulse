@@ -2,200 +2,169 @@ import React from 'react'
 import Btn from './Btn'
 import btnContentTypes from '../../constants/btnContentTypes'
 import btnStyles from '../../styles/components/btnStyles'
+import svgSymbols from '../../constants/svgSymbols'
+import {GeolocationDeniedInfoBlockStyle as tw} from '../../styles/components/GeolocationDeniedInfoBlock.style'
+import iconTypes from '../../constants/iconTypes'
+import detailsFlow from '../../constants/detailsFlow'
+import browserIconsData from '../../constants/browserIconsData'
+import { capitalize } from '../../utils/utils'
 
-const tw = {
-    contentWrapper: `
-        flex
-        flex-col
-        justify-start
-        items-start
-        gap-0
-    `,
-    heading: `
-        text-borderColor
-        text-2xl
-        font-semibold
-        text-center
-        w-full
-    `,
-    contentList: `
-        flex
-        flex-col
-        justify-start
-        items-start
-        gap-8
-    `,
-    contentItem: `
-        flex
-        flex-col
-        justify-start
-        items-start
-        gap-1
-        w-full
-    `,
-    contentItemHeader: `
-        flex
-        flex-row
-        justify-start
-        items-start
-        gap-3
-    `,
-    contentItemIcon: `
-        mt-0.5
-        w-7
-        h-7
-        text-text
-    `,
-    contentItemHeading: `
-        text-borderColor
-        text-2xl
-        font-semibold
-        text-center
-        w-full
-    `,
-    contentItemDetails: `
-        inline-flex
-        flex-row
-        justify-start
-        items-start
-        flex-wrap
-        gap-0
-    `,
-    contentItemDetailWrapper: `
-        inline-flex
-        flex-row
-        justify-start
-        items-start
-        flex-wrap
-        gap-2
-        w-full
-        pl-2
-    `,
-    contentItemDetail: `
-        text-borderColor
-        text-base
-    `,
-    contentItemDetailBold: `
-        font-semibold
-    `,
-    listItemSymbol: `
-        text-borderColor
-        text-base
-        font-light
-    `,
+const data = [
+    {
+        isHeaderItem: false,
+        iconType: iconTypes.svg,
+        icon: svgSymbols.iconRestart,
+        heading: 'Перезагрузка страницы',
+        detailsFlow: detailsFlow.block,
+        details: [
+            'Перезагрузите страницу',
+            'Нажмите на кнопку определения местоположения',
+            'Разрешите сервису доступ к местоположению',
+        ],
+        hasBtn: true,
+        btnContent: 'Перезагрузить страницу',
+        handleBtnClick: console.log('hey')
+    },
+    {
+        isHeaderItem: true,
+        heading: 'Если перезагрузка не помогла, нужно дать доступ к\u00A0местоположению в настройках:'
+    },
+    {
+        isHeaderItem: false,
+        iconType: iconTypes.png,
+        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.chrome}${browserIconsData.ext}`,
+        heading: `${capitalize(browserIconsData.icons.chrome)}`,
+        detailsFlow: detailsFlow.inline,
+        details: [
+            'Настройки',
+            'Конфиденциальность и безопасность',
+            'Настройки сайта',
+            'Геоданные',
+            'Weather Pulse',
+        ],
+        hasBtn: false,
+    },
+    {
+        isHeaderItem: false,
+        iconType: iconTypes.png,
+        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.firefox}${browserIconsData.ext}`,
+        heading: `${capitalize(browserIconsData.icons.firefox)}`,
+        detailsFlow: detailsFlow.inline,
+        details: [
+            'Настройки',
+            'Приватность и Защита',
+            'Разрешения',
+            'Местоположение',
+            'Параметры',
+            'Weather Pulse',
+        ],
+        hasBtn: false,
+    },
+    {
+        isHeaderItem: false,
+        iconType: iconTypes.png,
+        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.safari}${browserIconsData.ext}`,
+        heading: `${capitalize(browserIconsData.icons.safari)}`,
+        detailsFlow: detailsFlow.inline,
+        details: [
+            'Настройки',
+            'Сайты',
+            'Геопозиция',
+            'Weather Pulse',
+        ],
+        hasBtn: false,
+    },
+    {
+        isHeaderItem: false,
+        iconType: iconTypes.png,
+        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.edge}${browserIconsData.ext}`,
+        heading: `${capitalize(browserIconsData.icons.edge)}`,
+        detailsFlow: detailsFlow.inline,
+        details: [
+            'Настройки',
+            'Куки и разрешения',
+            'Местоположение',
+            'Weather Pulse',
+        ],
+        hasBtn: false,
+    },
+]
 
+const listItemSeparator = `➔`
 
-}
 export default function GeolocationDeniedInfoBlock() {
   return (
     <div className={`content-wrapper ${tw.contentWrapper}`}>
         <h6 className={`heading ${tw.heading}`}>Что делать?</h6>
         <ul className={`content-list ${tw.contentList}`}>
-            <li className={`content-item ${tw.contentItem}`}>
-                <div className={`content-item-header ${tw.contentItemHeader}`}>
-                    <svg className={`content-item-icon ${tw.contentItemIcon}`}><use href='#icon-restart'></use></svg>
-                    <p className={`content-item-heading ${tw.contentItemHeading}`}>Перезагрузка страницы</p>
-                </div>
-                <div className={`content-item-details ${tw.contentItemDetails}`}>
-                    <div className={`content-item-detail-wrapper ${tw.contentItemDetailWrapper}`}>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Перезагрузите страницу</span>
-                    </div>
-                    <div className={`content-item-detail-wrapper ${tw.contentItemDetailWrapper}`}>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Нажмите на кнопку определения местоположения</span>
-                    </div>
-                    <div className={`content-item-detail-wrapper ${tw.contentItemDetailWrapper}`}>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Разрешите сервису доступ к местоположению</span>
-                    </div>
-                </div>
+
+            { data.map( (item, i) => { 
+                return (
+                    <li key={i} className={`content-item ${tw.contentItem}`}>
+                        {item.isHeaderItem ? (
+                            <p className={`content-item-heading ${tw.contentItemHeading}`}>{item.heading}</p>
+                        ) : (<>
+                                <div className={`content-item-header ${tw.contentItemHeader}`}>
+                                    {item.iconType === iconTypes.svg ? <svg className={`content-item-icon ${tw.contentItemIcon}`}><use href={`#${item.icon}`}></use></svg> :
+                                    item.iconType === iconTypes.png ? <img className={`content-item-icon ${tw.contentItemIcon}`} src={item.icon} /> : null}
+                                    <p className={`content-item-heading ${tw.contentItemHeading}`}>{item.heading}</p>
+                                </div>
+
+                                <div className={`content-item-details ${tw.contentItemDetails}`}>
+                                    {
+                                        item.detailsFlow === detailsFlow.block ? (
+                                            item.details.map((detail, i) => {
+                                                return (
+                                                    <div className={`content-item-detail-wrapper ${tw.contentItemDetailsWrapper}`} key={i}>
+                                                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemSeparator}</span>
+                                                        <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
+                                                    </div>
+                                                )
+                                            }))
+                                        : item.detailsFlow === detailsFlow.inline ? (
+                                            <div className={`content-item-details-wrapper ${tw.contentItemDetailsWrapper}`}>
+                                                {
+                                                    item.details.map((detail, i, arr) => {
+                                                        return (
+                                                            <React.Fragment key={i}>
+                                                                <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
+                                                                {i < arr.length-1 && <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemSeparator}</span>}
+                                                            </React.Fragment>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        ) : null 
+                                    }
+                                </div>
+
+                                {item.hasBtn &&(
+                                    <Btn 
+                                        contentType={btnContentTypes.text}
+                                        content={item.btnContent}
+                                        btnStyle={btnStyles.style.outlined}
+                                        btnSize={btnStyles.size.sm}
+                                        extraBtnClass={tw.refreshPageBtn}
+                                        onClick={item.handleBtnClick}
+                                    />
+                                )}
+                            </>)}
+                    </li>
+                )
+            })}
+            <div className={`btn-wrapper ${tw.btnWrapper}`}>
                 <Btn 
-                    contentType={btnContentTypes.text}
-                    content={`Перезагрузить страницу`}
-                    btnStyle={btnStyles.style.outlined}
+                    contentType={btnContentTypes.icon}
+                    content={svgSymbols.iconArrowInCircle}
+                    btnStyle={btnStyles.style.contentOnly}
                     btnSize={btnStyles.size.sm}
-                    extraBtnClass={`!py-2 !px-4 ml-2 mt-2 !rounded-xl`}
+                    extraBtnClass={`!p-0`}
+                    hasTooltip={true}
+                    tooltipContent={'Свернуть'}
+                    extraSVGClass={`!w-16 !h-16`}
                 />
-            </li>
-            <li className={`content-item ${tw.contentItem}`}>
-                <p className={`content-item-detail ${tw.contentItemDetail} w-full text-center`}>Если перезагрузка не помогла, нужно дать доступ к местоположению в настройках:</p>
-            </li>
-            <li className={`content-item ${tw.contentItem}`}>
-                <div className={`content-item-header ${tw.contentItemHeader}`}>
-                    <img className={`content-item-icon ${tw.contentItemIcon}`} src={'./assets/images/browser-icons/icon-chrome.png'} />
-                    <p className={`content-item-heading ${tw.contentItemHeading}`}>Chrome</p>
-                </div>
-                <div className={`content-item-details ${tw.contentItemDetailWrapper}`}>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Настройки</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Конфиденциальность и безопасность</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Настройки сайта</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Геоданные</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Weather Pulse</span>
-                </div>
-            </li>
-            <li className={`content-item ${tw.contentItem}`}>
-                <div className={`content-item-header ${tw.contentItemHeader}`}>
-                    <img className={`content-item-icon ${tw.contentItemIcon}`} src={'./assets/images/browser-icons/icon-firefox.png'} />
-                    <p className={`content-item-heading ${tw.contentItemHeading}`}>Firefox</p>
-                </div>
-                <div className={`content-item-details ${tw.contentItemDetailWrapper}`}>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Настройки</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Приватность и Защита</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Разрешения</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Местоположение</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Параметры</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Weather Pulse</span>
-                </div>
-            </li>
-            <li className={`content-item ${tw.contentItem}`}>
-                <div className={`content-item-header ${tw.contentItemHeader}`}>
-                    <img className={`content-item-icon ${tw.contentItemIcon}`} src={'./assets/images/browser-icons/icon-safari.png'} />
-                    <p className={`content-item-heading ${tw.contentItemHeading}`}>Firefox</p>
-                </div>
-                <div className={`content-item-details ${tw.contentItemDetailWrapper}`}>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Настройки</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Сайты</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Геопозиция</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Weather Pulse</span>
-                </div>
-            </li>
-            <li className={`content-item ${tw.contentItem}`}>
-                <div className={`content-item-header ${tw.contentItemHeader}`}>
-                    <img className={`content-item-icon ${tw.contentItemIcon}`} src={'./assets/images/browser-icons/icon-edge.png'} />
-                    <p className={`content-item-heading ${tw.contentItemHeading}`}>Firefox</p>
-                </div>
-                <div className={`content-item-details ${tw.contentItemDetailWrapper}`}>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Настройки</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Куки и разрешения</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Местоположение</span>
-                        <span className={`list-item-symbol ${tw.listItemSymbol}`}>➔</span>
-                        <span className={`content-item-detail ${tw.contentItemDetail}`}>Weather Pulse</span>
-                </div>
-            </li>
+            </div>
         </ul>
-        <Btn 
-            contentType={btnContentTypes.icon}
-            content={`Перезагрузить страницу`}
-            btnStyle={btnStyles.style.outlined}
-            btnSize={btnStyles.size.sm}
-            extraBtnClass={`!py-2 !px-4 ml-2 mt-2 !rounded-xl`}
-        />
-        <button><svg><use href="#icon-arrow-in-circle"></use></svg></button>
     </div>
   )
 }

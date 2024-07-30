@@ -40,7 +40,7 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
     <>
         { 
             fetchState === IDLE ? null :
-            <div className={`search-results container-visuals--custom-p ${tw.container}`}>
+            <div className={`search-results ${tw.container}`}>
                 <ul 
                     className={`search-results-list ${tw.list}`} 
                     style={{...customStyles.list}}

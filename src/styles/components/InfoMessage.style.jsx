@@ -58,8 +58,8 @@ export const infoMessageStyle = {
       md:!p-2
 
       absolute
-      top-0 
-      right-0
+      top-2
+      right-2
   
       hover:scale-125
       hover:-rotate-180

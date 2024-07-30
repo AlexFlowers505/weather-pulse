@@ -22,7 +22,6 @@ export default function Search({styles=''}) {
     setRequest(evt.target.value)
   }
 
-  // Focus the input on page load
   useEffect(() => inputRef.current.focus(), [])
 
   return (

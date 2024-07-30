@@ -5,16 +5,19 @@ export const helloSectionStyle = {
         justify-start 
         items-center 
         gap-12
+        pb-10
 
-        absolute
-        w-full
-        left-1/2 
-        -translate-x-1/2 
-        top-1/3
-        -translate-y-1/2 
+        absolute*
+        w-full*
+        left-1/2 *
+        -translate-x-1/2*
+        top-1/3*
+        -translate-y-1/2*
         
-        sm:top-1/4
-        sm:-translate-y-1/3 
+        sm:top-1/4*
+        sm:-translate-y-1/3*
+
+        mt-24
     `,
     logoWrapper: `
         flex 
@@ -42,6 +45,7 @@ export const helloSectionStyle = {
         flex-col 
         gap-8
         w-full 
+        max-w-2xl
         justify-start 
         items-center
     `,

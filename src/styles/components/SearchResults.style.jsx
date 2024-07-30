@@ -1,7 +1,9 @@
 export const SearchResultsStyle = {
     container: `
+        z-10
         absolute
         w-full
+        container-visuals--custom-p
         p-2
         shadow-md
         top-16

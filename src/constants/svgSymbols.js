@@ -7,5 +7,7 @@ export default {
     iconCelsius: 'icon-celsius',
     iconFahrenheit: 'icon-fahrenheit',
     iconExpand: 'icon-expand',
+    iconRestart: 'icon-restart',
+    iconArrowInCircle: 'icon-arrow-in-circle',
 }
 

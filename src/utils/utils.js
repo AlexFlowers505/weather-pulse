@@ -38,3 +38,7 @@ export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, se
 export function test() {
     console.log('hey')
 }
+
+export function capitalize(str) {
+    return str[0].toUpperCase() + str.slice(1)
+}

@@ -6,6 +6,7 @@ import {default as states} from '../../constants/locationAccessStates'
 import {default as codes} from '../../constants/locationAccessErrorCodes'
 import InfoMessage from '../components/InfoMessage'
 import { geolocationMessages } from '../../data/infoMessagesData'
+import MessageWrapper from './MessageWrapper'
 
 const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading) => {
     if (loading) return <p>Loading...</p>
@@ -26,25 +27,15 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
             />
         )
         case states.GRANTED: return (
-            <div>
-                <InfoMessage 
-                    message={geolocationMessages.nothingFound} 
-                />
-                <p>Your location is:</p>
-                <p>Latitude: {position.coords.latitude}</p>
-                <p>Longitude: {position.coords.longitude}</p>
-            </div>
+            <MessageWrapper>
+                <InfoMessage message={geolocationMessages.nothingFound} />
+            </MessageWrapper>
         )
         case states.DENIED: return (
             <>
-                <p>Location access denied. Please enable it in your browser settings and reload the page.</p>
-                <p>Instructions:</p>
-                <ul>
-                    <li><b>Chrome:</b> Go to Settings → Privacy and Security → Site Settings → Location</li>
-                    <li><b>Firefox:</b> Go to Preferences → Privacy & Security → Permissions → Location</li>
-                    <li><b>Edge:</b> Go to Settings → Site Permissions → Location</li>
-                    <li><b>Safari:</b> Go to Preferences → Websites → Location</li>
-                </ul>
+                <p>Your location is:</p>
+                <p>Latitude: {position.coords.latitude}</p>
+                <p>Longitude: {position.coords.longitude}</p>
             </>
         )
         case states.ERROR:
