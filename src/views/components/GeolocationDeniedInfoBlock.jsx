@@ -188,6 +188,13 @@ export default function GeolocationDeniedInfoBlock() {
                 </div>
             </li>
         </ul>
+        <Btn 
+            contentType={btnContentTypes.icon}
+            content={`Перезагрузить страницу`}
+            btnStyle={btnStyles.style.outlined}
+            btnSize={btnStyles.size.sm}
+            extraBtnClass={`!py-2 !px-4 ml-2 mt-2 !rounded-xl`}
+        />
         <button><svg><use href="#icon-arrow-in-circle"></use></svg></button>
     </div>
   )

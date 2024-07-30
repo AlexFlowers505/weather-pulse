@@ -33,7 +33,7 @@ export default function SearchResult({...props}) {
       } catch (error) {
         console.error('Error fetching icon:', error)
       }
-    };
+    }
 
     loadIcon()
   }, [locTempIcon])
