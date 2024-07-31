@@ -42,3 +42,7 @@ export function test() {
 export function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1)
 }
+
+export function refreshPage() {
+    window.location.reload()
+}

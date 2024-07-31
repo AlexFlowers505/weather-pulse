@@ -1,5 +1,5 @@
 import browserIconsData from '../constants/browserIconsData'
-import { capitalize } from '../utils/utils'
+import { capitalize, refreshPage } from '../utils/utils'
 import iconTypes from '../constants/iconTypes'
 import svgSymbols from '../constants/svgSymbols'
 import detailsFlow from '../constants/detailsFlow'
@@ -15,12 +15,12 @@ export const geolocationAccessDeniedInstruction = {
             detailsFlow: detailsFlow.block,
             details: [
                 'Перезагрузите страницу',
-                'Нажмите кнопку определения местоположения',
+                'Нажмите кнопку определения местоположения еще раз',
                 'Разрешите сервису доступ к местоположению',
             ],
             hasBtn: true,
             btnContent: 'Перезагрузить страницу',
-            handleBtnClick: console.log('hey')
+            handleBtnClick: () => refreshPage()
         },
         {
             isHeaderItem: true,

@@ -7,16 +7,6 @@ export const helloSectionStyle = {
         gap-12
         pb-10
 
-        absolute*
-        w-full*
-        left-1/2 *
-        -translate-x-1/2*
-        top-1/3*
-        -translate-y-1/2*
-        
-        sm:top-1/4*
-        sm:-translate-y-1/3*
-
         mt-24
     `,
     logoWrapper: `

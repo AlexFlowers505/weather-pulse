@@ -34,7 +34,7 @@ export const geolocationMessages = {
         hasEmoticon: true,
         emoticon: `¯\\_(ツ)_/¯`,
         hasDismissBtn: true,
-        handleDismissBtnClick: null,
+        handleDismissBtnClick: test,
         descriptionLayout: textLayouts.align.left,
         dismissBtnTooltipContent: `Закрыть`,
         heading: `Вы не дали доступ к\u00A0местоположению`,
