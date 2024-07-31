@@ -1,12 +1,9 @@
 import Btn from "./Btn"
 import btnStyles from "../../styles/components/btnStyles"
 import btnContentTypes from "../../constants/btnContentTypes"
-import searchResultsStates from "../../constants/searchResultsStates"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "../components/btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
-
-// const {IDLE} = searchResultsStates
 
 export default function InfoMessage({
     inputRef=null, 
@@ -15,6 +12,7 @@ export default function InfoMessage({
     setRepeatFetch=null, 
     request=null, 
     message}) {
+        
     const { 
         hasEmoticon, 
         emoticon='', 

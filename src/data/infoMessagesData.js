@@ -30,7 +30,7 @@ export const searchMessages = {
 }
 
 export const geolocationMessages = {
-    nothingFound: {
+    accessDenied: {
         hasEmoticon: true,
         emoticon: `¯\\_(ツ)_/¯`,
         hasDismissBtn: true,

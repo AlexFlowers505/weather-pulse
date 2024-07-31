@@ -28,7 +28,7 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
         )
         case states.GRANTED: return (
             <MessageWrapper>
-                <InfoMessage message={geolocationMessages.nothingFound} />
+                <InfoMessage message={geolocationMessages.accessDenied} />
             </MessageWrapper>
         )
         case states.DENIED: return (

@@ -6,99 +6,18 @@ import svgSymbols from '../../constants/svgSymbols'
 import {GeolocationDeniedInfoBlockStyle as tw} from '../../styles/components/GeolocationDeniedInfoBlock.style'
 import iconTypes from '../../constants/iconTypes'
 import detailsFlow from '../../constants/detailsFlow'
-import browserIconsData from '../../constants/browserIconsData'
-import { capitalize } from '../../utils/utils'
+import {geolocationAccessDeniedInstruction as data} from '../../data/GeolocationAccessDeniedInstruction'
+import { textSymbols } from '../../constants/textSymbols'
 
-const data = [
-    {
-        isHeaderItem: false,
-        iconType: iconTypes.svg,
-        icon: svgSymbols.iconRestart,
-        heading: 'Перезагрузка страницы',
-        detailsFlow: detailsFlow.block,
-        details: [
-            'Перезагрузите страницу',
-            'Нажмите на кнопку определения местоположения',
-            'Разрешите сервису доступ к местоположению',
-        ],
-        hasBtn: true,
-        btnContent: 'Перезагрузить страницу',
-        handleBtnClick: console.log('hey')
-    },
-    {
-        isHeaderItem: true,
-        heading: 'Если перезагрузка не помогла, нужно дать доступ к\u00A0местоположению в настройках:'
-    },
-    {
-        isHeaderItem: false,
-        iconType: iconTypes.png,
-        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.chrome}${browserIconsData.ext}`,
-        heading: `${capitalize(browserIconsData.icons.chrome)}`,
-        detailsFlow: detailsFlow.inline,
-        details: [
-            'Настройки',
-            'Конфиденциальность и безопасность',
-            'Настройки сайта',
-            'Геоданные',
-            'Weather Pulse',
-        ],
-        hasBtn: false,
-    },
-    {
-        isHeaderItem: false,
-        iconType: iconTypes.png,
-        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.firefox}${browserIconsData.ext}`,
-        heading: `${capitalize(browserIconsData.icons.firefox)}`,
-        detailsFlow: detailsFlow.inline,
-        details: [
-            'Настройки',
-            'Приватность и Защита',
-            'Разрешения',
-            'Местоположение',
-            'Параметры',
-            'Weather Pulse',
-        ],
-        hasBtn: false,
-    },
-    {
-        isHeaderItem: false,
-        iconType: iconTypes.png,
-        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.safari}${browserIconsData.ext}`,
-        heading: `${capitalize(browserIconsData.icons.safari)}`,
-        detailsFlow: detailsFlow.inline,
-        details: [
-            'Настройки',
-            'Сайты',
-            'Геопозиция',
-            'Weather Pulse',
-        ],
-        hasBtn: false,
-    },
-    {
-        isHeaderItem: false,
-        iconType: iconTypes.png,
-        icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.edge}${browserIconsData.ext}`,
-        heading: `${capitalize(browserIconsData.icons.edge)}`,
-        detailsFlow: detailsFlow.inline,
-        details: [
-            'Настройки',
-            'Куки и разрешения',
-            'Местоположение',
-            'Weather Pulse',
-        ],
-        hasBtn: false,
-    },
-]
-
-const listItemSeparator = `➔`
+const {listItemsSeparator} = textSymbols
 
 export default function GeolocationDeniedInfoBlock() {
   return (
     <div className={`content-wrapper ${tw.contentWrapper}`}>
-        <h6 className={`heading ${tw.heading}`}>Что делать?</h6>
+        <h6 className={`heading ${tw.heading}`}>{data.heading}</h6>
         <ul className={`content-list ${tw.contentList}`}>
 
-            { data.map( (item, i) => { 
+            { data.listItems.map( (item, i) => { 
                 return (
                     <li key={i} className={`content-item ${tw.contentItem}`}>
                         {
@@ -118,7 +37,7 @@ export default function GeolocationDeniedInfoBlock() {
                                                 item.details.map((detail, i) => {
                                                     return (
                                                         <div className={`content-item-detail-wrapper ${tw.contentItemDetailsWrapper}`} key={i}>
-                                                            <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemSeparator}</span>
+                                                            <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemsSeparator}</span>
                                                             <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
                                                         </div>
                                                     )
@@ -130,7 +49,7 @@ export default function GeolocationDeniedInfoBlock() {
                                                             return (
                                                                 <React.Fragment key={i}>
                                                                     <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
-                                                                    {i < arr.length-1 && <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemSeparator}</span>}
+                                                                    {i < arr.length-1 && <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemsSeparator}</span>}
                                                                 </React.Fragment>
                                                             )
                                                         })

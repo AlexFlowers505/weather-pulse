@@ -35,10 +35,17 @@ const generateSearchResults = (suggestions, request) => {
     }</>)
 }
 
-export default function SearchResults({fetchState, suggestions=[], request='', inputRef=null, setFetchState=null, setRequest=null, setRepeatFetch=null }) 
-    { return (
-    <>
-        { 
+export default function SearchResults(
+    {
+        fetchState, 
+        suggestions=[], 
+        request='', 
+        inputRef=null, 
+        setFetchState=null, 
+        setRequest=null, 
+        setRepeatFetch=null 
+    }) { 
+        return (<> { 
             fetchState === IDLE ? null :
             <div className={`search-results ${tw.container}`}>
                 <ul 
@@ -79,7 +86,5 @@ export default function SearchResults({fetchState, suggestions=[], request='', i
                     }
                 </ul>
             </div>
-        }
-    </>
-  )
+    } </>)
 }
