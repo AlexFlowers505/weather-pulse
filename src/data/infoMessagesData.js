@@ -1,11 +1,12 @@
-import { handleClearSearchBtnClick, handleRepeatSearchBtnClick, test } from "../utils/utils"
+import { handleClearSearchBtnClick, handleRepeatSearchBtnClick, setLocationAccessState } from "../utils/utils"
 import textLayouts from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
+import { emoticons } from "../constants/emoticons"
 
 export const searchMessages = {
     nothingFound: {
         hasEmoticon: true,
-        emoticon: `¯\\_(ツ)_/¯`,
+        emoticon: emoticons.shrug,
         heading: `Ничего не найдено`,
         desc: [
             `Попробуйте изменить запрос`,
@@ -16,7 +17,7 @@ export const searchMessages = {
     },
     fetchError: {
         hasEmoticon: true,
-        emoticon: `( ⚆ _ ⚆ )`,
+        emoticon: emoticons.awkward,
         heading: `Что-то пошло не так`,
         desc: [
             `Случилась ошибка на стороне сервера.`,
@@ -32,9 +33,8 @@ export const searchMessages = {
 export const geolocationMessages = {
     accessDenied: {
         hasEmoticon: true,
-        emoticon: `¯\\_(ツ)_/¯`,
+        emoticon: emoticons.shrug,
         hasDismissBtn: true,
-        handleDismissBtnClick: test,
         descriptionLayout: textLayouts.align.left,
         dismissBtnTooltipContent: `Закрыть`,
         heading: `Вы не дали доступ к\u00A0местоположению`,

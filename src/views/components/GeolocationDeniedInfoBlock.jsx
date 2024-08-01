@@ -15,7 +15,7 @@ const useToggle = (initialState = false) => {
 }
 
 const animateHeightConfig = {
-  defaultHeight: 100,
+  defaultHeight: 130,
   finalHeight: 'auto',
   duration: 500
 }
@@ -34,12 +34,17 @@ export default function GeolocationDeniedInfoBlock() {
   }, [unraveled])
 
   const toggleBtnClass = `${tw.unravelBtn} ${!unraveled && tw.unravelBtnReversed}`
+  const animateHeightClass = `animate-height-component ${tw.animateHeightComponent} ${!!unraveled && tw.animateHeightComponentUnraveled}`
   const toggleBtnTooltip = unraveled ? toggleBtnTooltipContents.toggleUp : toggleBtnTooltipContents.toggleDown
 
   return (
     <div className={`content-wrapper ${tw.contentWrapper}`}>
       <h6 className={`heading ${tw.heading}`}>{data.heading}</h6>
-      <AnimateHeight id="example-panel" duration={animateHeightConfig.duration} height={height}>
+      <AnimateHeight 
+        duration={animateHeightConfig.duration} 
+        height={height}
+        className={animateHeightClass}
+      >
         <ul className={`content-list ${tw.contentList}`}>
           {data.listItems.map((item, i) => <ContentRichInfoBlock item={item} key={i} />)}
         </ul>

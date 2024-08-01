@@ -45,7 +45,7 @@ export default function InfoMessage({
                     btnSize={btnStyles.size.md}
                     btnStyle={btnStyles.style.contentOnly}
                     onClick={() => handleDismissBtnClick}  
-                /> 
+                />
             }
             { hasEmoticon && <span className={`illustration ${tw.illustration}`}>{emoticon}</span> }
             <span className={`heading-text ${tw.headingText}`}>{heading}</span>

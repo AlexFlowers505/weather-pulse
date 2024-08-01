@@ -1,4 +1,5 @@
 import searchResultsStates from "../constants/searchResultsStates"
+import locationAccessStates from "../constants/locationAccessStates"
 const { IDLE } = searchResultsStates
 
 
@@ -35,8 +36,8 @@ export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, se
     inputRef.current.focus()
 }
 
-export function test() {
-    console.log('hey')
+export function setLocationAccessState(setStatus) {
+    setStatus(locationAccessStates.PROMPT)
 }
 
 export function capitalize(str) {

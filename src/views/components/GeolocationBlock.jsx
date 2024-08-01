@@ -28,7 +28,9 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
         )
         case states.GRANTED: return (
             <MessageWrapper>
-                <InfoMessage message={geolocationMessages.accessDenied} />
+                <InfoMessage 
+                    message={geolocationMessages.accessDenied} 
+                />
             </MessageWrapper>
         )
         case states.DENIED: return (
@@ -45,30 +47,16 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
                         <p>Error getting user location: {error.message}</p>
                     </>
                 )
-            } else {
-                return (
-                    <>
-                        <p>Location access denied. Please enable it in your browser settings and reload the page.</p>
-                        <p>Instructions:</p>
-                        <ul>
-                            <li><b>Chrome:</b> Go to Settings → Privacy and Security → Site Settings → Location</li>
-                            <li><b>Firefox:</b> Go to Preferences → Privacy & Security → Permissions → Location</li>
-                            <li><b>Edge:</b> Go to Settings → Site Permissions → Location</li>
-                            <li><b>Safari:</b> Go to Preferences → Websites → Location</li>
-                        </ul>
-                    </>
-                )
-            }
+            } else return null
     }
 }
 
-
 export default function GeolocationBlock() {
-    const { status, position, error, getCurrentPosition, loading, permissionAwait } = useGeolocation()
+    const { status, position, error, getCurrentPosition, loading, setStatus } = useGeolocation()
 
     return (
         <>
-            {handleGeolocationStatus(status, position, error, getCurrentPosition, loading, permissionAwait)}
+            {handleGeolocationStatus(status, position, error, getCurrentPosition, loading, setStatus)}
         </>
     )
 }

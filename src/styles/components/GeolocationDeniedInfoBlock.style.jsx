@@ -43,4 +43,19 @@ export const GeolocationDeniedInfoBlockStyle = {
         !w-16 
         !h-16
     `,
+    animateHeightComponent: `
+        before:block 
+        before:absolute 
+        before:-inset-1
+        before:bg-gradient-to-t
+        before:from-bgPrimary
+        before:to-transparent
+        before:transition-all
+        before:ease-in-out
+        before:duration-200
+        relative
+    `,
+    animateHeightComponentUnraveled: `
+        before:hidden
+    `
 }
