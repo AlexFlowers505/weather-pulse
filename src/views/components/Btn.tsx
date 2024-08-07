@@ -1,7 +1,8 @@
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg.jsx'
 import btnStyles from '../../styles/components/btn.style.jsx'
 import { Btn } from '../../types/components/Btn.ts'
+import { btnContent } from '../../constants/btnContent.js'
 import CustomTooltip from './CustomTooltip.jsx'
 
 
