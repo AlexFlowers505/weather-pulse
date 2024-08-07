@@ -7,6 +7,8 @@ import svgSymbols from '../../constants/svgSymbols'
 import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style'
 import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction'
 import ContentRichInfoBlock from './ContentRichInfoBlock'
+import DismissBtn from './btns/DismissBtn'
+import locationAccessStates from '../../constants/locationAccessStates'
 
 const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState)
@@ -25,6 +27,27 @@ const toggleBtnTooltipContents = {
   toggleUp: 'Свернуть',
 }
 
+const dismissBtnCustomClasses= `
+      !p-1
+      md:!p-2
+
+      absolute
+      top-2
+      right-2
+  
+      hover:scale-125
+      hover:-rotate-180
+      hover:text-primary
+      
+      focus:-rotate-180
+      focus:scale-125
+      focus:text-primary
+      
+      active:rotate-90
+      active:scale-110
+      active:text-activeStateLight
+`
+
 export default function GeolocationDeniedInfoBlock() {
   const [unraveled, toggleUnraveled] = useToggle(false)
   const [height, setHeight] = useState(animateHeightConfig.defaultHeight)
@@ -39,6 +62,14 @@ export default function GeolocationDeniedInfoBlock() {
 
   return (
     <div className={`content-wrapper ${tw.contentWrapper}`}>
+      {/* <DismissBtn 
+        extraBtnClass={dismissBtnCustomClasses}
+        hasTooltip={true}
+        tooltipContent={'Закрыть'}
+        btnSize={btnStyles.size.md}
+        btnStyle={btnStyles.style.contentOnly}
+        onClick={() => setStatus(locationAccessStates.PROMPT)}
+      /> */}
       <h6 className={`heading ${tw.heading}`}>{data.heading}</h6>
       <AnimateHeight 
         duration={animateHeightConfig.duration} 

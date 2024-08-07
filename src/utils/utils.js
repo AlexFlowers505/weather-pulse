@@ -36,10 +36,6 @@ export function handleRepeatSearchBtnClick(inputRef=null, setFetchState=null, se
     inputRef.current.focus()
 }
 
-export function setLocationAccessState(setStatus) {
-    setStatus(locationAccessStates.PROMPT)
-}
-
 export function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1)
 }

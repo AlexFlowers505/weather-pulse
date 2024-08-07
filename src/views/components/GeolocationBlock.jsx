@@ -8,7 +8,7 @@ import InfoMessage from '../components/InfoMessage'
 import { geolocationMessages } from '../../data/infoMessagesData'
 import MessageWrapper from './MessageWrapper'
 
-const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading) => {
+const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading, setStatus) => {
     if (loading) return <p>Loading...</p>
 
     switch (status) {
@@ -28,9 +28,7 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
         )
         case states.GRANTED: return (
             <MessageWrapper>
-                <InfoMessage 
-                    message={geolocationMessages.accessDenied} 
-                />
+                <InfoMessage message={geolocationMessages.accessDenied} />
             </MessageWrapper>
         )
         case states.DENIED: return (

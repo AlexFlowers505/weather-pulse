@@ -1,4 +1,4 @@
-import { handleClearSearchBtnClick, handleRepeatSearchBtnClick, setLocationAccessState } from "../utils/utils"
+import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
 import textLayouts from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
 import { emoticons } from "../constants/emoticons"
@@ -34,7 +34,7 @@ export const geolocationMessages = {
     accessDenied: {
         hasEmoticon: true,
         emoticon: emoticons.shrug,
-        hasDismissBtn: true,
+        hasDismissBtn: false,
         descriptionLayout: textLayouts.align.left,
         dismissBtnTooltipContent: `Закрыть`,
         heading: `Вы не дали доступ к\u00A0местоположению`,

@@ -53,24 +53,4 @@ export const infoMessageStyle = {
 
         md:text-base
     `,
-    DismissBtn: `
-      !p-1
-      md:!p-2
-
-      absolute
-      top-2
-      right-2
-  
-      hover:scale-125
-      hover:-rotate-180
-      hover:text-primary
-      
-      focus:-rotate-180
-      focus:scale-125
-      focus:text-primary
-      
-      active:rotate-90
-      active:scale-110
-      active:text-activeStateLight
-    `,
 }

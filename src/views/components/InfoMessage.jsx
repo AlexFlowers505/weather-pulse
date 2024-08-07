@@ -44,7 +44,7 @@ export default function InfoMessage({
                     tooltipContent={dismissBtnTooltipContent}
                     btnSize={btnStyles.size.md}
                     btnStyle={btnStyles.style.contentOnly}
-                    onClick={() => handleDismissBtnClick}  
+                    onClick={handleDismissBtnClick}  
                 />
             }
             { hasEmoticon && <span className={`illustration ${tw.illustration}`}>{emoticon}</span> }
