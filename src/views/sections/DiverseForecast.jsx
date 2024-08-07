@@ -4,7 +4,7 @@ import {default as picData} from '../../constants/weatherPicturesNames'
 import Btn from '../components/Btn'
 import btnContentTypes from '../../constants/btnContentTypes'
 import svgSymbols from '../../constants/svgSymbols'
-import btnStyles from '../../styles/components/btnStyles'
+import btnStyles from '../../styles/components/btn.style'
 import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style'
 
 export default function DiverseForecast() {

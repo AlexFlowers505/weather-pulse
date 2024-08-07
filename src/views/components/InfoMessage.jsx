@@ -1,5 +1,5 @@
 import Btn from "./Btn"
-import btnStyles from "../../styles/components/btnStyles"
+import btnStyles from "../../styles/components/btn.style"
 import btnContentTypes from "../../constants/btnContentTypes"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "../components/btns/DismissBtn"

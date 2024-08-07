@@ -1,10 +1,12 @@
-import browserIconsData from '../constants/browserIconsData'
+import browserIconsData from '../constants/browserIconsData.ts'
 import { capitalize, refreshPage } from '../utils/utils'
 import iconTypes from '../constants/iconTypes'
 import svgSymbols from '../constants/svgSymbols'
 import detailsFlow from '../constants/detailsFlow'
+import { type GeolocationAccessDeniedInstruction } from '../types/data/GeolocationAccessDeniedInstruction.ts'
 
-export const geolocationAccessDeniedInstruction = {
+
+export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruction = {
     heading: 'Что делать?',
     listItems: [
         {

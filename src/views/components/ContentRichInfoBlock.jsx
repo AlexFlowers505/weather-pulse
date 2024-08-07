@@ -4,7 +4,7 @@ import detailsFlow from '../../constants/detailsFlow'
 import { textSymbols } from '../../constants/textSymbols'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
 import Btn from './Btn'
-import btnStyles from '../../styles/components/btnStyles'
+import btnStyles from '../../styles/components/btn.style'
 import btnContentTypes from '../../constants/btnContentTypes'
 
 const {listItemsSeparator} = textSymbols

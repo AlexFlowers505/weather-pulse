@@ -1,4 +1,6 @@
-const browserIconsData = {
+import { type BrowserIconsData } from "../types/constants/browserIconsData"
+
+const browserIconsData: BrowserIconsData = {
     path: '/assets/images/browser-icons/',
     ext: '.png',
     prefix: 'icon-',
