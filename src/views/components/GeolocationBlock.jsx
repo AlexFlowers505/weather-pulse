@@ -1,5 +1,5 @@
 import Btn from '../components/Btn'
-import {default as btnTypes} from '../../constants/btnContentTypes'
+import {default as btnTypes} from '../../constants/btnContentTypes.ts'
 import btnStyles from '../../styles/components/btn.style'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import {default as states} from '../../constants/locationAccessStates'

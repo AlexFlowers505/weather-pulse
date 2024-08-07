@@ -10,6 +10,6 @@ const browserIconsData: BrowserIconsData = {
         firefox: 'firefox',
         safari: 'safari',
     }
-}
+} as const
 
 export default browserIconsData

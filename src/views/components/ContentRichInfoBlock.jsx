@@ -5,7 +5,7 @@ import { textSymbols } from '../../constants/textSymbols'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
 import Btn from './Btn'
 import btnStyles from '../../styles/components/btn.style'
-import btnContentTypes from '../../constants/btnContentTypes'
+import btnContentTypes from '../../constants/btnContentTypes.ts'
 
 const {listItemsSeparator} = textSymbols
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Btn from '../Btn'
-import btnContentTypes from '../../../constants/btnContentTypes'
+import btnContentTypes from '../../../constants/btnContentTypes.ts'
 import svgSymbols from '../../../constants/svgSymbols'
 
 const btnData = {

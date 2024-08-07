@@ -1,6 +1,6 @@
 import Btn from '../Btn'
 import svgSymbols from '../../../constants/svgSymbols'
-import btnContentTypes from '../../../constants/btnContentTypes'
+import btnContentTypes from '../../../constants/btnContentTypes.ts'
 
 const locateMeBtnData = {
   content: svgSymbols.iconLocation,

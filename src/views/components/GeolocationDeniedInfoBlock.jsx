@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import AnimateHeight from 'react-animate-height'
 import Btn from './Btn'
-import btnContentTypes from '../../constants/btnContentTypes'
+import btnContentTypes from '../../constants/btnContentTypes.ts'
 import btnStyles from '../../styles/components/btn.style'
 import svgSymbols from '../../constants/svgSymbols'
 import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style'

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Btn from '../Btn'
 import temperatureUnits from '../../../constants/temperatureUnits'
-import btnContentTypes from '../../../constants/btnContentTypes'
+import btnContentTypes from '../../../constants/btnContentTypes.ts'
 
 const { celsius, fahrenheit } = temperatureUnits
 

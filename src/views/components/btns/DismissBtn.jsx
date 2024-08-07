@@ -1,6 +1,6 @@
 import Btn from '../Btn'
 import svgSymbols from '../../../constants/svgSymbols'
-import btnContentTypes from '../../../constants/btnContentTypes'
+import btnContentTypes from '../../../constants/btnContent.ts'
 
 export default function DismissBtn({btnSize, btnStyle, extraBtnClass, onClick, hasTooltip=false, tooltipContent=''}) {
 
