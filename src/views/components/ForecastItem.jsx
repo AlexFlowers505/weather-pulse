@@ -1,4 +1,4 @@
-import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
+import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
 
 export default function ForecastItem({layout}) {

@@ -1,5 +1,5 @@
 import ForecastItems from '../components/ForecastItems'
-import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
+import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 import {default as picData} from '../../constants/weatherPicturesNames'
 import Btn from '../components/Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'

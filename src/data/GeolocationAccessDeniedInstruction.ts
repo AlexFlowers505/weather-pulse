@@ -1,8 +1,8 @@
 import browserIconsData from '../constants/browserIconsData.ts'
 import { capitalize, refreshPage } from '../utils/utils'
-import iconTypes from '../constants/iconTypes'
+import iconExtentions from '../constants/iconExtentions.ts'
 import svgSymbols from '../constants/svgSymbols'
-import detailsFlow from '../constants/detailsFlow'
+import detailsFlow from '../constants/detailsFlow.ts'
 import { type GeolocationAccessDeniedInstruction } from '../types/data/GeolocationAccessDeniedInstruction.ts'
 
 
@@ -11,7 +11,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
     listItems: [
         {
             isHeaderItem: false,
-            iconType: iconTypes.svg,
+            iconType: iconExtentions.svg,
             icon: svgSymbols.iconRestart,
             heading: 'Перезагрузка страницы',
             detailsFlow: detailsFlow.block,
@@ -30,7 +30,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
         },
         {
             isHeaderItem: false,
-            iconType: iconTypes.png,
+            iconType: iconExtentions.png,
             icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.chrome}${browserIconsData.ext}`,
             heading: `${capitalize(browserIconsData.icons.chrome)}`,
             detailsFlow: detailsFlow.inline,
@@ -47,7 +47,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
         },
         {
             isHeaderItem: false,
-            iconType: iconTypes.png,
+            iconType: iconExtentions.png,
             icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.firefox}${browserIconsData.ext}`,
             heading: `${capitalize(browserIconsData.icons.firefox)}`,
             detailsFlow: detailsFlow.inline,
@@ -65,7 +65,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
         },
         {
             isHeaderItem: false,
-            iconType: iconTypes.png,
+            iconType: iconExtentions.png,
             icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.safari}${browserIconsData.ext}`,
             heading: `${capitalize(browserIconsData.icons.safari)}`,
             detailsFlow: detailsFlow.inline,
@@ -81,7 +81,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
         },
         {
             isHeaderItem: false,
-            iconType: iconTypes.png,
+            iconType: iconExtentions.png,
             icon: `${browserIconsData.path}${browserIconsData.prefix}${browserIconsData.icons.edge}${browserIconsData.ext}`,
             heading: `${capitalize(browserIconsData.icons.edge)}`,
             detailsFlow: detailsFlow.inline,

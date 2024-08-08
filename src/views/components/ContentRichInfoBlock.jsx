@@ -1,6 +1,6 @@
 import React from 'react'
-import iconTypes from '../../constants/iconTypes'
-import detailsFlow from '../../constants/detailsFlow'
+import iconExtentions from '../../constants/iconExtentions.ts'
+import detailsFlow from '../../constants/detailsFlow.ts'
 import { textSymbols } from '../../constants/textSymbols'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
 import Btn from './Btn.tsx'
@@ -18,8 +18,8 @@ export default function ContentRichInfoBlock({item}) {
             ) : (
                 <>
                     <div className={`content-item-header ${tw.contentItemHeader}`}>
-                        {item.iconType === iconTypes.svg ? <svg className={`content-item-icon ${tw.contentItemIcon}`}><use href={`#${item.icon}`}></use></svg> :
-                        item.iconType === iconTypes.png ? <img className={`content-item-icon ${tw.contentItemIcon}`} src={item.icon} /> : null}
+                        {item.iconType === iconExtentions.svg ? <svg className={`content-item-icon ${tw.contentItemIcon}`}><use href={`#${item.icon}`}></use></svg> :
+                        item.iconType === iconExtentions.png ? <img className={`content-item-icon ${tw.contentItemIcon}`} src={item.icon} /> : null}
                         <p className={`content-item-heading ${tw.contentItemHeading}`}>{item.heading}</p>
                     </div>
 

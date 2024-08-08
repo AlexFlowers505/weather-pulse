@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg.tsx'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import type { BtnType } from '../../types/components/Btn.ts'
-import type { btnContentType } from '../../constants/btnContentType.ts'
+import { btnContentType } from '../../constants/btnContentType.ts'
 import CustomTooltip from './CustomTooltip.jsx'
 
 const Btn = forwardRef<HTMLButtonElement, BtnType>(({

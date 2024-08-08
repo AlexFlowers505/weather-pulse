@@ -1,7 +1,7 @@
 import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
 import textLayouts from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
-import { emoticons } from "../constants/emoticons"
+import { emoticons } from "../constants/emoticons.ts"
 
 export const searchMessages = {
     nothingFound: {

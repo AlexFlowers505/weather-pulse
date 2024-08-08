@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { fetchAreasSuggestions } from "../api/dadata"
 import { fetchLocationsForecasts } from "../api/openWeatherMap"
 import { removeMultipleSpaces } from "../utils/utils"
-import options from "../constants/fetchingSuggestionsOptions"
+import options from "../constants/fetchingSuggestionsSettings.ts"
 import searchResultsStates from "../constants/searchResultsStates"
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
