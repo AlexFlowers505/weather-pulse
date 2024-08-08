@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 import { fetchIcon } from '../../api/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
-import btnStyles from '../../styles/components/btn.style'
+import btnStyles from '../../styles/components/btn.style.tsx'
 
 function handleHighlightMatchText(textWithMatch='', request) {
   if (request.length) {

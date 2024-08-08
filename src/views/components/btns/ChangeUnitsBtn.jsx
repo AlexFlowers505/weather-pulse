@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Btn from '../Btn'
+import Btn from '../Btn.tsx'
 import temperatureUnits from '../../../constants/temperatureUnits'
-import btnContentTypes from '../../../constants/btnContentTypes.ts'
+import { btnContentType } from '../../../constants/btnContentType.ts'
 
 const { celsius, fahrenheit } = temperatureUnits
 
@@ -19,7 +19,7 @@ export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, 
 
   return (
     <Btn
-      contentType={btnContentTypes.text}
+      contentType={btnContentType.text}
       content={units}
       extraBtnClass={extraBtnClass}
       extraSVGstyle={extraSVGstyle}

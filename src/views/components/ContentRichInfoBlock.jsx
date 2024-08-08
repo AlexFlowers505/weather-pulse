@@ -3,9 +3,9 @@ import iconTypes from '../../constants/iconTypes'
 import detailsFlow from '../../constants/detailsFlow'
 import { textSymbols } from '../../constants/textSymbols'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
-import Btn from './Btn'
-import btnStyles from '../../styles/components/btn.style'
-import btnContentTypes from '../../constants/btnContentTypes.ts'
+import Btn from './Btn.tsx'
+import btnStyles from '../../styles/components/btn.style.tsx'
+import { btnContentType } from '../../constants/btnContentType.ts'
 
 const {listItemsSeparator} = textSymbols
 
@@ -53,7 +53,7 @@ export default function ContentRichInfoBlock({item}) {
 
                     {item.hasBtn &&(
                         <Btn 
-                            contentType={btnContentTypes.text}
+                            contentType={btnContentType.text}
                             content={item.btnContent}
                             btnStyle={btnStyles.style.outlined}
                             btnSize={btnStyles.size.sm}

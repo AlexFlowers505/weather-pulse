@@ -1,13 +1,11 @@
 import React, { forwardRef } from 'react'
-import SpriteSvg from './SpriteSvg.jsx'
-import btnStyles from '../../styles/components/btn.style.jsx'
-import { Btn } from '../../types/components/Btn.ts'
-import { btnContent } from '../../constants/btnContent.js'
+import SpriteSvg from './SpriteSvg.tsx'
+import btnStyles from '../../styles/components/btn.style.tsx'
+import type { BtnType } from '../../types/components/Btn.ts'
+import type { btnContentType } from '../../constants/btnContentType.ts'
 import CustomTooltip from './CustomTooltip.jsx'
 
-
-
-const Btn = forwardRef<HTMLButtonElement, Btn>(({
+const Btn = forwardRef<HTMLButtonElement, BtnType>(({
   extraSVGstyle,
   content,
   contentType,
@@ -28,14 +26,14 @@ const Btn = forwardRef<HTMLButtonElement, Btn>(({
       ref={ref}
       {...props}
     >
-      {contentType === btnContent.icon && 
+      {contentType === btnContentType.icon && 
         <SpriteSvg 
           id={content} 
-          className={btnSize.icon} 
+          baseStyle={btnSize.icon} 
           extraSVGClass={extraSVGClass} 
         />
       }
-      {contentType === btnContent.text && content}
+      {contentType === btnContentType.text && content}
     </button>
   )
 

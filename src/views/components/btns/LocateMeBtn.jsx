@@ -1,10 +1,10 @@
-import Btn from '../Btn'
+import Btn from '../Btn.tsx'
 import svgSymbols from '../../../constants/svgSymbols'
-import btnContentTypes from '../../../constants/btnContentTypes.ts'
+import { btnContentType } from '../../../constants/btnContentType.ts'
 
 const locateMeBtnData = {
   content: svgSymbols.iconLocation,
-  contentType: btnContentTypes.icon
+  contentType: btnContentType.icon
 }
 const {content, contentType} = locateMeBtnData
 

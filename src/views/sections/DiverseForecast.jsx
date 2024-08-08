@@ -1,10 +1,10 @@
 import ForecastItems from '../components/ForecastItems'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import {default as picData} from '../../constants/weatherPicturesNames'
-import Btn from '../components/Btn'
-import btnContentTypes from '../../constants/btnContentTypes.ts'
+import Btn from '../components/Btn.tsx'
+import { btnContentType } from '../../constants/btnContentType.ts'
 import svgSymbols from '../../constants/svgSymbols'
-import btnStyles from '../../styles/components/btn.style'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style'
 
 export default function DiverseForecast() {
@@ -12,7 +12,7 @@ export default function DiverseForecast() {
     <section className={`forecast container-visuals ${tw.wrapper}`}>
         <Btn 
             extraBtnClass={tw.expandBtn}
-            contentType={btnContentTypes.icon}
+            contentType={btnContentType.icon}
             content={svgSymbols.iconExpand}
             btnSize={btnStyles.size.md}
         />

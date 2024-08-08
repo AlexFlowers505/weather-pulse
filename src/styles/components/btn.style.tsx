@@ -1,4 +1,22 @@
-export default {
+export type BtnStyleSizeType = {
+    btn: string
+    icon: string
+  }
+  
+export type BtnStyleType = {
+    base: string
+    size: {
+        md: BtnStyleSizeType
+        sm: BtnStyleSizeType
+    }
+    style: {
+        filled: string
+        outlined: string
+        contentOnly: string
+    }
+}
+
+const BtnStyles: BtnStyleType = {
     base: `
         flex
         flex-row
@@ -83,3 +101,5 @@ export default {
         `
     }
 }
+
+export default BtnStyles

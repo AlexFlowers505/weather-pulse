@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import btnStyles from '../../styles/components/btn.style'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import DismissBtn from './btns/DismissBtn'
 import SearchResults from './SearchResults'
 import { handleClearSearchBtnClick } from "../../utils/utils"

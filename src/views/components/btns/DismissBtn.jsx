@@ -1,12 +1,12 @@
-import Btn from '../Btn'
+import Btn from '../Btn.tsx'
 import svgSymbols from '../../../constants/svgSymbols'
-import btnContentTypes from '../../../constants/btnContent.ts'
+import { btnContentType } from '../../../constants/btnContentType.ts'
 
 export default function DismissBtn({btnSize, btnStyle, extraBtnClass, onClick, hasTooltip=false, tooltipContent=''}) {
 
     const dismissBtnData = {
         content: svgSymbols.iconClose,
-        contentType: btnContentTypes.icon,
+        contentType: btnContentType.icon,
     }
 
     const {content, contentType} = dismissBtnData

@@ -1,5 +1,5 @@
 import FavouriteBtn from '../components/btns/FavouriteBtn'
-import btnStyles from '../../styles/components/btn.style'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import weatherPicturesNames from '../../constants/weatherPicturesNames'
 import { currentAreaForecastDisplayStyle as tw } from '../../styles/sections/CurrentAreaForecastDisplay.style'
 

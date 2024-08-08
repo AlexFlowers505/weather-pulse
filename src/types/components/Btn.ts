@@ -1,16 +1,18 @@
-import { type btnContent } from "../../constants/btnContent"
+import { btnContentType } from "../../constants/btnContentType.ts"
+import type { BtnStyleSizeType } from "../../styles/components/btn.style.tsx"
 
-export interface Btn {
-  extraSVGstyle?: string
+
+export interface BtnType {
+  contentType: btnContentType
   content: string
-  contentType: btnContent
-  btnSize?: string
+  onClick: () => void
+  
+  extraSVGstyle?: React.CSSProperties
+  btnSize?: BtnStyleSizeType
   btnStyle?: string
   extraBtnClass?: string
   tooltipOffset?: [number, number]
   hasTooltip?: boolean
   tooltipContent?: string
   extraSVGClass?: string
-  onClick?: () => void
-  [key: string]: any
 }

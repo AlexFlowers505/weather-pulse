@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import AnimateHeight from 'react-animate-height'
-import Btn from './Btn'
-import btnContentTypes from '../../constants/btnContentTypes.ts'
-import btnStyles from '../../styles/components/btn.style'
+import Btn from './Btn.tsx'
+import { btnContentType } from '../../constants/btnContentType.ts'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import svgSymbols from '../../constants/svgSymbols'
 import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style'
 import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction.ts'
@@ -82,7 +82,7 @@ export default function GeolocationDeniedInfoBlock() {
       </AnimateHeight>
       <div className={`btn-wrapper ${tw.btnWrapper}`}>
         <Btn
-          contentType={btnContentTypes.icon}
+          contentType={btnContentType.icon}
           content={svgSymbols.iconArrowInCircle}
           btnStyle={btnStyles.style.contentOnly}
           btnSize={btnStyles.size.sm}

@@ -1,6 +1,6 @@
-import Btn from "./Btn"
-import btnStyles from "../../styles/components/btn.style"
-import btnContentTypes from "../../constants/btnContent.ts"
+import Btn from "./Btn.tsx"
+import btnStyles from "../../styles/components/btn.style.tsx"
+import { btnContentType } from "../../constants/btnContentType.ts"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "../components/btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
@@ -59,7 +59,7 @@ export default function InfoMessage({
         { hasBtn && <Btn 
                 btnSize={btnStyles.size.sm}
                 btnStyle={btnStyles.style.outlined}
-                contentType={btnContentTypes.text}
+                contentType={btnContentType.text}
                 content={btnText}
                 onClick={() => handleBtnClick(inputRef, setFetchState, setRepeatFetch, setRequest, request)}
             />

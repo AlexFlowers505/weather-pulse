@@ -1,6 +1,6 @@
-import Btn from '../components/Btn'
-import {default as btnTypes} from '../../constants/btnContentTypes.ts'
-import btnStyles from '../../styles/components/btn.style'
+import Btn from '../components/Btn.tsx'
+import { btnContentType } from '../../constants/btnContentType.ts'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import {default as states} from '../../constants/locationAccessStates'
 import {default as codes} from '../../constants/locationAccessErrorCodes'
@@ -19,7 +19,7 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
         )
         case states.PROMPT: return (
             <Btn 
-                contentType={btnTypes.text} 
+                contentType={btnContentType.text} 
                 content={`Определить автоматически`}
                 btnSize={btnStyles.size.md}
                 btnStyle={btnStyles.style.outlined}

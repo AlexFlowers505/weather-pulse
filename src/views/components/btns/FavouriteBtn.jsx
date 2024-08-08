@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Btn from '../Btn'
-import btnContentTypes from '../../../constants/btnContentTypes.ts'
+import Btn from '../Btn.tsx'
+import { btnContentType } from '../../../constants/btnContentType.ts'
 import svgSymbols from '../../../constants/svgSymbols'
 
 const btnData = {
@@ -8,7 +8,7 @@ const btnData = {
     favourite: svgSymbols.iconFavourite,
     notFavourite: svgSymbols.iconAddToFavourite,
   },
-  contentType: btnContentTypes.icon,
+  contentType: btnContentType.icon,
   extraSVGstyle: {
     transform: 'scale(1.2)',
   },
