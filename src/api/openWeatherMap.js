@@ -1,5 +1,5 @@
 
-import temperatureUnits from "../constants/temperatureUnits"
+import temperatureUnits from "../constants/temperatureUnits.ts"
 const {celsius, fahrenheit} = temperatureUnits
 
 const key = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY

@@ -1,7 +1,16 @@
 import svgSymbolsIDs from "./svgSymbolsIDs.ts"
 
-// __type is used as a part of an openWeatherMap api request url
-export default {
+type temperatureUnitsType = {
+    [key: string]: {
+        name: string
+        fullName: string
+        __type: 'metric' | 'imperial'
+        symbol: string
+        icon: string
+    }
+}
+
+const temperatureUnits: temperatureUnitsType = {
     celsius: {
         name: 'Цельсий',
         fullName: `градусы по Цельсию`,
@@ -16,4 +25,6 @@ export default {
         symbol: '°F',
         icon: svgSymbolsIDs.iconFahrenheit
     }
-}
+} as const
+
+export default temperatureUnits

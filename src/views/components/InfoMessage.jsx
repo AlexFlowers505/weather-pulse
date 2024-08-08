@@ -3,7 +3,7 @@ import btnStyles from "../../styles/components/btn.style.tsx"
 import { btnContentType } from "../../constants/btnContentType.ts"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "../components/btns/DismissBtn"
-import textLayouts from "../../constants/textLayouts"
+import type { textLayouts } from "../../constants/textLayouts.ts"
 
 export default function InfoMessage({
     inputRef=null, 

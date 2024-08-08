@@ -1,5 +1,5 @@
 import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
-import textLayouts from "../constants/textLayouts"
+import type { textLayouts } from "../constants/textLayouts.ts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
 import { emoticons } from "../constants/emoticons.ts"
 
