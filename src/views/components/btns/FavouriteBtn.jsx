@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import Btn from '../Btn.tsx'
 import { btnContentType } from '../../../constants/btnContentType.ts'
-import svgSymbols from '../../../constants/svgSymbols'
+import svgSymbolsIDs from '../../../constants/svgSymbolsIDs.ts'
 
 const btnData = {
   content: {
-    favourite: svgSymbols.iconFavourite,
-    notFavourite: svgSymbols.iconAddToFavourite,
+    favourite: svgSymbolsIDs.iconFavourite,
+    notFavourite: svgSymbolsIDs.iconAddToFavourite,
   },
   contentType: btnContentType.icon,
   extraSVGstyle: {

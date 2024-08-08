@@ -1,7 +1,7 @@
 import browserIconsData from '../constants/browserIconsData.ts'
 import { capitalize, refreshPage } from '../utils/utils'
 import iconExtentions from '../constants/iconExtentions.ts'
-import svgSymbols from '../constants/svgSymbols'
+import svgSymbolsIDs from '../constants/svgSymbolsIDs.ts'
 import detailsFlow from '../constants/detailsFlow.ts'
 import { type GeolocationAccessDeniedInstruction } from '../types/data/GeolocationAccessDeniedInstruction.ts'
 
@@ -12,7 +12,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
         {
             isHeaderItem: false,
             iconType: iconExtentions.svg,
-            icon: svgSymbols.iconRestart,
+            icon: svgSymbolsIDs.iconRestart,
             heading: 'Перезагрузка страницы',
             detailsFlow: detailsFlow.block,
             details: [

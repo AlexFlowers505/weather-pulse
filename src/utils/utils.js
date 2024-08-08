@@ -1,5 +1,5 @@
-import searchResultsStates from "../constants/searchResultsStates"
-import locationAccessStates from "../constants/locationAccessStates"
+import searchResultsStates from "../constants/searchResultsStates.ts"
+import locationAccessStates from "../constants/locationAccessStates.ts"
 const { IDLE } = searchResultsStates
 
 

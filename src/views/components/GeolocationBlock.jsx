@@ -2,8 +2,8 @@ import Btn from '../components/Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { useGeolocation } from '../../hooks/useGeolocation'
-import {default as states} from '../../constants/locationAccessStates'
-import {default as codes} from '../../constants/locationAccessErrorCodes'
+import {default as states} from '../../constants/locationAccessStates.ts'
+import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
 import InfoMessage from '../components/InfoMessage'
 import { geolocationMessages } from '../../data/infoMessagesData'
 import MessageWrapper from './MessageWrapper'
@@ -39,7 +39,7 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
             </>
         )
         case states.ERROR:
-            if (error.code !== codes.__USER_DENIED_ACCESS) {
+            if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
                 return (
                     <>
                         <p>Error getting user location: {error.message}</p>

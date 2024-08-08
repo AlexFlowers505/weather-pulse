@@ -1,6 +1,6 @@
 import SearchResult from './SearchResult'
 import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
-import searchResultsStates from "../../constants/searchResultsStates"
+import searchResultsStates from "../../constants/searchResultsStates.ts"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
 import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'

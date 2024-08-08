@@ -1,4 +1,4 @@
-import svgSymbols from "./svgSymbols"
+import svgSymbolsIDs from "./svgSymbolsIDs.ts"
 
 // __type is used as a part of an openWeatherMap api request url
 export default {
@@ -7,13 +7,13 @@ export default {
         fullName: `градусы по Цельсию`,
         __type: `metric`,
         symbol: '℃',
-        icon: svgSymbols.iconCelsius
+        icon: svgSymbolsIDs.iconCelsius
     },
     fahrenheit: {
         name: 'Фаренгейт',
         fullName: `градусы по Фаренгейту`,
         __type: `imperial`,
         symbol: '°F',
-        icon: svgSymbols.iconFahrenheit
+        icon: svgSymbolsIDs.iconFahrenheit
     }
 }

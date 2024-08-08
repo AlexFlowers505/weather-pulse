@@ -3,7 +3,7 @@ import { fetchAreasSuggestions } from "../api/dadata"
 import { fetchLocationsForecasts } from "../api/openWeatherMap"
 import { removeMultipleSpaces } from "../utils/utils"
 import options from "../constants/fetchingSuggestionsSettings.ts"
-import searchResultsStates from "../constants/searchResultsStates"
+import searchResultsStates from "../constants/searchResultsStates.ts"
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

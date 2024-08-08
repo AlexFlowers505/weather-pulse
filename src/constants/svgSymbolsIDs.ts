@@ -1,4 +1,4 @@
-export default {
+const svgSymbolsIDs: {[key: string]: string} = {
     iconAddToFavourite: 'icon-add-to-favourite',
     iconFavourite: 'icon-favourite',
     iconWeather: 'icon-weather',
@@ -11,3 +11,4 @@ export default {
     iconArrowInCircle: 'icon-arrow-in-circle',
 }
 
+export default svgSymbolsIDs

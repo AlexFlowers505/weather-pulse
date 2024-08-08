@@ -1,14 +1,14 @@
-import svgSymbols from "../constants/svgSymbols"
+import svgSymbolsIDs from "../constants/svgSymbolsIDs.ts"
 
 export default [
     {
         text: 'Погода',
         url: '/forecast',
-        icon: svgSymbols.iconWeather,
+        icon: svgSymbolsIDs.iconWeather,
     },
     {
         text: 'Избранное',
         url: '/favourites',
-        icon: svgSymbols.iconAddToFavourite,
+        icon: svgSymbolsIDs.iconAddToFavourite,
     },
 ]

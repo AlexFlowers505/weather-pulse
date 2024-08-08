@@ -3,12 +3,12 @@ import AnimateHeight from 'react-animate-height'
 import Btn from './Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
-import svgSymbols from '../../constants/svgSymbols'
+import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
 import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style'
 import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction.ts'
 import ContentRichInfoBlock from './ContentRichInfoBlock'
 import DismissBtn from './btns/DismissBtn'
-import locationAccessStates from '../../constants/locationAccessStates'
+import locationAccessStates from '../../constants/locationAccessStates.ts'
 
 const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState)
@@ -83,7 +83,7 @@ export default function GeolocationDeniedInfoBlock() {
       <div className={`btn-wrapper ${tw.btnWrapper}`}>
         <Btn
           contentType={btnContentType.icon}
-          content={svgSymbols.iconArrowInCircle}
+          content={svgSymbolsIDs.iconArrowInCircle}
           btnStyle={btnStyles.style.contentOnly}
           btnSize={btnStyles.size.sm}
           extraBtnClass={toggleBtnClass}

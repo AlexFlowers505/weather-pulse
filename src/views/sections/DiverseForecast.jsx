@@ -3,7 +3,7 @@ import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 import {default as picData} from '../../constants/weatherPicturesNames'
 import Btn from '../components/Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
-import svgSymbols from '../../constants/svgSymbols'
+import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style'
 
@@ -13,7 +13,7 @@ export default function DiverseForecast() {
         <Btn 
             extraBtnClass={tw.expandBtn}
             contentType={btnContentType.icon}
-            content={svgSymbols.iconExpand}
+            content={svgSymbolsIDs.iconExpand}
             btnSize={btnStyles.size.md}
         />
         <div className={`current-weather-info-wrapper ${tw.currentWeatherInfoWrapper}`}>

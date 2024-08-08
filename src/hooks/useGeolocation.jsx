@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import states from '../constants/locationAccessStates'
+import states from '../constants/locationAccessStates.ts'
 
 export function useGeolocation() {
     const [status, setStatus] = useState(states.IDLE)
