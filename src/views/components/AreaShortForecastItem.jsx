@@ -1,5 +1,5 @@
 import FavouriteBtn from './btns/FavouriteBtn'
-import {default as picData}  from '../../constants/weatherPicturesNames'
+import {default as picData}  from '../../constants/weatherPicturesNames.ts'
 import { areaShortForecastItemStyle as tw } from '../../styles/components/AreaShortForecastItem.style'
 
 export default function AreaShortForecastItem() {

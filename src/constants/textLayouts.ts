@@ -4,6 +4,20 @@ enum alignTypes {
     right
 }
 
-export type textLayouts = {
-    align: alignTypes
+type textLayoutsType = {
+    align: { 
+        left: alignTypes
+        center: alignTypes
+        right: alignTypes
+    }
 }
+
+const textLayouts: textLayoutsType = {
+    align: {
+        left: alignTypes.left,
+        center: alignTypes.center,
+        right: alignTypes.right,
+    }
+} as const
+
+export default textLayouts

@@ -9,6 +9,6 @@ const svgSymbolsIDs: {[key: string]: string} = {
     iconExpand: 'icon-expand',
     iconRestart: 'icon-restart',
     iconArrowInCircle: 'icon-arrow-in-circle',
-}
+} as const
 
 export default svgSymbolsIDs

@@ -1,7 +1,7 @@
 import React from 'react'
 import iconExtentions from '../../constants/iconExtentions.ts'
 import detailsFlow from '../../constants/detailsFlow.ts'
-import { textSymbols } from '../../constants/textSymbols'
+import { textSymbols } from '../../constants/textSymbols.ts'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
 import Btn from './Btn.tsx'
 import btnStyles from '../../styles/components/btn.style.tsx'
