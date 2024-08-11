@@ -1,4 +1,22 @@
-export default {
+type weatherPictureDataType = {
+    img: string
+    alt: string
+}
+
+type weatherPicturesDataType = {
+    cloudy: weatherPictureDataType
+    cloudyAndAbitSunny: weatherPictureDataType
+    cloudyAndSunny: weatherPictureDataType
+    rain: weatherPictureDataType
+    rainAndThunder: weatherPictureDataType
+    snowy: weatherPictureDataType
+    sunny: weatherPictureDataType
+    sunnyAndCloudyAndRain: weatherPictureDataType
+    thunder: weatherPictureDataType
+    veryCloudy : weatherPictureDataType
+}
+
+const weatherPicturesData: weatherPicturesDataType = {
     cloudy: {
         img: 'cloudy',
         alt: 'Облачно'

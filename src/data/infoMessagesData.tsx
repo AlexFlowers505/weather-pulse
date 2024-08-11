@@ -1,6 +1,7 @@
+import React from "react"
 import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils.js"
-import textLayouts, {textLayoutsType, alignTypes} from "../constants/textLayouts.ts"
-import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock.jsx"
+import {alignTypes} from "../constants/textLayouts.ts"
+import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock.tsx"
 import { emoticons, emoticonsType } from "../constants/emoticons.ts"
 
 type searchMessagesType = {
@@ -56,7 +57,7 @@ type geolocationMessagesType = {
         hasDesc: boolean
         desc?: string[]
         hasCustomContent: boolean
-        customContent?: React.FC
+        customContent?: React.JSX.Element 
     }
 }
 export const geolocationMessages: geolocationMessagesType = {
@@ -70,6 +71,6 @@ export const geolocationMessages: geolocationMessagesType = {
         hasDesc: false,
         hasCustomContent: true,
         hasBtn: false,
-        customContent: GeolocationDeniedInfoBlock,
+        customContent: <GeolocationDeniedInfoBlock />,
     },
 }

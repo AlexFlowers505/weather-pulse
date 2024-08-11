@@ -1,4 +1,5 @@
 import temperatureUnits from "../constants/temperatureUnits.ts"
+import { dadataMappedSuggestionsType } from "../types/utils.ts"
 const { celsius, fahrenheit } = temperatureUnits
 
 const key: string | undefined = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY
@@ -39,7 +40,7 @@ type ForecastData = {
     [key: string]: any
 }
 
-export async function fetchLocationForecast(lat: number, lon: number, units: string = celsius.name): Promise<ForecastData> {
+export async function fetchLocationForecast(lat: string, lon: string, units: string = celsius.name): Promise<ForecastData> {
     const urlUnits = units === celsius.name ? celsius.__type : fahrenheit.__type
     const URLspecPath = 'data/2.5/weather'
 
@@ -67,12 +68,7 @@ export async function fetchLocationForecast(lat: number, lon: number, units: str
     }
 }
 
-type locationType = {
-    lat: number
-    lon: number
-}
-
-export async function fetchLocationsForecasts(locations: locationType[], units: string = celsius.name): Promise<(locationType & { forecast: ForecastData })[]> {
+export async function fetchLocationsForecasts(locations: dadataMappedSuggestionsType[], units: string = celsius.name): Promise<(dadataMappedSuggestionsType & { forecast: ForecastData })[]> {
     try {
         const forecastsArray = await Promise.all(
             locations.map(async location => {

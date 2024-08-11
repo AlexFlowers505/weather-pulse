@@ -1,4 +1,5 @@
 import fetchOptions from "../constants/fetchingSuggestionsSettings.ts"
+import { dadataMappedSuggestionsType } from "../types/utils.ts"
 
 type fetchOptionsType = {
   method: 'POST',
@@ -20,16 +21,7 @@ type suggestionDataType = {
   settlement_type: string
 }
 
-type locationType = {
-  country: string
-  area: string
-  region: string
-  lat: string
-  lon: string
-  settlementType: string
-}
-
-export async function fetchAreasSuggestions(query: string): Promise<locationType[]> {
+export async function fetchAreasSuggestions(query: string): Promise<dadataMappedSuggestionsType[]> {
   const key: string | undefined = process.env.REACT_APP_DADATA_API_KEY
   if (!key) throw new Error("REACT_APP_DADATA_API_KEY is not defined")
 
@@ -55,7 +47,7 @@ export async function fetchAreasSuggestions(query: string): Promise<locationType
       const response = await fetch(entryURL, options)
       const data = await response.json()
 
-      const locationsWithRegion: locationType[] = data.suggestions
+      const locationsWithRegion: dadataMappedSuggestionsType[] = data.suggestions
         .map((suggestion: { data: suggestionDataType }) => ({
           country: suggestion.data.country,
           area: suggestion.data.city || suggestion.data.settlement,
@@ -64,10 +56,9 @@ export async function fetchAreasSuggestions(query: string): Promise<locationType
           lon: suggestion.data.geo_lon,
           settlementType: suggestion.data.city_type || suggestion.data.settlement_type
         }))
-        .filter((location: locationType) => location.area !== '')
+        .filter((location: dadataMappedSuggestionsType) => location.area !== '')
 
-      console.log('suggestions')
-      console.log(locationsWithRegion)
+      console.log('suggestions', locationsWithRegion)
       return locationsWithRegion
 
     } catch (error) {

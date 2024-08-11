@@ -1,4 +1,4 @@
-type svgSymbolsIDsType = {
+export type svgSymbolsIDsType = {
     iconAddToFavourite: string
     iconFavourite: string
     iconWeather: string

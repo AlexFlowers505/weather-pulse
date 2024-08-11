@@ -1,11 +1,11 @@
 import Btn from '../components/Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
-import { useGeolocation } from '../../hooks/useGeolocation'
+import { useGeolocation } from '../../hooks/useGeolocation.tsx'
 import {default as states} from '../../constants/locationAccessStates.ts'
 import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
 import InfoMessage from '../components/InfoMessage'
-import { geolocationMessages } from '../../data/infoMessagesData.ts'
+import { geolocationMessages } from '../../data/infoMessagesData.tsx'
 import MessageWrapper from './MessageWrapper'
 
 export default function GeolocationBlock() {

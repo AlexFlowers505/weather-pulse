@@ -5,7 +5,7 @@ import SearchResults from './SearchResults'
 import { handleClearSearchBtnClick } from "../../utils/utils"
 import { searchStyle as tw } from "../../styles/components/Search.style"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
-import useFetchSuggestions from '../../hooks/useFetchSuggestions'
+import useFetchSuggestions from "../../hooks/useFetchSuggestions.tsx"
 
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название населенного пункта',

@@ -1,32 +1,49 @@
 import { useState, useEffect } from 'react'
-import {default as states} from '../constants/locationAccessStates.ts'
+import states from '../constants/locationAccessStates.ts'
+
+type statusType = states[keyof states]
+type geolocationPositionType = {
+    coords: {
+        latitude: number
+        longitude: number
+        accuracy?: number
+        altitude?: number | null
+        altitudeAccuracy?: number | null
+    }
+    timestamp: number
+} | null
+
+type getPositionErrorType = {
+    code: number
+    message: string
+} | null
 
 export function useGeolocation() {
-    const [status, setStatus] = useState(states.IDLE)
-    const [position, setPosition] = useState(null)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState<statusType>(states.IDLE)
+    const [position, setPosition] = useState<geolocationPositionType>(null)
+    const [error, setError] = useState<getPositionErrorType>(null)
+    const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
         if ("geolocation" in navigator && "permissions" in navigator) {
             navigator.permissions
                 .query({ name: 'geolocation' })
                 .then(result => {
-                    handlePermissionChange(result.state)
                     console.log(result)
-                    result.onchange = () => handlePermissionChange(result.state)
+                    handlePermissionChange(result.state as statusType)
+                    result.onchange = () => handlePermissionChange(result.state as statusType)
                 })
         } else {
             setStatus(states.UNSUPPORTED)
         }
     }, [])
 
-    const handlePermissionChange = (state) => {
+    const handlePermissionChange = (state: statusType) => {
         switch (state) {
             case states.GRANTED:
                 setStatus(states.GRANTED)
                 getCurrentPosition()
-                break
+                break;
             case states.PROMPT:
                 setStatus(states.PROMPT)
                 break
@@ -44,6 +61,7 @@ export function useGeolocation() {
         navigator.geolocation.getCurrentPosition(
             pos => {
                 setPosition(pos)
+                console.log(pos)
                 setStatus(states.GRANTED)
                 setLoading(false)
             },

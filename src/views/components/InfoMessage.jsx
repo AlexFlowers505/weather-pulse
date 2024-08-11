@@ -20,7 +20,7 @@ export default function InfoMessage({
         hasDesc=true,
         desc=[], 
         hasCustomContent=false,
-        customContent='',
+        customContent=null,
         handleBtnClick=null, 
         hasBtn, 
         btnText='',
