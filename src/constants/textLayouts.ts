@@ -1,11 +1,11 @@
-enum alignTypes {
+export enum alignTypes {
     left,
     center,
     right
 }
 
-type textLayoutsType = {
-    align: { 
+export type textLayoutsType = {
+    align: {
         left: alignTypes
         center: alignTypes
         right: alignTypes

@@ -3,7 +3,25 @@ import { capitalize, refreshPage } from '../utils/utils'
 import iconExtentions from '../constants/iconExtentions.ts'
 import svgSymbolsIDs from '../constants/svgSymbolsIDs.ts'
 import detailsFlow from '../constants/detailsFlow.ts'
-import { type GeolocationAccessDeniedInstruction } from '../types/data/GeolocationAccessDeniedInstruction.ts'
+
+type InstructionItem = {
+    isHeaderItem: boolean
+    iconType?: string
+    icon?: string
+    heading: string
+    detailsFlow?: detailsFlow
+    details?: string[]
+    hasBtn?: boolean
+    btnContent?: string
+    handleBtnClick?: () => void
+    hasLink?: boolean
+    link?: string
+}
+
+type GeolocationAccessDeniedInstruction = {
+    heading: string
+    listItems: InstructionItem[]
+}
 
 
 export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruction = {

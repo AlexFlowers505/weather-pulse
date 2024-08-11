@@ -5,18 +5,16 @@ import { useGeolocation } from '../../hooks/useGeolocation'
 import {default as states} from '../../constants/locationAccessStates.ts'
 import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
 import InfoMessage from '../components/InfoMessage'
-import { geolocationMessages } from '../../data/infoMessagesData'
+import { geolocationMessages } from '../../data/infoMessagesData.ts'
 import MessageWrapper from './MessageWrapper'
 
-const handleGeolocationStatus = (status, position, error, getCurrentPosition, loading, setStatus) => {
+export default function GeolocationBlock() {
+    const { status, position, error, getCurrentPosition, loading, setStatus } = useGeolocation()
+
     if (loading) return <p>Loading...</p>
 
     switch (status) {
-        case states.UNSUPPORTED: return (
-            <>
-                <p>Geolocation is not supported by this browser.</p>
-            </>
-        )
+        case states.UNSUPPORTED: return (<p>Geolocation is not supported by this browser.</p>)
         case states.PROMPT: return (
             <Btn 
                 contentType={btnContentType.text} 
@@ -45,16 +43,6 @@ const handleGeolocationStatus = (status, position, error, getCurrentPosition, lo
                         <p>Error getting user location: {error.message}</p>
                     </>
                 )
-            } else return null
+            } else console.log(status)
     }
-}
-
-export default function GeolocationBlock() {
-    const { status, position, error, getCurrentPosition, loading, setStatus } = useGeolocation()
-
-    return (
-        <>
-            {handleGeolocationStatus(status, position, error, getCurrentPosition, loading, setStatus)}
-        </>
-    )
 }
