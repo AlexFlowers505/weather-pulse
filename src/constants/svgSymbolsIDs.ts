@@ -1,4 +1,17 @@
-const svgSymbolsIDs: {[key: string]: string} = {
+type svgSymbolsIDsType = {
+    iconAddToFavourite: string
+    iconFavourite: string
+    iconWeather: string
+    iconLocation: string
+    iconClose: string
+    iconCelsius: string
+    iconFahrenheit: string
+    iconExpand: string
+    iconRestart: string
+    iconArrowInCircle: string
+}
+
+const svgSymbolsIDs: svgSymbolsIDsType = {
     iconAddToFavourite: 'icon-add-to-favourite',
     iconFavourite: 'icon-favourite',
     iconWeather: 'icon-weather',
