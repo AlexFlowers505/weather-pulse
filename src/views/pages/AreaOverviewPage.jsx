@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { fetchWeather } from "../../api/openWeatherMap"
+import { fetchWeather } from "../../api/openWeatherMap.ts"
 
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'

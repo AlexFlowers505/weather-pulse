@@ -30,7 +30,9 @@ type locationType = {
 }
 
 export async function fetchAreasSuggestions(query: string): Promise<locationType[]> {
-  const key = process.env.REACT_APP_DADATA_API_KEY as string
+  const key: string | undefined = process.env.REACT_APP_DADATA_API_KEY
+  if (!key) throw new Error("REACT_APP_DADATA_API_KEY is not defined")
+
   const entryURL = `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address/`
 
   if (query) {
@@ -62,7 +64,7 @@ export async function fetchAreasSuggestions(query: string): Promise<locationType
           lon: suggestion.data.geo_lon,
           settlementType: suggestion.data.city_type || suggestion.data.settlement_type
         }))
-        .filter(location => location.area !== '')
+        .filter((location: locationType) => location.area !== '')
 
       console.log('suggestions')
       console.log(locationsWithRegion)
