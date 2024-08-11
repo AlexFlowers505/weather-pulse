@@ -13,6 +13,7 @@ export function useGeolocation() {
                 .query({ name: 'geolocation' })
                 .then(result => {
                     handlePermissionChange(result.state)
+                    console.log(result)
                     result.onchange = () => handlePermissionChange(result.state)
                 })
         } else {

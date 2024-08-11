@@ -1,10 +1,10 @@
 enum locationAccessStates {
-    IDLE,
-    ERROR,
-    GRANTED,
-    PROMPT,
-    DENIED,
-    UNSUPPORTED,
+    IDLE='idle',
+    ERROR='error',
+    GRANTED='granted',
+    PROMPT='prompt',
+    DENIED='denied',
+    UNSUPPORTED='unsupported',
 }
 
 export default locationAccessStates
