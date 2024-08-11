@@ -1,3 +1,4 @@
+import React from 'react'
 import SearchResult from './SearchResult'
 import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 import searchResultsStates from "../../constants/searchResultsStates.ts"
@@ -18,9 +19,8 @@ const generateSearchResults = (suggestions, request) => {
             const { area, region, country, forecast } = sugg
             const { main: {temp} } = forecast
             const locNameMatch = request
-            return (<>
+            return (<React.Fragment key={i}>
                 <SearchResult 
-                    key={i}
                     locNameMatch={locNameMatch}
                     locRegion={region}
                     locCountry={country}
@@ -30,7 +30,7 @@ const generateSearchResults = (suggestions, request) => {
                     request={request}
                 />
                 { arr.length-1 > i ? <hr className={`${tw.horLine}`}/> : null }
-            </>)
+            </React.Fragment>)
         })
     }</>)
 }
