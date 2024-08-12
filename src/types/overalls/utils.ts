@@ -10,3 +10,5 @@ export type dadataMappedSuggestionsType = {
 export type tailwindStyleClassType = {
     [elm: string]: string | {[subElm: string]: string}
 }
+
+export type setStateType<T> = React.Dispatch<React.SetStateAction<T>>

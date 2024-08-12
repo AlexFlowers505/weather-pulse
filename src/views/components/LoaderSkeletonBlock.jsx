@@ -1,5 +1,5 @@
 import LoaderSkeleton from './LoaderSkeleton'
-import { getRandomNum } from '../../utils/utils'
+import { getRandomNum } from '../../utils/utils.tsx'
 import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style.tsx'
 
 

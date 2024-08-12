@@ -1,5 +1,5 @@
 import browserIconsData from '../constants/browserIconsData.ts'
-import { capitalize, refreshPage } from '../utils/utils'
+import { capitalize, refreshPage } from '../utils/utils.tsx'
 import iconExtentions from '../constants/iconExtentions.ts'
 import svgSymbolsIDs from '../constants/svgSymbolsIDs.ts'
 import detailsFlow from '../constants/detailsFlow.ts'

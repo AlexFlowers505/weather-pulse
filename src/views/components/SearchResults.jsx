@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchResult from './SearchResult'
-import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
+import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons.tsx'
 import searchResultsStates from "../../constants/searchResultsStates.ts"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData.tsx'

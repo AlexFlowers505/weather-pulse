@@ -1,5 +1,5 @@
 import React from "react"
-import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils.js"
+import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils.tsx"
 import {alignTypes} from "../constants/textLayouts.ts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock.tsx"
 import { emoticons, emoticonsType } from "../constants/emoticons.ts"

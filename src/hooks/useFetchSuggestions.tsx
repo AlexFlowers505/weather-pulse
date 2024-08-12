@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchAreasSuggestions } from "../api/dadata.ts"
 import { fetchLocationsForecasts } from "../api/openWeatherMap.ts"
-import { removeMultipleSpaces } from "../utils/utils.js"
+import { removeMultipleSpaces } from "../utils/utils.tsx"
 import {default as options} from "../constants/fetchingSuggestionsSettings.ts"
 import searchResultsStates from "../constants/searchResultsStates.ts"
 import { dadataMappedSuggestionsType } from '../types/overalls/utils.ts'
