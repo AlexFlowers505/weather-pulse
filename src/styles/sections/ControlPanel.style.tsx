@@ -1,4 +1,6 @@
-export const controlPanelStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const controlPanelStyle: tailwindStyleClassType = {
     base: `
         flex
         w-full

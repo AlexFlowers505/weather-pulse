@@ -1,4 +1,6 @@
-export const navbarLinkStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const navbarLinkStyle: tailwindStyleClassType = {
     link: `
         flex
         flex-col

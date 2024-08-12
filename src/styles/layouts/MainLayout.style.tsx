@@ -1,4 +1,6 @@
-export const mainLayoutStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const mainLayoutStyle: tailwindStyleClassType = {
     mainLayout: `
       w-screen
       h-screen

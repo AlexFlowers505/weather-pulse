@@ -1,4 +1,6 @@
-export const areaShortForecastItemStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const areaShortForecastItemStyle: tailwindStyleClassType = {
     wrapper: `
       w-full 
       flex 

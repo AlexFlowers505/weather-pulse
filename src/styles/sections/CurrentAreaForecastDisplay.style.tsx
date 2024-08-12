@@ -1,4 +1,6 @@
-export const currentAreaForecastDisplayStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
     wrapper: `
     rounded-base
     bg-bgPrimary

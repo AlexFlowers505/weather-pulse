@@ -4,7 +4,7 @@ import { fetchLocationsForecasts } from "../api/openWeatherMap.ts"
 import { removeMultipleSpaces } from "../utils/utils.js"
 import {default as options} from "../constants/fetchingSuggestionsSettings.ts"
 import searchResultsStates from "../constants/searchResultsStates.ts"
-import { dadataMappedSuggestionsType } from '../types/utils.ts'
+import { dadataMappedSuggestionsType } from '../types/overalls/utils.ts'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

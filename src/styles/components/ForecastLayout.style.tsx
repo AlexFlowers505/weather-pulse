@@ -1,4 +1,6 @@
-export const forecastLayoutStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const forecastLayoutStyle: tailwindStyleClassType = {
     wrapper: `
         w-full
         h-fit

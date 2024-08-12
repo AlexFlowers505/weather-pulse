@@ -6,3 +6,7 @@ export type dadataMappedSuggestionsType = {
     region: string
     settlementType: string
 }
+
+export type tailwindStyleClassType = {
+    [elm: string]: string | {[subElm: string]: string}
+}

@@ -1,4 +1,6 @@
-export const navbarStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const navbarStyle: tailwindStyleClassType = {
     base: `
         flex
         w-fit

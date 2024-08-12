@@ -1,4 +1,6 @@
-export const SearchResultsStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const SearchResultsStyle: tailwindStyleClassType = {
     container: `
         z-10
         absolute

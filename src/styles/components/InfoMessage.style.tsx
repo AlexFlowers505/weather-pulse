@@ -1,4 +1,6 @@
-export const infoMessageStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const infoMessageStyle: tailwindStyleClassType = {
     wrapper: `
         w-full
         flex

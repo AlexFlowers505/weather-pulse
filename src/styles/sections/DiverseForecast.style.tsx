@@ -1,4 +1,6 @@
-export const diverseForecastStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const diverseForecastStyle: tailwindStyleClassType = {
     wrapper: `
         w-full
         h-fit

@@ -1,4 +1,6 @@
-export const spriteSvgStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const spriteSvgStyle: tailwindStyleClassType = {
     icon: `
         w-6
         h-6

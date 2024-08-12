@@ -1,4 +1,6 @@
-export const searchResultStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const searchResultStyle: tailwindStyleClassType = {
     externalWrapper: `
       flex 
       flex-row 

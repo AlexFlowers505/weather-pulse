@@ -1,4 +1,6 @@
-export const forecastItemsStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const forecastItemsStyle: tailwindStyleClassType = {
     horizontalLayout: `
         flex
         flex-row

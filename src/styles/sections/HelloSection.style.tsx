@@ -1,4 +1,6 @@
-export const helloSectionStyle = {
+import { tailwindStyleClassType } from "../../types/overalls/utils"
+
+export const helloSectionStyle: tailwindStyleClassType = {
     section: `
         flex 
         flex-col 
