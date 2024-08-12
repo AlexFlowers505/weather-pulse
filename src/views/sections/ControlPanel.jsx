@@ -1,5 +1,5 @@
-import ChangeUnitsBtn from '../components/btns/ChangeUnitsBtn'
-import LocateMeBtn from '../components/btns/LocateMeBtn'
+import ChangeUnitsBtn from '../components/btns/ChangeUnitsBtn.tsx'
+import LocateMeBtn from '../components/btns/LocateMeBtn.tsx'
 import Search from '../components/Search'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { controlPanelStyle as tw } from '../../styles/sections/ControlPanel.style.tsx'

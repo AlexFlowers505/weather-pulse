@@ -7,7 +7,7 @@ import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
 import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style.tsx'
 import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction.ts'
 import ContentRichInfoBlock from './ContentRichInfoBlock.jsx'
-import DismissBtn from './btns/DismissBtn.jsx'
+import DismissBtn from './btns/DismissBtn.tsx'
 import locationAccessStates from '../../constants/locationAccessStates.ts'
 
 const useToggle = (initialState = false) => {

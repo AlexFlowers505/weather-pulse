@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react"
 import btnStyles from '../../styles/components/btn.style.tsx'
-import DismissBtn from './btns/DismissBtn'
+import DismissBtn from './btns/DismissBtn.tsx'
 import SearchResults from './SearchResults'
 import { handleClearSearchBtnClick } from "../../utils/utils.tsx"
 import { searchStyle as tw } from "../../styles/components/Search.style.tsx"
-import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
+import ChangeUnitsBtn from "./btns/ChangeUnitsBtn.tsx"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions.tsx"
 
 const searchBarAttrs = {

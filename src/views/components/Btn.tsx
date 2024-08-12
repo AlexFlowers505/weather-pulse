@@ -1,23 +1,10 @@
 import React, { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg.tsx'
-import btnStyles, { BtnStyleSizeType } from '../../styles/components/btn.style.tsx'
+import btnStyles from '../../styles/components/btn.style.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import CustomTooltip from './CustomTooltip.jsx'
+import type { BtnType } from '../../types/overalls/utils.ts'
 
-type BtnType = {
-  contentType: btnContentType
-  content: string
-  onClick: () => void
-  
-  extraSVGstyle?: React.CSSProperties
-  btnSize?: BtnStyleSizeType
-  btnStyle?: string
-  extraBtnClass?: string
-  tooltipOffset?: [number, number]
-  hasTooltip?: boolean
-  tooltipContent?: string
-  extraSVGClass?: string
-}
 
 const Btn = forwardRef<HTMLButtonElement, BtnType>(({
   extraSVGstyle,
