@@ -4,27 +4,35 @@ import iconExtentions from '../constants/iconExtentions.ts'
 import svgSymbolsIDs from '../constants/svgSymbolsIDs.ts'
 import detailsFlow from '../constants/detailsFlow.ts'
 
-type InstructionItem = {
+export type InstructionItemType = {
     isHeaderItem: boolean
     iconType?: string
     icon?: string
     heading: string
     detailsFlow?: detailsFlow
     details?: string[]
-    hasBtn?: boolean
+    hasBtn: boolean
     btnContent?: string
     handleBtnClick?: () => void
     hasLink?: boolean
     link?: string
-}
+} & ( | {
+        hasBtn: true
+        btnContent: string
+        handleBtnClick: () => void
+      } | {
+        hasBtn: false
+        btnContent?: undefined
+        handleBtnClick?: undefined
+    })
 
-type GeolocationAccessDeniedInstruction = {
+type GeolocationAccessDeniedInstructionType = {
     heading: string
-    listItems: InstructionItem[]
+    listItems: InstructionItemType[]
 }
 
 
-export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruction = {
+export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstructionType = {
     heading: 'Что делать?',
     listItems: [
         {
@@ -43,6 +51,7 @@ export const geolocationAccessDeniedInstruction: GeolocationAccessDeniedInstruct
             handleBtnClick: () => refreshPage()
         },
         {
+            hasBtn: false,
             isHeaderItem: true,
             heading: 'Если перезагрузка не помогла, нужно дать доступ к\u00A0местоположению в настройках:'
         },

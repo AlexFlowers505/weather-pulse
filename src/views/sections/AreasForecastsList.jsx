@@ -1,4 +1,4 @@
-import AreaShortForecastItem from '../components/AreaShortForecastItem'
+import AreaShortForecastItem from '../components/AreaShortForecastItem.tsx'
 import { areasForecastsListStyle as tw } from '../../styles/sections/AreasForecastsList.style.tsx'
 
 

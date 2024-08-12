@@ -1,7 +1,11 @@
+import React from 'react'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style.tsx'
 
-export default function ForecastItem({layout}) {
+type forecastItemPropType = {
+    layout: forecastLayoutTypes
+}
+export default function ForecastItem({layout}: forecastItemPropType): React.JSX.Element {
     const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.forecastItem.horizontalLayout : layout === forecastLayoutTypes.horizontal ? tw.forecastItem.verticalLayout : ''
 
     return (

@@ -1,7 +1,7 @@
 import Search from '../components/Search'
 import LogoMin from '../components/LogoMin'
 import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
-import GeolocationBlock from '../components/GeolocationBlock'
+import GeolocationBlock from '../components/GeolocationBlock.tsx'
 
 
 export default function HelloSection() {

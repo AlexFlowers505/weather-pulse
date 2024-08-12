@@ -11,8 +11,7 @@ export type dadataMappedSuggestionsType = {
 }
 
 export type tailwindStyleClassType = {
-    [elm: string]: string | {[subElm: string]: string}
-}
+    [elm: string]: string | { [subElm: string]: string }}
 
 export type setStateType<T> = React.Dispatch<React.SetStateAction<T>>
 
@@ -29,4 +28,7 @@ export type BtnType = {
     hasTooltip?: boolean
     tooltipContent?: string
     extraSVGClass?: string
+}
+export type BtnBasedComponentType = Omit<BtnType, 'contentType' | 'content' | 'onClick'> & {
+    onClick?: () => void
 }

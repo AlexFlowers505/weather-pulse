@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Btn from '../Btn.tsx'
 import { btnContentType } from '../../../constants/btnContentType.ts'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs.ts'
-import { BtnType } from '../../../types/overalls/utils.ts'
+import { BtnBasedComponentType } from '../../../types/overalls/utils.ts'
 
 const btnData = {
   content: {
@@ -21,7 +21,7 @@ const btnData = {
 
 const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
-export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass }: BtnType): React.JSX.Element {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass }: BtnBasedComponentType): React.JSX.Element {
   const [isFavourite, setIsFavourite] = useState(false)
   const handleFavouriteBtnClick = () => setIsFavourite(prevState => !prevState)
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite

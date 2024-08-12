@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg.tsx'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
-import CustomTooltip from './CustomTooltip.jsx'
+import CustomTooltip from './CustomTooltip.tsx'
 import type { BtnType } from '../../types/overalls/utils.ts'
 
 

@@ -6,10 +6,15 @@ import { ContentRichInfoBlockStyle as tw } from '../../styles/components/Content
 import Btn from './Btn.tsx'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
+import { InstructionItemType } from '../../data/GeolocationAccessDeniedInstruction.ts'
 
 const {listItemsSeparator} = textSymbols
 
-export default function ContentRichInfoBlock({item}) {
+type ContentRichInfoBlockPropsType = {
+    item: InstructionItemType
+}
+
+export default function ContentRichInfoBlock({item}: ContentRichInfoBlockPropsType): React.JSX.Element {
   return (
     <li className={`content-item ${tw.contentItem}`}>
         {
@@ -26,7 +31,7 @@ export default function ContentRichInfoBlock({item}) {
                     <div className={`content-item-details ${tw.contentItemDetails}`}>
                         {
                             item.detailsFlow === detailsFlow.block ? (
-                                item.details.map((detail, i) => {
+                                item.details?.map((detail: string, i: number): React.JSX.Element => {
                                     return (
                                         <div className={`content-item-detail-wrapper ${tw.contentItemDetailsWrapper}`} key={i}>
                                             <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemsSeparator}</span>
@@ -37,7 +42,7 @@ export default function ContentRichInfoBlock({item}) {
                             : item.detailsFlow === detailsFlow.inline ? (
                                 <div className={`content-item-details-wrapper ${tw.contentItemDetailsWrapper}`}>
                                     {
-                                        item.details.map((detail, i, arr) => {
+                                        item.details?.map((detail: string, i: number, arr: string[]) => {
                                             return (
                                                 <React.Fragment key={i}>
                                                     <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>

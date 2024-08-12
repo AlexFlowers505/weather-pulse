@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import states from '../constants/locationAccessStates.ts'
 
 type statusType = states[keyof states]
-type geolocationPositionType = {
+export type geolocationPositionType = {
     coords: {
         latitude: number
         longitude: number

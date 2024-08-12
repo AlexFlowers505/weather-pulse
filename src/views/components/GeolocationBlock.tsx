@@ -1,15 +1,16 @@
-import Btn from '../components/Btn.tsx'
+import React from 'react'
+import Btn from './Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
 import { useGeolocation } from '../../hooks/useGeolocation.tsx'
 import {default as states} from '../../constants/locationAccessStates.ts'
 import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
-import InfoMessage from '../components/InfoMessage'
+import InfoMessage from './InfoMessage.jsx'
 import { geolocationMessages } from '../../data/infoMessagesData.tsx'
-import MessageWrapper from './MessageWrapper'
+import MessageWrapper from './MessageWrapper.jsx'
 
-export default function GeolocationBlock() {
-    const { status, position, error, getCurrentPosition, loading, setStatus } = useGeolocation()
+export default function GeolocationBlock(): React.JSX.Element | undefined {
+    const { status, position, error, getCurrentPosition, loading } = useGeolocation()
 
     if (loading) return <p>Loading...</p>
 
@@ -32,8 +33,8 @@ export default function GeolocationBlock() {
         case states.DENIED: return (
             <>
                 <p>Your location is:</p>
-                <p>Latitude: {position.coords.latitude}</p>
-                <p>Longitude: {position.coords.longitude}</p>
+                <p>Latitude: {position?.coords.latitude}</p>
+                <p>Longitude: {position?.coords.longitude}</p>
             </>
         )
         case states.ERROR:
@@ -45,4 +46,5 @@ export default function GeolocationBlock() {
                 )
             } else console.log(status)
     }
+    return
 }

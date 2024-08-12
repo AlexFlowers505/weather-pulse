@@ -1,4 +1,4 @@
-import ForecastItems from '../components/ForecastItems'
+import ForecastItems from '../components/ForecastItems.tsx'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 import {default as picData} from '../../constants/weatherPicturesNames.ts'
 import Btn from '../components/Btn.tsx'

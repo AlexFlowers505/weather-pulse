@@ -2,9 +2,9 @@ import React from 'react'
 import Btn from '../Btn.tsx'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs.ts'
 import { btnContentType } from '../../../constants/btnContentType.ts'
-import { BtnType } from '../../../types/overalls/utils.ts'
+import { BtnBasedComponentType } from '../../../types/overalls/utils.ts'
 
-export default function DismissBtn({btnSize, btnStyle, extraBtnClass, onClick, hasTooltip=false, tooltipContent=''}: BtnType): React.JSX.Element {
+export default function DismissBtn({btnSize, btnStyle, extraBtnClass, onClick, hasTooltip=false, tooltipContent=''}: BtnBasedComponentType): React.JSX.Element {
 
     const dismissBtnData = {
         content: svgSymbolsIDs.iconClose,

@@ -2,7 +2,7 @@ import React from 'react'
 import Btn from '../Btn.tsx'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs.ts'
 import { btnContentType } from '../../../constants/btnContentType.ts'
-import { BtnType } from '../../../types/overalls/utils.ts'
+import { BtnBasedComponentType, BtnType } from '../../../types/overalls/utils.ts'
 
 const locateMeBtnData = {
   content: svgSymbolsIDs.iconLocation,
@@ -10,7 +10,11 @@ const locateMeBtnData = {
 }
 const {content, contentType} = locateMeBtnData
 
-export default function LocateMeBtn({btnSize, btnStyle, onClick}: BtnType): React.JSX.Element {
+type locateMeBtnType = Omit<BtnBasedComponentType, 'onClick'> & {
+  onClick: () => void
+}
+
+export default function LocateMeBtn({btnSize, btnStyle, onClick}: locateMeBtnType): React.JSX.Element {
   return (
     <Btn 
       content={content} 

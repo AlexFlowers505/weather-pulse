@@ -1,4 +1,4 @@
-import ForecastLayout from '../components/ForecastLayout'
+import ForecastLayout from '../components/ForecastLayout.tsx'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
 
 const props = {
