@@ -7,7 +7,7 @@ import CurrentAreaForecastDisplay from '../sections/CurrentAreaForecastDisplay'
 import TodayForecast from '../sections/TodayForecast'
 import SevenDaysForecast from '../sections/SevenDaysForecast'
 import Spinner from '../components/Spinner'
-import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
+import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style.tsx'
 
 export default function AreaOverviewPage() {
 

@@ -3,7 +3,7 @@ import ControlPanel from '../sections/ControlPanel'
 import AreasForecastsList from '../sections/AreasForecastsList'
 import TodayForecast from '../sections/TodayForecast'
 import DiverseForecast from '../sections/DiverseForecast'
-import { favouriteAreasOverviewPageStyle as tw } from '../../styles/pages/FavouriteAreasOverviewPage.style'
+import { favouriteAreasOverviewPageStyle as tw } from '../../styles/pages/FavouriteAreasOverviewPage.style.tsx'
 
 export default function FavouriteAreasOverviewPage() {
   return (

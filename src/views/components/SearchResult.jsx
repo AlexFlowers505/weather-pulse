@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
+import { searchResultStyle as tw } from '../../styles/components/SearchResult.style.tsx'
 import { fetchIcon } from '../../api/openWeatherMap.ts'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style.tsx'

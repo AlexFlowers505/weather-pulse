@@ -1,4 +1,4 @@
-import { messageWrapperStyle as tw } from "../../styles/components/MessageWrapper.style"
+import { messageWrapperStyle as tw } from "../../styles/components/MessageWrapper.style.tsx"
 
 export default function MessageWrapper({children}) {
     return (

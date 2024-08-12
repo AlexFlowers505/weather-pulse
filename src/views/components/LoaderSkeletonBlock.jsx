@@ -1,6 +1,6 @@
 import LoaderSkeleton from './LoaderSkeleton'
 import { getRandomNum } from '../../utils/utils'
-import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style'
+import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style.tsx'
 
 
 export default function LoaderSkeletonBlock({qnt=2}) {

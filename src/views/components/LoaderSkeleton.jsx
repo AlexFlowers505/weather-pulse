@@ -1,4 +1,4 @@
-import { loaderSkeletonStyle as tw } from "../../styles/components/LoaderSkeleton.style"
+import { loaderSkeletonStyle as tw } from "../../styles/components/LoaderSkeleton.style.tsx"
 
 export default function LoaderSkeleton({width}) {
   return (

@@ -1,7 +1,7 @@
 import LogoMin from '../components/LogoMin'
 import navLinksData from '../../data/navLinksData.ts' 
 import NavbarLink from '../components/NavbarLink'
-import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style'
+import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
 
 export default function Navbar() {
   return (

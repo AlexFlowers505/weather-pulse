@@ -1,5 +1,5 @@
 import ForecastItems from '../components/ForecastItems'
-import { forecastLayoutStyle as tw } from '../../styles/components/ForecastLayout.style'
+import { forecastLayoutStyle as tw } from '../../styles/components/ForecastLayout.style.tsx'
 
 export default function ForecastLayout({heading, layout}) {
   return (

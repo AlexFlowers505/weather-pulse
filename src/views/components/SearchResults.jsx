@@ -4,7 +4,7 @@ import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
 import searchResultsStates from "../../constants/searchResultsStates.ts"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData.tsx'
-import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
+import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style.tsx'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

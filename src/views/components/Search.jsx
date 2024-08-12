@@ -3,7 +3,7 @@ import btnStyles from '../../styles/components/btn.style.tsx'
 import DismissBtn from './btns/DismissBtn'
 import SearchResults from './SearchResults'
 import { handleClearSearchBtnClick } from "../../utils/utils"
-import { searchStyle as tw } from "../../styles/components/Search.style"
+import { searchStyle as tw } from "../../styles/components/Search.style.tsx"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions.tsx"
 

@@ -2,7 +2,7 @@ import ChangeUnitsBtn from '../components/btns/ChangeUnitsBtn'
 import LocateMeBtn from '../components/btns/LocateMeBtn'
 import Search from '../components/Search'
 import btnStyles from '../../styles/components/btn.style.tsx'
-import { controlPanelStyle as tw } from '../../styles/sections/ControlPanel.style'
+import { controlPanelStyle as tw } from '../../styles/sections/ControlPanel.style.tsx'
 
 export default function ControlPanel() {
   return (

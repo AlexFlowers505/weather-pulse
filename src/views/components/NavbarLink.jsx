@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style'
+import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style.tsx'
 
 
 export default function NavbarLink({link}) {

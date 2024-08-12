@@ -5,7 +5,7 @@ import Btn from '../components/Btn.tsx'
 import { btnContentType } from '../../constants/btnContentType.ts'
 import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
 import btnStyles from '../../styles/components/btn.style.tsx'
-import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style'
+import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style.tsx'
 
 export default function DiverseForecast() {
   return (

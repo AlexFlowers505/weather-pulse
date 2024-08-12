@@ -1,5 +1,5 @@
 import AreaShortForecastItem from '../components/AreaShortForecastItem'
-import { areasForecastsListStyle as tw } from '../../styles/sections/AreasForecastsList.style'
+import { areasForecastsListStyle as tw } from '../../styles/sections/AreasForecastsList.style.tsx'
 
 
 export default function AreasForecastsList() {

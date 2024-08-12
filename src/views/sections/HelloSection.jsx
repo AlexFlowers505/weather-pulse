@@ -1,6 +1,6 @@
 import Search from '../components/Search'
 import LogoMin from '../components/LogoMin'
-import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style'
+import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
 import GeolocationBlock from '../components/GeolocationBlock'
 
 
