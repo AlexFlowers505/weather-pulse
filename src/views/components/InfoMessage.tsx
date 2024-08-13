@@ -1,9 +1,20 @@
+import React from "react"
 import Btn from "./Btn.tsx"
 import btnStyles from "../../styles/components/btn.style.tsx"
 import { btnContentType } from "../../constants/btnContentType.ts"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style.tsx"
 import DismissBtn from "./btns/DismissBtn.tsx"
 import textLayouts from "../../constants/textLayouts.ts"
+import { geolocationMessagesType } from "../../data/infoMessagesData.tsx"
+
+type infoMessagePropsType = {
+    inputRef?: any
+    setFetchState?: ()=> void | null
+    setRequest?: ()=> void | null
+    setRepeatFetch?: ()=> void | null
+    request?: string
+    message: geolocationMessagesType
+}
 
 export default function InfoMessage({
     inputRef=null, 
@@ -11,7 +22,7 @@ export default function InfoMessage({
     setRequest=null, 
     setRepeatFetch=null, 
     request=null, 
-    message}) {
+    message}: infoMessagePropsType): React.JSX.Element {
         
     const { 
         hasEmoticon, 

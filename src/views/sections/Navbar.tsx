@@ -1,9 +1,10 @@
-import LogoMin from '../components/LogoMin'
+import React from 'react'
+import LogoMin from '../components/LogoMin.tsx'
 import navLinksData from '../../data/navLinksData.ts' 
-import NavbarLink from '../components/NavbarLink'
+import NavbarLink from '../components/NavbarLink.tsx'
 import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
 
-export default function Navbar() {
+export default function Navbar(): React.JSX.Element {
   return (
         <nav className={tw.base}>
             <LogoMin styles={tw.logo} />

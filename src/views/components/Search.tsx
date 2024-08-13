@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import btnStyles from '../../styles/components/btn.style.tsx'
 import DismissBtn from './btns/DismissBtn.tsx'
-import SearchResults from './SearchResults'
+import SearchResults from './SearchResults.tsx'
 import { handleClearSearchBtnClick } from "../../utils/utils.tsx"
 import { searchStyle as tw } from "../../styles/components/Search.style.tsx"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn.tsx"
@@ -12,7 +12,11 @@ const searchBarAttrs = {
   dismissBtnTooltipContent: 'Очистить поле поиска',
 }
 
-export default function Search({styles=''}) {
+type searchPropsType = {
+  styles: string
+}
+
+export default function Search({styles=''}: searchPropsType): React.JSX.Element {
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef(null)

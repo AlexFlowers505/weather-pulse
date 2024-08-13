@@ -5,9 +5,9 @@ import btnStyles from '../../styles/components/btn.style.tsx'
 import { useGeolocation } from '../../hooks/useGeolocation.tsx'
 import {default as states} from '../../constants/locationAccessStates.ts'
 import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
-import InfoMessage from './InfoMessage.jsx'
+import InfoMessage from './InfoMessage.tsx'
 import { geolocationMessages } from '../../data/infoMessagesData.tsx'
-import MessageWrapper from './MessageWrapper.jsx'
+import MessageWrapper from './MessageWrapper.tsx'
 
 export default function GeolocationBlock(): React.JSX.Element | undefined {
     const { status, position, error, getCurrentPosition, loading } = useGeolocation()

@@ -1,5 +1,5 @@
 import React from 'react'
-import LoaderSkeletonBlock from '../views/components/LoaderSkeletonBlock'
+import LoaderSkeletonBlock from '../views/components/LoaderSkeletonBlock.tsx'
 
 export default function generateLoaderSkeletons(blockQnt: number, elmPerBlockQnt: number): React.ReactNode {
     return Array.from({ length: blockQnt }, (_, i) => (

@@ -1,6 +1,10 @@
+import React from "react"
 import HashLoader from "react-spinners/HashLoader"
 
-export default function Spinner({loading}) {
+type spinnerPropsType = {
+  loading: boolean
+}
+export default function Spinner({loading}: spinnerPropsType): React.JSX.Element {
   return (
     <HashLoader
       color="#0095FF"

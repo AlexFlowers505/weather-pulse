@@ -1,8 +1,17 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style.tsx'
 
 
-export default function NavbarLink({link}) {
+type navbarLinkPropsType = {
+    link: {
+        url: string
+        text: string
+        icon: string
+    }
+}
+
+export default function NavbarLink({link}: navbarLinkPropsType): React.JSX.Element {
     const { url, text, icon } = link
     const getFinalLinkTWstyle = ({isActive}) => isActive ? `${tw.link} ${tw.activeLink}` : tw.link
     

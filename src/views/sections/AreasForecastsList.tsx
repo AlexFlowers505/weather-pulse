@@ -1,8 +1,9 @@
+import React from 'react'
 import AreaShortForecastItem from '../components/AreaShortForecastItem.tsx'
 import { areasForecastsListStyle as tw } from '../../styles/sections/AreasForecastsList.style.tsx'
 
 
-export default function AreasForecastsList() {
+export default function AreasForecastsList(): React.JSX.Element {
   return (
     <section className={tw.base}>
         <AreaShortForecastItem />

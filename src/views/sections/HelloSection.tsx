@@ -1,10 +1,11 @@
-import Search from '../components/Search'
-import LogoMin from '../components/LogoMin'
+import React from 'react'
+import Search from '../components/Search.tsx'
+import LogoMin from '../components/LogoMin.tsx'
 import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
 import GeolocationBlock from '../components/GeolocationBlock.tsx'
 
 
-export default function HelloSection() {
+export default function HelloSection(): React.JSX.Element {
   return (
     <section className={`section ${tw.section}`}>
         <div className={`logo-wrapper ${tw.logoWrapper}`}>

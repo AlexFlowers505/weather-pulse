@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style.tsx'
 import { fetchIcon } from '../../api/openWeatherMap.ts'
 import FavouriteBtn from './btns/FavouriteBtn.tsx'
 import btnStyles from '../../styles/components/btn.style.tsx'
 
-function handleHighlightMatchText(textWithMatch='', request) {
+function handleHighlightMatchText(textWithMatch: string ='', request): string | React.JSX.Element {
   if (request.length) {
     const regex = new RegExp(`(${request})`, 'gi')
     const parts = textWithMatch.split(regex)
@@ -19,8 +19,15 @@ function handleHighlightMatchText(textWithMatch='', request) {
   return textWithMatch
 }
 
-
-export default function SearchResult({...props}) { 
+type searchResultPropsType = {
+  locName: string
+  locRegion: string
+  locCountry: string
+  locTemp: number
+  locTempIcon: string
+  request: string
+}
+export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
   const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='' } = props
 
   const [iconUrl, setIconUrl] = useState('')

@@ -1,8 +1,8 @@
 import React from 'react'
-import SearchResult from './SearchResult'
+import SearchResult from './SearchResult.tsx'
 import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons.tsx'
 import searchResultsStates from "../../constants/searchResultsStates.ts"
-import InfoMessage from './InfoMessage'
+import InfoMessage from './InfoMessage.tsx'
 import { searchMessages } from '../../data/infoMessagesData.tsx'
 import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style.tsx'
 
@@ -13,7 +13,7 @@ const loaderSkeletonProps = {
     skeletonsPerBlock: 2
 }
 
-const generateSearchResults = (suggestions, request) => {
+const generateSearchResults = (suggestions: any[], request: string): React.JSX.Element => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
             const { area, region, country, forecast } = sugg
@@ -35,6 +35,15 @@ const generateSearchResults = (suggestions, request) => {
     }</>)
 }
 
+type searchResultsPropsType = {
+    fetchState: null
+    suggestions: any[]
+    request: string
+    inputRef: null
+    setFetchState: null
+    setRequest: null
+    setRepeatFetch: null
+}
 export default function SearchResults(
     {
         fetchState, 
@@ -44,7 +53,7 @@ export default function SearchResults(
         setFetchState=null, 
         setRequest=null, 
         setRepeatFetch=null 
-    }) { 
+    }: searchResultsPropsType): React.JSX.Element { 
         return (<> { 
             fetchState === IDLE ? null :
             <div className={`search-results ${tw.container}`}>

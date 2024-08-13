@@ -48,7 +48,7 @@ const dismissBtnCustomClasses= `
       active:text-activeStateLight
 `
 
-export default function GeolocationDeniedInfoBlock() {
+export default function GeolocationDeniedInfoBlock(): React.JSX.Element {
   const [unraveled, toggleUnraveled] = useToggle(false)
   const [height, setHeight] = useState(animateHeightConfig.defaultHeight)
 
