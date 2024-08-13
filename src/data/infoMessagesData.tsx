@@ -43,7 +43,7 @@ export const searchMessages: searchMessagesType = {
     }
 }
 
-type geolocationMessagesType = {
+export type geolocationMessagesType = {
     [key: string]: {
         hasEmoticon: boolean
         emoticon: emoticonsType[keyof emoticonsType]
