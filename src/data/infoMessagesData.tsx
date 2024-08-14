@@ -4,23 +4,26 @@ import {alignTypes} from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
 import { emoticons, emoticonsType } from "../constants/emoticons"
 
-type searchMessagesType = {
+export type basicMessageType = {
     [key: string]: {
         hasEmoticon: boolean
-        emoticon: emoticonsType[keyof emoticonsType]
+        emoticon?: emoticonsType[keyof emoticonsType]
         heading: string
-        desc: string[]
+        hasDesc: boolean
+        desc?: string[]
         hasBtn: boolean
         btnText?: string
-        handleBtnClick?: () => void
+        handleBtnClick?: React.MouseEventHandler<HTMLButtonElement>
     }
 }
+export type searchMessageType = basicMessageType
 
-export const searchMessages: searchMessagesType = {
+export const searchMessages: searchMessageType = {
     nothingFound: {
         hasEmoticon: true,
         emoticon: emoticons.shrug,
         heading: `Ничего не найдено`,
+        hasDesc: true,
         desc: [
             `Попробуйте изменить запрос`,
         ],
@@ -32,6 +35,7 @@ export const searchMessages: searchMessagesType = {
         hasEmoticon: true,
         emoticon: emoticons.awkward,
         heading: `Что-то пошло не так`,
+        hasDesc: true,
         desc: [
             `Случилась ошибка на стороне сервера.`,
             `Попробуйте повторить запрос.`,
@@ -43,24 +47,17 @@ export const searchMessages: searchMessagesType = {
     }
 }
 
-export type geolocationMessagesType = {
+export type geolocationMessageType = searchMessageType & {
     [key: string]: {
-        hasEmoticon: boolean
-        emoticon: emoticonsType[keyof emoticonsType]
-        heading: string
-        hasBtn: boolean
-        btnText?: string
-        handleBtnClick?: () => void
         hasDismissBtn: boolean
         descriptionLayout: alignTypes
         dismissBtnTooltipContent?: string
-        hasDesc: boolean
-        desc?: string[]
         hasCustomContent: boolean
-        customContent?: React.JSX.Element 
+        customContent?: React.JSX.Element
     }
 }
-export const geolocationMessages: geolocationMessagesType = {
+
+export const geolocationMessages: geolocationMessageType = {
     accessDenied: {
         hasEmoticon: true,
         emoticon: emoticons.shrug,

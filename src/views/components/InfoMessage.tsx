@@ -5,16 +5,7 @@ import { btnContentType } from "../../constants/btnContentType"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "./btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
-import { geolocationMessagesType } from "../../data/infoMessagesData"
 
-type infoMessagePropsType = {
-    inputRef?: any
-    setFetchState?: ()=> void | null
-    setRequest?: ()=> void | null
-    setRepeatFetch?: ()=> void | null
-    request?: string
-    message: geolocationMessagesType
-}
 
 export default function InfoMessage({
     inputRef=null, 
@@ -22,7 +13,7 @@ export default function InfoMessage({
     setRequest=null, 
     setRepeatFetch=null, 
     request=null, 
-    message}: infoMessagePropsType): React.JSX.Element {
+    message}): React.JSX.Element {
         
     const { 
         hasEmoticon, 
