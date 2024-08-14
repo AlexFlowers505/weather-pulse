@@ -1,5 +1,5 @@
-import { BtnStyleSizeType } from '../../styles/components/btn.style.tsx'
-import { btnContentType } from '../../constants/btnContentType.ts'
+import { BtnStyleSizeType } from '../../styles/components/btn.style'
+import { btnContentType } from '../../constants/btnContentType'
 
 export type dadataMappedSuggestionsType = {
     area: string
@@ -10,15 +10,14 @@ export type dadataMappedSuggestionsType = {
     settlementType: string
 }
 
-export type tailwindStyleClassType = {
-    [elm: string]: string | { [subElm: string]: string }}
+export type tailwindStyleClassType = { [key: string]: string }
 
 export type setStateType<T> = React.Dispatch<React.SetStateAction<T>>
 
 export type BtnType = {
     contentType: btnContentType
     content: string
-    onClick: () => void
+    onClick?: () => void
 
     extraSVGstyle?: React.CSSProperties
     btnSize?: BtnStyleSizeType

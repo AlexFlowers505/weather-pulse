@@ -1,15 +1,15 @@
 import React from 'react'
-import Btn from './Btn.tsx'
-import { btnContentType } from '../../constants/btnContentType.ts'
-import btnStyles from '../../styles/components/btn.style.tsx'
-import { useGeolocation } from '../../hooks/useGeolocation.tsx'
-import {default as states} from '../../constants/locationAccessStates.ts'
-import {default as codes} from '../../constants/locationAccessErrorCodes.ts'
-import InfoMessage from './InfoMessage.tsx'
-import { geolocationMessages } from '../../data/infoMessagesData.tsx'
-import MessageWrapper from './MessageWrapper.tsx'
+import Btn from './Btn'
+import { btnContentType } from '../../constants/btnContentType'
+import btnStyles from '../../styles/components/btn.style'
+import { useGeolocation } from '../../hooks/useGeolocation'
+import {default as states} from '../../constants/locationAccessStates'
+import {default as codes} from '../../constants/locationAccessErrorCodes'
+import InfoMessage from './InfoMessage'
+import { geolocationMessages } from '../../data/infoMessagesData'
+import MessageWrapper from './MessageWrapper'
 
-export default function GeolocationBlock(): React.JSX.Element | undefined {
+export default function GeolocationBlock(): React.JSX.Element | null {
     const { status, position, error, getCurrentPosition, loading } = useGeolocation()
 
     if (loading) return <p>Loading...</p>
@@ -46,5 +46,5 @@ export default function GeolocationBlock(): React.JSX.Element | undefined {
                 )
             } else console.log(status)
     }
-    return
+    return null
 }

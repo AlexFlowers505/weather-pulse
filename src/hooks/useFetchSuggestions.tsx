@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { fetchAreasSuggestions } from "../api/dadata.ts"
-import { fetchLocationsForecasts } from "../api/openWeatherMap.ts"
-import { removeMultipleSpaces } from "../utils/utils.tsx"
-import {default as options} from "../constants/fetchingSuggestionsSettings.ts"
-import searchResultsStates from "../constants/searchResultsStates.ts"
-import { dadataMappedSuggestionsType } from '../types/overalls/utils.ts'
+import { fetchAreasSuggestions } from "../api/dadata"
+import { fetchLocationsForecasts } from "../api/openWeatherMap"
+import { removeMultipleSpaces } from "../utils/utils"
+import {default as options} from "../constants/fetchingSuggestionsSettings"
+import searchResultsStates from "../constants/searchResultsStates"
+import { dadataMappedSuggestionsType } from '../types/overalls/utils'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

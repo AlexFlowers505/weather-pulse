@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style.tsx'
+import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style'
 
 
 type navbarLinkPropsType = {

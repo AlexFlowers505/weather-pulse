@@ -1,12 +1,12 @@
 import React from 'react'
-import iconExtentions from '../../constants/iconExtentions.ts'
-import detailsFlow from '../../constants/detailsFlow.ts'
-import { textSymbols } from '../../constants/textSymbols.ts'
-import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style.tsx'
-import Btn from './Btn.tsx'
-import btnStyles from '../../styles/components/btn.style.tsx'
-import { btnContentType } from '../../constants/btnContentType.ts'
-import { InstructionItemType } from '../../data/GeolocationAccessDeniedInstruction.ts'
+import iconExtentions from '../../constants/iconExtentions'
+import detailsFlow from '../../constants/detailsFlow'
+import { textSymbols } from '../../constants/textSymbols'
+import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
+import Btn from './Btn'
+import btnStyles from '../../styles/components/btn.style'
+import { btnContentType } from '../../constants/btnContentType'
+import { InstructionItemType } from '../../data/GeolocationAccessDeniedInstruction'
 
 const {listItemsSeparator} = textSymbols
 

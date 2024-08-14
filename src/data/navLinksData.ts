@@ -1,4 +1,4 @@
-import svgSymbolsIDs, {svgSymbolsIDsType} from "../constants/svgSymbolsIDs.ts"
+import svgSymbolsIDs, {svgSymbolsIDsType} from "../constants/svgSymbolsIDs"
 
 type navLinkDataType = {
     text: string

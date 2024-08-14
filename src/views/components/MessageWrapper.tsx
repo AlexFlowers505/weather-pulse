@@ -1,5 +1,5 @@
 import React from "react"
-import { messageWrapperStyle as tw } from "../../styles/components/MessageWrapper.style.tsx"
+import { messageWrapperStyle as tw } from "../../styles/components/MessageWrapper.style"
 
 type messageWrapperPropsType = {
     children: React.ReactNode

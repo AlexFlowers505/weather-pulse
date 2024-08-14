@@ -1,4 +1,4 @@
-import svgSymbolsIDs from "./svgSymbolsIDs.ts"
+import svgSymbolsIDs from "./svgSymbolsIDs"
 
 type temperatureUnitsType = {
     [key: string]: {

@@ -1,5 +1,5 @@
-import fetchOptions from "../constants/fetchingSuggestionsSettings.ts"
-import { dadataMappedSuggestionsType } from "../types/overalls/utils.ts"
+import fetchOptions from "../constants/fetchingSuggestionsSettings"
+import { dadataMappedSuggestionsType } from "../types/overalls/utils"
 
 type fetchOptionsType = {
   method: 'POST',

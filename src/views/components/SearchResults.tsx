@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchResult from './SearchResult.tsx'
-import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons.tsx'
-import searchResultsStates from "../../constants/searchResultsStates.ts"
-import InfoMessage from './InfoMessage.tsx'
-import { searchMessages } from '../../data/infoMessagesData.tsx'
-import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style.tsx'
+import SearchResult from './SearchResult'
+import generateLoaderSkeletons from '../../utils/generateLoaderSkeletons'
+import searchResultsStates from "../../constants/searchResultsStates"
+import InfoMessage from './InfoMessage'
+import { searchMessages } from '../../data/infoMessagesData'
+import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

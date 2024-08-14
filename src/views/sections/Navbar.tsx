@@ -1,8 +1,8 @@
 import React from 'react'
-import LogoMin from '../components/LogoMin.tsx'
-import navLinksData from '../../data/navLinksData.ts' 
-import NavbarLink from '../components/NavbarLink.tsx'
-import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
+import LogoMin from '../components/LogoMin'
+import navLinksData from '../../data/navLinksData' 
+import NavbarLink from '../components/NavbarLink'
+import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style'
 
 export default function Navbar(): React.JSX.Element {
   return (

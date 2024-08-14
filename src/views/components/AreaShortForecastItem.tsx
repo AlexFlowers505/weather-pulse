@@ -1,12 +1,15 @@
 import React from 'react'
-import FavouriteBtn from './btns/FavouriteBtn.tsx'
-import { default as picData } from '../../constants/weatherPicturesNames.ts'
-import { areaShortForecastItemStyle as tw } from '../../styles/components/AreaShortForecastItem.style.tsx'
+import FavouriteBtn from './btns/FavouriteBtn'
+import { default as picData } from '../../constants/weatherPicturesNames'
+import { areaShortForecastItemStyle as tw } from '../../styles/components/AreaShortForecastItem.style'
 
 type areaShortForecastItemPropsType = {
-  city: string
-  temperature: number
-  iconName: string
+  city?: string
+  temperature?: number
+  iconName?: string
+  // city: string
+  // temperature: number
+  // iconName: string
 }
 
 // Functional component with typed props

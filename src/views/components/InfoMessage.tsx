@@ -1,11 +1,11 @@
 import React from "react"
-import Btn from "./Btn.tsx"
-import btnStyles from "../../styles/components/btn.style.tsx"
-import { btnContentType } from "../../constants/btnContentType.ts"
-import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style.tsx"
-import DismissBtn from "./btns/DismissBtn.tsx"
-import textLayouts from "../../constants/textLayouts.ts"
-import { geolocationMessagesType } from "../../data/infoMessagesData.tsx"
+import Btn from "./Btn"
+import btnStyles from "../../styles/components/btn.style"
+import { btnContentType } from "../../constants/btnContentType"
+import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
+import DismissBtn from "./btns/DismissBtn"
+import textLayouts from "../../constants/textLayouts"
+import { geolocationMessagesType } from "../../data/infoMessagesData"
 
 type infoMessagePropsType = {
     inputRef?: any

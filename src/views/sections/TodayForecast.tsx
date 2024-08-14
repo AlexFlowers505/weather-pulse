@@ -1,6 +1,6 @@
 import React from 'react'
-import ForecastLayout from '../components/ForecastLayout.tsx'
-import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
+import ForecastLayout from '../components/ForecastLayout'
+import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 
 
 const props = {

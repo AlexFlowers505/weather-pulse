@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { fetchWeather } from "../../api/openWeatherMap.ts"
+// import { fetchWeather } from "../../api/openWeatherMap"
 
-import Navbar from '../sections/Navbar.tsx'
-import ControlPanel from '../sections/ControlPanel.tsx'
-import CurrentAreaForecastDisplay from '../sections/CurrentAreaForecastDisplay.tsx'
-import TodayForecast from '../sections/TodayForecast.tsx'
-import SevenDaysForecast from '../sections/SevenDaysForecast.tsx'
-import Spinner from '../components/Spinner.tsx'
-import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style.tsx'
+import Navbar from '../sections/Navbar'
+import ControlPanel from '../sections/ControlPanel'
+import CurrentAreaForecastDisplay from '../sections/CurrentAreaForecastDisplay'
+import TodayForecast from '../sections/TodayForecast'
+import SevenDaysForecast from '../sections/SevenDaysForecast'
+import Spinner from '../components/Spinner'
+import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
 
 export default function AreaOverviewPage(): React.JSX.Element {
 

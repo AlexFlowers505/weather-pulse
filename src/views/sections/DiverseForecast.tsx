@@ -1,12 +1,12 @@
 import React from 'react'
-import ForecastItems from '../components/ForecastItems.tsx'
-import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
-import {default as picData} from '../../constants/weatherPicturesNames.ts'
-import Btn from '../components/Btn.tsx'
-import { btnContentType } from '../../constants/btnContentType.ts'
-import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
-import btnStyles from '../../styles/components/btn.style.tsx'
-import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style.tsx'
+import ForecastItems from '../components/ForecastItems'
+import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
+import {default as picData} from '../../constants/weatherPicturesNames'
+import Btn from '../components/Btn'
+import { btnContentType } from '../../constants/btnContentType'
+import svgSymbolsIDs from '../../constants/svgSymbolsIDs'
+import btnStyles from '../../styles/components/btn.style'
+import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecast.style'
 
 export default function DiverseForecast(): React.JSX.Element {
   return (

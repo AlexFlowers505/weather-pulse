@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { searchResultStyle as tw } from '../../styles/components/SearchResult.style.tsx'
-import { fetchIcon } from '../../api/openWeatherMap.ts'
-import FavouriteBtn from './btns/FavouriteBtn.tsx'
-import btnStyles from '../../styles/components/btn.style.tsx'
+import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
+import { fetchIcon } from '../../api/openWeatherMap'
+import FavouriteBtn from './btns/FavouriteBtn'
+import btnStyles from '../../styles/components/btn.style'
 
 function handleHighlightMatchText(textWithMatch: string ='', request): string | React.JSX.Element {
   if (request.length) {

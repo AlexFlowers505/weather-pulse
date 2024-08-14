@@ -1,5 +1,5 @@
 import React from 'react'
-import { default as svgID } from '../../constants/svgSymbolsIDs.ts'
+import { default as svgID } from '../../constants/svgSymbolsIDs'
 
 const MainSVGsprite: React.FC = () => {
   return (

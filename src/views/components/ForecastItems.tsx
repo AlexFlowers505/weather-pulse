@@ -1,7 +1,7 @@
 import React from 'react'
-import ForecastItem from './ForecastItem.tsx'
-import forecastLayoutTypes from '../../constants/forecastLayoutTypes.ts'
-import { forecastItemsStyle as tw } from '../../styles/components/ForecastItems.style.tsx'
+import ForecastItem from './ForecastItem'
+import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
+import { forecastItemsStyle as tw } from '../../styles/components/ForecastItems.style'
 
 type forecastItemsPropType = {
     layout: forecastLayoutTypes

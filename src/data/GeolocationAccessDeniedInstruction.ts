@@ -1,8 +1,8 @@
-import browserIconsData from '../constants/browserIconsData.ts'
-import { capitalize, refreshPage } from '../utils/utils.tsx'
-import iconExtentions from '../constants/iconExtentions.ts'
-import svgSymbolsIDs from '../constants/svgSymbolsIDs.ts'
-import detailsFlow from '../constants/detailsFlow.ts'
+import browserIconsData from '../constants/browserIconsData'
+import { capitalize, refreshPage } from '../utils/utils'
+import iconExtentions from '../constants/iconExtentions'
+import svgSymbolsIDs from '../constants/svgSymbolsIDs'
+import detailsFlow from '../constants/detailsFlow'
 
 export type InstructionItemType = {
     isHeaderItem: boolean

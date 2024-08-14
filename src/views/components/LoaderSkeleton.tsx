@@ -1,5 +1,5 @@
 import React from "react"
-import { loaderSkeletonStyle as tw } from "../../styles/components/LoaderSkeleton.style.tsx"
+import { loaderSkeletonStyle as tw } from "../../styles/components/LoaderSkeleton.style"
 
 
 type loaderSkeletonPropsType = {

@@ -1,7 +1,7 @@
 import React from 'react'
-import LoaderSkeleton from './LoaderSkeleton.tsx'
-import { getRandomNum } from '../../utils/utils.tsx'
-import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style.tsx'
+import LoaderSkeleton from './LoaderSkeleton'
+import { getRandomNum } from '../../utils/utils'
+import { loaderSkeletonBlockStyle as tw } from '../../styles/components/LoaderSkeletonBlock.style'
 
 type loaderSkeletonBlockPropsType = {
   qnt: number

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Btn from '../Btn.tsx'
-import temperatureUnits from '../../../constants/temperatureUnits.ts'
-import { btnContentType } from '../../../constants/btnContentType.ts'
-import { BtnBasedComponentType } from '../../../types/overalls/utils.ts'
+import Btn from '../Btn'
+import temperatureUnits from '../../../constants/temperatureUnits'
+import { btnContentType } from '../../../constants/btnContentType'
+import { BtnBasedComponentType } from '../../../types/overalls/utils'
 
 const { celsius, fahrenheit } = temperatureUnits
 

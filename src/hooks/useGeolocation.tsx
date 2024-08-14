@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import states from '../constants/locationAccessStates.ts'
+import states from '../constants/locationAccessStates'
 
 type statusType = states[keyof states]
 export type geolocationPositionType = {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Btn from '../Btn.tsx'
-import { btnContentType } from '../../../constants/btnContentType.ts'
-import svgSymbolsIDs from '../../../constants/svgSymbolsIDs.ts'
-import { BtnBasedComponentType } from '../../../types/overalls/utils.ts'
+import Btn from '../Btn'
+import { btnContentType } from '../../../constants/btnContentType'
+import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
+import { BtnBasedComponentType } from '../../../types/overalls/utils'
 
 const btnData = {
   content: {

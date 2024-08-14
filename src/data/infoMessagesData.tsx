@@ -1,8 +1,8 @@
 import React from "react"
-import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils.tsx"
-import {alignTypes} from "../constants/textLayouts.ts"
-import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock.tsx"
-import { emoticons, emoticonsType } from "../constants/emoticons.ts"
+import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
+import {alignTypes} from "../constants/textLayouts"
+import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
+import { emoticons, emoticonsType } from "../constants/emoticons"
 
 type searchMessagesType = {
     [key: string]: {
@@ -12,7 +12,7 @@ type searchMessagesType = {
         desc: string[]
         hasBtn: boolean
         btnText?: string
-        handleBtnClick: () => void
+        handleBtnClick?: () => void
     }
 }
 

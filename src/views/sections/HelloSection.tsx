@@ -1,8 +1,8 @@
 import React from 'react'
-import Search from '../components/Search.tsx'
-import LogoMin from '../components/LogoMin.tsx'
-import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style.tsx'
-import GeolocationBlock from '../components/GeolocationBlock.tsx'
+import Search from '../components/Search'
+import LogoMin from '../components/LogoMin'
+import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.style'
+import GeolocationBlock from '../components/GeolocationBlock'
 
 
 export default function HelloSection(): React.JSX.Element {

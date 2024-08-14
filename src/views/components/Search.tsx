@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react"
-import btnStyles from '../../styles/components/btn.style.tsx'
-import DismissBtn from './btns/DismissBtn.tsx'
-import SearchResults from './SearchResults.tsx'
-import { handleClearSearchBtnClick } from "../../utils/utils.tsx"
-import { searchStyle as tw } from "../../styles/components/Search.style.tsx"
-import ChangeUnitsBtn from "./btns/ChangeUnitsBtn.tsx"
-import useFetchSuggestions from "../../hooks/useFetchSuggestions.tsx"
+import btnStyles from '../../styles/components/btn.style'
+import DismissBtn from './btns/DismissBtn'
+import SearchResults from './SearchResults'
+import { handleClearSearchBtnClick } from "../../utils/utils"
+import { searchStyle as tw } from "../../styles/components/Search.style"
+import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
+import useFetchSuggestions from "../../hooks/useFetchSuggestions"
 
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название населенного пункта',
@@ -13,7 +13,7 @@ const searchBarAttrs = {
 }
 
 type searchPropsType = {
-  styles: string
+  styles?: string
 }
 
 export default function Search({styles=''}: searchPropsType): React.JSX.Element {

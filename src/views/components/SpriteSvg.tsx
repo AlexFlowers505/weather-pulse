@@ -1,5 +1,5 @@
 import React from 'react'
-import { spriteSvgStyle as tw } from '../../styles/components/SpriteSvg.style.tsx'
+import { spriteSvgStyle as tw } from '../../styles/components/SpriteSvg.style'
 
 type TSpriteSvg = {
   id: string

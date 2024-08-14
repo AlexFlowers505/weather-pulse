@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import AnimateHeight from 'react-animate-height'
-import Btn from './Btn.tsx'
-import { btnContentType } from '../../constants/btnContentType.ts'
-import btnStyles from '../../styles/components/btn.style.tsx'
-import svgSymbolsIDs from '../../constants/svgSymbolsIDs.ts'
-import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style.tsx'
-import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction.ts'
-import ContentRichInfoBlock from './ContentRichInfoBlock.tsx'
-import DismissBtn from './btns/DismissBtn.tsx'
-import locationAccessStates from '../../constants/locationAccessStates.ts'
+import Btn from './Btn'
+import { btnContentType } from '../../constants/btnContentType'
+import btnStyles from '../../styles/components/btn.style'
+import svgSymbolsIDs from '../../constants/svgSymbolsIDs'
+import { GeolocationDeniedInfoBlockStyle as tw } from '../../styles/components/GeolocationDeniedInfoBlock.style'
+import { geolocationAccessDeniedInstruction as data } from '../../data/GeolocationAccessDeniedInstruction'
+import ContentRichInfoBlock from './ContentRichInfoBlock'
+import DismissBtn from './btns/DismissBtn'
+import locationAccessStates from '../../constants/locationAccessStates'
 
 const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState)
