@@ -28,6 +28,7 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
 
   useEffect(() => inputRef.current.focus(), [])
 
+  console.log('request', request)
   return (
     <div className={`search-block ${tw.searchBlock} ${styles}`}>
       <div className={`input-wrapper ${tw.inputWrapper}`}>

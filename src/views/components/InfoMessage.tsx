@@ -12,7 +12,7 @@ export default function InfoMessage({
     setFetchState=null, 
     setRequest=null, 
     setRepeatFetch=null, 
-    request=null, 
+    request='', 
     message}): React.JSX.Element {
         
     const { 

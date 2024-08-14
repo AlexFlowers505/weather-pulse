@@ -44,7 +44,7 @@ export const SearchResultsStyle: tailwindStyleClassType = {
 export const SearchResultStyleArbitrary = {
     list: {
         scrollbarGutter: 'stable',
-        scrollbarWidth: 'thin',
+        scrollbarWidth: 'thin' as 'auto' | 'thin' | 'none',
         scrollbarColor: '#3C5577 #141C27'
     }
 }
