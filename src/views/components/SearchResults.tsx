@@ -5,6 +5,7 @@ import searchResultsStates from "../../constants/searchResultsStates"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
 import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
+import { setStateType } from '../../types/overalls/utils'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -18,10 +19,8 @@ const generateSearchResults = (suggestions: any[], request: string): React.JSX.E
         suggestions.map( (sugg, i, arr) => {
             const { area, region, country, forecast } = sugg
             const { main: {temp} } = forecast
-            const locNameMatch = request
             return (<React.Fragment key={i}>
                 <SearchResult 
-                    locNameMatch={locNameMatch}
                     locRegion={region}
                     locCountry={country}
                     locName={area}
@@ -36,23 +35,23 @@ const generateSearchResults = (suggestions: any[], request: string): React.JSX.E
 }
 
 type searchResultsPropsType = {
-    fetchState: null
+    fetchState: searchResultsStates | null
     suggestions: any[]
     request: string
-    inputRef: null
-    setFetchState: null
-    setRequest: null
-    setRepeatFetch: null
+    inputRef: React.RefObject<HTMLInputElement>
+    setFetchState: setStateType<searchResultsStates> | null
+    setRequest: setStateType<string> | null
+    setRepeatFetch: setStateType<boolean> | null
 }
 export default function SearchResults(
     {
         fetchState, 
         suggestions=[], 
         request='', 
-        inputRef=null, 
-        setFetchState=null, 
-        setRequest=null, 
-        setRepeatFetch=null 
+        inputRef, 
+        setFetchState, 
+        setRequest, 
+        setRepeatFetch 
     }: searchResultsPropsType): React.JSX.Element { 
         return (<> { 
             fetchState === IDLE ? null :

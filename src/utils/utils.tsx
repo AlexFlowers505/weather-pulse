@@ -16,9 +16,11 @@ export function removeMultipleSpaces(str: string): string {
     return str.replace(/\s\s+/g, ' ')
 }
 
-export function debounce(fn: Function, delay: number) {
+// AI TYPES HERE
+export function debounce<T extends (...args: any[]) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
     let timeoutId: ReturnType<typeof setTimeout>
-    return function(...args: any[]) {
+    
+    return function(this: ThisParameterType<T>, ...args: Parameters<T>) {
         clearTimeout(timeoutId)
         timeoutId = setTimeout(() => fn.apply(this, args), delay)
     }
@@ -26,7 +28,7 @@ export function debounce(fn: Function, delay: number) {
 
 export function handleClearSearchBtnClick(
     inputRef: any = null,
-    setFetchState: setStateType<typeof IDLE> | null = null,
+    setFetchState: setStateType<searchResultsStates> | null = null,
     setRepeatFetch: setStateType<boolean> | null = null,
     setRequest: setStateType<string> | null = null,
     request: string | null = null
@@ -38,7 +40,7 @@ export function handleClearSearchBtnClick(
 
 export function handleRepeatSearchBtnClick(
     inputRef: any | null = null,
-    setFetchState: setStateType<typeof IDLE> | null = null,
+    setFetchState: setStateType<searchResultsStates> | null = null,
     setRepeatFetch: setStateType<boolean> | null = null,
     setRequest: setStateType<string> | null = null,
     request: string | null = null

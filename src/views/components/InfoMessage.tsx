@@ -5,15 +5,24 @@ import { btnContentType } from "../../constants/btnContentType"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "./btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
+import { setStateType } from "../../types/overalls/utils"
+import searchResultsStates from "../../constants/searchResultsStates"
 
-
+type InfoMessagePropsType = {
+    setFetchState: setStateType<searchResultsStates> | null
+    inputRef: React.RefObject<HTMLInputElement>
+    setRequest: setStateType<string> | null
+    setRepeatFetch: setStateType<boolean> | null
+    request: string | null
+    message: any
+}
 export default function InfoMessage({
-    inputRef=null, 
-    setFetchState=null, 
-    setRequest=null, 
-    setRepeatFetch=null, 
+    inputRef, 
+    setFetchState,
+    setRequest, 
+    setRepeatFetch, 
     request='', 
-    message}): React.JSX.Element {
+    message}: InfoMessagePropsType): React.JSX.Element {
         
     const { 
         hasEmoticon, 
@@ -54,7 +63,7 @@ export default function InfoMessage({
         </div>
         { hasDesc && (
             <div className={`${tw.descWrapper} ${textLayout}`}>
-                {desc.map( (line, i) => <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>)}
+                {desc.map( (line: string, i: number) => <span className={`desc-line ${tw.descLine}`} key={i}>{line}</span>)}
             </div>
         )}
         { hasCustomContent && customContent }

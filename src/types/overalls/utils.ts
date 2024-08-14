@@ -10,14 +10,17 @@ export type dadataMappedSuggestionsType = {
     settlementType: string
 }
 
-export type tailwindStyleClassType = { [key: string]: string }
+export type tailwindStyleClassType = { 
+    [key: string]: string
+    // [key: string]: string | { [subkey: string]: string }
+}
 
 export type setStateType<T> = React.Dispatch<React.SetStateAction<T>>
 
 export type BtnType = {
     contentType: btnContentType
     content: string
-    onClick?: () => void
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 
     extraSVGstyle?: React.CSSProperties
     btnSize?: BtnStyleSizeType
@@ -29,5 +32,5 @@ export type BtnType = {
     extraSVGClass?: string
 }
 export type BtnBasedComponentType = Omit<BtnType, 'contentType' | 'content' | 'onClick'> & {
-    onClick?: () => void
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }

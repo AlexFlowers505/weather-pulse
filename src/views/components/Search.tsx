@@ -19,14 +19,14 @@ type searchPropsType = {
 export default function Search({styles=''}: searchPropsType): React.JSX.Element {
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch)
 
-  const handleRequestChange = evt => {
+  const handleRequestChange = (evt: React.ChangeEvent<HTMLInputElement>)  => {
     setRequest(evt.target.value)
   }
 
-  useEffect(() => inputRef.current.focus(), [])
+  useEffect(() => inputRef.current?.focus(), [])
 
   console.log('request', request)
   return (

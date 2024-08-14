@@ -4,17 +4,21 @@ import { fetchIcon } from '../../api/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
 
-function handleHighlightMatchText(textWithMatch: string ='', request): string | React.JSX.Element {
+function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
     const regex = new RegExp(`(${request})`, 'gi')
     const parts = textWithMatch.split(regex)
 
-    return parts.map( (part, i) => {
-      if (part.toLowerCase() === request.toLowerCase()) {
-        return <span key={i} className={`location-name ${tw.name} ${tw.nameMatch}`}>{part}</span>
-      }
-      return part
-    })
+    return (
+      <>
+        {parts.map((part: string, i: number): React.JSX.Element | string => {
+          if (part.toLowerCase() === request.toLowerCase()) {
+            return <span key={i} className={`location-name ${tw.name} ${tw.nameMatch}`}>{part}</span>
+          }
+          return part
+        })}
+      </>
+    )
   }
   return textWithMatch
 }
@@ -28,7 +32,7 @@ type searchResultPropsType = {
   request: string
 }
 export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
-  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='' } = props
+  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request=''} = props
 
   const [iconUrl, setIconUrl] = useState('')
 
