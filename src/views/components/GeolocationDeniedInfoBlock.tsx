@@ -10,15 +10,16 @@ import ContentRichInfoBlock from './ContentRichInfoBlock'
 import DismissBtn from './btns/DismissBtn'
 import locationAccessStates from '../../constants/locationAccessStates'
 
-const useToggle = (initialState = false) => {
-  const [state, setState] = useState(initialState)
+const useToggle = (initialState: boolean = false): [boolean, ()=> void] => {
+  const [state, setState] = useState<boolean>(initialState)
   const toggle = () => setState(prev => !prev)
   return [state, toggle]
 }
 
+
 const animateHeightConfig = {
   defaultHeight: 130,
-  finalHeight: 'auto',
+  finalHeight: 'auto' as const,
   duration: 500
 }
 
@@ -50,11 +51,16 @@ const dismissBtnCustomClasses= `
 
 export default function GeolocationDeniedInfoBlock(): React.JSX.Element {
   const [unraveled, toggleUnraveled] = useToggle(false)
-  const [height, setHeight] = useState(animateHeightConfig.defaultHeight)
+  const [height, setHeight] = useState<number | 'auto'>(animateHeightConfig.defaultHeight)
 
   useEffect(() => {
-    setHeight(unraveled ? animateHeightConfig.finalHeight : animateHeightConfig.defaultHeight)
+    if (unraveled) {
+      setHeight(animateHeightConfig.finalHeight)
+    } else {
+      setHeight(animateHeightConfig.defaultHeight)
+    }
   }, [unraveled])
+  
 
   const toggleBtnClass = `${tw.unravelBtn} ${!unraveled && tw.unravelBtnReversed}`
   const animateHeightClass = `animate-height-component ${tw.animateHeightComponent} ${!!unraveled && tw.animateHeightComponentUnraveled}`

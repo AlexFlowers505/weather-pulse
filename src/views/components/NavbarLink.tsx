@@ -13,7 +13,11 @@ type navbarLinkPropsType = {
 
 export default function NavbarLink({link}: navbarLinkPropsType): React.JSX.Element {
     const { url, text, icon } = link
-    const getFinalLinkTWstyle = ({isActive}) => isActive ? `${tw.link} ${tw.activeLink}` : tw.link
+
+    type getFinalLinkTWstylePropsType = {
+        isActive: boolean
+    }
+    const getFinalLinkTWstyle = ({isActive}: getFinalLinkTWstylePropsType): string => isActive ? `${tw.link} ${tw.activeLink}` : tw.link
     
     return (
         <NavLink className={getFinalLinkTWstyle} to={url}>
