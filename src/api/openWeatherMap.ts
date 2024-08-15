@@ -1,5 +1,5 @@
 import temperatureUnits from "../constants/temperatureUnits"
-import { dadataMappedSuggestionsType } from "../types/overalls/utils"
+import { dadataMappedSuggestionsType } from "../types/overalls/overalls"
 const { celsius, fahrenheit } = temperatureUnits
 
 const key: string | undefined = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY

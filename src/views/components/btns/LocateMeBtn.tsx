@@ -2,7 +2,7 @@ import React from 'react'
 import Btn from '../Btn'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
 import { btnContentType } from '../../../constants/btnContentType'
-import { BtnBasedComponentType, BtnType } from '../../../types/overalls/utils'
+import { BtnBasedComponentType, BtnType } from '../../../types/overalls/overalls'
 
 const locateMeBtnData = {
   content: svgSymbolsIDs.iconLocation,

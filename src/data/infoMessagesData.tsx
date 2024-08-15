@@ -2,21 +2,10 @@ import React from "react"
 import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
 import {alignTypes} from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
-import { emoticons, emoticonsType } from "../constants/emoticons"
+import { emoticons } from "../constants/emoticons"
+import { geolocationMessageType, searchMessageType } from "../types/overalls/overalls"
 
-export type basicMessageType = {
-    [key: string]: {
-        hasEmoticon: boolean
-        emoticon?: emoticonsType[keyof emoticonsType]
-        heading: string
-        hasDesc: boolean
-        desc?: string[]
-        hasBtn: boolean
-        btnText?: string
-        handleBtnClick?: React.MouseEventHandler<HTMLButtonElement>
-    }
-}
-export type searchMessageType = basicMessageType
+
 
 export const searchMessages: searchMessageType = {
     nothingFound: {
@@ -47,15 +36,6 @@ export const searchMessages: searchMessageType = {
     }
 }
 
-export type geolocationMessageType = searchMessageType & {
-    [key: string]: {
-        hasDismissBtn: boolean
-        descriptionLayout: alignTypes
-        dismissBtnTooltipContent?: string
-        hasCustomContent: boolean
-        customContent?: React.JSX.Element
-    }
-}
 
 export const geolocationMessages: geolocationMessageType = {
     accessDenied: {

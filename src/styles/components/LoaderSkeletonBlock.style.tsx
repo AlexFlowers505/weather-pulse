@@ -1,4 +1,4 @@
-import { tailwindStyleClassType } from "../../types/overalls/utils"
+import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 export const loaderSkeletonBlockStyle: tailwindStyleClassType = {
     wrapper: `

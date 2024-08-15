@@ -1,5 +1,5 @@
 import searchResultsStates from "../constants/searchResultsStates"
-import { setStateType } from "../types/overalls/utils"
+import { setStateType } from "../types/overalls/overalls"
 const { IDLE } = searchResultsStates
 
 export function getRandomItemFromArray(array: any[]): number {

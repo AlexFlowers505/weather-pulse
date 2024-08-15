@@ -1,5 +1,7 @@
 import { BtnStyleSizeType } from '../../styles/components/btn.style'
 import { btnContentType } from '../../constants/btnContentType'
+import { emoticonsType } from '../../constants/emoticons'
+import { alignTypes } from '../../constants/textLayouts'
 
 export type dadataMappedSuggestionsType = {
     area: string
@@ -12,7 +14,6 @@ export type dadataMappedSuggestionsType = {
 
 export type tailwindStyleClassType = { 
     [key: string]: string
-    // [key: string]: string | { [subkey: string]: string }
 }
 
 export type setStateType<T> = React.Dispatch<React.SetStateAction<T>>
@@ -33,4 +34,27 @@ export type BtnType = {
 }
 export type BtnBasedComponentType = Omit<BtnType, 'contentType' | 'content' | 'onClick'> & {
     onClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+export type basicMessageType = {
+        hasEmoticon: boolean
+        emoticon?: emoticonsType[keyof emoticonsType]
+        heading: string
+        hasDesc: boolean
+        desc?: string[]
+        hasBtn: boolean
+        btnText?: string
+        handleBtnClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+export type searchMessageType = {[key: string]: basicMessageType}
+
+export type geolocationMessageType = {[key: string]:
+    basicMessageType & {
+        hasDismissBtn: boolean
+        descriptionLayout: alignTypes
+        dismissBtnTooltipContent?: string
+        hasCustomContent: boolean
+        customContent?: React.JSX.Element
+    }
 }

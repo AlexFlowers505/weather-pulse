@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Btn from '../Btn'
 import { btnContentType } from '../../../constants/btnContentType'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
-import { BtnBasedComponentType } from '../../../types/overalls/utils'
+import { BtnBasedComponentType } from '../../../types/overalls/overalls'
 
 const btnData = {
   content: {

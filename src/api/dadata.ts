@@ -1,5 +1,5 @@
 import fetchOptions from "../constants/fetchingSuggestionsSettings"
-import { dadataMappedSuggestionsType } from "../types/overalls/utils"
+import { dadataMappedSuggestionsType } from "../types/overalls/overalls"
 
 type fetchOptionsType = {
   method: 'POST',

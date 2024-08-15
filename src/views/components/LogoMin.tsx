@@ -1,5 +1,5 @@
 import React from "react"
-import { tailwindStyleClassType } from "../../types/overalls/utils"
+import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 const imgAttrs = {
     altText: 'Weather Pulse',

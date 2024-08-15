@@ -5,21 +5,21 @@ import { btnContentType } from "../../constants/btnContentType"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "./btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
-import { setStateType } from "../../types/overalls/utils"
+import { setStateType } from "../../types/overalls/overalls"
 import searchResultsStates from "../../constants/searchResultsStates"
 
 type InfoMessagePropsType = {
-    setFetchState: setStateType<searchResultsStates> | null
-    inputRef: React.RefObject<HTMLInputElement>
-    setRequest: setStateType<string> | null
-    setRepeatFetch: setStateType<boolean> | null
-    request: string | null
+    setFetchState?: setStateType<searchResultsStates> | null
+    inputRef?: React.RefObject<HTMLInputElement>
+    setRequest?: setStateType<string> | null
+    setRepeatFetch?: setStateType<boolean> | null
+    request?: string | null
     message: any
 }
 export default function InfoMessage({
     inputRef, 
     setFetchState,
-    setRequest, 
+    setRequest,
     setRepeatFetch, 
     request='', 
     message}: InfoMessagePropsType): React.JSX.Element {

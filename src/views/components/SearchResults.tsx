@@ -5,7 +5,7 @@ import searchResultsStates from "../../constants/searchResultsStates"
 import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
 import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
-import { setStateType } from '../../types/overalls/utils'
+import { setStateType } from '../../types/overalls/overalls'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 

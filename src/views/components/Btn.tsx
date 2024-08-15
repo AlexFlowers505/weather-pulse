@@ -3,7 +3,7 @@ import SpriteSvg from './SpriteSvg'
 import btnStyles from '../../styles/components/btn.style'
 import { btnContentType } from '../../constants/btnContentType'
 import CustomTooltip from './CustomTooltip'
-import type { BtnType } from '../../types/overalls/utils'
+import type { BtnType } from '../../types/overalls/overalls'
 
 
 const Btn = forwardRef<HTMLButtonElement, BtnType>(({

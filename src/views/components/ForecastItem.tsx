@@ -6,7 +6,7 @@ type forecastItemPropType = {
     layout: forecastLayoutTypes
 }
 export default function ForecastItem({layout}: forecastItemPropType): React.JSX.Element {
-    const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.forecastItem.horizontalLayout : layout === forecastLayoutTypes.horizontal ? tw.forecastItem.verticalLayout : ''
+    const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.forecastItemHorizontalLayout : layout === forecastLayoutTypes.horizontal ? tw.forecastItemVerticalLayout : ''
 
     return (
     <div className={`forecast-item ${layoutStyles}`}>
