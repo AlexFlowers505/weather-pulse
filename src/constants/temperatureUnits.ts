@@ -1,27 +1,34 @@
 import svgSymbolsIDs from "./svgSymbolsIDs"
 
+export enum UnitsType {
+    metric = 'metric',
+    imperial = 'imperial',
+} 
+
+export type temperatureUnitType = {
+    name: string
+    fullName: string
+    __type: UnitsType
+    symbol: string
+    icon: string
+}
+
 type temperatureUnitsType = {
-    [key: string]: {
-        name: string
-        fullName: string
-        __type: 'metric' | 'imperial'
-        symbol: string
-        icon: string
-    }
+    [key: string]: temperatureUnitType
 }
 
 const temperatureUnits: temperatureUnitsType = {
     celsius: {
         name: 'Цельсий',
         fullName: `градусы по Цельсию`,
-        __type: `metric`,
+        __type: UnitsType.metric,
         symbol: '℃',
         icon: svgSymbolsIDs.iconCelsius
     },
     fahrenheit: {
         name: 'Фаренгейт',
         fullName: `градусы по Фаренгейту`,
-        __type: `imperial`,
+        __type: UnitsType.imperial,
         symbol: '°F',
         icon: svgSymbolsIDs.iconFahrenheit
     }
