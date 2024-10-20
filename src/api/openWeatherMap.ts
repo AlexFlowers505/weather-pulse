@@ -1,4 +1,4 @@
-import temperatureUnits from "../constants/temperatureUnits"
+import { temperatureUnits } from "../constants/temperatureUnits"
 import { dadataMappedSuggestionsType } from "../types/overalls/overalls"
 const { celsius, fahrenheit } = temperatureUnits
 

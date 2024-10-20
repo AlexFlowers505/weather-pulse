@@ -7,6 +7,9 @@ import { searchStyle as tw } from "../../styles/components/Search.style"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions"
 
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "../../redux/store/store"
+
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название населенного пункта',
   dismissBtnTooltipContent: 'Очистить поле поиска',
@@ -21,6 +24,9 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch)
+
+  const count = useSelector((state: RootState) => state.counter.value)
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleRequestChange = (evt: React.ChangeEvent<HTMLInputElement>)  => {
     setRequest(evt.target.value)

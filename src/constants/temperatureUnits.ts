@@ -17,7 +17,7 @@ type temperatureUnitsType = {
     [key: string]: temperatureUnitType
 }
 
-const temperatureUnits: temperatureUnitsType = {
+export const temperatureUnits: temperatureUnitsType = {
     celsius: {
         name: 'Цельсий',
         fullName: `градусы по Цельсию`,
@@ -33,5 +33,3 @@ const temperatureUnits: temperatureUnitsType = {
         icon: svgSymbolsIDs.iconFahrenheit
     }
 } as const
-
-export default temperatureUnits
