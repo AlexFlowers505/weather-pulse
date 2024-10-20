@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import states from '../constants/locationAccessStates'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, AppDispatch } from '../redux/store/store'
+import { switchLocationAccess } from '../redux/slices/locationAccess/locationAccessSlice'
 
 type statusType = states[keyof states]
 export type geolocationPositionType = {
@@ -19,7 +22,9 @@ type getPositionErrorType = {
 } | null
 
 export function useGeolocation() {
-    const [status, setStatus] = useState<statusType>(states.IDLE)
+    const status = useSelector((state: RootState) => state)
+    const dispatch = useDispatch<AppDispatch>()
+
     const [position, setPosition] = useState<geolocationPositionType>(null)
     const [error, setError] = useState<getPositionErrorType>(null)
     const [loading, setLoading] = useState<boolean>(false)
@@ -34,24 +39,24 @@ export function useGeolocation() {
                     result.onchange = () => handlePermissionChange(result.state as statusType)
                 })
         } else {
-            setStatus(states.UNSUPPORTED)
+            dispatch(switchLocationAccess(states.UNSUPPORTED))
         }
     }, [])
 
-    const handlePermissionChange = (state: statusType) => {
-        switch (state) {
+    const handlePermissionChange = (status: statusType) => {
+        switch (status) {
             case states.GRANTED:
-                setStatus(states.GRANTED)
+                dispatch(switchLocationAccess(states.GRANTED))
                 getCurrentPosition()
-                break;
+                break
             case states.PROMPT:
-                setStatus(states.PROMPT)
+                dispatch(switchLocationAccess(states.PROMPT))
                 break
             case states.DENIED:
-                setStatus(states.DENIED)
+                dispatch(switchLocationAccess(states.DENIED))
                 break
             default:
-                setStatus(states.ERROR)
+                dispatch(switchLocationAccess(states.ERROR))
                 break
         }
     }
@@ -62,16 +67,16 @@ export function useGeolocation() {
             pos => {
                 setPosition(pos)
                 console.log(pos)
-                setStatus(states.GRANTED)
+                dispatch(switchLocationAccess(states.GRANTED))
                 setLoading(false)
             },
             err => {
                 setError(err)
-                setStatus(states.ERROR)
+                dispatch(switchLocationAccess(states.ERROR))
                 setLoading(false)
             }
         )
     }
 
-    return { status, position, error, getCurrentPosition, loading }
+    return { position, error, getCurrentPosition, loading }
 }

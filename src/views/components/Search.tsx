@@ -6,9 +6,10 @@ import { handleClearSearchBtnClick } from "../../utils/utils"
 import { searchStyle as tw } from "../../styles/components/Search.style"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions"
-
-import { useDispatch, useSelector } from "react-redux"
-import { AppDispatch, RootState } from "../../redux/store/store"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../../redux/store/store"
+import { switchLocationAccess } from "../../redux/slices/locationAccess/locationAccessSlice"
+import states from "../../constants/locationAccessStates"
 
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название населенного пункта',
@@ -25,12 +26,15 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
   const inputRef = useRef<HTMLInputElement>(null)
   const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch)
 
-  const count = useSelector((state: RootState) => state.counter.value)
-  const dispatch = useDispatch<AppDispatch>()
-
   const handleRequestChange = (evt: React.ChangeEvent<HTMLInputElement>)  => {
     setRequest(evt.target.value)
   }
+
+  const handleRequestInputFocus = () => {
+    dispatch(switchLocationAccess(states.PROMPT))
+  }
+
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => inputRef.current?.focus(), [])
 
@@ -44,6 +48,7 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
           type="text"
           value={request}
           onChange={handleRequestChange}
+          onFocus={handleRequestInputFocus}
           placeholder={searchBarAttrs.placeHolder}
         />
         <div className={`btn-wrapper ${tw.btnWrapper}`}>
@@ -61,7 +66,6 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
             extraBtnClass={tw.unitsBtn}
             btnStyle={btnStyles.style.contentOnly}
             btnSize={btnStyles.size.md}
-            onClick={() => handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest)}          
           />
         </div>
       </div>
