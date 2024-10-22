@@ -10,7 +10,7 @@ const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
 type fetchStateType = searchResultsStates
 
-export default function useFetchSuggestions(request: string, repeatFetch: boolean) {
+export default function useFetchSuggestions(request: string, repeatFetch: boolean, units: string) {
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
   const [suggestions, setSuggestions] = useState<dadataMappedSuggestionsType[]>([])
 
@@ -22,7 +22,7 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
         setFetchState(LOADING)
 
         fetchAreasSuggestions(formattedRequest)
-          .then(data => fetchLocationsForecasts(data))
+          .then(data => fetchLocationsForecasts(data, units))
           .then(data => { 
             setSuggestions(data)
             console.log('data',data)
@@ -39,7 +39,7 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
     }, options.debounceTimeInMilisec)
 
     return () => clearTimeout(debounceFetch)
-  }, [request, repeatFetch])
+  }, [request, repeatFetch, units])
 
   return { fetchState, suggestions, setFetchState }
 }

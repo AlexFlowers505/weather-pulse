@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import states from '../constants/locationAccessStates'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from '../redux/store/store'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../redux/store/store'
 import { switchLocationAccess } from '../redux/slices/locationAccess/locationAccessSlice'
 
 type statusType = states[keyof states]

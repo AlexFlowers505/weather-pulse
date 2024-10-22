@@ -6,8 +6,8 @@ import { handleClearSearchBtnClick } from "../../utils/utils"
 import { searchStyle as tw } from "../../styles/components/Search.style"
 import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions"
-import { useDispatch } from "react-redux"
-import { AppDispatch } from "../../redux/store/store"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "../../redux/store/store"
 import { switchLocationAccess } from "../../redux/slices/locationAccess/locationAccessSlice"
 import states from "../../constants/locationAccessStates"
 
@@ -24,7 +24,8 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch)
+  const units = useSelector((state: RootState) => state.weatherUnits.name)
+  const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch, units)
 
   const handleRequestChange = (evt: React.ChangeEvent<HTMLInputElement>)  => {
     setRequest(evt.target.value)
@@ -37,6 +38,10 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => inputRef.current?.focus(), [])
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [units])
 
   console.log('request', request)
   return (
