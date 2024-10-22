@@ -22,7 +22,6 @@ type getPositionErrorType = {
 } | null
 
 export function useGeolocation() {
-    const status = useSelector((state: RootState) => state)
     const dispatch = useDispatch<AppDispatch>()
 
     const [position, setPosition] = useState<geolocationPositionType>(null)
@@ -66,13 +65,16 @@ export function useGeolocation() {
         navigator.geolocation.getCurrentPosition(
             pos => {
                 setPosition(pos)
-                console.log(pos)
                 dispatch(switchLocationAccess(states.GRANTED))
                 setLoading(false)
             },
             err => {
-                setError(err)
-                dispatch(switchLocationAccess(states.ERROR))
+                if (err.code === err.PERMISSION_DENIED) {
+                    dispatch(switchLocationAccess(states.DENIED))
+                } else {
+                    setError(err)
+                    dispatch(switchLocationAccess(states.ERROR))
+                }
                 setLoading(false)
             }
         )

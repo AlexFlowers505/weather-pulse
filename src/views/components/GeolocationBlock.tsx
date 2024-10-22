@@ -33,17 +33,17 @@ export default function GeolocationBlock(): React.JSX.Element | null {
             )
         case states.GRANTED:
             return (
+            <>
+                <p>Your location is:</p>
+                <p>Latitude: {position?.coords.latitude}</p>
+                <p>Longitude: {position?.coords.longitude}</p>
+            </>
+        )
+        case states.DENIED:
+            return (
                 <MessageWrapper>
                     <InfoMessage message={geolocationMessages.accessDenied} />
                 </MessageWrapper>
-            )
-        case states.DENIED:
-            return (
-                <>
-                    <p>Your location is:</p>
-                    <p>Latitude: {position?.coords.latitude}</p>
-                    <p>Longitude: {position?.coords.longitude}</p>
-                </>
             )
         case states.ERROR:
             if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
@@ -53,5 +53,9 @@ export default function GeolocationBlock(): React.JSX.Element | null {
                     </>
                 )
             }
+        default: {
+            console.log(status)
+        }
     }
-    return null}
+    return null
+}
