@@ -6,11 +6,11 @@ export type StateType = temperatureUnitType
 
 const initialState: StateType = getInitialUnits()
 
-const weatherUnitsSlice = createSlice({
+const temperatureUnitsSlice = createSlice({
     name: 'weather-units',
     initialState,
     reducers: {
-        switchWeatherUnits: state => {
+        switchTemperatureUnits: state => {
             const currentUnits = state.__type
             const newUnits = currentUnits === UnitsType.metric
                 ? units.fahrenheit
@@ -21,7 +21,7 @@ const weatherUnitsSlice = createSlice({
     },
 })
 
-export const { switchWeatherUnits } = weatherUnitsSlice.actions
-export default weatherUnitsSlice.reducer
+export const { switchTemperatureUnits } = temperatureUnitsSlice.actions
+export default temperatureUnitsSlice.reducer
 
 

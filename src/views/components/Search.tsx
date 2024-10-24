@@ -24,7 +24,7 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const units = useSelector((state: RootState) => state.weatherUnits.name)
+  const units = useSelector((state: RootState) => state.temperatureUnits.name)
   const { fetchState, suggestions, setFetchState } = useFetchSuggestions(request, repeatFetch, units)
 
   const handleRequestChange = (evt: React.ChangeEvent<HTMLInputElement>)  => {

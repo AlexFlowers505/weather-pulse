@@ -3,5 +3,5 @@ export type localStorageKeysType = {
 }
 
 export const localStorageKeys: localStorageKeysType = {
-    weatherUnits: 'weather-units',
+    temperatureUnits: 'temperature-units',
 }

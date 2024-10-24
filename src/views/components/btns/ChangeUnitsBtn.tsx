@@ -4,7 +4,7 @@ import { temperatureUnits } from '../../../constants/temperatureUnits'
 import { btnContentType } from '../../../constants/btnContentType'
 import { BtnBasedComponentType } from '../../../types/overalls/overalls'
 import { useSelector, useDispatch } from 'react-redux'
-import { switchWeatherUnits } from '../../../redux/slices/weather-units/weatherUnitsSlice'
+import { switchTemperatureUnits } from '../../../redux/slices/temperatureUnits/temperatureUnitsSlice'
 import { AppDispatch, RootState } from '../../../redux/store/store'
 
 const { celsius, fahrenheit } = temperatureUnits
@@ -17,9 +17,9 @@ export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, 
   const getTooltipContent = (unitsFullName: string) => `Считать ${unitsFullName}`
 
   const handleChangeUnitsBtnClick = () => {
-    dispatch(switchWeatherUnits())
+    dispatch(switchTemperatureUnits())
   }
-  const units = useSelector((state: RootState) => state.weatherUnits.symbol)
+  const units = useSelector((state: RootState) => state.temperatureUnits.symbol)
 
 
   const tooltipUnits = units === celsius.symbol ? fahrenheit.fullName : celsius.fullName

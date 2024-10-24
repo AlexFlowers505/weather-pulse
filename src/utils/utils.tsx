@@ -19,7 +19,7 @@ export function removeMultipleSpaces(str: string): string {
 }
 
 export function getLocalStorageTemperatureUnits() {
-    const storageKey = localStorageKeys.weatherUnits
+    const storageKey = localStorageKeys.temperatureUnits
     const currentUnits = localStorage.getItem(storageKey)
 
     if (currentUnits) return currentUnits
@@ -43,7 +43,7 @@ export const getInitialUnits = () => {
 }
 
 export function setLocalStorageTemperatureUnits(units: string) {
-    localStorage.setItem(localStorageKeys.weatherUnits, units)
+    localStorage.setItem(localStorageKeys.temperatureUnits, units)
 }
 
 // AI TYPES HERE
