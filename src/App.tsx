@@ -7,7 +7,6 @@ import WelcomePage from "./views/pages/WelcomePage"
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
 
 export default function App(): React.JSX.Element {
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />} >

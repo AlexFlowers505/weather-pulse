@@ -1,4 +1,6 @@
+import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
+import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
 import { setStateType } from "../types/overalls/overalls"
 const { IDLE } = searchResultsStates
 
@@ -14,6 +16,34 @@ export function getRandomNum(min: number = 0, max: number = 100): number {
 
 export function removeMultipleSpaces(str: string): string {
     return str.replace(/\s\s+/g, ' ')
+}
+
+export function getLocalStorageTemperatureUnits() {
+    const storageKey = localStorageKeys.weatherUnits
+    const currentUnits = localStorage.getItem(storageKey)
+
+    if (currentUnits) return currentUnits
+    else {
+        localStorage.setItem(storageKey, temperatureUnits.celsius.__type)
+        return temperatureUnits.celsius.__type
+    }
+}
+
+export const getInitialUnits = () => {
+    const currentUnits = getLocalStorageTemperatureUnits()
+    let initialState: temperatureUnitType
+
+    if (currentUnits) {
+        currentUnits === UnitsType.imperial
+            ? initialState = temperatureUnits.fahrenheit
+            : initialState = temperatureUnits.celsius
+    } else initialState = temperatureUnits.celsius
+
+    return initialState
+}
+
+export function setLocalStorageTemperatureUnits(units: string) {
+    localStorage.setItem(localStorageKeys.weatherUnits, units)
 }
 
 // AI TYPES HERE
