@@ -30,9 +30,10 @@ type searchResultPropsType = {
   locTemp: number
   locTempIcon: string
   request: string
+  isFavourite: boolean
 }
 export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
-  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request=''} = props
+  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', isFavourite=false} = props
 
   const [iconUrl, setIconUrl] = useState('')
 
@@ -49,13 +50,18 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
     loadIcon()
   }, [locTempIcon])
 
+  const handleFavouriteClick = () => {
+    
+  }
   return (
-    <li className={`${tw.externalWrapper}`}>
+    <li className={`${tw.externalWrapper}`} is-favourite={isFavourite}>
         <FavouriteBtn 
           btnSize={btnStyles.size.sm}
           btnStyle={btnStyles.style.contentOnly}
           extraBtnClass={`${tw.favouriteBtn}`}
           extraSVGClass={`${tw.favouriteBtnIcon}`}
+          isFavourite={isFavourite}
+          onClick={() => console.log('favourite')}
         />
         <a className={`${tw.wrapper}`} tabIndex={0}>
           <div className={`${tw.innerWrapper}`}>

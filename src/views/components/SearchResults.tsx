@@ -27,6 +27,7 @@ const generateSearchResults = (suggestions: any[], request: string): React.JSX.E
                     locTemp={Math.round(temp)}
                     locTempIcon={forecast.weather[0].icon}
                     request={request}
+                    isFavourite={false}
                 />
                 { arr.length-1 > i ? <hr className={`${tw.horLine}`}/> : null }
             </React.Fragment>)

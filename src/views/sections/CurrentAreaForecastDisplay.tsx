@@ -10,7 +10,7 @@ export default function CurrentAreaForecastDisplay(): React.JSX.Element {
   return (
     <section className={`${tw.wrapper}`}>
         <div className={`${tw.nameBlock}`}>
-            <FavouriteBtn btnSize={btnStyles.size.md} btnStyle={btnStyles.style.outlined}/>
+            <FavouriteBtn btnSize={btnStyles.size.md} btnStyle={btnStyles.style.outlined} isFavourite={false}/>
             <h6 className={`${tw.name}`}>Москва</h6>
         </div>
         <div className={`${tw.weatherDataWrapper}`}>

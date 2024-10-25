@@ -21,7 +21,7 @@ export default function AreaShortForecastItem({
   return (
     <div className={`wrapper ${tw.wrapper}`}>
       <div className={`heading-wrapper ${tw.headingWrapper}`}>
-        <FavouriteBtn />
+        <FavouriteBtn isFavourite={false}/>
         <span className={`name ${tw.name}`}>{city}</span>
       </div>
       <div className={`temp-wrapper ${tw.tempWrapper}`}>
