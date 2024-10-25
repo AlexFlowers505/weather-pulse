@@ -1,6 +1,8 @@
+import { localStorageActions } from "../constants/localStorageActions"
 import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
 import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
+import { FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
 const { IDLE } = searchResultsStates
 
@@ -44,6 +46,30 @@ export const getInitialUnits = () => {
 
 export function setLocalStorageTemperatureUnits(units: string) {
     localStorage.setItem(localStorageKeys.temperatureUnits, units)
+}
+
+export function getInitialFavouriteLocations() {
+    const storageKey = localStorageKeys.favouriteLocations
+
+    if (localStorage.getItem(storageKey)) return JSON.parse(localStorage.getItem(storageKey) as string)
+    else return []
+}
+
+
+export function updateLocalStorageFavouriteLocations(location: FavouriteLocationType, action: localStorageActions = localStorageActions.ADD) {
+    const storageKey = localStorageKeys.favouriteLocations
+    const locations = JSON.parse(localStorage.getItem(storageKey) as string)
+
+    if (action === localStorageActions.ADD) {
+        locations.push(location)
+        localStorage.setItem(storageKey, JSON.stringify(locations))
+    } else if (action === localStorageActions.REMOVE) {
+        const index = locations.findIndex((elm: FavouriteLocationType) => elm.lat === location.lat && elm.lon === location.lon)
+        if (index !== -1) {
+            locations.splice(index, 1)
+            localStorage.setItem(storageKey, JSON.stringify(locations))
+        }
+    }
 }
 
 // AI TYPES HERE

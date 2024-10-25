@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import locationAccessStates from '../../../constants/locationAccessStates'
+import locationAccessStates from '../../constants/locationAccessStates'
 
 
 export const locationAccessSlice = createSlice({
@@ -10,7 +10,7 @@ export const locationAccessSlice = createSlice({
             state.value = action.payload
         },
     },
-});
+})
 
 export const { switchLocationAccess } = locationAccessSlice.actions
 export default locationAccessSlice.reducer

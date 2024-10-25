@@ -8,7 +8,7 @@ import ChangeUnitsBtn from "./btns/ChangeUnitsBtn"
 import useFetchSuggestions from "../../hooks/useFetchSuggestions"
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../redux/store/store"
-import { switchLocationAccess } from "../../redux/slices/locationAccess/locationAccessSlice"
+import { switchLocationAccess } from "../../redux/slices/locationAccessSlice"
 import states from "../../constants/locationAccessStates"
 
 const searchBarAttrs = {

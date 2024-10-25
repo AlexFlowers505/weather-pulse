@@ -1,0 +1,5 @@
+export enum localStorageActions {
+    ADD = "ADD_FAVOURITE_LOCATION",
+    REMOVE = "REMOVE_FAVOURITE_LOCATION",
+    CLEAR = "CLEAR_FAVOURITE_LOCATIONS"
+}

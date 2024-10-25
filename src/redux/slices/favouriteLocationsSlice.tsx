@@ -1,0 +1,31 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { getInitialFavouriteLocations, updateLocalStorageFavouriteLocations } from '../../utils/utils'
+import { localStorageActions } from '../../constants/localStorageActions'
+
+export type FavouriteLocationType = {
+    lat: string
+    lon: string
+}
+export type StateType = Array<FavouriteLocationType>
+
+const initialState: StateType = getInitialFavouriteLocations()
+
+const favouriteLocationsSlice = createSlice({
+    name: 'weather-units',
+    initialState,
+    reducers: {
+        removeLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
+            state = state.filter(elm => elm.lat !== action.payload.lat && elm.lon !== action.payload.lon)
+            updateLocalStorageFavouriteLocations(action.payload, localStorageActions.REMOVE)
+        },
+        addLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
+            state.push(action.payload)
+            updateLocalStorageFavouriteLocations(action.payload, localStorageActions.ADD)
+        },
+    },
+})
+
+export const { removeLocation, addLocation } = favouriteLocationsSlice.actions
+export default favouriteLocationsSlice.reducer
+
+

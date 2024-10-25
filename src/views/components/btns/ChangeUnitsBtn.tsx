@@ -4,7 +4,7 @@ import { temperatureUnits } from '../../../constants/temperatureUnits'
 import { btnContentType } from '../../../constants/btnContentType'
 import { BtnBasedComponentType } from '../../../types/overalls/overalls'
 import { useSelector, useDispatch } from 'react-redux'
-import { switchTemperatureUnits } from '../../../redux/slices/temperatureUnits/temperatureUnitsSlice'
+import { switchTemperatureUnits } from '../../../redux/slices/temperatureUnitsSlice'
 import { AppDispatch, RootState } from '../../../redux/store/store'
 
 const { celsius, fahrenheit } = temperatureUnits

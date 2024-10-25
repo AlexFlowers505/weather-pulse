@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import states from '../constants/locationAccessStates'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../redux/store/store'
-import { switchLocationAccess } from '../redux/slices/locationAccess/locationAccessSlice'
+import { switchLocationAccess } from '../redux/slices/locationAccessSlice'
 
 type statusType = states[keyof states]
 export type geolocationPositionType = {

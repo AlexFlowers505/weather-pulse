@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
-import temperatureUnitsReducer from '../slices/temperatureUnits/temperatureUnitsSlice'
-import counterReducer from '../slices/counter/counterSlice'
-import locationAccessReducer from '../slices/locationAccess/locationAccessSlice'
+import temperatureUnitsReducer from '../slices/temperatureUnitsSlice'
+import counterReducer from '../slices/counterSlice'
+import locationAccessReducer from '../slices/locationAccessSlice'
 
 export const store = configureStore({
     reducer: {
