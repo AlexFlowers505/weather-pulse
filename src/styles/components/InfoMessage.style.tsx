@@ -55,4 +55,9 @@ export const infoMessageStyle: tailwindStyleClassType = {
 
         md:text-base
     `,
+    DismissBtn: `
+        absolute
+        top-0
+        right-0
+    `
 }

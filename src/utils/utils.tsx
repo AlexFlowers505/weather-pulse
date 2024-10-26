@@ -4,7 +4,12 @@ import searchResultsStates from "../constants/searchResultsStates"
 import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
 import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
+import { AppDispatch } from "../redux/store/store"
+import { switchLocationAccess } from "../redux/slices/locationAccessSlice"
+import locationAccessStates from "../constants/locationAccessStates"
 const { IDLE } = searchResultsStates
+
+
 
 export function getRandomItemFromArray(array: any[]): number {
     const randomIndex = Math.floor(Math.random() * array.length)
@@ -56,7 +61,7 @@ export function getInitialFavouriteLocations() {
 }
 
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
-    return state.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
+    return state.value.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
 }
 
 export function updateLocalStorageFavouriteLocations(location: FavouriteLocationType, action: localStorageActions = localStorageActions.ADD) {
@@ -110,7 +115,9 @@ export function handleRepeatSearchBtnClick(
     inputRef?.current.focus()
 }
 
-
+export function handleCloseLocationAccessMessage(dispatch: AppDispatch) {
+    dispatch(switchLocationAccess(locationAccessStates.PROMPT))
+}
 
 export function capitalize(str: string): string {
     return str[0].toUpperCase() + str.slice(1)

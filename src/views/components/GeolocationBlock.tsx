@@ -8,19 +8,26 @@ import { default as codes } from '../../constants/locationAccessErrorCodes'
 import InfoMessage from './InfoMessage'
 import { geolocationMessages } from '../../data/infoMessagesData'
 import MessageWrapper from './MessageWrapper'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../redux/store/store'
 
 export default function GeolocationBlock(): React.JSX.Element | null {
+    const dispatch = useDispatch<AppDispatch>()
     const { position, error, getCurrentPosition, loading } = useGeolocation()
 
     const status = useSelector((state: RootState) => state.locationAccess.value as states)
 
     if (loading) return <p>Loading...</p>
 
+    const messages = geolocationMessages(dispatch)
+
     switch (status) {
         case states.UNSUPPORTED:
-            return <p>Geolocation is not supported by this browser.</p>
+            return (
+                <MessageWrapper>
+                    <InfoMessage message={messages.locationAccessNotSupported} />
+                </MessageWrapper>
+            )
         case states.PROMPT:
             return (
                 <Btn 
@@ -42,20 +49,17 @@ export default function GeolocationBlock(): React.JSX.Element | null {
         case states.DENIED:
             return (
                 <MessageWrapper>
-                    <InfoMessage message={geolocationMessages.accessDenied} />
+                    <InfoMessage message={messages.accessDenied} />
                 </MessageWrapper>
             )
         case states.ERROR:
             if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
                 return (
-                    <>
-                        <p>Error getting user location: {error.message}</p>
-                    </>
+                <MessageWrapper>
+                    <InfoMessage message={messages.errorOccured} />
+                </MessageWrapper>
                 )
             }
-        default: {
-            console.log(status)
-        }
     }
     return null
 }

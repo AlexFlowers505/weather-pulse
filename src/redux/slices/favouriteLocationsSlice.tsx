@@ -6,7 +6,9 @@ export type FavouriteLocationType = {
     lat: number
     lon: number
 }
-export type FavouriteLocationsStateType = Array<FavouriteLocationType>
+export type FavouriteLocationsStateType = {
+    value:Array<FavouriteLocationType>
+}
 
 const initialState: FavouriteLocationsStateType = getInitialFavouriteLocations()
 
@@ -15,11 +17,11 @@ const favouriteLocationsSlice = createSlice({
     initialState,
     reducers: {
         removeLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
-            state = state.filter(elm => elm.lat !== action.payload.lat && elm.lon !== action.payload.lon)
+            state.value = state.value.filter(elm => elm.lat !== action.payload.lat && elm.lon !== action.payload.lon)
             updateLocalStorageFavouriteLocations(action.payload, localStorageActions.REMOVE)
         },
         addLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
-            state.push(action.payload)
+            state.value.push(action.payload)
             updateLocalStorageFavouriteLocations(action.payload, localStorageActions.ADD)
         },
     },

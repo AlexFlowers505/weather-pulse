@@ -1,11 +1,10 @@
-import React from "react"
-import { handleClearSearchBtnClick, handleRepeatSearchBtnClick } from "../utils/utils"
+import { handleClearSearchBtnClick, handleCloseLocationAccessMessage, handleRepeatSearchBtnClick } from "../utils/utils"
 import {alignTypes} from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
 import { emoticons } from "../constants/emoticons"
 import { geolocationMessageType, searchMessageType } from "../types/overalls/overalls"
-
-
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../redux/store/store"
 
 export const searchMessages: searchMessageType = {
     nothingFound: {
@@ -37,17 +36,51 @@ export const searchMessages: searchMessageType = {
 }
 
 
-export const geolocationMessages: geolocationMessageType = {
+export const geolocationMessages = (dispatch: AppDispatch) => ({
     accessDenied: {
         hasEmoticon: true,
         emoticon: emoticons.shrug,
-        hasDismissBtn: false,
+        hasDismissBtn: true,
         descriptionLayout: alignTypes.left,
         dismissBtnTooltipContent: `Закрыть`,
+        handleDismissBtnClick: () => handleCloseLocationAccessMessage(dispatch),
         heading: `Вы не дали доступ к\u00A0местоположению`,
         hasDesc: false,
         hasCustomContent: true,
         hasBtn: false,
         customContent: <GeolocationDeniedInfoBlock />,
     },
-}
+    locationAccessNotSupported: {
+        hasEmoticon: true,
+        emoticon: emoticons.shrug,
+        hasDismissBtn: false,
+        descriptionLayout: alignTypes.center,
+        heading: `Ваш браузер не поддерживает определение местоположения`,
+        hasDesc: true,
+        desc: [
+            `К сожалению, Ваш браузер не поддерживает определение местоположения.`,
+            `Пожалуйста, используйте другой браузер.`,
+        ],
+        hasBtn: true,
+        btnText: `Закрыть`,
+        handleBtnClick: () => handleCloseLocationAccessMessage(dispatch),
+        hasCustomContent: false,
+    },
+    errorOccured: {
+        hasEmoticon: true,
+        emoticon: emoticons.awkward,
+        hasDismissBtn: false,
+        descriptionLayout: alignTypes.center,
+        heading: `Что-то пошло не так`,
+        hasDesc: true,
+        desc: [
+            `Произошла ошибка. Пожалуйста, повторите запрос.`,
+            `Если ошибка повторится, используйте поиск по названию`,
+            `или повторите запрос позднее.`,
+        ],
+        hasBtn: true,
+        btnText: `Закрыть`,
+        handleBtnClick: () => handleCloseLocationAccessMessage(dispatch),
+        hasCustomContent: false,
+    }
+})
