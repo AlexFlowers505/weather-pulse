@@ -2,7 +2,7 @@ import { localStorageActions } from "../constants/localStorageActions"
 import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
 import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
-import { FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
+import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
 const { IDLE } = searchResultsStates
 
@@ -49,21 +49,26 @@ export function setLocalStorageTemperatureUnits(units: string) {
 }
 
 export function getInitialFavouriteLocations() {
-    const storageKey = localStorageKeys.favouriteLocations
+    const storageKey = localStorageKeys.favourites
 
     if (localStorage.getItem(storageKey)) return JSON.parse(localStorage.getItem(storageKey) as string)
     else return []
 }
 
+export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
+    return state.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
+}
 
 export function updateLocalStorageFavouriteLocations(location: FavouriteLocationType, action: localStorageActions = localStorageActions.ADD) {
-    const storageKey = localStorageKeys.favouriteLocations
-    const locations = JSON.parse(localStorage.getItem(storageKey) as string)
+    const storageKey = localStorageKeys.favourites
+    let locations = JSON.parse(localStorage.getItem(storageKey) as string)
 
+    if (!locations) locations = []
     if (action === localStorageActions.ADD) {
         locations.push(location)
         localStorage.setItem(storageKey, JSON.stringify(locations))
     } else if (action === localStorageActions.REMOVE) {
+        console.log('рун')
         const index = locations.findIndex((elm: FavouriteLocationType) => elm.lat === location.lat && elm.lon === location.lon)
         if (index !== -1) {
             locations.splice(index, 1)

@@ -23,7 +23,7 @@ const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
 type FavouriteBtnType = BtnBasedComponentType&{isFavourite: boolean}
 
-export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite }: FavouriteBtnType): React.JSX.Element {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, onClick }: FavouriteBtnType): React.JSX.Element {
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
   const icon = isFavourite ? content.favourite : content.notFavourite
 
@@ -39,6 +39,7 @@ export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSV
       hasTooltip={true}
       tooltipContent={tooltipContent}
       tooltipOffset={[0, -10]}
+      onClick={onClick}
     />
   )
 }

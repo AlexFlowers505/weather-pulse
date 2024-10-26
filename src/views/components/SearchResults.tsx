@@ -6,6 +6,10 @@ import InfoMessage from './InfoMessage'
 import { searchMessages } from '../../data/infoMessagesData'
 import { SearchResultsStyle as tw, SearchResultStyleArbitrary as customStyles } from '../../styles/components/SearchResults.style'
 import { setStateType } from '../../types/overalls/overalls'
+import { checkIfFavourite } from '../../utils/utils'
+import { useSelector } from 'react-redux'
+import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
+import { RootState } from '../../redux/store/store'
 
 const {IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -17,17 +21,20 @@ const loaderSkeletonProps = {
 const generateSearchResults = (suggestions: any[], request: string): React.JSX.Element => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
-            const { area, region, country, forecast } = sugg
+            const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, sugg.lat, sugg.lon))
+            const { area, region, country, forecast, lat, lon } = sugg
             const { main: {temp} } = forecast
             return (<React.Fragment key={i}>
                 <SearchResult 
                     locRegion={region}
                     locCountry={country}
                     locName={area}
+                    lat={lat}
+                    lon={lon}
                     locTemp={Math.round(temp)}
                     locTempIcon={forecast.weather[0].icon}
                     request={request}
-                    isFavourite={false}
+                    isFavourite={isFavourite}
                 />
                 { arr.length-1 > i ? <hr className={`${tw.horLine}`}/> : null }
             </React.Fragment>)

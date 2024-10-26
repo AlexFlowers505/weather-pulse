@@ -3,6 +3,9 @@ import { searchResultStyle as tw } from '../../styles/components/SearchResult.st
 import { fetchIcon } from '../../api/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../redux/store/store'
+import { addLocation, removeLocation } from '../../redux/slices/favouriteLocationsSlice'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
@@ -31,11 +34,15 @@ type searchResultPropsType = {
   locTempIcon: string
   request: string
   isFavourite: boolean
+  lon: number
+  lat: number
 }
 export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
-  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', isFavourite=false} = props
+  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', lon=0, lat=0} = props
+  const dispatch = useDispatch<AppDispatch>()
 
   const [iconUrl, setIconUrl] = useState('')
+  const [isFavourite, setIsFavourite] = useState(props.isFavourite)
 
   useEffect( () => {
     const loadIcon = async () => {
@@ -50,18 +57,25 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
     loadIcon()
   }, [locTempIcon])
 
-  const handleFavouriteClick = () => {
-    
+  const handleFavouriteClick = (lat: number, lon: number) => {
+    console.log('hey')
+    if (isFavourite) {
+      dispatch(removeLocation({ lat, lon }))
+      setIsFavourite(false)
+    } else {
+      dispatch(addLocation({ lat, lon }))
+      setIsFavourite(true)
+    }
   }
   return (
-    <li className={`${tw.externalWrapper}`} is-favourite={isFavourite}>
+    <li className={`${tw.externalWrapper}`} data-lon={lon} data-lat={lat}>
         <FavouriteBtn 
           btnSize={btnStyles.size.sm}
           btnStyle={btnStyles.style.contentOnly}
           extraBtnClass={`${tw.favouriteBtn}`}
           extraSVGClass={`${tw.favouriteBtnIcon}`}
           isFavourite={isFavourite}
-          onClick={() => console.log('favourite')}
+          onClick={() => handleFavouriteClick(lat, lon)}
         />
         <a className={`${tw.wrapper}`} tabIndex={0}>
           <div className={`${tw.innerWrapper}`}>

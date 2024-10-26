@@ -3,15 +3,15 @@ import { getInitialFavouriteLocations, updateLocalStorageFavouriteLocations } fr
 import { localStorageActions } from '../../constants/localStorageActions'
 
 export type FavouriteLocationType = {
-    lat: string
-    lon: string
+    lat: number
+    lon: number
 }
-export type StateType = Array<FavouriteLocationType>
+export type FavouriteLocationsStateType = Array<FavouriteLocationType>
 
-const initialState: StateType = getInitialFavouriteLocations()
+const initialState: FavouriteLocationsStateType = getInitialFavouriteLocations()
 
 const favouriteLocationsSlice = createSlice({
-    name: 'weather-units',
+    name: 'favourite-locations',
     initialState,
     reducers: {
         removeLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
