@@ -2,8 +2,7 @@ import { handleClearSearchBtnClick, handleCloseLocationAccessMessage, handleRepe
 import {alignTypes} from "../constants/textLayouts"
 import GeolocationDeniedInfoBlock from "../views/components/GeolocationDeniedInfoBlock"
 import { emoticons } from "../constants/emoticons"
-import { geolocationMessageType, searchMessageType } from "../types/overalls/overalls"
-import { useDispatch } from "react-redux"
+import { searchMessageType } from "../types/overalls/overalls"
 import { AppDispatch } from "../redux/store/store"
 
 export const searchMessages: searchMessageType = {

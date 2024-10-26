@@ -7,7 +7,7 @@ export type FavouriteLocationType = {
     lon: number
 }
 export type FavouriteLocationsStateType = {
-    value:Array<FavouriteLocationType>
+    value: Array<FavouriteLocationType>
 }
 
 const initialState: FavouriteLocationsStateType = getInitialFavouriteLocations()

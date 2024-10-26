@@ -10,14 +10,12 @@ import { geolocationMessages } from '../../data/infoMessagesData'
 import MessageWrapper from './MessageWrapper'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
-
+import { geolocationBlockStyle as tw } from '../../styles/components/GeolocationBlock.style'
 export default function GeolocationBlock(): React.JSX.Element | null {
     const dispatch = useDispatch<AppDispatch>()
     const { position, error, getCurrentPosition, loading } = useGeolocation()
 
     const status = useSelector((state: RootState) => state.locationAccess.value as states)
-
-    if (loading) return <p>Loading...</p>
 
     const messages = geolocationMessages(dispatch)
 
@@ -29,12 +27,15 @@ export default function GeolocationBlock(): React.JSX.Element | null {
                 </MessageWrapper>
             )
         case states.PROMPT:
+            const btnContent = loading ? `Загрузка...` : `Определить автоматически`
+            const btnExtraStyle = loading ? tw.locationBtnLoading : ''
             return (
                 <Btn 
                     contentType={btnContentType.text} 
-                    content={`Определить автоматически`}
+                    content={btnContent}
                     btnSize={btnStyles.size.md}
                     btnStyle={btnStyles.style.outlined}
+                    extraBtnClass={btnExtraStyle}
                     onClick={getCurrentPosition}
                 />
             )
