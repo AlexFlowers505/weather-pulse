@@ -56,8 +56,8 @@ export function setLocalStorageTemperatureUnits(units: string) {
 export function getInitialFavouriteLocations() {
     const storageKey = localStorageKeys.favourites
 
-    if (localStorage.getItem(storageKey)) return JSON.parse(localStorage.getItem(storageKey) as string)
-    else return []
+    if (localStorage.getItem(storageKey)) return { value: JSON.parse(localStorage.getItem(storageKey) as string) }
+    else return {value: []}
 }
 
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
@@ -73,7 +73,6 @@ export function updateLocalStorageFavouriteLocations(location: FavouriteLocation
         locations.push(location)
         localStorage.setItem(storageKey, JSON.stringify(locations))
     } else if (action === localStorageActions.REMOVE) {
-        console.log('рун')
         const index = locations.findIndex((elm: FavouriteLocationType) => elm.lat === location.lat && elm.lon === location.lon)
         if (index !== -1) {
             locations.splice(index, 1)
