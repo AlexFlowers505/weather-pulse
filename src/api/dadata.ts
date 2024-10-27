@@ -70,3 +70,46 @@ export async function fetchAreasSuggestions(query: string): Promise<dadataMapped
     return []
   }
 }
+
+export async function fetchLocationByCoords(lat: string, lon: string): Promise<dadataMappedSuggestionsType[]> {
+  const key: string | undefined = process.env.REACT_APP_DADATA_API_KEY
+  if (!key) throw new Error("REACT_APP_DADATA_API_KEY is not defined")
+
+  const entryURL = `https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address`
+
+  const options: fetchOptionsType = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${key}`
+    },
+    body: JSON.stringify({
+      lat: lat,
+      lon: lon,
+      count: 1
+    })
+  }
+
+  try {
+    const response = await fetch(entryURL, options)
+    const data = await response.json()
+
+    const location: dadataMappedSuggestionsType[] = data.suggestions.map(
+      (suggestion: { data: suggestionDataType }) => ({
+        country: suggestion.data.country,
+        area: suggestion.data.city || suggestion.data.settlement,
+        region: suggestion.data.region_with_type,
+        lat: suggestion.data.geo_lat,
+        lon: suggestion.data.geo_lon,
+        settlementType: suggestion.data.city_type || suggestion.data.settlement_type
+      })
+    )
+
+    console.log('Location by coordinates', location)
+    return location
+
+  } catch (error) {
+    console.error('Error fetching location by coordinates:', error)
+    return []
+  }
+}

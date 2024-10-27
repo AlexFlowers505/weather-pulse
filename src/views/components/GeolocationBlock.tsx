@@ -19,6 +19,9 @@ export default function GeolocationBlock(): React.JSX.Element | null {
 
     const messages = geolocationMessages(dispatch)
 
+    let btnContent
+    let btnExtraStyle
+
     switch (status) {
         case states.UNSUPPORTED:
             return (
@@ -27,8 +30,8 @@ export default function GeolocationBlock(): React.JSX.Element | null {
                 </MessageWrapper>
             )
         case states.PROMPT:
-            const btnContent = loading ? `Загрузка...` : `Определить автоматически`
-            const btnExtraStyle = loading ? tw.locationBtnLoading : ''
+            btnContent = loading ? `Получаем доступ к местоположению...` : `Определить автоматически`
+            btnExtraStyle = loading ? tw.locationBtnLoading : ''
             return (
                 <Btn 
                     contentType={btnContentType.text} 
@@ -40,13 +43,25 @@ export default function GeolocationBlock(): React.JSX.Element | null {
                 />
             )
         case states.GRANTED:
-            return (
-            <>
-                <p>Your location is:</p>
-                <p>Latitude: {position?.coords.latitude}</p>
-                <p>Longitude: {position?.coords.longitude}</p>
-            </>
-        )
+                btnContent = `Загружаем прогноз погоды...`
+                btnExtraStyle = tw.locationBtnLoading
+                return (
+                    <Btn 
+                        contentType={btnContentType.text} 
+                        content={btnContent}
+                        btnSize={btnStyles.size.md}
+                        btnStyle={btnStyles.style.outlined}
+                        extraBtnClass={btnExtraStyle}
+                        onClick={getCurrentPosition}
+                    />
+                )
+            //     return (
+            // <>
+            //     <p>Your location is:</p>
+            //     <p>Latitude: {position?.coords.latitude}</p>
+            //     <p>Longitude: {position?.coords.longitude}</p>
+            // </>
+        // )
         case states.DENIED:
             return (
                 <MessageWrapper>

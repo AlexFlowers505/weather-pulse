@@ -8,7 +8,7 @@ const props = {
   layout: forecastLayoutTypes.horizontal
 }
 
-export default function TodayForecast(): React.JSX.Element {
+export default function TodayForecast({...props}): React.JSX.Element {
   return (
     <ForecastLayout heading={props.heading} layout={props.layout}/>
   )

@@ -6,6 +6,8 @@ import btnStyles from '../../styles/components/btn.style'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../redux/store/store'
 import { addLocation, removeLocation } from '../../redux/slices/favouriteLocationsSlice'
+import { Link, Route } from 'react-router-dom'
+import { symbolArrow, symbolDegree } from '../../constants/symbols'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
@@ -58,7 +60,6 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
   }, [locTempIcon])
 
   const handleFavouriteClick = (lat: number, lon: number) => {
-    console.log('hey')
     if (isFavourite) {
       dispatch(removeLocation({ lat, lon }))
       setIsFavourite(false)
@@ -68,7 +69,7 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
     }
   }
   return (
-    <li className={`${tw.externalWrapper}`} data-lon={lon} data-lat={lat}>
+    <li className={`${tw.externalWrapper}`}>
         <FavouriteBtn 
           btnSize={btnStyles.size.sm}
           btnStyle={btnStyles.style.contentOnly}
@@ -77,18 +78,18 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
           isFavourite={isFavourite}
           onClick={() => handleFavouriteClick(lat, lon)}
         />
-        <a className={`${tw.wrapper}`} tabIndex={0}>
-          <div className={`${tw.innerWrapper}`}>
-            <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
-              <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(locName, request)}</span>
+        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
+            <div className={`${tw.innerWrapper}`}>
+              <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
+                <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(locName, request)}</span>
+              </div>
+              <div className={`location-forecast ${tw.forecastWrapper}`}>
+                  <span className={`location-temp ${tw.temp}`}>{locTemp}{symbolDegree}</span>
+                  <img className={`location-temp-pic ${tw.tempPic}`} src={iconUrl} alt="" />
+              </div>
             </div>
-            <div className={`location-forecast ${tw.forecastWrapper}`}>
-                <span className={`location-temp ${tw.temp}`}>{locTemp}°</span>
-                <img className={`location-temp-pic ${tw.tempPic}`} src={iconUrl} alt="" />
-            </div>
-          </div>
-          <span className={`location-info ${tw.locationInfo}`}>{!!locRegion.length && `${locRegion} ➔ `}{locCountry}</span>
-        </a>
+            <span className={`location-info ${tw.locationInfo}`}>{!!locRegion.length && `${locRegion} ${symbolArrow} `}{locCountry}</span>
+        </Link>
     </li>
   )
 }
