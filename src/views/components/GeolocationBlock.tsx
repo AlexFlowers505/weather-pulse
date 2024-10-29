@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Btn from './Btn'
 import { btnContentType } from '../../constants/btnContentType'
 import btnStyles from '../../styles/components/btn.style'
@@ -11,11 +11,29 @@ import MessageWrapper from './MessageWrapper'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
 import { geolocationBlockStyle as tw } from '../../styles/components/GeolocationBlock.style'
+import { useNavigate } from 'react-router-dom'
 export default function GeolocationBlock(): React.JSX.Element | null {
     const dispatch = useDispatch<AppDispatch>()
+    const navigate = useNavigate()
     const { position, error, getCurrentPosition, loading } = useGeolocation()
+    const [fetchLoading, setFetchLoading] = useState(false)
 
+    
     const status = useSelector((state: RootState) => state.locationAccess.value as states)
+    
+    useEffect(() => {
+        if (status === states.GRANTED && position) {
+            const lat = position.coords.latitude
+            const lon = position.coords.longitude
+            setFetchLoading(true)
+            
+            // Navigate to forecast page with location coordinates
+            setTimeout(() => {
+                setFetchLoading(false)
+                navigate(`/forecast/${lat}_${lon}`)
+            }, 1000)
+        }
+    }, [status, position, navigate])
 
     const messages = geolocationMessages(dispatch)
 
@@ -45,6 +63,7 @@ export default function GeolocationBlock(): React.JSX.Element | null {
         case states.GRANTED:
                 btnContent = `Загружаем прогноз погоды...`
                 btnExtraStyle = tw.locationBtnLoading
+
                 return (
                     <Btn 
                         contentType={btnContentType.text} 
