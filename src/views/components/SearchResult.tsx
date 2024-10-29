@@ -3,11 +3,12 @@ import { searchResultStyle as tw } from '../../styles/components/SearchResult.st
 import { fetchIcon } from '../../api/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../redux/store/store'
-import { addLocation, removeLocation } from '../../redux/slices/favouriteLocationsSlice'
-import { Link, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store/store'
+import { Link } from 'react-router-dom'
 import { symbolArrow, symbolDegree } from '../../constants/symbols'
+import { checkIfFavourite } from '../../utils/utils'
+import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
@@ -35,16 +36,14 @@ type searchResultPropsType = {
   locTemp: number
   locTempIcon: string
   request: string
-  isFavourite: boolean
   lon: number
   lat: number
 }
 export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
   const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', lon=0, lat=0} = props
-  const dispatch = useDispatch<AppDispatch>()
 
   const [iconUrl, setIconUrl] = useState('')
-  const [isFavourite, setIsFavourite] = useState(props.isFavourite)
+  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, lat, lon))
 
   useEffect( () => {
     const loadIcon = async () => {
@@ -59,15 +58,6 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
     loadIcon()
   }, [locTempIcon])
 
-  const handleFavouriteClick = (lat: number, lon: number) => {
-    if (isFavourite) {
-      dispatch(removeLocation({ lat, lon }))
-      setIsFavourite(false)
-    } else {
-      dispatch(addLocation({ lat, lon }))
-      setIsFavourite(true)
-    }
-  }
   return (
     <li className={`${tw.externalWrapper}`}>
         <FavouriteBtn 
@@ -76,7 +66,8 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
           extraBtnClass={`${tw.favouriteBtn}`}
           extraSVGClass={`${tw.favouriteBtnIcon}`}
           isFavourite={isFavourite}
-          onClick={() => handleFavouriteClick(lat, lon)}
+          lat={lat}
+          lon={lon}
         />
         <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
             <div className={`${tw.innerWrapper}`}>

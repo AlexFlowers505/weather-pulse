@@ -2,11 +2,12 @@ import { localStorageActions } from "../constants/localStorageActions"
 import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
 import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
-import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
+import { addLocation, FavouriteLocationsStateType, FavouriteLocationType, removeLocation } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
 import { AppDispatch } from "../redux/store/store"
 import { switchLocationAccess } from "../redux/slices/locationAccessSlice"
 import locationAccessStates from "../constants/locationAccessStates"
+import { useDispatch } from "react-redux"
 const { IDLE } = searchResultsStates
 
 
@@ -61,6 +62,7 @@ export function getInitialFavouriteLocations() {
 }
 
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
+    console.log(state.value)
     return state.value.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
 }
 

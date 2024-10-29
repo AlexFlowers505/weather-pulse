@@ -39,21 +39,28 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const fetchWeatherData = async () => {
     setLoading(true)
     try {
+      // Fetch overalls and weather data from different APIs
       const overalls = await fetchLocationByCoords(coords[0], coords[1])
+  
       if (overalls && overalls.length > 0) {
-        locationWholeData.overalls = overalls[0]
-        const weather = await fetchLocationForecast(overalls[0].lat, overalls[0].lon, units)
-        locationWholeData.weather = weather
-        setLocationData(locationWholeData)
+        const selectedCoords = {
+          lat: overalls[0].lat, // use these coords consistently
+          lon: overalls[0].lon,
+        }
+        const weather = await fetchLocationForecast(selectedCoords.lat, selectedCoords.lon, units)
+  
+        setLocationData({
+          overalls: { ...overalls[0], ...selectedCoords },
+          weather,
+        })
       }
-      console.log('locationWholeData', locationWholeData)
     } catch (error) {
       console.error('Failed to fetch weather data', error)
     } finally {
       setLoading(false)
     }
   }
-  useEffect(() => { fetchWeatherData() }, [coords])
+  useEffect(() => { fetchWeatherData() }, [coords, units])
 
   return (
     <>

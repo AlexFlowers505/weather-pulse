@@ -99,8 +99,8 @@ export async function fetchLocationByCoords(lat: string, lon: string): Promise<d
         country: suggestion.data.country,
         area: suggestion.data.city || suggestion.data.settlement,
         region: suggestion.data.region_with_type,
-        lat: suggestion.data.geo_lat,
-        lon: suggestion.data.geo_lon,
+        lat: lat,
+        lon: lon,
         settlementType: suggestion.data.city_type || suggestion.data.settlement_type
       })
     )

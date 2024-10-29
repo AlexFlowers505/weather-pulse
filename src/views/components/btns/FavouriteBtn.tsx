@@ -2,7 +2,10 @@ import React from 'react'
 import Btn from '../Btn'
 import { btnContentType } from '../../../constants/btnContentType'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
-import { BtnBasedComponentType } from '../../../types/overalls/overalls'
+import { BtnBasedComponentType, setStateType } from '../../../types/overalls/overalls'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../redux/store/store'
+import { addLocation, removeLocation } from '../../../redux/slices/favouriteLocationsSlice'
 
 const btnData = {
   content: {
@@ -21,11 +24,20 @@ const btnData = {
 
 const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
-type FavouriteBtnType = BtnBasedComponentType&{isFavourite: boolean}
+type FavouriteBtnType = BtnBasedComponentType&{isFavourite: boolean, lat: number, lon: number}
 
-export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, onClick }: FavouriteBtnType): React.JSX.Element {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, lat, lon }: FavouriteBtnType): React.JSX.Element {
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
   const icon = isFavourite ? content.favourite : content.notFavourite
+  const dispatch = useDispatch<AppDispatch>()
+
+const handleFavouriteClick = () => {
+  if (isFavourite) {
+      dispatch(removeLocation({ lat, lon }))
+    } else {
+        dispatch(addLocation({ lat, lon }))
+    }
+}
 
   return (
     <Btn
@@ -39,7 +51,7 @@ export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSV
       hasTooltip={true}
       tooltipContent={tooltipContent}
       tooltipOffset={[0, -10]}
-      onClick={onClick}
+      onClick={handleFavouriteClick}
     />
   )
 }
