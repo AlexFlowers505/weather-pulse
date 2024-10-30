@@ -8,7 +8,7 @@ export const helloSectionStyle: tailwindStyleClassType = {
         items-center 
         gap-12
         pb-10
-
+        
         mt-24
     `,
     logoWrapper: `
@@ -21,6 +21,18 @@ export const helloSectionStyle: tailwindStyleClassType = {
         gap-6
 
         md:gap-12
+    `,
+    navbar: `
+        bg-bgPrimary
+        w-fit
+        flex
+        flex-col
+        gap-8
+        p-3
+        rounded-2xl
+        border-solid
+        border-2
+        border-transparent  
     `,
     logotype: `
         text-text 

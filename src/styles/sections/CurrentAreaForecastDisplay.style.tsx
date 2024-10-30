@@ -24,13 +24,13 @@ export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
   `,
   name: `
     text-text
-    text-4xl
+    text-5xl
     font-bold
   `,
   degrees: `
     text-text
     text-9xl
-    font-light
+    font-extralight
   `,
   weatherDataWrapper: `
     flex

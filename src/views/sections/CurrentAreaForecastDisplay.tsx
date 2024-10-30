@@ -26,8 +26,8 @@ export default function CurrentAreaForecastDisplay({ locationData }: { locationD
     <section className={`${tw.wrapper}`}>
       <div className={`${tw.nameBlock}`}>
         <FavouriteBtn 
-          btnSize={btnStyles.size.md} 
-          btnStyle={btnStyles.style.outlined} 
+          btnSize={btnStyles.size.lg} 
+          btnStyle={btnStyles.style.contentOnly} 
           isFavourite={isFavourite}
           lat={locationData.overalls?.lat}
           lon={locationData.overalls?.lon}  

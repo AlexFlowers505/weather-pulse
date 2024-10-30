@@ -65,9 +65,9 @@ export default function AreaOverviewPage(): React.JSX.Element {
           <div className={`${tw.sectionsWrapper}`}>
             <ControlPanel />
             <CurrentAreaForecastDisplay locationData={locationData} />
-            <TodayForecast props={[locationData, tw.forecastSevenDays]} />
+            <TodayForecast props={[locationData]} />
           </div>
-          <SevenDaysForecast props={[locationData, tw.forecastSevenDays]} />
+          <SevenDaysForecast props={[locationData]} />
         </>
       )}
     </>

@@ -18,10 +18,10 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       flex-row
       mx-auto
       justify-center
-      items-top
+      items-stretch
       max-w-7xl
       w-full
-      min-h-full
+      h-fit
       gap-base
       relative
     `,

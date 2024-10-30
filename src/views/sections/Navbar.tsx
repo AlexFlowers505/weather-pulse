@@ -6,7 +6,7 @@ import { helloSectionStyle as tw } from '../../styles/sections/HelloSection.styl
 
 export default function Navbar(): React.JSX.Element {
   return (
-        <nav className={tw.base}>
+        <nav className={tw.navbar}>
             <LogoMin styles={tw.logo} />
             { navLinksData.map( (linkData, i) => { return (
                 <NavbarLink link={linkData} key={i}/> )}

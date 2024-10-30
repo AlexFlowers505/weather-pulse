@@ -5,7 +5,7 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
       flex 
       flex-col 
       justify-between 
-      items-start 
+      min-h-full
       w-full 
       gap-base
     `,

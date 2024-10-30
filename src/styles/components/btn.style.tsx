@@ -6,6 +6,7 @@ export type BtnStyleSizeType = {
 export type BtnStyleType = {
     base: string
     size: {
+        lg: BtnStyleSizeType
         md: BtnStyleSizeType
         sm: BtnStyleSizeType
     }
@@ -24,7 +25,7 @@ const BtnStyles: BtnStyleType = {
         items-center
         rounded-base
         box-content
-        font-black
+        font-semibold
         text-text
         font-montserrat
         transition-all
@@ -34,6 +35,18 @@ const BtnStyles: BtnStyleType = {
         focus:outline-none
     `,
     size: {
+        lg: {
+            btn: `
+                p-1
+                rounded-2xl
+
+                md:text-xl
+            `,
+            icon: `
+                w-12
+                h-12
+            `,
+        },
         md: {
             btn: `
                 p-baseXS
