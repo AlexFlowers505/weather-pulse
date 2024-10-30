@@ -2,13 +2,13 @@ import React from 'react'
 import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 
-const props = {
+const localProps = {
     heading: 'Прогноз на 7 дней',
     layout: forecastLayoutTypes.vertical
   }
 
-export default function SevenDaysForecast(): React.JSX.Element {
+export default function SevenDaysForecast({...props}): React.JSX.Element {
   return (
-    <ForecastLayout heading={props.heading} layout={props.layout}/>
+    <ForecastLayout heading={localProps.heading} layout={localProps.layout} extraStyles={props.extraStyles}/>
   )
 }

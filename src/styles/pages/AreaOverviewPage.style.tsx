@@ -8,5 +8,5 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
       items-start 
       w-full 
       gap-base
-    `
+    `,
   }

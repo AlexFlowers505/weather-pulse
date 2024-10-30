@@ -18,9 +18,10 @@ const searchBarAttrs = {
 
 type searchPropsType = {
   styles?: string
+  hasUnitsBtn?: boolean
 }
 
-export default function Search({styles=''}: searchPropsType): React.JSX.Element {
+export default function Search({styles='', hasUnitsBtn = true}: searchPropsType): React.JSX.Element {
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -48,7 +49,7 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
     <div className={`search-block ${tw.searchBlock} ${styles}`}>
       <div className={`input-wrapper ${tw.inputWrapper}`}>
         <input
-          className={`search-bar ${tw.searchBar}`}
+          className={`search-bar ${hasUnitsBtn ? tw.searchBar : tw.searchBarNoUnitsBtn}`}
           ref={inputRef}
           type="text"
           value={request}
@@ -67,11 +68,13 @@ export default function Search({styles=''}: searchPropsType): React.JSX.Element 
               onClick={() => handleClearSearchBtnClick(inputRef, setFetchState, null, setRequest)}
             />
           )}
-          <ChangeUnitsBtn 
-            extraBtnClass={tw.unitsBtn}
-            btnStyle={btnStyles.style.contentOnly}
-            btnSize={btnStyles.size.md}
-          />
+          { hasUnitsBtn &&
+            <ChangeUnitsBtn 
+              extraBtnClass={tw.unitsBtn}
+              btnStyle={btnStyles.style.contentOnly}
+              btnSize={btnStyles.size.md}
+            />
+          }
         </div>
       </div>
       <SearchResults

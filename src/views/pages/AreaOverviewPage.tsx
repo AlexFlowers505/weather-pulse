@@ -32,19 +32,14 @@ export default function AreaOverviewPage(): React.JSX.Element {
     overalls: any,
     weather: any,
   }
-  let locationWholeData: locationWholeDataType = {
-    overalls: null,
-    weather: null,
-  }
   const fetchWeatherData = async () => {
     setLoading(true)
     try {
-      // Fetch overalls and weather data from different APIs
       const overalls = await fetchLocationByCoords(coords[0], coords[1])
   
       if (overalls && overalls.length > 0) {
         const selectedCoords = {
-          lat: overalls[0].lat, // use these coords consistently
+          lat: overalls[0].lat,
           lon: overalls[0].lon,
         }
         const weather = await fetchLocationForecast(selectedCoords.lat, selectedCoords.lon, units)
@@ -70,9 +65,9 @@ export default function AreaOverviewPage(): React.JSX.Element {
           <div className={`${tw.sectionsWrapper}`}>
             <ControlPanel />
             <CurrentAreaForecastDisplay locationData={locationData} />
-            <TodayForecast props={locationData} />
+            <TodayForecast props={[locationData, tw.forecastSevenDays]} />
           </div>
-          <SevenDaysForecast />
+          <SevenDaysForecast props={[locationData, tw.forecastSevenDays]} />
         </>
       )}
     </>

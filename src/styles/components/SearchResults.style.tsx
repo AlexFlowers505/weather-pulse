@@ -6,8 +6,10 @@ export const SearchResultsStyle: tailwindStyleClassType = {
         absolute
         w-full
         container-visuals--custom-p
+        !bg-bgPrimaryTransparent
+        backdrop-blur-lg
         p-2
-        shadow-md
+        drop-shadow-2xl
         top-16
         
         md:p-3

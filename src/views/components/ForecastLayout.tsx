@@ -6,10 +6,11 @@ import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 type forecastLayoutPropsType = {
   heading: string
   layout: forecastLayoutTypes
+  extraStyles?: string
 }
-export default function ForecastLayout({heading, layout}: forecastLayoutPropsType): React.JSX.Element {
+export default function ForecastLayout({heading, layout, extraStyles='' }: forecastLayoutPropsType): React.JSX.Element {
   return (
-    <section className={`forecast container-visuals ${tw.wrapper}`}>
+    <section className={`forecast container-visuals ${tw.wrapper} ${extraStyles}`}>
         <h6 className={tw.header}>{heading}</h6>
         <ForecastItems layout={layout} />
     </section>

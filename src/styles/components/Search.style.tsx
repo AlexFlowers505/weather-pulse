@@ -37,6 +37,33 @@ export const searchStyle: tailwindStyleClassType = {
       md:pr-14
       md:rounded-base
     `,
+    searchBarNoUnitsBtn: `
+      w-full
+      h-full
+      p-4
+      pr-6
+      rounded-2xl
+      text-text
+      bg-bgPrimary
+      hover:bg-hoverState
+      active:bg-activeState
+      border-solid
+      border-2
+      border-transparent
+      outline-none
+      focus:border-primary
+      focus:bg-bgPrimary
+      transition-colors
+      placeholder:text-ellipsis
+      ease-in-out
+      duration-200
+      text-base-mobile
+      
+      md:text-base
+      md:p-baseXS
+      md:pr-14
+      md:rounded-base
+    `,
     inputWrapper: `
       relative
     `,

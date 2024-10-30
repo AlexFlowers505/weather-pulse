@@ -13,7 +13,7 @@ export default function HelloSection(): React.JSX.Element {
             <h2 className={`logotype ${tw.logotype}`}>Weather Pulse</h2>
         </div>
         <div className={`interaction-block ${tw.interactionBlock}`}>
-            <Search styles={`${tw.search}`} />
+            <Search styles={`${tw.search}`} hasUnitsBtn={true} />
             <GeolocationBlock />
         </div>
     </section>

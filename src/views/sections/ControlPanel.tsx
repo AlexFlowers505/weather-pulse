@@ -8,7 +8,7 @@ import { controlPanelStyle as tw } from '../../styles/sections/ControlPanel.styl
 export default function ControlPanel(): React.JSX.Element {
   return (
     <section className={tw.base}>
-        <Search />
+        <Search hasUnitsBtn={false}/>
         <LocateMeBtn btnSize={btnStyles.size.md} btnStyle={btnStyles.style.filled} />
         <ChangeUnitsBtn  btnSize={btnStyles.size.md} btnStyle={btnStyles.style.filled} />
     </section>

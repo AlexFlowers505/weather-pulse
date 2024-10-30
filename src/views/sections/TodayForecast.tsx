@@ -3,13 +3,14 @@ import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 
 
-const props = {
+const localProps = {
   heading: 'Прогноз на сегодня',
-  layout: forecastLayoutTypes.horizontal
+  layout: forecastLayoutTypes.horizontal,
+  extraStyles: ''
 }
 
 export default function TodayForecast({...props}): React.JSX.Element {
   return (
-    <ForecastLayout heading={props.heading} layout={props.layout}/>
+    <ForecastLayout heading={localProps.heading} layout={localProps.layout}/>
   )
 }

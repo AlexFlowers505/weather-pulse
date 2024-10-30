@@ -9,5 +9,7 @@ export const controlPanelStyle: tailwindStyleClassType = {
         justify-start
         items-center
         gap-baseSM
+        z-20
+        relative
     `
 }
