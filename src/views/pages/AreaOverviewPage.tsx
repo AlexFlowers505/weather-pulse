@@ -48,6 +48,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
           overalls: { ...overalls[0], ...selectedCoords },
           weather,
         })
+        console.log('locationdata', locationData)
       }
     } catch (error) {
       console.error('Failed to fetch weather data', error)

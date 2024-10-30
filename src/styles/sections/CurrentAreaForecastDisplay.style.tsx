@@ -46,8 +46,9 @@ export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
   `,
   bgPic: `
     absolute
-    -top-40
-    -right-48
+    w-3/4
+    -top-48
+    -right-32
     -z-10
     opacity-20
   `

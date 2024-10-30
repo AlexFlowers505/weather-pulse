@@ -8,19 +8,31 @@ import { checkIfFavourite } from '../../utils/utils'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
+import { fetchIcon } from '../../api/openWeatherMap'
 const {names: imgNames, fileType: imgType, path: imgPath} = weatherPicturesNames
 
 export default function CurrentAreaForecastDisplay({ locationData }: { locationData: any }): React.JSX.Element {
   const [name, setName] = useState('')
   const [temp, setTemp] = useState(0)
+  const [iconUrl, setIconUrl] = useState('')
 
   const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, locationData.overalls?.lat, locationData.overalls?.lon))
   
   useEffect(() => {
     setName(locationData.overalls?.area || '')
     setTemp(locationData.weather?.main.temp ? Math.round(locationData.weather.main.temp) : 0)
-  }, [locationData])
 
+    const loadIcon = async () => {
+      try {
+        const url = await fetchIcon(locationData.weather?.weather[0].icon)
+        setIconUrl(url)
+      } catch (error) {
+        console.error('Error fetching icon:', error)
+      }
+    }
+
+    loadIcon()
+  }, [locationData])
 
   return (
     <section className={`${tw.wrapper}`}>
@@ -36,9 +48,9 @@ export default function CurrentAreaForecastDisplay({ locationData }: { locationD
       </div>
       <div className={`${tw.weatherDataWrapper}`}>
         <span className={`${tw.degrees}`}>{temp}{symbolDegree}</span>
-        <img className={`${tw.pic}`} src={`${imgPath}${imgNames.sunny}${imgType}`} alt="" />
+        <img className={`${tw.pic}`} src={iconUrl} alt="" />
       </div>
-      <img className={`${tw.bgPic}`} src="/assets/images/weather-pictures/sunny.png" alt="" />
+      <img className={`${tw.bgPic}`} src={iconUrl} alt="" />
     </section>
   )
 }
