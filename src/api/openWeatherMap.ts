@@ -40,9 +40,10 @@ type ForecastData = {
     [key: string]: any
 }
 
-export async function fetchLocationForecast(lat: string, lon: string, units: string = celsius.name): Promise<ForecastData> {
+export async function fetchLocationForecast(lat: string, lon: string, units: string = celsius.name, isOnlyTodaysForecast: boolean = true): Promise<ForecastData> {
     const urlUnits = units === celsius.name ? celsius.__type : fahrenheit.__type
-    const URLspecPath = 'data/2.5/weather'
+    const URLspecPathStatic = 'data/2.5/'
+    const URLspecPathDynamic = isOnlyTodaysForecast ? 'weather/' : 'forecast/'
 
     const urlParams = new URLSearchParams({
         lat: lat.toString(),
@@ -52,7 +53,7 @@ export async function fetchLocationForecast(lat: string, lon: string, units: str
         lang: 'ru',
     })
 
-    const url = `${entryURL}${URLspecPath}?${urlParams.toString()}`
+    const url = `${entryURL}${URLspecPathStatic}${URLspecPathDynamic}?${urlParams.toString()}`
 
     try {
         const response = await fetch(url)

@@ -20,7 +20,7 @@ export default function CurrentAreaForecastDisplay({ locationData }: { locationD
   
   useEffect(() => {
     setName(locationData.overalls?.area || '')
-    setTemp(locationData.weather?.main.temp ? Math.round(locationData.weather.main.temp) : 0)
+    setTemp(locationData.weather?.list[0].main.temp ? Math.round(locationData.weather.main.temp) : 0)
 
     const loadIcon = async () => {
       try {

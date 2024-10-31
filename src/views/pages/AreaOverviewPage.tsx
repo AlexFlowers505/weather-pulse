@@ -42,7 +42,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
           lat: overalls[0].lat,
           lon: overalls[0].lon,
         }
-        const weather = await fetchLocationForecast(selectedCoords.lat, selectedCoords.lon, units)
+        const weather = await fetchLocationForecast(selectedCoords.lat, selectedCoords.lon, units, false)
   
         setLocationData({
           overalls: { ...overalls[0], ...selectedCoords },
