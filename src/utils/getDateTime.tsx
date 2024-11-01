@@ -53,6 +53,9 @@ export class DateFormatter {
 	getSeconds(): string {
 		return `0${this.date.getSeconds()}`.substr(-2)
 	}
+	getHoursAndMinutes(): string {
+		return `${this.getHours()}:${this.getMinutes()}`
+	}
 
 	getFormattedDate(options: DateOptions = { isNumBased: false, isFullName: true, separator: '/' }): string {
 		const day = this.getDay()
@@ -75,10 +78,3 @@ export class DateFormatter {
 		return `${formattedDate} ${formattedTime}`
 	}
 }
-
-const dateFormatter = new DateFormatter()
-
-console.log(dateFormatter.getYear())
-console.log(dateFormatter.getMonth(true))
-console.log(dateFormatter.getDayOfWeek(false))
-console.log(dateFormatter.getFormattedFullDate())

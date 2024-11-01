@@ -12,6 +12,11 @@ import { fetchLocationForecast } from '../../api/openWeatherMap'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 
+export type locationWholeDataType = {
+  overalls: any,
+  weather: any,
+} | null
+
 export default function AreaOverviewPage(): React.JSX.Element {
   const params = useParams<{ lat_lon: string }>()
   const units = useSelector((state: RootState) => state.temperatureUnits.name)
@@ -28,10 +33,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
     })
     const [loading, setLoading] = useState<boolean>(false)
   
-  type locationWholeDataType = {
-    overalls: any,
-    weather: any,
-  }
+
   const fetchWeatherData = async () => {
     setLoading(true)
     try {
@@ -66,7 +68,8 @@ export default function AreaOverviewPage(): React.JSX.Element {
           <div className={`${tw.sectionsWrapper}`}>
             <ControlPanel />
             <CurrentAreaForecastDisplay locationData={locationData} />
-            <TodayForecast props={[locationData]} />
+            <TodayForecast locationData={locationData} />
+            
           </div>
           <SevenDaysForecast props={[locationData]} />
         </>

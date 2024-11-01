@@ -13,7 +13,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
         <div className={tw.wrapper}>
             <ControlPanel />
             <AreasForecastsList />
-            <TodayForecast />
+            <TodayForecast locationData={null} />
         </div>
         <DiverseForecast />
     </>
