@@ -2,9 +2,9 @@ import { months } from '../constants/months'
 import { weekDays } from '../constants/weekDays'
 
 type DateOptions = {
-	isMonthAnum?: boolean
-	isMonthFullName?: boolean
-	isWeekdayFullName?: boolean
+	isNumBased?: boolean
+	isFullName?: boolean
+	separator?: string
 }
 
 export class DateFormatter {
@@ -15,13 +15,18 @@ export class DateFormatter {
 		this.date = new Date(unixTimestamp * timestampModifier)
 	}
 
-	getYear(): number {
-		return this.date.getFullYear()
+	getYear(isYearFullNum: boolean = false): number | string {
+		const year = this.date.getFullYear()
+		if (isYearFullNum) {
+			return year
+		} else {
+			return year.toString().substr(-2)
+		}
 	}
 
-	getMonth(shortText: boolean = false, options: DateOptions = { isMonthAnum: false, isMonthFullName: true }): string | number {
+	getMonth(shortText: boolean = false, options: DateOptions = { isNumBased: false, isFullName: true }): string | number {
 		const monthIndex = this.date.getMonth()
-		if (options.isMonthAnum) {
+		if (options.isNumBased) {
 			return monthIndex + 1
 		} else {
 			return shortText ? months[monthIndex].short : months[monthIndex].full
@@ -49,11 +54,12 @@ export class DateFormatter {
 		return `0${this.date.getSeconds()}`.substr(-2)
 	}
 
-	getFormattedDate(options: DateOptions = { isMonthAnum: false, isMonthFullName: true }): string {
+	getFormattedDate(options: DateOptions = { isNumBased: false, isFullName: true, separator: '/' }): string {
 		const day = this.getDay()
-		const month = this.getMonth(options.isMonthFullName ? false : true, options)
+		const month = this.getMonth(options.isFullName ? false : true, options)
 		const year = this.getYear()
-		return `${day}/${month}/${year}`
+		const separator = options.separator || '/'
+		return `${day}${separator}${month}${separator}${year}`
 	}
 
 	getFormattedTime(): string {
@@ -63,7 +69,7 @@ export class DateFormatter {
 		return `${hours}:${minutes}:${seconds}`
 	}
 
-	getFormattedFullDate(options: DateOptions = { isMonthAnum: false, isMonthFullName: true, isWeekdayFullName: true }): string {
+	getFormattedFullDate(options: DateOptions = { isNumBased: false, isFullName: true }): string {
 		const formattedDate = this.getFormattedDate(options)
 		const formattedTime = this.getFormattedTime()
 		return `${formattedDate} ${formattedTime}`

@@ -20,11 +20,11 @@ export default function CurrentAreaForecastDisplay({ locationData }: { locationD
   
   useEffect(() => {
     setName(locationData.overalls?.area || '')
-    setTemp(locationData.weather?.list[0].main.temp ? Math.round(locationData.weather.main.temp) : 0)
+    setTemp(locationData.weather?.list[0].main.temp ? Math.round(locationData.weather?.list[0].main.temp) : 0)
 
     const loadIcon = async () => {
       try {
-        const url = await fetchIcon(locationData.weather?.weather[0].icon)
+        const url = await fetchIcon(locationData.weather?.list[0].weather[0].icon)
         setIconUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)
