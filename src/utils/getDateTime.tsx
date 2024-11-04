@@ -77,4 +77,10 @@ export class DateFormatter {
 		const formattedTime = this.getFormattedTime()
 		return `${formattedDate} ${formattedTime}`
 	}
+
+	getShortDate(isFullName: boolean = false): string {
+		const formattedDay = this.getDay()
+		const formattedMonth = this.getMonth(isFullName)
+		return `${formattedDay} ${formattedMonth}`
+	}
 }

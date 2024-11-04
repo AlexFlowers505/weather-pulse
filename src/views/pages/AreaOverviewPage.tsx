@@ -3,7 +3,6 @@ import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import CurrentAreaForecastDisplay from '../sections/CurrentAreaForecastDisplay'
 import TodayForecast from '../sections/TodayForecast'
-import SevenDaysForecast from '../sections/SevenDaysForecast'
 import Spinner from '../components/Spinner'
 import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
 import { useParams } from 'react-router-dom'
@@ -11,6 +10,7 @@ import { fetchLocationByCoords } from '../../api/dadata'
 import { fetchLocationForecast } from '../../api/openWeatherMap'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
+import FewDaysForecast from '../sections/FewDaysForecast'
 
 export type locationWholeDataType = {
   overalls: any,
@@ -69,9 +69,8 @@ export default function AreaOverviewPage(): React.JSX.Element {
             <ControlPanel />
             <CurrentAreaForecastDisplay locationData={locationData} />
             <TodayForecast locationData={locationData} />
-            
           </div>
-          <SevenDaysForecast props={[locationData]} />
+          <FewDaysForecast locationData={locationData} />
         </>
       )}
     </>

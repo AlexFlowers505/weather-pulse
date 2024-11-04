@@ -5,51 +5,51 @@ export type monthsType = {
 
 export const months: monthsType[] = [
     {
-        full: 'Январь',
+        full: 'Января',
         short: 'Янв',
     },
     {
-        full: 'Февраль',
+        full: 'Февраля',
         short: 'Фев',
     },
     {
-        full: 'Март',
-        short: 'Март',
+        full: 'Марта',
+        short: 'Мар',
     },
     {
-        full: 'Апрель',
+        full: 'Апреля',
         short: 'Апр',
     },
     {
-        full: 'Май',
-        short: 'Май',
+        full: 'Мая',
+        short: 'Мая',
     },
     {
-        full: 'Июнь',
-        short: 'Июнь',
+        full: 'Июня',
+        short: 'Июн',
     },
     {
-        full: 'Июль',
-        short: 'Июль',
+        full: 'Июля',
+        short: 'Июл',
     },
     {
-        full: 'Август',
+        full: 'Августа',
         short: 'Авг',
     },
     {
-        full: 'Сентябрь',
+        full: 'Сентября',
         short: 'Сен',
     },
     {
-        full: 'Октябрь',
+        full: 'Октября',
         short: 'Окт',
     },
     {
-        full: 'Ноябрь',
+        full: 'Ноября',
         short: 'Ноя',
     },
     {
-        full: 'Декабрь',
+        full: 'Декабря',
         short: 'Дек',
     },
 ]

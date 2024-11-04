@@ -18,6 +18,7 @@ export default function TodayForecast({locationData}: TodayForecastProps): React
   if (locationData === null) {
     throw new Error('locationData is null')
   } else {
+    console.log('locationDataTODAY', locationData)
     return (
       <ForecastLayout heading={localProps.heading} layout={localProps.layout} locationData={locationData}/>
     )
