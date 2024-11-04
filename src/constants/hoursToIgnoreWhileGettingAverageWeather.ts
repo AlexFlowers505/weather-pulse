@@ -1,0 +1,1 @@
+export const hoursToIgnoreWhileGettingAverageWeather: String[] = ['00', '03', '06']

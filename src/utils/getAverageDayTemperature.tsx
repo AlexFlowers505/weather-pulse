@@ -1,9 +1,6 @@
-export const getAverageDayTemperature = (weatherByDay: any[]) => {
-    let averageDayWeather: any
-    weatherByDay.map((day: any) => {
-        const temperatureByHour = day.map((hour: any) => hour.main.temp)
-        averageDayWeather.push(Math.round(temperatureByHour.reduce((a: number, b: number) => a + b) / temperatureByHour.length))
-    })
+export const getAverageDayTemperature = ( dayWeatherByHour: any[]) => {
+    const temperatureByHour = dayWeatherByHour.map( (hour: any) => hour.main.temp)
+    const averageTemperature = Math.round(temperatureByHour.reduce((a: number, b: number) => a + b) / temperatureByHour.length)
 
-    return averageDayWeather
+    return averageTemperature
 }
