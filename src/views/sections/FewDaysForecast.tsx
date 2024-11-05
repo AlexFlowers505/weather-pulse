@@ -6,7 +6,7 @@ import { groupForecastByDay } from '../../utils/groupForecastByDay'
 import { locationWholeDataType } from '../pages/AreaOverviewPage'
 
 const localProps = {
-    heading: 'Прогноз на 7 дней',
+    heading: 'Прогноз на 5 дней',
     layout: forecastLayoutTypes.vertical,
 }
 
@@ -27,7 +27,7 @@ export default function FewDaysForecast({ locationData, extraStyles = '' }: fewD
     return null
   }
 
-  const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays)
+  const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays, false)
 
   return (
     <ForecastLayout
