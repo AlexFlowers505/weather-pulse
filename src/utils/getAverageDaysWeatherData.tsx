@@ -21,12 +21,12 @@ export const getAverageDaysWeatherData = (fewDaysWeather: any[]) => {
         const averageDayWeatherIcon = getAverageDayWeatherIcon(dayWeatherByHours.forecast)
 
         averageDayWeather.push({
-            calendarDay: calendarDay,
+            timeOrDay: calendarDay,
             weekDay: weekDay,
             temperature: averageDayTemperature,
             icon: averageDayWeatherIcon,
         })
     })
-
+    console.log('averageDayWeather', averageDayWeather)
     return averageDayWeather
 }

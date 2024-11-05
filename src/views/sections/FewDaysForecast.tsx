@@ -9,17 +9,32 @@ const localProps = {
     heading: 'Прогноз на 7 дней',
     layout: forecastLayoutTypes.vertical,
 }
+
 export interface fewDaysForecastProps {
   locationData: locationWholeDataType | null
-  extraStyles?: String
+  extraStyles?: string
 }
 
-export default function FewDaysForecast({locationData, extraStyles=''}: fewDaysForecastProps): React.JSX.Element {
-  console.log('datata', locationData)
-  const detailedWeatherByDays = groupForecastByDay(locationData?.weather) as any[]
+export default function FewDaysForecast({ locationData, extraStyles = '' }: fewDaysForecastProps): React.JSX.Element | null {
+  if (!locationData?.weather || locationData.weather.length === 0) {
+    console.error('fewDaysWeather data is missing or empty')
+    return null
+  }
+
+  const detailedWeatherByDays = groupForecastByDay(locationData.weather) as any[]
+  if (!detailedWeatherByDays || detailedWeatherByDays.length === 0) {
+    console.error('groupForecastByDay returned empty or invalid data')
+    return null
+  }
+
   const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays)
+
   return (
-    // <ForecastLayout heading={localProps.heading} layout={localProps.layout} locationData={averageDaysWeatherData}/>
-    <div></div>
+    <ForecastLayout
+      heading={localProps.heading}
+      layout={localProps.layout}
+      locationData={averageDaysWeatherData}
+      extraStyles={extraStyles}
+    />
   )
 }

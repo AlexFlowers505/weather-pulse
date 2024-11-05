@@ -2,6 +2,7 @@ import React from 'react'
 import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { locationWholeDataType } from '../pages/AreaOverviewPage'
+import { DateFormatter } from '../../utils/getDateTime'
 
 
 const localProps = {
@@ -19,10 +20,21 @@ export default function TodayForecast({locationData}: TodayForecastProps): React
     throw new Error('locationData is null')
   } else {
     console.log('locationDataTODAY', locationData)
+    let dayWeather: any[] = []
+    const weatherList = locationData.weather?.list || []
+    weatherList.forEach((hourData: any) => {
+      const weatherTime = new DateFormatter(hourData.dt).getHoursAndMinutes()
+      const weatherTemperature = Math.round(hourData.main.temp)
+      const weatherIcon = hourData.weather[0].icon
+      dayWeather.push({
+        timeOrDay: weatherTime,
+        temperature: weatherTemperature,
+        icon: weatherIcon
+      })
+    })
     return (
-      <ForecastLayout heading={localProps.heading} layout={localProps.layout} locationData={locationData}/>
+      <ForecastLayout heading={localProps.heading} layout={localProps.layout} locationData={dayWeather}/>
     )
-
   }
 }
 
