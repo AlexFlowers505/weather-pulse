@@ -14,10 +14,12 @@ export const navbarLinkStyle: tailwindStyleClassType = {
         duration-200
         bg-bgPrimary
         p-3
-        w-full
+        min-w-24
         rounded-base
         hover:bg-hoverState
         active:bg-activeState
+
+        md:w-full
     `,
     activeLink: `
         bg-slate-600

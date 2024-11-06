@@ -13,9 +13,13 @@
 // styles
 .container-visuals
     @apply bg-bgPrimary
-    @apply p-baseSM
-    @apply rounded-base
+@layer components
+  .container-visuals
+    @apply md:rounded-base rounded-xl md:p-baseSM p-5
+    
 .container-visuals--custom-p
     @apply bg-bgPrimary
     @apply rounded-2xl
+@layer components
+  .container-visuals--custom-p
     @apply md:rounded-base

@@ -2,7 +2,7 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
     wrapper: `
-    rounded-base
+    rounded-xl
     bg-bgPrimary
     p-base
     flex
@@ -14,6 +14,8 @@ export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
     relative
     overflow-hidden
     z-10
+    
+    md:rounded-base
   `,
   nameBlock: `
     flex

@@ -22,9 +22,10 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       max-w-7xl
       w-full
       h-fit
-      gap-base
+      gap-baseXS
       relative
 
       md:flex-row
+      md:gap-base
     `,
   }

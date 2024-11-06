@@ -7,6 +7,8 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
       justify-between 
       min-h-full
       w-full 
-      gap-base
+      gap-baseXS
+
+      md:gap-base
     `,
   }

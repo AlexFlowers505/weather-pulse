@@ -6,6 +6,7 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         flex-row
         justify-between
         items-center
+        overflow-x-scroll
     `,
     verticalLayout: `
         flex

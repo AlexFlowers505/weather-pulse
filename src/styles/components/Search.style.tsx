@@ -6,6 +6,7 @@ export const searchStyle: tailwindStyleClassType = {
       w-full
       max-w-2xl
       h-full
+      md:min-w-max
 
       group/search-block
     `,
@@ -42,7 +43,7 @@ export const searchStyle: tailwindStyleClassType = {
       h-full
       p-4
       pr-6
-      rounded-2xl
+      rounded-xl
       text-text
       bg-bgPrimary
       hover:bg-hoverState

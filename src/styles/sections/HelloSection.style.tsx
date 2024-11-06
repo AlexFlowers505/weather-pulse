@@ -16,7 +16,7 @@ export const helloSectionStyle: tailwindStyleClassType = {
         flex-col 
         justify-start 
         items-center 
-        w-xl
+        w-20
         max-w-full
         gap-6
 
@@ -26,6 +26,7 @@ export const helloSectionStyle: tailwindStyleClassType = {
 
         md:gap-12
         md:p-2
+        md:w-xl
 
         hover:saturate-200
         hover:scale-110
@@ -37,13 +38,14 @@ export const helloSectionStyle: tailwindStyleClassType = {
         flex-row
         items-center
         justify-center
-        gap-8
+        gap-16
         p-3
-        rounded-2xl
+        rounded-xl
         border-solid
         border-2
         border-transparent  
 
+        md:rounded-2xl
         md:flex-col
         md:justify-start
         md:gap-12

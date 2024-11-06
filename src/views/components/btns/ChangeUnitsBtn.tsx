@@ -19,7 +19,7 @@ export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, 
   const handleChangeUnitsBtnClick = () => {
     dispatch(switchTemperatureUnits())
   }
-  const units = useSelector((state: RootState) => state.temperatureUnits.symbol)
+  const units = useSelector((state: RootState) => state.temperatureUnits.icon)
 
 
   const tooltipUnits = units === celsius.symbol ? fahrenheit.fullName : celsius.fullName
@@ -27,7 +27,7 @@ export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, 
 
   return (
     <Btn
-      contentType={btnContentType.text}
+      contentType={btnContentType.icon}
       content={units}
       extraBtnClass={extraBtnClass}
       extraSVGstyle={extraSVGstyle}
