@@ -15,7 +15,7 @@ export const mainLayoutStyle: tailwindStyleClassType = {
     `,
     contentWrapper: `
       flex
-      flex-row
+      flex-col
       mx-auto
       justify-center
       items-stretch
@@ -24,5 +24,7 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       h-fit
       gap-base
       relative
+
+      md:flex-row
     `,
   }

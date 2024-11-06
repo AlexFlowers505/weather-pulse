@@ -20,19 +20,34 @@ export const helloSectionStyle: tailwindStyleClassType = {
         max-w-full
         gap-6
 
+        transition-all
+        ease-in-out
+        duration-200
+
         md:gap-12
+        md:p-2
+
+        hover:saturate-200
+        hover:scale-110
     `,
     navbar: `
         bg-bgPrimary
-        w-fit
+        w-full
         flex
-        flex-col
+        flex-row
+        items-center
+        justify-center
         gap-8
         p-3
         rounded-2xl
         border-solid
         border-2
         border-transparent  
+
+        md:flex-col
+        md:justify-start
+        md:gap-12
+        md:pt-6
     `,
     logotype: `
         text-text 
@@ -43,6 +58,7 @@ export const helloSectionStyle: tailwindStyleClassType = {
         cursor-default
 
         sm:text-7xl 
+        md:w-max
     `,
     interactionBlock: `
         flex 

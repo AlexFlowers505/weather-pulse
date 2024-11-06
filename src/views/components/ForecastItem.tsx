@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
-import { DateFormatter } from '../../utils/getDateTime'
 import { symbolDegree } from '../../constants/symbols'
 import { fetchIcon } from '../../api/openWeatherMap'
 import { locationWeatherElmDataType } from './ForecastLayout'
