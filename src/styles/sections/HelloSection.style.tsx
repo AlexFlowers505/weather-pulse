@@ -44,7 +44,9 @@ export const helloSectionStyle: tailwindStyleClassType = {
         border-solid
         border-2
         border-transparent  
-
+        
+        md:w-fit
+        md:grow-0
         md:rounded-2xl
         md:flex-col
         md:justify-start

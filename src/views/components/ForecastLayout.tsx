@@ -2,7 +2,6 @@ import React from 'react'
 import ForecastItems from './ForecastItems'
 import { forecastLayoutStyle as tw } from '../../styles/components/ForecastLayout.style'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
-import { locationWholeDataType } from '../pages/AreaOverviewPage'
 
 export type locationWeatherElmDataType = {
   timeOrDay: string,
