@@ -14,4 +14,15 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         justify-between
         items-start
     `,
+    lgVerticalLayout: `
+        flex
+        justify-between
+        overflow-x-scroll
+
+        flex-row
+        items-center
+
+        md:flex-col
+        md:items-start
+    `,
 }

@@ -8,6 +8,19 @@ export const forecastItemStyle: tailwindStyleClassType = {
         items-center
         w-full
         `,
+    forecastItemLgVerticalLayout: `
+        flex
+        flex-col
+        justify-start
+        border-none
+        items-center
+        w-full
+
+        md:flex-row
+        md:justify-between
+        md:border-t-2 
+        md:border-borderColor
+    `,
     forecastItemHorizontalLayout: `
         flex
         flex-row

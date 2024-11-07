@@ -1,6 +1,7 @@
 enum forecastLayoutTypes {
     vertical,
-    horizontal
+    horizontal,
+    lgVertical,
 }
 
 export default forecastLayoutTypes

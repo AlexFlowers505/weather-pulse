@@ -7,7 +7,7 @@ import { locationWholeDataType } from '../pages/AreaOverviewPage'
 
 const localProps = {
     heading: 'Прогноз на 5 дней',
-    layout: forecastLayoutTypes.vertical,
+    layout: forecastLayoutTypes.lgVertical,
 }
 
 export interface fewDaysForecastProps {

@@ -2,7 +2,6 @@ import React from 'react'
 import ForecastItem from './ForecastItem'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { forecastItemsStyle as tw } from '../../styles/components/ForecastItems.style'
-import { locationWholeDataType } from '../pages/AreaOverviewPage'
 import { locationWeatherElmDataType } from './ForecastLayout'
 
 type forecastItemsPropType = {
@@ -10,7 +9,10 @@ type forecastItemsPropType = {
     locationData?: locationWeatherElmDataType[] | null
 }
 export default function ForecastItems({layout, locationData}: forecastItemsPropType): React.JSX.Element {
-    const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.verticalLayout : layout === forecastLayoutTypes.horizontal ? tw.horizontalLayout : ''
+    const layoutStyles = 
+        layout === forecastLayoutTypes.vertical ? tw.verticalLayout : 
+        layout === forecastLayoutTypes.horizontal ? tw.horizontalLayout : 
+        layout === forecastLayoutTypes.lgVertical ? tw.lgVerticalLayout : ''
     console.log('locationData3', locationData)
     return (
         <div className={`forecast-items ${layoutStyles}`}>

@@ -10,7 +10,10 @@ type forecastItemPropType = {
     weatherData: locationWeatherElmDataType
 }
 export default function ForecastItem({layout, weatherData}: forecastItemPropType): React.JSX.Element {
-    const layoutStyles = layout === forecastLayoutTypes.vertical ? tw.forecastItemHorizontalLayout : layout === forecastLayoutTypes.horizontal ? tw.forecastItemVerticalLayout : ''
+    const layoutStyles = 
+        layout === forecastLayoutTypes.vertical ? tw.forecastItemHorizontalLayout : 
+        layout === forecastLayoutTypes.horizontal ? tw.forecastItemVerticalLayout :
+        layout === forecastLayoutTypes.lgVertical ? tw.forecastItemLgVerticalLayout : ''
     const { timeOrDay, temperature, icon } = weatherData
     const [iconUrl, setIconUrl] = useState('')
 
