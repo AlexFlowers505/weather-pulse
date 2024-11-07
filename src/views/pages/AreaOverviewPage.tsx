@@ -70,7 +70,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
             <CurrentAreaForecastDisplay locationData={locationData} />
             <TodayForecast locationData={locationData} />
           </div>
-          <FewDaysForecast locationData={locationData} />
+          <FewDaysForecast locationData={locationData} extraStyles={tw.FewDaysForecast}/>
         </>
       )}
     </>

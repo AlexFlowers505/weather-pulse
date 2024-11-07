@@ -6,7 +6,7 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         flex-row
         justify-between
         items-center
-        overflow-x-scroll
+        overflow-x-auto
     `,
     verticalLayout: `
         flex
@@ -17,7 +17,7 @@ export const forecastItemsStyle: tailwindStyleClassType = {
     lgVerticalLayout: `
         flex
         justify-between
-        overflow-x-scroll
+        overflow-x-auto
 
         flex-row
         items-center

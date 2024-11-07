@@ -1,4 +1,5 @@
 import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import FewDaysForecast from "../../views/sections/FewDaysForecast"
 
 export const areaOverviewPageStyle: tailwindStyleClassType = {
     sectionsWrapper: `
@@ -10,5 +11,8 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
       gap-baseXS
 
       md:gap-base
+    `,
+    FewDaysForecast: `
+      md:min-w-72
     `,
   }
