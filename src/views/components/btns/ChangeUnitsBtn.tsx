@@ -22,7 +22,7 @@ export default function ChangeUnitsBtn({ extraBtnClass, extraSVGstyle, btnSize, 
   const units = useSelector((state: RootState) => state.temperatureUnits.icon)
 
 
-  const tooltipUnits = units === celsius.symbol ? fahrenheit.fullName : celsius.fullName
+  const tooltipUnits = units === celsius.icon ? fahrenheit.fullName : celsius.fullName
   const tooltipContent = getTooltipContent(tooltipUnits)
 
   return (

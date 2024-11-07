@@ -6,7 +6,7 @@ export const forecastLayoutStyle: tailwindStyleClassType = {
         flex
         flex-col
         justify-start
-        gap-baseSM
+        gap-5
     `,
     header: `
         text-xl
