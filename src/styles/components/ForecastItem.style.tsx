@@ -18,6 +18,7 @@ export const forecastItemStyle: tailwindStyleClassType = {
 
         md:flex-row
         md:justify-between
+        md:border-solid
         md:border-t-2 
         md:border-borderColor
     `,
