@@ -17,6 +17,7 @@ const Btn = forwardRef<HTMLButtonElement, BtnType>(({
   hasTooltip = false,
   tooltipContent = '',
   extraSVGClass,
+  isTooltipOpen = undefined,
   onClick,
   ...props
 }, ref) => {
@@ -42,6 +43,7 @@ const Btn = forwardRef<HTMLButtonElement, BtnType>(({
     <CustomTooltip
       title={tooltipContent}
       placement="top"
+      open={isTooltipOpen === true ? isTooltipOpen : undefined}
       PopperProps={{ modifiers: [{ name: 'offset', options: { offset: tooltipOffset } }] }}
     >
       <span>{button}</span>

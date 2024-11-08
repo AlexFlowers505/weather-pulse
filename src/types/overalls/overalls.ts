@@ -31,6 +31,7 @@ export type BtnType = {
     hasTooltip?: boolean
     tooltipContent?: string
     extraSVGClass?: string
+    isTooltipOpen?: boolean | undefined
 }
 export type BtnBasedComponentType = Omit<BtnType, 'contentType' | 'content' | 'onClick'> & {
     onClick?: React.MouseEventHandler<HTMLButtonElement>
