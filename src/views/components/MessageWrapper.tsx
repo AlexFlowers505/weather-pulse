@@ -7,8 +7,8 @@ type messageWrapperPropsType = {
 
 export default function MessageWrapper({children}: messageWrapperPropsType): React.JSX.Element {
     return (
-        <div className={`message-wrapper ${tw.wrapper}`}>
-            {children}
+        <div className={`outer-message-wrapper ${tw.outerWrapper}`}>
+            <div className={`message-wrapper ${tw.wrapper}`}>{children}</div>
         </div>
     )
 }

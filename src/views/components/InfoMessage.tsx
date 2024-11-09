@@ -7,6 +7,9 @@ import DismissBtn from "./btns/DismissBtn"
 import textLayouts from "../../constants/textLayouts"
 import { setStateType } from "../../types/overalls/overalls"
 import searchResultsStates from "../../constants/searchResultsStates"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../../redux/store/store"
+import { initialState, toggleDialog } from "../../redux/slices/dialogSlice"
 
 type InfoMessagePropsType = {
     setFetchState?: setStateType<searchResultsStates> | null
@@ -24,6 +27,7 @@ export default function InfoMessage({
     request='', 
     message}: InfoMessagePropsType): React.JSX.Element {
         
+    const dispatch = useDispatch<AppDispatch>()
     const { 
         hasEmoticon, 
         emoticon='', 
@@ -55,7 +59,7 @@ export default function InfoMessage({
                     tooltipContent={dismissBtnTooltipContent}
                     btnSize={btnStyles.size.md}
                     btnStyle={btnStyles.style.contentOnly}
-                    onClick={handleDismissBtnClick}  
+                    onClick={() => dispatch(toggleDialog({isOpen: false, content: initialState.content}))}
                 />
             }
             { hasEmoticon && <span className={`illustration ${tw.illustration}`}>{emoticon}</span> }

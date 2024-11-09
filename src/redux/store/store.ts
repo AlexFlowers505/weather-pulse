@@ -3,6 +3,7 @@ import temperatureUnitsReducer from '../slices/temperatureUnitsSlice'
 import counterReducer from '../slices/counterSlice'
 import locationAccessReducer from '../slices/locationAccessSlice'
 import favouriteLocationsReducer from '../slices/favouriteLocationsSlice'
+import dialogReducer from '../slices/dialogSlice'
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         counter: counterReducer,
         locationAccess: locationAccessReducer,
         favouriteLocations: favouriteLocationsReducer,
+        dialog: dialogReducer,
     }
 })  
 

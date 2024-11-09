@@ -13,7 +13,8 @@ import { AppDispatch, RootState } from '../../redux/store/store'
 import { geolocationBlockStyle as tw } from '../../styles/components/GeolocationBlock.style'
 import { useNavigate } from 'react-router-dom'
 import LocateMeBtn from './btns/LocateMeBtn'
-import CustomizedDialog from './CustomizedDialog'
+import { toggleDialog } from '../../redux/slices/dialogSlice'
+import { switchLocationAccess } from '../../redux/slices/locationAccessSlice'
 
 type GeolocationBlockPropsType = {
     portable?: boolean
@@ -24,7 +25,9 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
     const { position, error, getCurrentPosition, loading } = useGeolocation()
     const [fetchLoading, setFetchLoading] = useState(false)
     const status = useSelector((state: RootState) => state.locationAccess.value as states)
-    const messages = geolocationMessages(dispatch)
+    const messages = geolocationMessages()
+    const isDialogOpen = useSelector((state: RootState) => state.dialog.isOpen)
+
 
     useEffect(() => {
         if (status === states.GRANTED && position) {
@@ -37,7 +40,20 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
                 navigate(`/forecast/${lat}_${lon}`)
             }, 1000)
         }
+        console.log(status)
     }, [status, position, navigate])
+
+    useEffect(() => {
+        if (status === states.DENIED) {
+            dispatch(toggleDialog({isOpen: true, content: messages.accessDenied}))
+        }
+    }, [status])
+
+    useEffect(() => {
+        if (!isDialogOpen) {
+            dispatch(switchLocationAccess(states.PROMPT))
+        }
+    }, [isDialogOpen])
 
     if (!portable) {
         let btnContent
@@ -108,11 +124,11 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
                         isTooltipOpen = {isTooltipOpen}
                     />
                 )
-            case states.GRANTED:
+                
+                case states.GRANTED:
                     btnContent = `Загружаем прогноз погоды...`
                     btnExtraStyle = tw.locationBtnLoading
                     isTooltipOpen = true
-    
                     return (
                         <LocateMeBtn 
                             onClick={getCurrentPosition}
@@ -123,27 +139,43 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
                             isTooltipOpen = {isTooltipOpen}
                         />
                     )
-            case states.DENIED:
-                return (
-                    <CustomizedDialog />
-                    // <MessageWrapper>
-                    //     <InfoMessage message={messages.accessDenied} />
-                    // </MessageWrapper>
+                    
+                    case states.DENIED:
+                        return (
+                            <LocateMeBtn 
+                                onClick={getCurrentPosition}
+                                btnSize={btnStyles.size.md}
+                                extraBtnClass={btnExtraStyle}
+                                hasTooltip={true}
+                                tooltipContent={btnContent}
+                                isTooltipOpen = {isTooltipOpen}
+                            />
+                        )
+                        case states.UNSUPPORTED:
+                            return (
+                                <MessageWrapper>
+                                    <InfoMessage message={messages.locationAccessNotSupported} />
+                                </MessageWrapper>
                 )
-            case states.UNSUPPORTED:
-                return (
-                    <MessageWrapper>
-                        <InfoMessage message={messages.locationAccessNotSupported} />
-                    </MessageWrapper>
-                )
-            case states.ERROR:
-                if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
+                case states.ERROR:
+                    if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
                     return (
-                    <MessageWrapper>
+                        <MessageWrapper>
                         <InfoMessage message={messages.errorOccured} />
                     </MessageWrapper>
                     )
                 }
+                default:
+                    return (
+                        <LocateMeBtn 
+                            onClick={getCurrentPosition}
+                            btnSize={btnStyles.size.md}
+                            extraBtnClass={btnExtraStyle}
+                            hasTooltip={true}
+                            tooltipContent={btnContent}
+                            isTooltipOpen = {isTooltipOpen}
+                        />
+                    )
         }
     }
     return null

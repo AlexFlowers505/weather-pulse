@@ -24,4 +24,13 @@ export const messageWrapperStyle: tailwindStyleClassType = {
         border-2
         border-solid
     `,
+    outerWrapper: `
+      absolute
+      top-0
+      left-0
+      w-screen
+      h-screen
+      bg-green
+      z-20
+    `,
 }

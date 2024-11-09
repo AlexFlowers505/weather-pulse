@@ -35,14 +35,13 @@ export const searchMessages: searchMessageType = {
 }
 
 
-export const geolocationMessages = (dispatch: AppDispatch) => ({
+export const geolocationMessages = () => ({
     accessDenied: {
         hasEmoticon: true,
         emoticon: emoticons.shrug,
         hasDismissBtn: true,
         descriptionLayout: alignTypes.left,
         dismissBtnTooltipContent: `Закрыть`,
-        handleDismissBtnClick: () => handleCloseLocationAccessMessage(dispatch),
         heading: `Вы не дали доступ к\u00A0местоположению`,
         hasDesc: false,
         hasCustomContent: true,
@@ -62,7 +61,6 @@ export const geolocationMessages = (dispatch: AppDispatch) => ({
         ],
         hasBtn: true,
         btnText: `Закрыть`,
-        handleBtnClick: () => handleCloseLocationAccessMessage(dispatch),
         hasCustomContent: false,
     },
     errorOccured: {
@@ -79,7 +77,6 @@ export const geolocationMessages = (dispatch: AppDispatch) => ({
         ],
         hasBtn: true,
         btnText: `Закрыть`,
-        handleBtnClick: () => handleCloseLocationAccessMessage(dispatch),
         hasCustomContent: false,
     }
 })

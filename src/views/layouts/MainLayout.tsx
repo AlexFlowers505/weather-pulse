@@ -2,6 +2,8 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import MainSVGsprite from '../../assets/svg-sprites/MainSVGsprite'
 import { mainLayoutStyle as tw } from '../../styles/layouts/MainLayout.style'
+import CustomDialog from '../components/CustomDialog'
+
 
 export default function MainLayout(): React.JSX.Element {
   return (
@@ -10,6 +12,7 @@ export default function MainLayout(): React.JSX.Element {
       <div className={`main-layout ${tw.mainLayout}`}>
         <div className={`content-wrapper ${tw.contentWrapper}`}><Outlet /></div>
       </div>
+      <CustomDialog />
     </>
   )
 }

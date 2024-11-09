@@ -7,6 +7,10 @@ import Btn from './Btn'
 import btnStyles from '../../styles/components/btn.style'
 import { btnContentType } from '../../constants/btnContentType'
 import { InstructionItemType } from '../../data/GeolocationAccessDeniedInstruction'
+import { AppDispatch } from '../../redux/store/store'
+import { useDispatch } from 'react-redux'
+import { toggleDialog } from '../../redux/slices/dialogSlice'
+import { initialState as dialogDefaultContent } from '../../redux/slices/dialogSlice'
 
 const {listItemsSeparator} = textSymbols
 
@@ -14,8 +18,14 @@ type ContentRichInfoBlockPropsType = {
     item: InstructionItemType
 }
 
+
 export default function ContentRichInfoBlock({item}: ContentRichInfoBlockPropsType): React.JSX.Element {
-  return (
+    const dispatch = useDispatch<AppDispatch>()
+    const handleCloseDialog = (): void => {
+        dispatch(toggleDialog(dialogDefaultContent))
+    }
+
+    return (
     <li className={`content-item ${tw.contentItem}`}>
         {
             item.isHeaderItem ? (
@@ -63,7 +73,7 @@ export default function ContentRichInfoBlock({item}: ContentRichInfoBlockPropsTy
                             btnStyle={btnStyles.style.outlined}
                             btnSize={btnStyles.size.sm}
                             extraBtnClass={tw.itemBtn}
-                            onClick={item.handleBtnClick}
+                            onClick={item.handleBtnClick ?? handleCloseDialog}
                         />
                     )}
                 </>
