@@ -43,9 +43,39 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
         console.log(status)
     }, [status, position, navigate])
 
+
+    const [btnContent, setBtnContent] = useState('')
+    const [btnExtraStyle, setBtnExtraStyle] = useState('')
+    const [isTooltipOpen, setIsTooltipOpen] = useState(false)
     useEffect(() => {
-        if (status === states.DENIED) {
-            dispatch(toggleDialog({isOpen: true, content: messages.accessDenied}))
+        switch (status) {
+            case states.PROMPT:
+                setBtnExtraStyle(loading ? tw.locationBtnLoading : '')
+                if (!portable) {
+                    setBtnContent(!loading ? `Определить автоматически` : `Получаем доступ к местоположению...`)
+                } else {
+                    setBtnContent(!loading ? `Определить местоположение автоматически` : `Получаем доступ к местоположению...`)
+                    setIsTooltipOpen(!loading ? false : true)    
+                }
+                break
+            case states.DENIED:
+                dispatch(toggleDialog({isOpen: true, content: messages.accessDenied}))
+                break
+            case states.GRANTED:
+                    setBtnContent(`Загружаем прогноз погоды...`)
+                    setBtnExtraStyle(tw.locationBtnLoading)
+                if (portable) {
+                    setIsTooltipOpen(true)
+                }
+                break
+            case states.UNSUPPORTED:
+                dispatch(toggleDialog({isOpen: true, content: messages.locationAccessNotSupported}))
+                break
+            case states.ERROR:
+                if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
+                    dispatch(toggleDialog({isOpen: true, content: messages.errorOccured}))
+                }
+                break
         }
     }, [status])
 
@@ -55,129 +85,23 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
         }
     }, [isDialogOpen])
 
-    if (!portable) {
-        let btnContent
-        let btnExtraStyle
-        switch (status) {
-            case states.PROMPT:
-                btnContent = !loading ? `Определить автоматически` : `Получаем доступ к местоположению...`
-                btnExtraStyle = loading ? tw.locationBtnLoading : ''
-                return (<Btn 
-                        contentType={btnContentType.text} 
-                        content={btnContent}
-                        btnSize={btnStyles.size.md}
-                        btnStyle={btnStyles.style.outlined}
-                        extraBtnClass={btnExtraStyle}
-                        onClick={getCurrentPosition}
-                />)
-            case states.GRANTED:
-                    btnContent = `Загружаем прогноз погоды...`
-                    btnExtraStyle = tw.locationBtnLoading
-    
-                    return (
-                        <Btn 
-                            contentType={btnContentType.text} 
-                            content={btnContent}
-                            btnSize={btnStyles.size.md}
-                            btnStyle={btnStyles.style.outlined}
-                            extraBtnClass={btnExtraStyle}
-                            onClick={getCurrentPosition}
-                        />
-                    )
-            case states.DENIED:
-                return (
-                    <MessageWrapper>
-                        <InfoMessage message={messages.accessDenied} />
-                    </MessageWrapper>
-                )
-            case states.UNSUPPORTED:
-                return (
-                    <MessageWrapper>
-                        <InfoMessage message={messages.locationAccessNotSupported} />
-                    </MessageWrapper>
-                )
-            case states.ERROR:
-                if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
-                    return (
-                    <MessageWrapper>
-                        <InfoMessage message={messages.errorOccured} />
-                    </MessageWrapper>
-                    )
-                }
-        }
-    } else {
-        let btnContent
-        let btnExtraStyle
-        let isTooltipOpen
-        switch (status) {
-            case states.PROMPT:
-                btnContent = !loading ? `Определить местоположение автоматически` : `Получаем доступ к местоположению...`
-                isTooltipOpen = !loading ? undefined : true
-                btnExtraStyle = loading ? tw.locationBtnLoading : ''
-                return (
-                    <LocateMeBtn 
-                        onClick={getCurrentPosition}
-                        btnSize={btnStyles.size.md}
-                        extraBtnClass={btnExtraStyle}
-                        hasTooltip={true}
-                        tooltipContent={btnContent}
-                        isTooltipOpen = {isTooltipOpen}
-                    />
-                )
-                
-                case states.GRANTED:
-                    btnContent = `Загружаем прогноз погоды...`
-                    btnExtraStyle = tw.locationBtnLoading
-                    isTooltipOpen = true
-                    return (
-                        <LocateMeBtn 
-                            onClick={getCurrentPosition}
-                            btnSize={btnStyles.size.md}
-                            extraBtnClass={btnExtraStyle}
-                            hasTooltip={true}
-                            tooltipContent={btnContent}
-                            isTooltipOpen = {isTooltipOpen}
-                        />
-                    )
-                    
-                    case states.DENIED:
-                        return (
-                            <LocateMeBtn 
-                                onClick={getCurrentPosition}
-                                btnSize={btnStyles.size.md}
-                                extraBtnClass={btnExtraStyle}
-                                hasTooltip={true}
-                                tooltipContent={btnContent}
-                                isTooltipOpen = {isTooltipOpen}
-                            />
-                        )
-                        case states.UNSUPPORTED:
-                            return (
-                                <MessageWrapper>
-                                    <InfoMessage message={messages.locationAccessNotSupported} />
-                                </MessageWrapper>
-                )
-                case states.ERROR:
-                    if (!!error && error.code !== codes.__USER_DENIED_ACCESS) {
-                    return (
-                        <MessageWrapper>
-                        <InfoMessage message={messages.errorOccured} />
-                    </MessageWrapper>
-                    )
-                }
-                default:
-                    return (
-                        <LocateMeBtn 
-                            onClick={getCurrentPosition}
-                            btnSize={btnStyles.size.md}
-                            extraBtnClass={btnExtraStyle}
-                            hasTooltip={true}
-                            tooltipContent={btnContent}
-                            isTooltipOpen = {isTooltipOpen}
-                        />
-                    )
-        }
-    }
-    return null
-
+    return !portable ? (
+        <Btn 
+            contentType={btnContentType.text} 
+            content={btnContent}
+            btnSize={btnStyles.size.md}
+            btnStyle={btnStyles.style.outlined}
+            extraBtnClass={btnExtraStyle}
+            onClick={getCurrentPosition}
+        />
+    ) : (
+        <LocateMeBtn 
+            onClick={getCurrentPosition}
+            btnSize={btnStyles.size.md}
+            extraBtnClass={btnExtraStyle}
+            hasTooltip={true}
+            tooltipContent={btnContent}
+            isTooltipOpen = {isTooltipOpen}
+        />
+    )
 }

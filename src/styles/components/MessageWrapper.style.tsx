@@ -9,6 +9,7 @@ export const messageWrapperStyle: tailwindStyleClassType = {
         w-full
         p-1
         sm:p-3
+        max-w-3xl
 
         rounded-3xl
         transition-all
@@ -23,6 +24,8 @@ export const messageWrapperStyle: tailwindStyleClassType = {
         border-text
         border-2
         border-solid
+        cursor-default
+
     `,
     outerWrapper: `
       absolute
@@ -30,7 +33,13 @@ export const messageWrapperStyle: tailwindStyleClassType = {
       left-0
       w-screen
       h-screen
-      bg-green
+      bg-black/40
+      backdrop-blur-sm
       z-20
+      flex
+      justify-center
+      items-center
+      p-base
+      cursor-pointer
     `,
 }
