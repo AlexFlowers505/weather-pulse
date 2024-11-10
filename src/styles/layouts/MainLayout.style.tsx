@@ -3,15 +3,15 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 export const mainLayoutStyle: tailwindStyleClassType = {
     mainLayout: `
       w-screen
-      h-screen
       min-w-[348px]
       min-h-fit
-      max-h-fit
+      h-screen
       font-montserrat
       p-5
       bg-gradient-to-r 
       from-bgLinearStart 
       to-bgLinearEnd
+      overflow-x-hidden
     `,
     contentWrapper: `
       flex
