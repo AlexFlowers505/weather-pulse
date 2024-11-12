@@ -10,6 +10,7 @@ module.exports = {
         bgLinearEnd: '#410E1D',
         bgPrimary: '#202B3B',
         bgPrimaryTransparent: '#202B3BDD',
+        bgPrimaryDark: '#1B2534',
         lineColor: '#19212D',
         primary: '#0095FF',
         text: '#FFFFFF',

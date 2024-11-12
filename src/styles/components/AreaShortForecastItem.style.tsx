@@ -8,8 +8,8 @@ export const areaShortForecastItemStyle: tailwindStyleClassType = {
       justify-between 
       items-center 
       rounded-base 
-      bg-bgPrimary 
-      p-3
+      bg-bgPrimaryDark 
+      p-baseXS
     `,
     headingWrapper: `
       flex 

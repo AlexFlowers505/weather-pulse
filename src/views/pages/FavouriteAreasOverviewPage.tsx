@@ -12,8 +12,8 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
         <Navbar />
         <div className={tw.wrapper}>
             <ControlPanel />
-            <AreasForecastsList />
-            <TodayForecast locationData={null} />
+            {/* <AreasForecastsList /> */}
+            {/* <TodayForecast locationData={null} /> */}
         </div>
         <DiverseForecast />
     </>

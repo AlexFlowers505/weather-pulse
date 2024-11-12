@@ -1,6 +1,6 @@
 import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
-export const currentAreaForecastDisplayStyle: tailwindStyleClassType = {
+export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     wrapper: `
     rounded-xl
     bg-bgPrimary

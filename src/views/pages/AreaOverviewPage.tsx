@@ -1,16 +1,13 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
-import CurrentAreaForecastDisplay from '../sections/CurrentAreaForecastDisplay'
+import LocationCurrentWeather from '../sections/LocationCurrentWeather'
 import TodayForecast from '../sections/TodayForecast'
 import Spinner from '../components/Spinner'
 import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
 import { useParams } from 'react-router-dom'
-import { fetchLocationByCoords } from '../../api/dadata'
-import { fetchLocationForecast } from '../../api/openWeatherMap'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
 import FewDaysForecast from '../sections/FewDaysForecast'
+import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 
 export type locationWholeDataType = {
   overalls: any,
@@ -18,47 +15,14 @@ export type locationWholeDataType = {
 } | null
 
 export default function AreaOverviewPage(): React.JSX.Element {
-  const params = useParams<{ lat_lon: string }>()
-  const units = useSelector((state: RootState) => state.temperatureUnits.name)
-  
+  const { lat_lon } = useParams<{ lat_lon: string }>()
   const coords = useMemo(() => {
-    return params?.lat_lon ? params.lat_lon.split('_') : null
-  }, [params])
+    return lat_lon ? lat_lon.split('_') : null
+  }, [lat_lon])
 
-  if (coords === null) throw new Error('Missing required parameter "lat_lon" in AreaOverviewPage')
+  const { loading, locationData } = useFetchExplicitLocationWeather(coords?.[0] as string, coords?.[1] as string)
 
-    const [locationData, setLocationData] = useState<locationWholeDataType>({
-      overalls: null,
-      weather: null,
-    })
-    const [loading, setLoading] = useState<boolean>(false)
-  
-
-  const fetchWeatherData = async () => {
-    setLoading(true)
-    try {
-      const overalls = await fetchLocationByCoords(coords[0], coords[1])
-  
-      if (overalls && overalls.length > 0) {
-        const selectedCoords = {
-          lat: overalls[0].lat,
-          lon: overalls[0].lon,
-        }
-        const weather = await fetchLocationForecast(selectedCoords.lat, selectedCoords.lon, units, false)
-  
-        setLocationData({
-          overalls: { ...overalls[0], ...selectedCoords },
-          weather,
-        })
-        console.log('locationdata', locationData)
-      }
-    } catch (error) {
-      console.error('Failed to fetch weather data', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-  useEffect(() => { fetchWeatherData() }, [coords, units])
+  if (!lat_lon) throw new Error('Missing required parameter "lat_lon"')
 
   return (
     <>
@@ -67,10 +31,10 @@ export default function AreaOverviewPage(): React.JSX.Element {
           <Navbar />
           <div className={`${tw.sectionsWrapper}`}>
             <ControlPanel />
-            <CurrentAreaForecastDisplay locationData={locationData} />
+            <LocationCurrentWeather locationData={locationData} />
             <TodayForecast locationData={locationData} />
           </div>
-          <FewDaysForecast locationData={locationData} extraStyles={tw.FewDaysForecast}/>
+          <FewDaysForecast locationData={locationData} extraStyles={tw.FewDaysForecast} />
         </>
       )}
     </>
