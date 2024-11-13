@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchLocationByCoords } from "../api/dadata"
-import { fetchLocationForecast } from "../api/openWeatherMap"
+import { fetchLocationForecast } from "../api/openWeatherMap/openWeatherMap"
 import { locationWholeDataType } from "../views/pages/AreaOverviewPage"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store/store"

@@ -17,7 +17,7 @@ const loaderSkeletonProps = {
 const generateSearchResults = (suggestions: any[], request: string): React.JSX.Element => {
     return (<>{
         suggestions.map( (sugg, i, arr) => {
-            const { area, region, country, forecast, lat, lon } = sugg
+            const { area, region, country, forecast, lat, lon, id } = sugg
             const { main: {temp} } = forecast
             return (<React.Fragment key={i}>
                 <SearchResult 
@@ -26,6 +26,7 @@ const generateSearchResults = (suggestions: any[], request: string): React.JSX.E
                     locName={area}
                     lat={lat}
                     lon={lon}
+                    id={id}
                     locTemp={Math.round(temp)}
                     locTempIcon={forecast.weather[0].icon}
                     request={request}

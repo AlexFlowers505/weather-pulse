@@ -75,7 +75,7 @@ export function updateLocalStorageFavouriteLocations(location: FavouriteLocation
         locations.push(location)
         localStorage.setItem(storageKey, JSON.stringify(locations))
     } else if (action === localStorageActions.REMOVE) {
-        const index = locations.findIndex((elm: FavouriteLocationType) => elm.lat === location.lat && elm.lon === location.lon)
+        const index = locations.findIndex((elm: FavouriteLocationType) => elm.id === location.id && elm.lat === location.lat && elm.lon === location.lon)
         if (index !== -1) {
             locations.splice(index, 1)
             localStorage.setItem(storageKey, JSON.stringify(locations))

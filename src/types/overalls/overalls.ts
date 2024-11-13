@@ -3,15 +3,6 @@ import { btnContentType } from '../../constants/btnContentType'
 import { emoticonsType } from '../../constants/emoticons'
 import { alignTypes } from '../../constants/textLayouts'
 
-export type dadataMappedSuggestionsType = {
-    area: string
-    country: string
-    lat: string
-    lon: string
-    region: string
-    settlementType: string
-}
-
 export type tailwindStyleClassType = { 
     [key: string]: string
 }

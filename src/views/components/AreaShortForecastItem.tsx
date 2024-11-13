@@ -37,6 +37,7 @@ export default function AreaShortForecastItem({
             isFavourite={isFavourite}
             lat={locationData.overalls?.lat}
             lon={locationData.overalls?.lon}  
+            id={locationData.overalls?.id}
           />
         <span className={`name ${tw.name}`}>Москва</span>
       </div>

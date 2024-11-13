@@ -8,6 +8,7 @@ import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
 export default function LocationCurrentWeather({ locationData }: { locationData: any }): React.JSX.Element {
   const lat = locationData.overalls?.lat
   const lon = locationData.overalls?.lon
+  const id = locationData.overalls?.id
   const { name, temp, iconUrl } = useCurrentWeatherInfo({ locationData })
   const isFavourite = useCheckStoreIfFavourite(lat, lon)
   
@@ -21,6 +22,7 @@ export default function LocationCurrentWeather({ locationData }: { locationData:
           isFavourite={isFavourite}
           lat={lat}
           lon={lon}  
+          id={id}
         />
         <h6 className={`${tw.name}`}>{name}</h6>
       </div>

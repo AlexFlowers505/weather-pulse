@@ -19,8 +19,10 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const coords = useMemo(() => {
     return lat_lon ? lat_lon.split('_') : null
   }, [lat_lon])
+  let lat = coords?.[0]
+  let lon = coords?.[1]
 
-  const { loading, locationData } = useFetchExplicitLocationWeather(coords?.[0] as string, coords?.[1] as string)
+  const { loading, locationData } = useFetchExplicitLocationWeather(lat as string, lon as string)
 
   if (!lat_lon) throw new Error('Missing required parameter "lat_lon"')
 

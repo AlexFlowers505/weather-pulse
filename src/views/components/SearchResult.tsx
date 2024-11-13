@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
-import { fetchIcon } from '../../api/openWeatherMap'
+import { fetchIcon } from '../../api/openWeatherMap/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
 import { useSelector } from 'react-redux'
@@ -38,9 +38,10 @@ type searchResultPropsType = {
   request: string
   lon: number
   lat: number
+  id: number
 }
 export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
-  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', lon=0, lat=0} = props
+  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', lon=0, lat=0, id=NaN} = props
 
   const [iconUrl, setIconUrl] = useState('')
   const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, lat, lon))
@@ -68,6 +69,7 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
           isFavourite={isFavourite}
           lat={lat}
           lon={lon}
+          id={id}
         />
         <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
             <div className={`${tw.innerWrapper}`}>

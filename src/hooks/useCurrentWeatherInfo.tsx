@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchIcon } from "../api/openWeatherMap"
+import { fetchIcon } from "../api/openWeatherMap/openWeatherMap"
 
 type LocationDataType = {
     overalls: any
