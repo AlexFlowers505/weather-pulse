@@ -6,9 +6,27 @@ import { overallsConfig as config } from "../../config/api/dadata/overalls.confi
 
 export async function fetchTextBasedLocationSuggestions(query: string): Promise<MappedSuggestions[]> {  
     if (query) {
-      const options: FetchOptions = getFetchTextBasedLocationsSuggestionsOptions(query)
+      // const options: FetchOptions = getFetchTextBasedLocationsSuggestionsOptions(query)
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${config.apiKey}`
+        },
+        body: JSON.stringify({
+          query: query,
+          count: 5,
+          locations: [{ country: "*" }],
+          from_bound: { value: "city" },
+          to_bound: { value: "settlement" }
+        })
+    }
+
       try {
-        const response = await fetch(config.entryURL, options)
+        // const response = await fetch(config.entryURL, options)
+        const response = await fetch('https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address', options)
+        // const response = await fetch('https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address', options)
         const data = await response.json()
   
         const locationsWithRegion: MappedSuggestions[] = data.suggestions

@@ -8,6 +8,8 @@ import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage
 import { useParams } from 'react-router-dom'
 import FewDaysForecast from '../sections/FewDaysForecast'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store/store'
 
 export type locationWholeDataType = {
   overalls: any,
@@ -16,13 +18,14 @@ export type locationWholeDataType = {
 
 export default function AreaOverviewPage(): React.JSX.Element {
   const { lat_lon } = useParams<{ lat_lon: string }>()
+  const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const coords = useMemo(() => {
     return lat_lon ? lat_lon.split('_') : null
   }, [lat_lon])
   let lat = coords?.[0]
   let lon = coords?.[1]
 
-  const { loading, locationData } = useFetchExplicitLocationWeather(lat as string, lon as string)
+  const { loading, locationData } = useFetchExplicitLocationWeather(lat as string, lon as string, units)
 
   if (!lat_lon) throw new Error('Missing required parameter "lat_lon"')
 

@@ -4,9 +4,9 @@ import { getFetchWeatherByCoordsParams } from "./getFetchWeatherByCoordsParams"
 import { getFetchWeatherByIdParams } from "./getFetchWeatherByIdParams"
 
 export async function fetchWeather(data: FetchWeatherProps): Promise<any> {
-    const { lat, lon, id, isForecast = true } = data as FetchWeatherCoordsBasedProps & FetchWeatherIdBasedProps
+    const { lat, lon, id, isForecast = true, units } = data as FetchWeatherCoordsBasedProps & FetchWeatherIdBasedProps
     const specUrl = isForecast ? config.specificPaths.weather : config.specificPaths.forecast
-    const urlParams = lat && lon ? getFetchWeatherByCoordsParams(lat, lon) : id && getFetchWeatherByIdParams(id)
+    const urlParams = lat && lon ? getFetchWeatherByCoordsParams(lat, lon, units) : id && getFetchWeatherByIdParams(id, units)
 
     const url = `${config.entryURL}${specUrl}?${urlParams.toString()}`
 

@@ -4,6 +4,7 @@ import searchResultsStates from "../constants/searchResultsStates"
 import { fetchTextBasedLocationSuggestions } from '../api/dadata/fetchTextBasedLocationSuggestions'
 import { handleMultipleLocationsWeatherRequests } from '../api/openWeatherMap/handleMultipleLocationsWeatherRequests'
 import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
+import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
@@ -39,9 +40,9 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
             return
           }
           const mappedSuggestions = data
-          const requestPropsOnly = data.map(elm => ({ lat: elm.lat, lon: elm.lon }))
+          const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
-          handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false })
+          handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units })
             .then(() => {
               setSuggestions(mappedSuggestions)
               setFetchState(mappedSuggestions.length ? SUCCESS : NO_RESULTS)
@@ -61,5 +62,4 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
 
   return { fetchState, suggestions, setFetchState }
 }
-
 
