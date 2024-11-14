@@ -7,7 +7,7 @@ export async function fetchLocationInfoByCoords(lat: string, lon: string): Promi
     const fetchOptions = getFetchByCoordsOptionsConfig(lat, lon)
     
     try {
-      const response = await fetch(config.entryURL, fetchOptions)
+      const response = await fetch(config.geolocateEntryURL, fetchOptions)
       const data = await response.json()
   
       const location: MappedSuggestions[] = data.suggestions.map(
