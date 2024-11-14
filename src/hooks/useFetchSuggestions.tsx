@@ -34,7 +34,7 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
       setFetchState(LOADING)
       fetchTextBasedLocationSuggestions(formattedRequest)
         .then(data => {
-          console.log('hey', data)
+          console.log('only locations info', data)
           if (!data) {
             setFetchState(NO_RESULTS)
             return
@@ -43,8 +43,9 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
           const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
           handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units })
-            .then(() => {
-              setSuggestions(mappedSuggestions)
+            .then( data => {
+              console.log('only weather', data)
+              setSuggestions(data)
               setFetchState(mappedSuggestions.length ? SUCCESS : NO_RESULTS)
             })
             .catch(error => {
