@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
-import { fetchIcon } from '../../api/openWeatherMap/openWeatherMap'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
 import { useSelector } from 'react-redux'
@@ -9,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { symbolArrow, symbolDegree } from '../../constants/symbols'
 import { checkIfFavourite } from '../../utils/utils'
 import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
+import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {

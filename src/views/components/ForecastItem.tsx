@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
 import { symbolDegree } from '../../constants/symbols'
-import { fetchIcon } from '../../api/openWeatherMap/openWeatherMap'
 import { locationWeatherElmDataType } from './ForecastLayout'
+import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 
 type forecastItemPropType = {
     layout: forecastLayoutTypes

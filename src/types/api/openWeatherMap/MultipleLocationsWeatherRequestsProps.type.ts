@@ -2,5 +2,5 @@ import { FetchWeatherCoordsBasedProps, FetchWeatherIdBasedProps } from "./FetchW
 
 export type MultipleLocationsWeatherRequestsProps = {
     data: (FetchWeatherCoordsBasedProps | FetchWeatherIdBasedProps)[],
-    isForecast: boolean
+    isForecast?: boolean
 }
