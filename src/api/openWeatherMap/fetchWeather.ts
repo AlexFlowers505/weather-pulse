@@ -5,10 +5,10 @@ import { getFetchWeatherByIdParams } from "./getFetchWeatherByIdParams"
 
 export async function fetchWeather(data: FetchWeatherProps): Promise<any> {
     const { lat, lon, id, isForecast = true } = data as FetchWeatherCoordsBasedProps & FetchWeatherIdBasedProps
-    const URLspecPathDynamic = isForecast ? config.specificPaths.weather : config.specificPaths.forecast
+    const specUrl = isForecast ? config.specificPaths.weather : config.specificPaths.forecast
     const urlParams = lat && lon ? getFetchWeatherByCoordsParams(lat, lon) : id && getFetchWeatherByIdParams(id)
 
-    const url = `${config.entryURL}${URLspecPathDynamic}?${urlParams.toString()}`
+    const url = `${config.entryURL}${specUrl}?${urlParams.toString()}`
 
     try {
         const response = await fetch(url)

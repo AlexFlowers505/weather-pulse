@@ -1,27 +1,22 @@
 import { fetchWeather } from "./fetchWeather"
+import { MultipleLocationsWeatherRequestsProps } from "../../types/api/openWeatherMap/MultipleLocationsWeatherRequestsProps.type"
 import { FetchWeatherCoordsBasedProps, FetchWeatherIdBasedProps } from "../../types/api/openWeatherMap/FetchWeather.type"
 
-type handleMultipleLocationsWeatherRequestsProps = {
-    data: (FetchWeatherCoordsBasedProps | FetchWeatherIdBasedProps)[],
-    isForecast: boolean
-}
-
-export async function handleMultipleLocationsWeatherRequests({ data, isForecast }: handleMultipleLocationsWeatherRequestsProps): Promise<any> {
+export async function handleMultipleLocationsWeatherRequests({ data, isForecast }: MultipleLocationsWeatherRequestsProps): Promise<any> {
     try {
         let multipleWeatherData: any[] = []
         
         await Promise.all(
             data.map(async location => {
-                if ('lat' in location) {
-                    const weatherData = await fetchWeather({ lat: location.lat, lon: location.lon, isForecast: isForecast })
+                if ((location as FetchWeatherIdBasedProps).id) {
+                    const weatherData = await fetchWeather({ id: (location as FetchWeatherIdBasedProps).id, isForecast: isForecast })
                     multipleWeatherData.push(weatherData)
                 } else {
-                    const weatherData = await fetchWeather({ id: location.id, isForecast: isForecast })
+                    const weatherData = await fetchWeather({ lat: (location as FetchWeatherCoordsBasedProps).lat, lon: (location as FetchWeatherCoordsBasedProps).lon, isForecast: isForecast })
                     multipleWeatherData.push(weatherData)
                 }
             })
         )
-        console.log('multipleWeatherData', multipleWeatherData)
         return multipleWeatherData
     } catch (error) {
         console.error('Error fetching weather data:', error)
