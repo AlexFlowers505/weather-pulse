@@ -1,12 +1,14 @@
+import { useSelector } from "react-redux"
 import { overallsConfig as config } from "../../config/api/openWeatherMap/overalls.config"
-import { UnitsType } from "../../constants/temperatureUnits"
+import { RootState } from "../../redux/store/store"
 
 
-export const getFetchWeatherByCoordsParams = (lat: string, lon: string, urlUnits: UnitsType) => {
+export const getFetchWeatherByCoordsParams = (lat: string, lon: string) => {
+    const units = useSelector((state: RootState) => state.temperatureUnits.__type)
     const urlParams = new URLSearchParams({
         lat: lat.toString(),
         lon: lon.toString(),
-        units: urlUnits.toString(),
+        units: units.toString(),
         appid: config.apiKey!,
         lang: 'ru',
     })
