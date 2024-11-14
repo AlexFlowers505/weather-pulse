@@ -9,7 +9,7 @@ export async function fetchTextBasedLocationSuggestions(query: string): Promise<
       const options: FetchOptions = getFetchTextBasedLocationsSuggestionsOptions(query)
 
       try {
-        const response = await fetch(config.suggestionsEntryURL, options)
+        const response = await fetch(config.entryURL(config.modifiers.suggestions), options)
         const data = await response.json()
   
         const locationsWithRegion: MappedSuggestions[] = data.suggestions
