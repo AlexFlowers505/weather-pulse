@@ -6,6 +6,7 @@ import { handleMultipleLocationsWeatherRequests } from '../api/openWeatherMap/ha
 import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
 import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
+import { ForecastResponse, WeatherResponse } from '../types/api/openWeatherMap/Response.type'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -13,8 +14,9 @@ type fetchStateType = searchResultsStates
 
 export default function useFetchSuggestions(request: string, repeatFetch: boolean, units: string) {
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
-  const [suggestions, setSuggestions] = useState<MappedSuggestions[]>([])
-  let locationsInfo: MappedSuggestions[] | undefined
+  const [suggestions, setSuggestions] = useState<any[]>([])
+  let locationsInfo: Omit<MappedSuggestions, 'settlementType'>[] = []
+  let locationsWeather: WeatherResponse[]
 
   useEffect(() => {
     const formattedRequest = removeMultipleSpaces(request)
@@ -34,19 +36,32 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
 
       setFetchState(LOADING)
       fetchTextBasedLocationSuggestions(formattedRequest)
-        .then(data => {
+        .then((data: MappedSuggestions[]) => {
           console.log('only locations info', data)
           if (!data) {
             setFetchState(NO_RESULTS)
             return
           }
-          locationsInfo = data
+          locationsInfo = data.map( (elm: MappedSuggestions): Omit<MappedSuggestions, 'settlementType'> => ({ 
+            area: elm.area, 
+            country: elm.country, 
+            lat: elm.lat, 
+            lon: elm.lon, 
+            region: elm.region
+          }))
           const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
           handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units })
-            .then( data => {
+            .then( (data: WeatherResponse[]) => {
               console.log('only weather', data)
-              
+              locationsWeather = data.map( (elm: WeatherResponse) => ({
+                id: elm.id,
+                lat: elm.coord.lat,
+                lon: elm.coord.lon,
+
+              }))
+              console.log('locationsInfo', locationsInfo)
+              console.log('locationsWeather', locationsWeather)
               setSuggestions(data)
               setFetchState(data.length ? SUCCESS : NO_RESULTS)
             })
