@@ -14,6 +14,7 @@ type fetchStateType = searchResultsStates
 export default function useFetchSuggestions(request: string, repeatFetch: boolean, units: string) {
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
   const [suggestions, setSuggestions] = useState<MappedSuggestions[]>([])
+  let locationsInfo: MappedSuggestions[] | undefined
 
   useEffect(() => {
     const formattedRequest = removeMultipleSpaces(request)
@@ -39,14 +40,15 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
             setFetchState(NO_RESULTS)
             return
           }
-          const mappedSuggestions = data
+          locationsInfo = data
           const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
           handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units })
             .then( data => {
               console.log('only weather', data)
+              
               setSuggestions(data)
-              setFetchState(mappedSuggestions.length ? SUCCESS : NO_RESULTS)
+              setFetchState(data.length ? SUCCESS : NO_RESULTS)
             })
             .catch(error => {
               setFetchState(ERROR)

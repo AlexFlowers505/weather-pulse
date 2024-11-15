@@ -3,7 +3,7 @@ import { FetchWeatherCoordsBasedProps, FetchWeatherIdBasedProps, FetchWeatherPro
 import { getFetchWeatherByCoordsParams } from "./getFetchWeatherByCoordsParams"
 import { getFetchWeatherByIdParams } from "./getFetchWeatherByIdParams"
 
-export async function fetchWeather(data: FetchWeatherProps): Promise<any> {
+export async function fetchWeather(data: FetchWeatherProps): Promise<Response> {
     const { lat, lon, id, isForecast, units } = data as FetchWeatherCoordsBasedProps & FetchWeatherIdBasedProps
     const specUrl = isForecast ? config.specificPaths.forecast : config.specificPaths.weather
     const urlParams = lat && lon ? getFetchWeatherByCoordsParams(lat, lon, units) : id && getFetchWeatherByIdParams(id, units)
@@ -16,7 +16,7 @@ export async function fetchWeather(data: FetchWeatherProps): Promise<any> {
             console.error(`Failed to fetch weather data: ${response.status} - ${response.statusText}`)
             throw new Error('Failed to fetch weather data')
         }
-        const responseData = await response.json()
+        const responseData: Response = await response.json()
         return responseData
     } catch (error) {
         console.error('Error fetching weather data:', error)
