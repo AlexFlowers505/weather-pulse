@@ -16,7 +16,14 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
   const [suggestions, setSuggestions] = useState<any[]>([])
   let locationsInfo: Omit<MappedSuggestions, 'settlementType'>[] = []
-  let locationsWeather: WeatherResponse[]
+  type MappedLocationWeather = {
+    id: number
+    lat: number
+    lon: number
+    weatherIcon: string
+    temperature: number
+  }
+  let locationsWeather: MappedLocationWeather[]
 
   useEffect(() => {
     const formattedRequest = removeMultipleSpaces(request)
@@ -58,8 +65,10 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
                 id: elm.id,
                 lat: elm.coord.lat,
                 lon: elm.coord.lon,
-
+                weatherIcon: elm.weather[0].icon,
+                temperature: elm.main.temp
               }))
+              console.log('mapped only weather', locationsWeather)
               console.log('locationsInfo', locationsInfo)
               console.log('locationsWeather', locationsWeather)
               setSuggestions(data)
