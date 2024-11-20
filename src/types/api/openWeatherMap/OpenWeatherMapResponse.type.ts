@@ -84,4 +84,4 @@ export type ForecastResponse = ResponseBase & {
     message: number
     cnt: number
 }
-export type Response = WeatherResponse | ForecastResponse
+export type OpenWeatherMapResponse = WeatherResponse | ForecastResponse

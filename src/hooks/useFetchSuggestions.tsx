@@ -6,7 +6,7 @@ import { handleMultipleLocationsWeatherRequests } from '../api/openWeatherMap/ha
 import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
 import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
-import { ForecastResponse, WeatherResponse } from '../types/api/openWeatherMap/Response.type'
+import { ForecastResponse, WeatherResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -15,7 +15,7 @@ type fetchStateType = searchResultsStates
 export default function useFetchSuggestions(request: string, repeatFetch: boolean, units: string) {
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
   const [suggestions, setSuggestions] = useState<any[]>([])
-  let locationsInfo: Omit<MappedSuggestions, 'settlementType'>[] = []
+  let locationsInfo: MappedSuggestions[] = []
   type MappedLocationWeather = {
     id: number
     lat: number
@@ -55,18 +55,23 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
             lat: elm.lat, 
             lon: elm.lon, 
             region: elm.region
+            
           }))
           const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
-          handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units })
-            .then( (data: WeatherResponse[]) => {
+          handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units, isSuggestionsFetch: true })
+            .then( (data: WeatherResponse[] & MappedSuggestions) => {
               console.log('only weather', data)
-              locationsWeather = data.map( (elm: WeatherResponse) => ({
+              locationsWeather = data.map( (elm: WeatherResponse) => 
+              ({
                 id: elm.id,
                 lat: elm.coord.lat,
                 lon: elm.coord.lon,
                 weatherIcon: elm.weather[0].icon,
-                temperature: elm.main.temp
+                temperature: elm.main.temp,
+                area: elm.name,
+                region: elm.sys.country,
+                country: elm.sys.country
               }))
               console.log('mapped only weather', locationsWeather)
               console.log('locationsInfo', locationsInfo)
