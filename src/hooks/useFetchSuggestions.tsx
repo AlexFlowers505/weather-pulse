@@ -6,7 +6,7 @@ import { handleMultipleLocationsWeatherRequests } from '../api/openWeatherMap/ha
 import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
 import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
-import { ForecastResponse, WeatherResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
+import { ForecastResponse, OpenWeatherMapResponse, WeatherResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -59,25 +59,28 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
           }))
           const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
-          handleMultipleLocationsWeatherRequests({ data: requestPropsOnly, isForecast: false, units: units, isSuggestionsFetch: true })
-            .then( (data: WeatherResponse[] & MappedSuggestions) => {
+          handleMultipleLocationsWeatherRequests({ data: locationsInfo, isForecast: false, units: units, isSuggestionsFetch: true })
+            .then( (data: (OpenWeatherMapResponse | (OpenWeatherMapResponse & MappedSuggestions))[]) => {
               console.log('only weather', data)
-              locationsWeather = data.map( (elm: WeatherResponse) => 
-              ({
-                id: elm.id,
-                lat: elm.coord.lat,
-                lon: elm.coord.lon,
-                weatherIcon: elm.weather[0].icon,
-                temperature: elm.main.temp,
-                area: elm.name,
-                region: elm.sys.country,
-                country: elm.sys.country
-              }))
-              console.log('mapped only weather', locationsWeather)
-              console.log('locationsInfo', locationsInfo)
-              console.log('locationsWeather', locationsWeather)
-              setSuggestions(data)
-              setFetchState(data.length ? SUCCESS : NO_RESULTS)
+                locationsWeather = data.map(elm => {
+                  if ('coord' in elm && 'area' in elm) {
+                    return {
+                      id: elm.id,
+                      lat: elm.coord.lat,
+                      lon: elm.coord.lon,
+                      weatherIcon: elm.weather[0].icon,
+                      temperature: elm.main.temp,
+                      area: elm.area,
+                      region: elm.region,
+                      country: elm.country,
+                    } as MappedLocationWeather
+                  }
+                }).filter((elm): elm is MappedLocationWeather => elm !== null)
+                console.log('mapped only weather', locationsWeather)
+                console.log('locationsInfo', locationsInfo)
+                console.log('locationsWeather', locationsWeather)
+                setSuggestions(data)
+                setFetchState(data.length ? SUCCESS : NO_RESULTS)
             })
             .catch(error => {
               setFetchState(ERROR)
