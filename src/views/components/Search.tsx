@@ -45,6 +45,7 @@ export default function Search({styles='', hasUnitsBtn = true}: searchPropsType)
   }, [units])
 
   console.log('request', request)
+  console.log('suggestions222', suggestions)
   return (
     <div className={`search-block ${tw.searchBlock} ${styles}`}>
       <div className={`input-wrapper ${tw.inputWrapper}`}>
