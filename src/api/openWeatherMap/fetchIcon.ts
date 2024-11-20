@@ -10,9 +10,12 @@ export async function fetchIcon(iconName: string): Promise<string> {
             console.error(`Failed to fetch icon: ${response.status} - ${response.statusText}`)
             throw new Error('Failed to fetch weather icon')
         }
+        console.log('Icon URL:', url)
         return url
     } catch (error) {
         console.error('Error fetching weather icon:', error)
         throw error
     }
 }
+// 'http://openweathermap.org/img/wn/01n@2x.png'
+// 'https://openweathermap.org/img/wn/@4x.png'

@@ -9,6 +9,7 @@ import { symbolArrow, symbolDegree } from '../../constants/symbols'
 import { checkIfFavourite } from '../../utils/utils'
 import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
+import { MappedLocationShortData } from '../../types/api/openWeatherMap/MappedLocationShortData.type'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
@@ -29,19 +30,18 @@ function handleHighlightMatchText(textWithMatch: string = '', request: string): 
   return textWithMatch
 }
 
-type searchResultPropsType = {
-  locName: string
-  locRegion: string
-  locCountry: string
-  locTemp: number
-  locTempIcon: string
-  request: string
-  lon: number
-  lat: number
-  id: number
-}
-export default function SearchResult({...props}: searchResultPropsType): React.JSX.Element { 
-  const { locName='', locRegion='', locCountry='', locTemp=null, locTempIcon='', request='', lon=0, lat=0, id=NaN} = props
+export default function SearchResult(props: MappedLocationShortData & { request: string }): React.JSX.Element {
+  const { 
+    area = '', 
+    region = '', 
+    country = '', 
+    temperature = null, 
+    weatherIcon = '', 
+    request = '', 
+    lon = 0, 
+    lat = 0, 
+    id=NaN
+  } = props
 
   const [iconUrl, setIconUrl] = useState('')
   const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, lat, lon))
@@ -49,7 +49,7 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        const url = await fetchIcon(locTempIcon)
+        const url = await fetchIcon(weatherIcon)
         setIconUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)
@@ -57,7 +57,7 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
     }
 
     loadIcon()
-  }, [locTempIcon])
+  }, [weatherIcon])
 
   return (
     <li className={`${tw.externalWrapper}`}>
@@ -74,14 +74,14 @@ export default function SearchResult({...props}: searchResultPropsType): React.J
         <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
             <div className={`${tw.innerWrapper}`}>
               <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
-                <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(locName, request)}</span>
+                <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(area, request)}</span>
               </div>
               <div className={`location-forecast ${tw.forecastWrapper}`}>
-                  <span className={`location-temp ${tw.temp}`}>{locTemp}{symbolDegree}</span>
+                  <span className={`location-temp ${tw.temp}`}>{temperature}{symbolDegree}</span>
                   <img className={`location-temp-pic ${tw.tempPic}`} src={iconUrl} alt="" />
               </div>
             </div>
-            <span className={`location-info ${tw.locationInfo}`}>{!!locRegion.length && `${locRegion} ${symbolArrow} `}{locCountry}</span>
+            <span className={`location-info ${tw.locationInfo}`}>{!!region.length && `${region} ${symbolArrow} `}{country}</span>
         </Link>
     </li>
   )

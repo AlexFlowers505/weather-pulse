@@ -7,6 +7,7 @@ import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
 import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
 import { ForecastResponse, OpenWeatherMapResponse, WeatherResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
+import { MappedLocationShortData } from '../types/api/openWeatherMap/MappedLocationShortData.type'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates
 
@@ -16,15 +17,8 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
   const [fetchState, setFetchState] = useState<fetchStateType>(IDLE)
   const [suggestions, setSuggestions] = useState<any[]>([])
   let locationsInfo: MappedSuggestions[] = []
-  type MappedLocationWeather = {
-    id: number
-    lat: number
-    lon: number
-    weatherIcon: string
-    temperature: number
-  }
-  let locationsWeather: MappedLocationWeather[]
-
+  let locationsWeather: MappedLocationShortData[] = []
+  
   useEffect(() => {
     const formattedRequest = removeMultipleSpaces(request)
 
@@ -55,9 +49,7 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
             lat: elm.lat, 
             lon: elm.lon, 
             region: elm.region
-            
           }))
-          const requestPropsOnly: FetchWeatherCoordsBasedProps[] = data.map(elm => ({ lat: elm.lat, lon: elm.lon, units }))
 
           handleMultipleLocationsWeatherRequests({ data: locationsInfo, isForecast: false, units: units, isSuggestionsFetch: true })
             .then( (data: (OpenWeatherMapResponse | (OpenWeatherMapResponse & MappedSuggestions))[]) => {
@@ -73,9 +65,9 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
                       area: elm.area,
                       region: elm.region,
                       country: elm.country,
-                    } as MappedLocationWeather
+                    } as MappedLocationShortData
                   }
-                }).filter((elm): elm is MappedLocationWeather => elm !== null)
+                }).filter((elm): elm is MappedLocationShortData => elm !== null)
                 console.log('mapped only weather', locationsWeather)
                 console.log('locationsInfo', locationsInfo)
                 console.log('locationsWeather', locationsWeather)
