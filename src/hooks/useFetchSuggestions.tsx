@@ -71,8 +71,8 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
                 console.log('mapped only weather', locationsWeather)
                 console.log('locationsInfo', locationsInfo)
                 console.log('locationsWeather', locationsWeather)
-                setSuggestions(data)
-                setFetchState(data.length ? SUCCESS : NO_RESULTS)
+                setSuggestions(locationsWeather)
+                setFetchState(locationsWeather.length ? SUCCESS : NO_RESULTS)
             })
             .catch(error => {
               setFetchState(ERROR)
