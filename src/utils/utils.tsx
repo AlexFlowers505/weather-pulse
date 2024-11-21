@@ -54,33 +54,9 @@ export function setLocalStorageTemperatureUnits(units: string) {
     localStorage.setItem(localStorageKeys.temperatureUnits, units)
 }
 
-export function getInitialFavouriteLocations() {
-    const storageKey = localStorageKeys.favourites
-
-    if (localStorage.getItem(storageKey)) return { value: JSON.parse(localStorage.getItem(storageKey) as string) }
-    else return {value: []}
-}
-
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
     console.log(state.value)
     return state.value.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
-}
-
-export function updateLocalStorageFavouriteLocations(location: FavouriteLocationType, action: localStorageActions = localStorageActions.ADD) {
-    const storageKey = localStorageKeys.favourites
-    let locations = JSON.parse(localStorage.getItem(storageKey) as string)
-
-    if (!locations) locations = []
-    if (action === localStorageActions.ADD) {
-        locations.push(location)
-        localStorage.setItem(storageKey, JSON.stringify(locations))
-    } else if (action === localStorageActions.REMOVE) {
-        const index = locations.findIndex((elm: FavouriteLocationType) => elm.id === location.id && elm.lat === location.lat && elm.lon === location.lon)
-        if (index !== -1) {
-            locations.splice(index, 1)
-            localStorage.setItem(storageKey, JSON.stringify(locations))
-        }
-    }
 }
 
 // AI TYPES HERE

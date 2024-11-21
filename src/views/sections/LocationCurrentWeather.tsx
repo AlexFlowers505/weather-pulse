@@ -9,6 +9,10 @@ export default function LocationCurrentWeather({ locationData }: { locationData:
   const lat = locationData.overalls?.lat
   const lon = locationData.overalls?.lon
   const id = locationData.overalls?.id
+  const area = locationData.overalls?.area
+  const region = locationData.overalls?.region
+  const country = locationData.overalls?.country
+
   const { name, temp, iconUrl } = useCurrentWeatherInfo({ locationData })
   const isFavourite = useCheckStoreIfFavourite(lat, lon)
   
@@ -23,6 +27,9 @@ export default function LocationCurrentWeather({ locationData }: { locationData:
           lat={lat}
           lon={lon}  
           id={id}
+          area={area}
+          region={region}
+          country={country}
         />
         <h6 className={`${tw.name}`}>{name}</h6>
       </div>

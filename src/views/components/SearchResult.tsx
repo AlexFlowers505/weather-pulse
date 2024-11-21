@@ -70,6 +70,9 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           lat={lat}
           lon={lon}
           id={id}
+          area={area}
+          region={region}
+          country={country}
         />
         <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
             <div className={`${tw.innerWrapper}`}>

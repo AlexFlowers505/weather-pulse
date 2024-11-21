@@ -1,11 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getInitialFavouriteLocations, updateLocalStorageFavouriteLocations } from '../../utils/utils'
 import { localStorageActions } from '../../constants/localStorageActions'
+import { getInitialFavouriteLocations } from '../actions/getInitialFavouriteLocations'
+import { updateLocalStorageFavouriteLocations } from '../actions/updateLocalStorageFavouriteLocations'
 
 export type FavouriteLocationType = {
     lat: number
     lon: number
     id: number
+    area: string
+    region: string
+    country: string
 }
 export type FavouriteLocationsStateType = {
     value: Array<FavouriteLocationType>

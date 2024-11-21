@@ -24,18 +24,26 @@ const btnData = {
 
 const { content, contentType, extraSVGstyle, tooltipTexts } = btnData
 
-type FavouriteBtnType = BtnBasedComponentType&{isFavourite: boolean, lat: number, lon: number, id: number}
+type FavouriteBtnType = BtnBasedComponentType&{
+  isFavourite: boolean, 
+  lat: number, 
+  lon: number, 
+  id: number
+  area: string
+  region: string
+  country: string
+}
 
-export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, lat, lon, id }: FavouriteBtnType): React.JSX.Element {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, lat, lon, id, area, region, country }: FavouriteBtnType): React.JSX.Element {
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
   const icon = isFavourite ? content.favourite : content.notFavourite
   const dispatch = useDispatch<AppDispatch>()
 
 const handleFavouriteClick = () => {
   if (isFavourite) {
-      dispatch(removeLocation({ lat, lon, id }))
+      dispatch(removeLocation({ lat, lon, id, area, region, country }))
     } else {
-        dispatch(addLocation({ lat, lon, id }))
+        dispatch(addLocation({ lat, lon, id, area, region, country }))
     }
 }
 
