@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../redux/store/store'
 import { Link } from 'react-router-dom'
 import { symbolArrow, symbolDegree } from '../../constants/symbols'
 import { checkIfFavourite } from '../../utils/utils'
 import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { MappedLocationShortData } from '../../types/api/openWeatherMap/MappedLocationShortData.type'
+import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 
 function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
   if (request.length) {
@@ -45,7 +46,11 @@ export default function SearchResult(props: MappedLocationShortData & { request:
 
   const [iconUrl, setIconUrl] = useState('')
   const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, lat, lon))
+  const dispatch = useDispatch<AppDispatch>()
 
+  const handleSearchResultClick = () => {
+    dispatch(setCurrentAreaData({ lat, lon, area, region, country }))
+  }
   useEffect( () => {
     const loadIcon = async () => {
       try {
@@ -74,7 +79,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           region={region}
           country={country}
         />
-        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${lat}_${lon}`}>
+        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${id}`} onClick={() => handleSearchResultClick()}>
             <div className={`${tw.innerWrapper}`}>
               <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
                 <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(area, request)}</span>

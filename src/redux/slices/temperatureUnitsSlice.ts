@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { UnitsType, temperatureUnitType, temperatureUnits as units } from "../../constants/temperatureUnits"
-import { getInitialUnits, setLocalStorageTemperatureUnits } from '../../utils/utils'
+import { getInitialUnits } from '../actions/getInitialUnits'
+import { setLocalStorageTemperatureUnits } from '../actions/setLocalStorageTemperatureUnits'
 
 export type StateType = temperatureUnitType
 

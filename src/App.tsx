@@ -11,7 +11,7 @@ export default function App(): React.JSX.Element {
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />} >
         <Route index element={<WelcomePage />} />
-        <Route path='/forecast/:lat_lon' element={<AreaOverviewPage />} />
+        <Route path='/forecast/:id' element={<AreaOverviewPage />} />
         <Route path='/favourites' element={<FavouriteAreasOverviewPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>

@@ -10,6 +10,8 @@ import FewDaysForecast from '../sections/FewDaysForecast'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
+import { localStorageKeys } from '../../constants/localStorageItems'
+import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 
 export type locationWholeDataType = {
   overalls: any,
@@ -17,17 +19,27 @@ export type locationWholeDataType = {
 } | null
 
 export default function AreaOverviewPage(): React.JSX.Element {
-  const { lat_lon } = useParams<{ lat_lon: string }>()
+  const { id } = useParams<{ id: string }>()
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
-  const coords = useMemo(() => {
-    return lat_lon ? lat_lon.split('_') : null
-  }, [lat_lon])
-  let lat = coords?.[0]
-  let lon = coords?.[1]
+  const idMemo = useMemo(() => id ? id : null, [id])
 
-  const { loading, locationData } = useFetchExplicitLocationWeather(lat as string, lon as string, units)
+  let { loading, locationData } = useFetchExplicitLocationWeather(idMemo as string, units)
+  let locationInfo = useSelector((state: RootState) => state.currentArea)
+  if (isNaN(locationInfo?.id)) {
+    locationInfo = localStorage.getItem(localStorageKeys.currentArea)
+  } else if (!locationInfo) {
+    const partialData = fetchLocationInfoByCoords(locationData.overalls.lat, locationData.overalls.lon)
+    locationInfo = {...partialData}
+  }
+  console.log('locationInfo666', locationInfo)
+  
+  locationData = {
+    ...locationData,
+    locationInfo
+  }
 
-  if (!lat_lon) throw new Error('Missing required parameter "lat_lon"')
+  if (!id) throw new Error('Missing required parameter "id"')
+    console.log('locationData555', locationData)
 
   return (
     <>

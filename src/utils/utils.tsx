@@ -1,13 +1,11 @@
-import { localStorageActions } from "../constants/localStorageActions"
 import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
-import { UnitsType, temperatureUnits, temperatureUnitType } from "../constants/temperatureUnits"
-import { addLocation, FavouriteLocationsStateType, FavouriteLocationType, removeLocation } from "../redux/slices/favouriteLocationsSlice"
+import { temperatureUnits } from "../constants/temperatureUnits"
+import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
 import { AppDispatch } from "../redux/store/store"
 import { switchLocationAccess } from "../redux/slices/locationAccessSlice"
 import locationAccessStates from "../constants/locationAccessStates"
-import { useDispatch } from "react-redux"
 const { IDLE } = searchResultsStates
 
 
@@ -35,23 +33,6 @@ export function getLocalStorageTemperatureUnits() {
         localStorage.setItem(storageKey, temperatureUnits.celsius.__type)
         return temperatureUnits.celsius.__type
     }
-}
-
-export const getInitialUnits = () => {
-    const currentUnits = getLocalStorageTemperatureUnits()
-    let initialState: temperatureUnitType
-
-    if (currentUnits) {
-        currentUnits === UnitsType.imperial
-            ? initialState = temperatureUnits.fahrenheit
-            : initialState = temperatureUnits.celsius
-    } else initialState = temperatureUnits.celsius
-
-    return initialState
-}
-
-export function setLocalStorageTemperatureUnits(units: string) {
-    localStorage.setItem(localStorageKeys.temperatureUnits, units)
 }
 
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {

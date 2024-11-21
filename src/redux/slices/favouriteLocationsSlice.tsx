@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { localStorageActions } from '../../constants/localStorageActions'
+import { localStorageFavouritesActions } from '../../constants/localStorageFavouritesActions'
 import { getInitialFavouriteLocations } from '../actions/getInitialFavouriteLocations'
 import { updateLocalStorageFavouriteLocations } from '../actions/updateLocalStorageFavouriteLocations'
 
@@ -23,11 +23,11 @@ const favouriteLocationsSlice = createSlice({
     reducers: {
         removeLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
             state.value = state.value.filter(elm => elm.id !== action.payload.id && elm.lat !== action.payload.lat && elm.lon !== action.payload.lon)
-            updateLocalStorageFavouriteLocations(action.payload, localStorageActions.REMOVE)
+            updateLocalStorageFavouriteLocations(action.payload, localStorageFavouritesActions.REMOVE)
         },
         addLocation: (state, action: PayloadAction<FavouriteLocationType>) => {
             state.value.push(action.payload)
-            updateLocalStorageFavouriteLocations(action.payload, localStorageActions.ADD)
+            updateLocalStorageFavouriteLocations(action.payload, localStorageFavouritesActions.ADD)
         },
     },
 })

@@ -4,6 +4,7 @@ import counterReducer from '../slices/counterSlice'
 import locationAccessReducer from '../slices/locationAccessSlice'
 import favouriteLocationsReducer from '../slices/favouriteLocationsSlice'
 import dialogReducer from '../slices/dialogSlice'
+import currentAreaReducer from '../slices/currentAreaSlice'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         locationAccess: locationAccessReducer,
         favouriteLocations: favouriteLocationsReducer,
         dialog: dialogReducer,
+        currentArea: currentAreaReducer,
     }
 })  
 
