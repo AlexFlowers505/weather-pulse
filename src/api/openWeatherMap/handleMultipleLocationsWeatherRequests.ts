@@ -13,7 +13,6 @@ export async function handleMultipleLocationsWeatherRequests({ data, isForecast,
         await Promise.all(
             data.map(async location => {
                 if (isSuggestionsFetch && 'area' in location) {
-                    console.log('dadata location', location)
                     let weatherData = await fetchWeather({  
                         lat: location.lat, 
                         lon: location.lon, 
@@ -25,6 +24,9 @@ export async function handleMultipleLocationsWeatherRequests({ data, isForecast,
                     area: location.area,
                     region: location.region,
                     country: location.country,
+                }
+                if ('main' in locationFullData) {
+                    locationFullData.main.temp = Math.round(locationFullData.main.temp)
                 }
                 multipleWeatherData.push(locationFullData)
                     
