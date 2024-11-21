@@ -10,15 +10,17 @@ export const useFetchExplicitLocationWeather = (id: string, units: string) => {
       setLoading(true)
       try {
         if (id) {
-          const weather = await fetchWeather({ id: id, isForecast: true, units: units})
-          setLocationData(weather)
+          const weather = await fetchWeather({ id: id, isForecast: false, units: units})
+          const forecast = await fetchWeather({ id: id, isForecast: true, units: units})
+          setLocationData({weather, forecast})
+          console.log('locationData888', locationData)
         } else {
           console.error('No location data found for the provided coordinates')
-          setLocationData({ overalls: null, weather: null })
+          setLocationData(null)
         }
       } catch (error) {
         console.error('Failed to fetch weather data', error)
-        setLocationData({ overalls: null, weather: null })
+        setLocationData(null)
       } finally {
         setLoading(false)
       }

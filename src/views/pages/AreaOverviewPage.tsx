@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import LocationCurrentWeather from '../sections/LocationCurrentWeather'
@@ -24,22 +24,43 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const idMemo = useMemo(() => id ? id : null, [id])
 
   let { loading, locationData } = useFetchExplicitLocationWeather(idMemo as string, units)
-  let locationInfo = useSelector((state: RootState) => state.currentArea)
-  if (isNaN(locationInfo?.id)) {
-    locationInfo = localStorage.getItem(localStorageKeys.currentArea)
-  } else if (!locationInfo) {
-    const partialData = fetchLocationInfoByCoords(locationData.overalls.lat, locationData.overalls.lon)
-    locationInfo = {...partialData}
+  // locationData = {
+  //   id: idMemo,
+  //   forecast: {
+  //     ...locationData.list
+  //   }
+  // }
+  console.log('locationData777', locationData)
+  let locationInfo
+  const StoreLocationInfo = useSelector((state: RootState) => state.currentArea)
+
+  if (StoreLocationInfo && !isNaN(StoreLocationInfo?.id)) {
+    locationInfo = StoreLocationInfo
+  } else if (localStorage.getItem(localStorageKeys.currentArea)) {
+    try {
+      locationInfo = JSON.parse(localStorage.getItem(localStorageKeys.currentArea) as string)
+    } catch (error) {
+      console.error('Error parsing stored location info:', error)
+    }
+  } else if (locationData && locationData.lat && locationData.lon) {
+    try {
+      const partialData = fetchLocationInfoByCoords(locationData.lat, locationData.lon)
+      locationInfo = {...partialData}
+    } catch (error) {
+      console.error('Error fetching location info by coords:', error)
+    }
   }
-  console.log('locationInfo666', locationInfo)
-  
+
+  if (!locationData || !locationInfo) {
+    throw new Error('Location data or location info is missing')
+  }
+
   locationData = {
     ...locationData,
     locationInfo
   }
 
   if (!id) throw new Error('Missing required parameter "id"')
-    console.log('locationData555', locationData)
 
   return (
     <>
