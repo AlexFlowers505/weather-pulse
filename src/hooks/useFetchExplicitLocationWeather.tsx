@@ -1,18 +1,34 @@
 import { useEffect, useState } from "react"
 import { fetchWeather } from "../api/openWeatherMap/fetchWeather"
+import { OpenWeatherMapResponse } from "../types/api/openWeatherMap/OpenWeatherMapResponse.type"
+import { ExplicitLocationWeather } from "../types/api/openWeatherMap/ExplicitLocationWeather.type"
 
 export const useFetchExplicitLocationWeather = (id: string, units: string) => {
   const [loading, setLoading] = useState<boolean>(false)
-  const [locationData, setLocationData] = useState<any>({})
+  const [locationData, setLocationData] = useState<ExplicitLocationWeather | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
       try {
         if (id) {
-          const weather = await fetchWeather({ id: id, isForecast: false, units: units})
-          const forecast = await fetchWeather({ id: id, isForecast: true, units: units})
-          setLocationData({weather, forecast})
+          const weather: OpenWeatherMapResponse = await fetchWeather({ id: id, isForecast: false, units: units})
+          const forecast: OpenWeatherMapResponse = await fetchWeather({ id: id, isForecast: true, units: units})
+          if ('list' in forecast && 'main' in weather) {
+            let mappedForecast = forecast.list.map( elm => ({
+                timestamp: elm.dt,
+                temperature: elm.main.temp,
+                weatherIcon: elm.weather[0].icon
+            }))
+            setLocationData({
+              temperature: Math.round(weather.main.temp),
+              weatherIcon: weather.weather[0].icon,
+              forecast: mappedForecast,
+              id: id,
+              lat: weather.coord.lat,
+              lon: weather.coord.lon
+            })
+          }
           console.log('locationData888', locationData)
         } else {
           console.error('No location data found for the provided coordinates')
@@ -31,3 +47,4 @@ export const useFetchExplicitLocationWeather = (id: string, units: string) => {
 
   return { loading, locationData }
 }
+

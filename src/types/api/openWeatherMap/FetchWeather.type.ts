@@ -1,6 +1,6 @@
 export type FetchWeatherCoordsBasedProps = {
-    lat: string,
-    lon: string,
+    lat: number,
+    lon: number,
     isForecast?: boolean,
     units: string
 }

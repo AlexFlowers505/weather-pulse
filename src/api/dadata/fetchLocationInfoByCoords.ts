@@ -2,7 +2,7 @@ import { MappedSuggestions } from "../../types/api/dadata/MappedSuggestions.type
 import { overallsConfig as config } from "../../config/api/dadata/overalls.config"
 import { getFetchByCoordsOptionsConfig } from "./getFetchByCoordsOptionsConfig"
 
-export async function fetchLocationInfoByCoords(lat: string, lon: string): Promise<MappedSuggestions> {
+export async function fetchLocationInfoByCoords(lat: number, lon: number): Promise<MappedSuggestions> {
     const fetchOptions = getFetchByCoordsOptionsConfig(lat, lon)
     
     try {
@@ -26,8 +26,8 @@ export async function fetchLocationInfoByCoords(lat: string, lon: string): Promi
         country: '',
         area: '',
         region: '',
-        lat: '',
-        lon: '',
+        lat: NaN,
+        lon: NaN,
       }
     }
   }

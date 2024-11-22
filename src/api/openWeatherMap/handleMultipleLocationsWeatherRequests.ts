@@ -14,9 +14,9 @@ export async function handleMultipleLocationsWeatherRequests({ data, isForecast,
             data.map(async location => {
                 if (isSuggestionsFetch && 'area' in location) {
                     let weatherData = await fetchWeather({  
-                        lat: location.lat, 
-                        lon: location.lon, 
-                        isForecast: isForecast, 
+                        lat: location.lat,
+                        lon: location.lon,
+                        isForecast: isForecast,
                         units: units,
                     })
                     let locationFullData = {

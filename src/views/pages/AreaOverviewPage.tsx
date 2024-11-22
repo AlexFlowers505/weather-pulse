@@ -14,8 +14,7 @@ import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 
 export type locationWholeDataType = {
-  overalls: any,
-  weather: any,
+  [key: string]: any
 } | null
 
 export default function AreaOverviewPage(): React.JSX.Element {
@@ -50,15 +49,15 @@ export default function AreaOverviewPage(): React.JSX.Element {
       console.error('Error fetching location info by coords:', error)
     }
   }
-
+  locationData = {
+    ...locationData,
+    ...locationInfo
+  }
+  console.log('locationData999', locationData)
   if (!locationData || !locationInfo) {
     throw new Error('Location data or location info is missing')
   }
 
-  locationData = {
-    ...locationData,
-    locationInfo
-  }
 
   if (!id) throw new Error('Missing required parameter "id"')
 

@@ -34,8 +34,6 @@ type Snow = {
 type Country = string
 type Id = number
 type ResponseBase = {
-    weather: Weather[]
-    dt: DateTimestamp
     visibility: number
     snow: Snow
     wind: Wind
@@ -67,6 +65,8 @@ type ForecastItem = {
     pop: number
     sys: { pod: string }
     dt_txt: string
+    dt: DateTimestamp
+    weather: Weather[]
 }
 
 export type WeatherResponse = ResponseBase & {
@@ -77,6 +77,8 @@ export type WeatherResponse = ResponseBase & {
     main: WeatherMain
     sys: System
     timezone: Timezone
+    dt: DateTimestamp
+    weather: Weather[]
 }
 export type ForecastResponse = ResponseBase & {
     list: Array<ForecastItem>
