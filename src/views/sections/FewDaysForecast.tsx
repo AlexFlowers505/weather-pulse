@@ -3,7 +3,7 @@ import ForecastLayout from '../components/ForecastLayout'
 import forecastLayoutTypes from '../../constants/forecastLayoutTypes'
 import { getAverageDaysWeatherData } from '../../utils/getAverageDaysWeatherData'
 import { groupForecastByDay } from '../../utils/groupForecastByDay'
-import { locationWholeDataType } from '../pages/AreaOverviewPage'
+import { WholeLocationData } from '../pages/AreaOverviewPage'
 
 const localProps = {
     heading: 'Прогноз на 5 дней',
@@ -11,23 +11,23 @@ const localProps = {
 }
 
 export interface fewDaysForecastProps {
-  locationData: locationWholeDataType | null
+  locationData: WholeLocationData | null
   extraStyles?: string
 }
 
 export default function FewDaysForecast({ locationData, extraStyles = '' }: fewDaysForecastProps): React.JSX.Element | null {
-  if (!locationData?.weather || locationData.weather.length === 0) {
+  if (!locationData) {
     console.error('fewDaysWeather data is missing or empty')
     return null
   }
-
-  const detailedWeatherByDays = groupForecastByDay(locationData.weather) as any[]
+  const detailedWeatherByDays = groupForecastByDay(locationData.forecast) as any[]
   if (!detailedWeatherByDays || detailedWeatherByDays.length === 0) {
     console.error('groupForecastByDay returned empty or invalid data')
     return null
   }
 
   const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays, false)
+  console.log('averageDaysWeatherData', averageDaysWeatherData)
 
   return (
     <ForecastLayout

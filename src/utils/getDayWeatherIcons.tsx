@@ -1,11 +1,13 @@
 import { hoursToIgnoreWhileGettingAverageWeather } from "../constants/hoursToIgnoreWhileGettingAverageWeather"
+import { locationWeatherData } from "../views/pages/AreaOverviewPage"
 import { DateFormatter } from "./getDateTime"
+import { ForecastByDay } from "./groupForecastByDay"
 
-export const getDayWeatherIcons = (dayWeatherByHours: String[]) => {
-    const dayWeatherIcons = dayWeatherByHours.map( (hour: any) => {
-        const currentHour = new DateFormatter(hour.dt).getHours()
+export const getDayWeatherIcons = (dayWeatherByHours: locationWeatherData[]) => {
+    const dayWeatherIcons = dayWeatherByHours.map( (hour: locationWeatherData) => {
+        const currentHour = new DateFormatter(hour.timestamp).getHours()
         if (hoursToIgnoreWhileGettingAverageWeather.indexOf(currentHour) === -1) {
-            return hour?.weather?.[0]?.icon
+            return hour.weatherIcon
         }
     })
 

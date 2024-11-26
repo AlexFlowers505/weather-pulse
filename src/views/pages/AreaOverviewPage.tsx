@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import LocationCurrentWeather from '../sections/LocationCurrentWeather'
@@ -13,9 +13,13 @@ import { RootState } from '../../redux/store/store'
 import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 
-export type locationWholeDataType = {
-  [key: string]: any
-} | null
+export type locationWholeDataType = { [key: string]: any } | null
+export type locationWeatherData = {
+  temperature: number
+  weatherIcon: string
+  timestamp: number
+}
+export type WholeLocationData = locationWeatherData & { forecast: locationWeatherData[] }   
 
 export default function AreaOverviewPage(): React.JSX.Element {
   const { id } = useParams<{ id: string }>()
@@ -23,13 +27,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const idMemo = useMemo(() => id ? id : null, [id])
 
   let { loading, locationData } = useFetchExplicitLocationWeather(idMemo as string, units)
-  // locationData = {
-  //   id: idMemo,
-  //   forecast: {
-  //     ...locationData.list
-  //   }
-  // }
-  console.log('locationData777', locationData)
+  
   let locationInfo
   const StoreLocationInfo = useSelector((state: RootState) => state.currentArea)
 
@@ -40,24 +38,23 @@ export default function AreaOverviewPage(): React.JSX.Element {
       locationInfo = JSON.parse(localStorage.getItem(localStorageKeys.currentArea) as string)
     } catch (error) {
       console.error('Error parsing stored location info:', error)
+      locationInfo = null
     }
   } else if (locationData && locationData.lat && locationData.lon) {
     try {
-      const partialData = fetchLocationInfoByCoords(locationData.lat, locationData.lon)
-      locationInfo = {...partialData}
+      const data = fetchLocationInfoByCoords(locationData.lat, locationData.lon)
+      locationInfo = {...data}
     } catch (error) {
       console.error('Error fetching location info by coords:', error)
+      locationInfo = null
     }
   }
-  locationData = {
-    ...locationData,
-    ...locationInfo
-  }
-  console.log('locationData999', locationData)
-  if (!locationData || !locationInfo) {
-    throw new Error('Location data or location info is missing')
+  if (loading || !locationData || !locationInfo) {
+    return <Spinner loading={loading} />
   }
 
+  const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo }
+  console.log('locationData999', locationData)
 
   if (!id) throw new Error('Missing required parameter "id"')
 
@@ -68,12 +65,13 @@ export default function AreaOverviewPage(): React.JSX.Element {
           <Navbar />
           <div className={`${tw.sectionsWrapper}`}>
             <ControlPanel />
-            <LocationCurrentWeather locationData={locationData} />
-            <TodayForecast locationData={locationData} />
+            <LocationCurrentWeather locationData={wholeLocationData} />
+            <TodayForecast locationData={wholeLocationData} />
           </div>
-          <FewDaysForecast locationData={locationData} extraStyles={tw.FewDaysForecast} />
+          <FewDaysForecast locationData={wholeLocationData} extraStyles={tw.FewDaysForecast} />
         </>
       )}
     </>
   )
 }
+
