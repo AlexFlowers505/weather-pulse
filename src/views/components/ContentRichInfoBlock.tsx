@@ -1,7 +1,6 @@
 import React from 'react'
 import iconExtentions from '../../constants/iconExtentions'
 import detailsFlow from '../../constants/detailsFlow'
-import { textSymbols } from '../../constants/textSymbols'
 import { ContentRichInfoBlockStyle as tw } from '../../styles/components/ContentRichInfoBlock.style'
 import Btn from './Btn'
 import btnStyles from '../../styles/components/btn.style'
@@ -11,8 +10,8 @@ import { AppDispatch } from '../../redux/store/store'
 import { useDispatch } from 'react-redux'
 import { toggleDialog } from '../../redux/slices/dialogSlice'
 import { initialState as dialogDefaultContent } from '../../redux/slices/dialogSlice'
+import { symbolArrow } from '../../constants/symbols'
 
-const {listItemsSeparator} = textSymbols
 
 type ContentRichInfoBlockPropsType = {
     item: InstructionItemType
@@ -44,7 +43,7 @@ export default function ContentRichInfoBlock({item}: ContentRichInfoBlockPropsTy
                                 item.details?.map((detail: string, i: number): React.JSX.Element => {
                                     return (
                                         <div className={`content-item-detail-wrapper ${tw.contentItemDetailsWrapper}`} key={i}>
-                                            <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemsSeparator}</span>
+                                            <span className={`list-item-symbol ${tw.listItemSymbol}`}>{symbolArrow}</span>
                                             <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
                                         </div>
                                     )
@@ -56,7 +55,7 @@ export default function ContentRichInfoBlock({item}: ContentRichInfoBlockPropsTy
                                             return (
                                                 <React.Fragment key={i}>
                                                     <span className={`content-item-detail ${tw.contentItemDetail}`}>{detail}</span>
-                                                    {i < arr.length-1 && <span className={`list-item-symbol ${tw.listItemSymbol}`}>{listItemsSeparator}</span>}
+                                                    {i < arr.length-1 && <span className={`list-item-symbol ${tw.listItemSymbol}`}>{symbolArrow}</span>}
                                                 </React.Fragment>
                                             )
                                         })

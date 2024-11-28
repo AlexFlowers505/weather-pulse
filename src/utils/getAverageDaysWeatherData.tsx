@@ -1,6 +1,8 @@
-import { getAverageDayTemperature } from "./getAverageDayTemperature"
-import { getAverageDayWeatherIcon } from "./getAverageDayWeatherIcon"
+import { DayNnightWeatherByHours } from "../types/utils/dayNnightWeatherBHours"
+import { getAverageDayNnightTemperature } from "./getAverageDayNnightTemperature"
+import { getAverageDayNnightWeatherIcons } from "./getAverageDayNnightWeatherIcons"
 import { DateFormatter } from "./getDateTime"
+import { ForecastByDay } from "./groupForecastByDay"
 
 export const getAverageDaysWeatherData = (fewDaysWeather: any[], isTodayIncluded: boolean = true) => {
     if (!fewDaysWeather || !Array.isArray(fewDaysWeather)) {
@@ -9,7 +11,7 @@ export const getAverageDaysWeatherData = (fewDaysWeather: any[], isTodayIncluded
     }
 
     const averageDayWeather: any[] = []
-    fewDaysWeather.forEach((dayWeatherByHours: any) => {
+    fewDaysWeather.forEach((dayWeatherByHours: ForecastByDay) => {
         if (!dayWeatherByHours || !Array.isArray(dayWeatherByHours.forecast) || dayWeatherByHours.forecast.length === 0) {
             console.warn('Invalid dayWeatherByHours data, skipping...')
             return
@@ -18,14 +20,15 @@ export const getAverageDaysWeatherData = (fewDaysWeather: any[], isTodayIncluded
         const dateInCheck = dayWeatherByHours.day
         
         if (isTodayIncluded || todayDate !== dateInCheck) {
-            const averageDayTemperature = getAverageDayTemperature(dayWeatherByHours.forecast)
+            const averageDayTemperatures: DayNnightWeatherByHours = getAverageDayNnightTemperature(dayWeatherByHours.forecast)
             const calendarDay = new DateFormatter(dayWeatherByHours.timestamp).getShortDate(true)
             const weekDay = new DateFormatter(dayWeatherByHours.timestamp).getDayOfWeek(true)
-            const averageDayWeatherIcon = getAverageDayWeatherIcon(dayWeatherByHours.forecast)
+            const averageDayWeatherIcon = getAverageDayNnightWeatherIcons(dayWeatherByHours.forecast)
             averageDayWeather.push({
                 timeOrDay: calendarDay,
                 weekDay: weekDay,
-                temperature: averageDayTemperature,
+                temperatureDay: averageDayTemperatures.day,
+                temperatureNight: averageDayTemperatures.night,
                 icon: averageDayWeatherIcon,
             })
         }
