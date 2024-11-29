@@ -12,14 +12,9 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
+import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 
-export type locationWholeDataType = { [key: string]: any } | null
-export type locationWeatherData = {
-  temperature: number
-  weatherIcon: string
-  timestamp: number
-}
-export type WholeLocationData = locationWeatherData & { forecast: locationWeatherData[] }   
+
 
 export default function AreaOverviewPage(): React.JSX.Element {
   const { id } = useParams<{ id: string }>()
@@ -31,6 +26,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
   let locationInfo
   const StoreLocationInfo = useSelector((state: RootState) => state.currentArea)
 
+  // define location info
   if (StoreLocationInfo && !isNaN(StoreLocationInfo?.id)) {
     locationInfo = StoreLocationInfo
   } else if (localStorage.getItem(localStorageKeys.currentArea)) {
@@ -54,7 +50,6 @@ export default function AreaOverviewPage(): React.JSX.Element {
   }
 
   const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo }
-  console.log('locationData999', locationData)
 
   if (!id) throw new Error('Missing required parameter "id"')
 

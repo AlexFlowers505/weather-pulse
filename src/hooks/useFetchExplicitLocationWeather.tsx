@@ -29,7 +29,6 @@ export const useFetchExplicitLocationWeather = (id: string, units: string) => {
               lon: weather.coord.lon
             })
           }
-          console.log('locationData888', locationData)
         } else {
           console.error('No location data found for the provided coordinates')
           setLocationData(null)

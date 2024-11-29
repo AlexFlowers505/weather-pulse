@@ -38,7 +38,6 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
       setFetchState(LOADING)
       fetchTextBasedLocationSuggestions(formattedRequest)
         .then((data: MappedSuggestions[]) => {
-          console.log('only locations info', data)
           if (!data) {
             setFetchState(NO_RESULTS)
             return
@@ -53,7 +52,6 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
 
           handleMultipleLocationsWeatherRequests({ data: locationsInfo, isForecast: false, units: units, isSuggestionsFetch: true })
             .then( (data: (OpenWeatherMapResponse | (OpenWeatherMapResponse & MappedSuggestions))[]) => {
-              console.log('only weather', data)
                 locationsWeather = data.map(elm => {
                   if ('coord' in elm && 'area' in elm) {
                     return {
@@ -68,9 +66,6 @@ export default function useFetchSuggestions(request: string, repeatFetch: boolea
                     } as MappedLocationShortData
                   }
                 }).filter((elm): elm is MappedLocationShortData => elm !== null)
-                console.log('mapped only weather', locationsWeather)
-                console.log('locationsInfo', locationsInfo)
-                console.log('locationsWeather', locationsWeather)
                 setSuggestions(locationsWeather)
                 setFetchState(locationsWeather.length ? SUCCESS : NO_RESULTS)
             })

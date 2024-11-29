@@ -1,19 +1,19 @@
-import { locationWeatherData } from "../views/pages/AreaOverviewPage"
+import { LocationWeatherData } from "../types/overalls/locationWeatherData.type"
 import { DateFormatter } from "./getDateTime"
 
 export type ForecastByDay = {
     day: string
     timestamp: number
-    forecast: locationWeatherData[]
+    forecast: LocationWeatherData[]
 }
 
-export const groupForecastByDay = (weatherData: locationWeatherData[]): ForecastByDay[] | null => {
+export const groupForecastByDay = (weatherData: LocationWeatherData[]): ForecastByDay[] | null => {
     if (!weatherData || !Array.isArray(weatherData)) return null
 
     const weatherByHours = weatherData
     const weatherByDay: ForecastByDay[] = []
 
-    weatherByHours.forEach((elm: locationWeatherData) => {
+    weatherByHours.forEach((elm: LocationWeatherData) => {
         if (!elm || typeof elm.timestamp !== 'number') return
 
         const day = new DateFormatter(elm.timestamp).getDay()

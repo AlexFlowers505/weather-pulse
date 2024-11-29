@@ -17,7 +17,6 @@ export async function fetchLocationInfoByCoords(lat: number, lon: number): Promi
           lon: lon,
       }
   
-      console.log('Location by coordinates', location)
       return location
   
     } catch (error) {

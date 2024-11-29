@@ -14,7 +14,6 @@ export function useCurrentWeatherInfo({ locationData }: any) {
     const [name, setName] = useState('')
     const [temp, setTemp] = useState(0)
     const [iconUrl, setIconUrl] = useState('')
-    console.log('useCurrent', locationData)
 
     useEffect(() => {
         setName(locationData.overalls?.area || '')

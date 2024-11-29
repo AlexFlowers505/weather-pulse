@@ -63,7 +63,6 @@ export default function SearchResult(props: MappedLocationShortData & { request:
 
     loadIcon()
   }, [weatherIcon])
-  // console.log('weather icon', weatherIcon)
   return (
     <li className={`${tw.externalWrapper}`}>
         <FavouriteBtn 

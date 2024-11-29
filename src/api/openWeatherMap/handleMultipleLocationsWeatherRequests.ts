@@ -39,7 +39,6 @@ export async function handleMultipleLocationsWeatherRequests({ data, isForecast,
                 }
             })
         )
-        console.log('multipleWeatherData', multipleWeatherData)
         return multipleWeatherData
     } catch (error) {
         console.error('Error fetching weather data:', error)

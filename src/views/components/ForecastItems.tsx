@@ -13,7 +13,6 @@ export default function ForecastItems({layout, locationData}: forecastItemsPropT
         layout === forecastLayoutTypes.vertical ? tw.verticalLayout : 
         layout === forecastLayoutTypes.horizontal ? tw.horizontalLayout : 
         layout === forecastLayoutTypes.lgVertical ? tw.lgVerticalLayout : ''
-    console.log('locationData3', locationData)
     return (
         <div className={`forecast-items ${layoutStyles}`}>
             { locationData && 

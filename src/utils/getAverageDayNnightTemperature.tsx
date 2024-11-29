@@ -1,9 +1,9 @@
 import { DAY_HOURS } from "../constants/dayNnightHours"
-import { DayNnightWeatherByHours } from "../types/utils/dayNnightWeatherBHours"
-import { locationWeatherData } from "../views/pages/AreaOverviewPage"
+import { LocationWeatherData } from "../types/overalls/locationWeatherData.type"
+import { DayNnightWeatherByHours } from "../types/utils/dayNnightWeatherBHours.type"
 import { DateFormatter } from "./getDateTime"
 
-export const getAverageDayNnightTemperature = ( dayWeatherByHour: locationWeatherData[]): DayNnightWeatherByHours => {
+export const getAverageDayNnightTemperature = ( dayWeatherByHour: LocationWeatherData[]): DayNnightWeatherByHours => {
     const dayNnightWeatherByHours: DayNnightWeatherByHours = {
         day: [],
         night: [],

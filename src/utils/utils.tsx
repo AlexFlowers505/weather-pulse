@@ -36,7 +36,6 @@ export function getLocalStorageTemperatureUnits() {
 }
 
 export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
-    console.log(state.value)
     return state.value.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
 }
 

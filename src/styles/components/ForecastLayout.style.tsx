@@ -9,7 +9,7 @@ export const forecastLayoutStyle: tailwindStyleClassType = {
         gap-5
     `,
     header: `
-        text-xl
+        text-2xl
         font-medium
         text-text
     `,
