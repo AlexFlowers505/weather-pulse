@@ -27,6 +27,5 @@ export const getAverageDayNnightTemperature = ( dayWeatherByHour: LocationWeathe
     dayNnightWeatherByHours.averageNight = Math.round(
         nightTemperatures.reduce((a, b) => a + b, 0) / nightTemperatures.length
     )
-
     return dayNnightWeatherByHours
 }

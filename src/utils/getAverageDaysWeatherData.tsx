@@ -39,6 +39,5 @@ export const getAverageDaysWeatherData = (fewDaysWeather: ForecastByDay[], isTod
             })
         }
     })
-    console.log('averageDayWeather', averageDayWeather)
     return averageDayWeather
 }

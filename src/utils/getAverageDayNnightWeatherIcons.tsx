@@ -29,8 +29,8 @@ export const getAverageDayNnightWeatherIcons = (dayWeatherByHours: LocationWeath
         )
 
     let keyDayNnightIcons: KeyDayNnightIcons = {
-        day: mostAppearedDayIcon || keyDayHour?.icon || null,
-        night: mostAppearedNightIcon || keyNightHour?.icon || null,
+        day: mostAppearedDayIcon || keyDayHour?.weatherIcon || null,
+        night: mostAppearedNightIcon || keyNightHour?.weatherIcon || null,
     }
     return keyDayNnightIcons
 }

@@ -1,5 +1,5 @@
 export type LocationWeatherData = {
     temperature: number
-    icon: string
+    weatherIcon: string
     timestamp: number
   }

@@ -1,8 +1,10 @@
-import forecastLayoutTypes from "../../constants/forecastLayoutTypes";
+import FORECAST_ITEMS from "../../constants/forecastItems";
+import FORECAST_LAYOUTS from "../../constants/forecastLayouts";
 
 export const todayForecastConfig = {
     heading: 'Прогноз на сегодня',
-    layout: forecastLayoutTypes.horizontal,
+    layout: FORECAST_LAYOUTS.horizontal,
     extraStyles: '',
-    shownHoursQnt: 6
+    shownHoursQnt: 6,
+    itemsType: FORECAST_ITEMS.hourData
   }

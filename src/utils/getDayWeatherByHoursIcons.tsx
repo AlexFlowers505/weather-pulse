@@ -11,9 +11,9 @@ export const getDayWeatherByHoursIcons = (dayWeatherByHours: LocationWeatherData
     dayWeatherByHours.map( (hour: LocationWeatherData) => {
         const currentHour = new DateFormatter(hour.timestamp).getHours()
         if (NIGHT_HOURS.indexOf(currentHour) === -1) {
-            return weatherIconsByHours.day.push(hour.icon)
+            return weatherIconsByHours.day.push(hour.weatherIcon)
         } else {
-            return weatherIconsByHours.night.push(hour.icon)
+            return weatherIconsByHours.night.push(hour.weatherIcon)
         }
     })
     return weatherIconsByHours

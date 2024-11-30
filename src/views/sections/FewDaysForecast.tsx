@@ -18,13 +18,13 @@ export default function FewDaysForecast({ locationData, extraStyles = '' }: FewD
   }
 
   const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays, false)
-  console.log('averageDaysWeatherData', averageDaysWeatherData)
   return (
     <ForecastLayout
       heading={config.heading}
       layout={config.layout}
       locationData={averageDaysWeatherData}
       extraStyles={extraStyles}
+      itemsType = {config.forecastItems}
     />
   )
 }

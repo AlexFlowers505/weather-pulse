@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchIcon } from "../api/openWeatherMap/fetchIcon"
 
-// type LocationDataType = {
-//     overalls: any
-//     weather: any
-// }
-
-// type UseCurrentWeatherInfoPropsType = {
-//     locationData: LocationDataType,
-// }
-
 export function useCurrentWeatherInfo({ locationData }: any) {
     const [name, setName] = useState('')
     const [temp, setTemp] = useState(0)
