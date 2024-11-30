@@ -10,7 +10,7 @@ export const forecastLayoutStyle: tailwindStyleClassType = {
     `,
     header: `
         text-2xl
-        font-medium
+        font-semibold
         text-text
     `,
 }

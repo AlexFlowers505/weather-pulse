@@ -22,7 +22,14 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         flex-row
         items-center
 
+        h-full
+
         md:flex-col
         md:items-start
     `,
+    separator: `
+        w-full
+        min-h-px
+        bg-borderColor
+    `
 }

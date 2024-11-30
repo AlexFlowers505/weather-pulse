@@ -1,11 +1,12 @@
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
+import { forecastDayItemStyle as extraTw } from '../../styles/components/ForecastDayItem.style'
 import { symbolDegree } from '../../constants/symbols'
 import { useFetchIcon } from '../../hooks/useFetchIcon'
-import { getLayoutStyle } from '../../utils/getLayoutStyle'
 import { ForecastDayItemProps } from '../../types/overalls/forecastDayItemProps.type'
+import { getForecastItemLayoutStyle } from '../../utils/getForecastItemLayoutStyle'
 
 export default function ForecastDayItem({ layout, weatherData }: ForecastDayItemProps): React.JSX.Element | null {
-    const layoutStyles = getLayoutStyle(layout)
+    const layoutStyles = getForecastItemLayoutStyle(layout)
     const { timeOrDay, temperature, icon } = weatherData
 
     const iconDayUrl = useFetchIcon(weatherData, icon.day || '')
@@ -17,10 +18,14 @@ export default function ForecastDayItem({ layout, weatherData }: ForecastDayItem
         return (
             <div className={`forecast-item ${layoutStyles}`}>
                 <span className={`forecast-item-time ${tw.forecastItemTime}`}>{timeOrDay}</span>
-                <img className={`forecast-item-pic ${tw.forecastItemPic}`} src={iconDayUrl} />
-                <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureDay}{symbolDegree}</span>
-                <img className={`forecast-item-pic ${tw.forecastItemPic}`} src={iconNightUrl} />
-                <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureNight}{symbolDegree}</span>
+                <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
+                    <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureDay}{symbolDegree}</span>
+                    <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconDayUrl} />
+                </div>
+                <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
+                    <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureNight}{symbolDegree}</span>
+                    <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconNightUrl} />
+                </div>
             </div>
         )
     } else return null

@@ -11,6 +11,6 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
       md:gap-base
     `,
     FewDaysForecast: `
-      md:min-w-72
+      md:min-w-96
     `,
   }

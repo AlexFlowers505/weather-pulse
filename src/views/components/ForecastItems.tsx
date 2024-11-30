@@ -6,6 +6,7 @@ import { getLayoutStyle } from "../../utils/getLayoutStyle"
 import FORECAST_ITEMS from "../../constants/forecastItems"
 import { DayHourlyWeather } from "../../types/overalls/dayHourlyWeather"
 import ForecastDayItem from "./ForecastDayItem"
+import { forecastItemsStyle as tw } from "../../styles/components/ForecastItems.style"
 
 type forecastItemsPropType = {
   layout: FORECAST_LAYOUTS
@@ -24,7 +25,12 @@ export default function ForecastItems({ layout, locationData, itemsType }: forec
         (locationData &&
           itemsType === FORECAST_ITEMS.dayData &&
           locationData.map((elm: any, i: number) => {
-            return <ForecastDayItem key={i} layout={layout} weatherData={elm} />
+            return (
+              <>
+                {i !== 0 && <span className={`forecast-item-divider ${tw.separator}`}></span> }
+                <ForecastDayItem key={i} layout={layout} weatherData={elm} />
+              </>
+            )
           }))}
     </div>
   )

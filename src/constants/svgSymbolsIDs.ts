@@ -9,6 +9,9 @@ export type svgSymbolsIDsType = {
     iconExpand: string
     iconRestart: string
     iconArrowInCircle: string
+    iconSun: string
+    iconMoon: string
+    iconCalendar: string
 }
 
 const svgSymbolsIDs: svgSymbolsIDsType = {
@@ -22,6 +25,9 @@ const svgSymbolsIDs: svgSymbolsIDsType = {
     iconExpand: 'icon-expand',
     iconRestart: 'icon-restart',
     iconArrowInCircle: 'icon-arrow-in-circle',
+    iconSun: 'icon-sun',
+    iconMoon: 'icon-moon',
+    iconCalendar: 'icon-calendar'
 } as const
 
 export default svgSymbolsIDs
