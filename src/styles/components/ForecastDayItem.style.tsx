@@ -11,7 +11,9 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
     forecastDayItem: `
         flex-row
         gap-3
-        
+        min-w-32
+
+        md:min-w-fit
         md:gap-0
     `,
     forecastItemTemp: `
@@ -31,10 +33,10 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         md:flex-row
     `,
     forecastItemPic: `
-        min-w-124
-        w-124
-        min-h-124
-        h-124
+        min-w-14
+        w-14
+        min-h-14
+        h-14
         block
 
         md:min-w-16
@@ -44,7 +46,7 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
     `,
     innerSeparator: `
         min-w-px
-        min-h-24
+        min-h-16
         bg-borderColor
         flex
         
