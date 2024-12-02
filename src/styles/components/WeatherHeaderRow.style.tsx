@@ -2,12 +2,14 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 export const weatherHeaderRowStyle: tailwindStyleClassType = {
     wrapper: `
-        flex
+        hidden
         flex-row
         justify-between
         items-center
         px-4
         mt-2
+
+        md:flex
     `,
     headerIconWrapper: `
         flex
@@ -17,6 +19,5 @@ export const weatherHeaderRowStyle: tailwindStyleClassType = {
         w-7
         h-7
         text-white
-        cursor-pointer
     `
 }

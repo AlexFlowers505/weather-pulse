@@ -16,15 +16,17 @@ export default function ForecastDayItem({ layout, weatherData }: ForecastDayItem
 
     if (icon && temperature) {
         return (
-            <div className={`forecast-item ${layoutStyles}`}>
+            <div className={`forecast-item ${layoutStyles} ${extraTw.forecastDayItem}`}>
                 <span className={`forecast-item-time ${tw.forecastItemTime}`}>{timeOrDay}</span>
-                <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
-                    <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureDay}{symbolDegree}</span>
-                    <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconDayUrl} />
-                </div>
-                <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
-                    <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureNight}{symbolDegree}</span>
-                    <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconNightUrl} />
+                <div className={`forecast-item-weather-outer-wrapper ${extraTw.forecastItemWeatherOuterWrapper}`}>
+                    <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
+                        <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureDay}{symbolDegree}</span>
+                        <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconDayUrl} />
+                    </div>
+                    <div className={`foreacst-item-weather-wrapper ${extraTw.forecastItemWeatherWrapper}`}>
+                        <span className={`forecast-item-temp ${tw.forecastItemTemp}`}>{temperatureNight}{symbolDegree}</span>
+                        <img className={`forecast-item-pic ${extraTw.forecastItemPic}`} src={iconNightUrl} />
+                    </div>
                 </div>
             </div>
         )

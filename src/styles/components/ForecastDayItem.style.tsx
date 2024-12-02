@@ -1,12 +1,24 @@
 import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 export const forecastDayItemStyle: tailwindStyleClassType = {
-    forecastDayItem: `
+    forecastItemWeatherOuterWrapper: `
         flex
         flex-row
-        justify-between
+        justify-start
         items-center
-        w-full
+
+        md:flex-col
+        `,
+    forecastDayItem: `
+        flex-row
+    `,
+    forecastItemWeatherWrapper: `
+        flex
+        flex-col
+        justify-start
+        items-center
+
+        md:flex-row
     `,
     forecastItemPic: `
         min-w-16
@@ -14,11 +26,5 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         min-h-16
         h-16
         block
-    `,
-    forecastItemWeatherWrapper: `
-        flex
-        flex-row
-        justify-start
-        items-center
     `,
 }
