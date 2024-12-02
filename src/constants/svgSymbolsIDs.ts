@@ -1,20 +1,6 @@
-export type svgSymbolsIDsType = {
-    iconAddToFavourite: string
-    iconFavourite: string
-    iconWeather: string
-    iconLocation: string
-    iconClose: string
-    iconCelsius: string
-    iconFahrenheit: string
-    iconExpand: string
-    iconRestart: string
-    iconArrowInCircle: string
-    iconSun: string
-    iconMoon: string
-    iconCalendar: string
-}
+import { SvgSymbolsIDs } from "../styles/components/svgSymbolsIDs.type"
 
-const svgSymbolsIDs: svgSymbolsIDsType = {
+const svgSymbolsIDs: SvgSymbolsIDs = {
     iconAddToFavourite: 'icon-add-to-favourite',
     iconFavourite: 'icon-favourite',
     iconWeather: 'icon-weather',

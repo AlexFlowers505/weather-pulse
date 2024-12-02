@@ -1,9 +1,10 @@
-import svgSymbolsIDs, {svgSymbolsIDsType} from "../constants/svgSymbolsIDs"
+import svgSymbolsIDs from "../constants/svgSymbolsIDs"
+import { SvgSymbolsIDs } from "../styles/components/svgSymbolsIDs.type"
 
 type navLinkDataType = {
     text: string
     url: string
-    icon: svgSymbolsIDsType[keyof svgSymbolsIDsType]
+    icon: SvgSymbolsIDs[keyof SvgSymbolsIDs]
 }
 type navLinksDataType = navLinkDataType[]
 

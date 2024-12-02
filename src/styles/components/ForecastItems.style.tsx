@@ -7,6 +7,9 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         justify-between
         items-center
         overflow-x-auto
+
+        pb-4
+        md:p-0
     `,
     verticalLayout: `
         flex
@@ -18,7 +21,8 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         flex
         justify-between
         overflow-x-auto
-
+        pb-4
+        
         flex-row
         items-center
 
@@ -26,6 +30,7 @@ export const forecastItemsStyle: tailwindStyleClassType = {
 
         md:flex-col
         md:items-start
+        md:p-0
     `,
     separator: `
         w-full

@@ -33,10 +33,10 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         md:flex-row
     `,
     forecastItemPic: `
-        min-w-14
-        w-14
-        min-h-14
-        h-14
+        min-w-12
+        w-12
+        min-h-12
+        h-12
         block
 
         md:min-w-16
@@ -46,13 +46,12 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
     `,
     innerSeparator: `
         min-w-px
-        min-h-16
+        min-h-24
         bg-borderColor
         flex
         
         md:hidden
     `,
-    headerIcon: ``,
     headerIconWrapper: `
         flex
         flex-row

@@ -11,7 +11,6 @@ export const weatherHeaderRowStyle: tailwindStyleClassType = {
 
         md:flex
     `,
-    headerIcon: ``,
     headerIconWrapper: `
         flex
         flex-row
