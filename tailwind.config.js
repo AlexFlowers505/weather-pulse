@@ -21,6 +21,9 @@ module.exports = {
         borderColor: '#727983',
         favourite: '#FFC700',
       },
+      flexGrow: {
+        2: '2'
+      },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
         arial: ['Arial', 'serif']

@@ -31,5 +31,8 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         w-full
         min-h-px
         bg-borderColor
+        hidden
+        
+        md:flex
     `
 }
