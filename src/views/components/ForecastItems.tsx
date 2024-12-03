@@ -26,10 +26,10 @@ export default function ForecastItems({ layout, locationData, itemsType }: forec
           itemsType === FORECAST_ITEMS.dayData &&
           locationData.map((elm: any, i: number) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 {i !== 0 && <span className={`forecast-item-divider ${tw.separator}`}></span> }
-                <ForecastDayItem key={i} layout={layout} weatherData={elm} />
-              </>
+                <ForecastDayItem layout={layout} weatherData={elm} />
+              </React.Fragment>
             )
           }))}
     </div>

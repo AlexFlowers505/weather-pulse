@@ -49,7 +49,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
   const dispatch = useDispatch<AppDispatch>()
 
   const handleSearchResultClick = () => {
-    dispatch(setCurrentAreaData({ lat, lon, area, region, country }))
+    dispatch(setCurrentAreaData({ id, lat, lon }))
   }
   useEffect( () => {
     const loadIcon = async () => {

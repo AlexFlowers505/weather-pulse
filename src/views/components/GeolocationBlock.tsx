@@ -5,9 +5,7 @@ import btnStyles from '../../styles/components/btn.style'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import { default as states } from '../../constants/locationAccessStates'
 import { default as codes } from '../../constants/locationAccessErrorCodes'
-import InfoMessage from './InfoMessage'
 import { geolocationMessages } from '../../data/infoMessagesData'
-import MessageWrapper from './MessageWrapper'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
 import { geolocationBlockStyle as tw } from '../../styles/components/GeolocationBlock.style'
@@ -15,6 +13,9 @@ import { useNavigate } from 'react-router-dom'
 import LocateMeBtn from './btns/LocateMeBtn'
 import { toggleDialog } from '../../redux/slices/dialogSlice'
 import { switchLocationAccess } from '../../redux/slices/locationAccessSlice'
+import { fetchWeather } from '../../api/openWeatherMap/fetchWeather'
+import { geolocationBlockConfig as config } from '../../config/components/geolocationBlock.config'
+import { removeCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 
 type GeolocationBlockPropsType = {
     portable?: boolean
@@ -23,22 +24,26 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
     const { position, error, getCurrentPosition, loading } = useGeolocation()
-    const [fetchLoading, setFetchLoading] = useState(false)
     const status = useSelector((state: RootState) => state.locationAccess.value as states)
     const messages = geolocationMessages()
     const isDialogOpen = useSelector((state: RootState) => state.dialog.isOpen)
-
+    const units = useSelector((state: RootState) => state.temperatureUnits.__type)
 
     useEffect(() => {
         if (status === states.GRANTED && position) {
             const lat = position.coords.latitude
             const lon = position.coords.longitude
-            setFetchLoading(true)
-            
-            setTimeout(() => {
-                setFetchLoading(false)
-                navigate(`/forecast/${lat}_${lon}`)
-            }, 1000)
+
+            fetchWeather({ lat, lon, isForecast: false, units })
+            .then( res => {
+                if ('id' in res) {
+                    dispatch(switchLocationAccess(states.PROMPT))
+                    dispatch(removeCurrentAreaData())
+                    navigate(`/forecast/${res.id}`)
+                } else {
+                    console.error('Error fetching location data')
+                }
+            })
         }
         console.log(status)
     }, [status, position, navigate])
@@ -52,9 +57,9 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
             case states.PROMPT:
                 setBtnExtraStyle(loading ? tw.locationBtnLoading : '')
                 if (!portable) {
-                    setBtnContent(!loading ? `Определить автоматически` : `Получаем доступ к местоположению...`)
+                    setBtnContent(!loading ? config.btnContent.defaultShortText : config.btnContent.gettingAccess)
                 } else {
-                    setBtnContent(!loading ? `Определить местоположение автоматически` : `Получаем доступ к местоположению...`)
+                    setBtnContent(!loading ? config.btnContent.defaultFullText : config.btnContent.gettingAccess)
                     setIsTooltipOpen(!loading ? false : true)    
                 }
                 break
@@ -62,7 +67,7 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
                 dispatch(toggleDialog({isOpen: true, content: messages.accessDenied}))
                 break
             case states.GRANTED:
-                    setBtnContent(`Загружаем прогноз погоды...`)
+                    setBtnContent(config.btnContent.fetchingData)
                     setBtnExtraStyle(tw.locationBtnLoading)
                 if (portable) {
                     setIsTooltipOpen(true)

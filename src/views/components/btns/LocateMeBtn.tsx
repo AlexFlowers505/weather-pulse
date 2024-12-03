@@ -1,32 +1,18 @@
 import React from 'react'
 import Btn from '../Btn'
-import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
-import { btnContentType } from '../../../constants/btnContentType'
-import { BtnBasedComponentType } from '../../../types/overalls/overalls'
+import { locateMeBtnConfig as config } from '../../../config/locateMeBtn.config'
+import { LocateMeBtnType } from '../../../types/components/locateMeBtn.type'
 
-const locateMeBtnData = {
-  content: svgSymbolsIDs.iconLocation,
-  contentType: btnContentType.icon
-}
-
-const defaultTooltipContent = 'Определить местоположение автоматически'
-const {content, contentType} = locateMeBtnData
-
-type locateMeBtnType = Omit<BtnBasedComponentType, 'onClick'> & {
-  onClick?: () => void
-}
-
-export default function LocateMeBtn({btnSize, btnStyle, onClick, tooltipContent = defaultTooltipContent, isTooltipOpen = undefined}: locateMeBtnType): React.JSX.Element {
+export default function LocateMeBtn({btnSize, btnStyle, onClick, tooltipContent = config.defaultTooltipContent}: LocateMeBtnType): React.JSX.Element {
   return (
     <Btn 
-      content={content} 
-      contentType={contentType} 
+      content={config.content} 
+      contentType={config.contentType} 
       btnSize={btnSize} 
       btnStyle={btnStyle} 
       onClick={onClick}
       hasTooltip={true}
       tooltipContent={tooltipContent}
-      isTooltipOpen={isTooltipOpen}
     />
   )
 }

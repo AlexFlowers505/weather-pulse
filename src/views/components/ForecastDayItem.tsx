@@ -4,8 +4,6 @@ import { symbolDegree } from '../../constants/symbols'
 import { useFetchIcon } from '../../hooks/useFetchIcon'
 import { ForecastDayItemProps } from '../../types/overalls/forecastDayItemProps.type'
 import { getForecastItemLayoutStyle } from '../../utils/getForecastItemLayoutStyle'
-import CustomTooltip from './CustomTooltip'
-import svgSymbolsIDs from '../../constants/svgSymbolsIDs'
 import IconWithTooltip from './IconWithTooltip'
 import { iconWithTooltipConfig as config } from '../../config/components/iconWithTooltip'
 

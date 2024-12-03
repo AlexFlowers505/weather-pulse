@@ -39,10 +39,11 @@ const currentAreaSlice = createSlice({
             state.region = ''
             state.country = ''
             changeLocalStorageCurrentArea(initialState, localStorageCurrentAreaActions.REMOVE)
+            console.log('current area removed')
         }
 	},
 })
 
-export const { setCurrentAreaData } = currentAreaSlice.actions
+export const { setCurrentAreaData, removeCurrentAreaData } = currentAreaSlice.actions
 export default currentAreaSlice.reducer
 

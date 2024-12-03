@@ -4,9 +4,8 @@ import searchResultsStates from "../constants/searchResultsStates"
 import { fetchTextBasedLocationSuggestions } from '../api/dadata/fetchTextBasedLocationSuggestions'
 import { handleMultipleLocationsWeatherRequests } from '../api/openWeatherMap/handleMultipleLocationsWeatherRequests'
 import { MappedSuggestions } from '../types/api/dadata/MappedSuggestions.type'
-import { FetchWeatherCoordsBasedProps } from '../types/api/openWeatherMap/FetchWeather.type'
 import { fetchSuggestionsConfig as config } from '../config/api/dadata/fetchSuggestions.config'
-import { ForecastResponse, OpenWeatherMapResponse, WeatherResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
+import { OpenWeatherMapResponse } from '../types/api/openWeatherMap/OpenWeatherMapResponse.type'
 import { MappedLocationShortData } from '../types/api/openWeatherMap/MappedLocationShortData.type'
 
 const { IDLE, LOADING, ERROR, SUCCESS, NO_RESULTS } = searchResultsStates

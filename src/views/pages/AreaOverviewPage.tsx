@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import LocationCurrentWeather from '../sections/LocationCurrentWeather'
@@ -8,11 +8,14 @@ import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage
 import { useParams } from 'react-router-dom'
 import FewDaysForecast from '../sections/FewDaysForecast'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../redux/store/store'
 import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
+import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
+import { LocationInfo } from '../../types/overalls/locationInfo.type'
+
 
 
 
@@ -20,10 +23,26 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const { id } = useParams<{ id: string }>()
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const idMemo = useMemo(() => id ? id : null, [id])
+  const dispatch = useDispatch<AppDispatch>()
+
+  let wholeLocationData: WholeLocationData | null = null
+
+  useEffect(() => {
+    if (wholeLocationData &&
+        'lat' in wholeLocationData && 
+        'lon' in wholeLocationData && 
+        'area' in wholeLocationData && 
+        'region' in wholeLocationData && 
+        'country' in wholeLocationData
+      ) {
+      dispatch(setCurrentAreaData({lat: wholeLocationData.lat, lon: wholeLocationData.lon, area: wholeLocationData.area, region: wholeLocationData.region, country: wholeLocationData.country}))
+    }
+  }, [wholeLocationData])
+  
 
   let { loading, locationData } = useFetchExplicitLocationWeather(idMemo as string, units)
-  
-  let locationInfo
+  // let locationInfo: LocationInfo
+  let locationInfo: any
   const StoreLocationInfo = useSelector((state: RootState) => state.currentArea)
 
   // define location info
@@ -48,8 +67,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
   if (loading || !locationData || !locationInfo) {
     return <Spinner loading={loading} />
   }
-
-  const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo }
+  wholeLocationData = { ...locationData, ...locationInfo }
 
   if (!id) throw new Error('Missing required parameter "id"')
 
