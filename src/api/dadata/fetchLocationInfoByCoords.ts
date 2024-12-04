@@ -1,13 +1,15 @@
 import { MappedSuggestions } from "../../types/api/dadata/MappedSuggestions.type"
 import { overallsConfig as config } from "../../config/api/dadata/overalls.config"
 import { getFetchByCoordsOptionsConfig } from "./getFetchByCoordsOptionsConfig"
+import { SuggestionsByCoords } from "../../types/api/dadata/SuggestionsByCoords.type"
 
 export async function fetchLocationInfoByCoords(lat: number, lon: number): Promise<MappedSuggestions> {
     const fetchOptions = getFetchByCoordsOptionsConfig(lat, lon)
     
     try {
       const response = await fetch(config.entryURL(config.modifiers.geolocation), fetchOptions)
-      const data = await response.json()
+      const responseJSON: SuggestionsByCoords = (await response.json())
+      const data = responseJSON.suggestions[0].data
   
       const location: MappedSuggestions = {
           country: data.country,
@@ -16,7 +18,7 @@ export async function fetchLocationInfoByCoords(lat: number, lon: number): Promi
           lat: lat,
           lon: lon,
       }
-  
+      
       return location
   
     } catch (error) {

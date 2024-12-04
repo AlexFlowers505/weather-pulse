@@ -1,3 +1,13 @@
+export type SuggestionsByCoords = {
+  suggestions: Suggestion[]
+}
+
+export type Suggestion = {
+  data: SuggestionsData
+  value: string
+  unrestricted_value: string
+}
+
 export type SuggestionsData = {
     country: string
     city: string
@@ -7,4 +17,4 @@ export type SuggestionsData = {
     geo_lon: string
     city_type: string
     settlement_type: string
-  }
+}

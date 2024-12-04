@@ -1,3 +1,4 @@
 import { LocationWeatherData } from "./locationWeatherData.type"
 
-export type WholeLocationData = LocationWeatherData & { forecast: LocationWeatherData[] }   
+export type WholeLocationData = Omit<LocationWeatherData, 'timestamp'> & { forecast: LocationWeatherData[] }
+
