@@ -6,7 +6,7 @@ export type FetchWeatherCoordsBasedProps = {
 }
 
 export type FetchWeatherIdBasedProps = {
-    id: string,
+    id: number,
     isForecast?: boolean,
     units: string
 }

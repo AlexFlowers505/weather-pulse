@@ -14,7 +14,7 @@ module.exports = {
         lineColor: '#19212D',
         primary: '#0095FF',
         text: '#FFFFFF',
-        textInactive: '#637590',
+        textInactive: '#FFFFFF80',
         hoverState: '#243E63',
         activeState: '#0E213C',
         activeStateLight: '#0051C4',

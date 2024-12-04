@@ -35,8 +35,8 @@ export function getLocalStorageTemperatureUnits() {
     }
 }
 
-export const checkIfFavourite = (state: FavouriteLocationsStateType, lat: number, lon: number): boolean => {
-    return state.value.some((elm: FavouriteLocationType) => elm.lat === lat && elm.lon === lon)
+export const checkIfFavourite = (state: FavouriteLocationsStateType, id: number): boolean => {
+    return state.value.some((elm: FavouriteLocationType) => elm.id === id)
 }
 
 // AI TYPES HERE

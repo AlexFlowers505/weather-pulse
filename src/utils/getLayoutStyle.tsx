@@ -6,6 +6,5 @@ export const getLayoutStyle = (layout: FORECAST_LAYOUTS) => {
         layout === FORECAST_LAYOUTS.vertical ? tw.verticalLayout : 
         layout === FORECAST_LAYOUTS.horizontal ? tw.horizontalLayout : 
         layout === FORECAST_LAYOUTS.lgVertical ? tw.lgVerticalLayout : ''
-    console.log('layoutStyles', layout)
     return layoutStyles
 }

@@ -1,11 +1,11 @@
 import { overallsConfig as config } from "../../config/api/openWeatherMap/overalls.config"
 
-export const getFetchWeatherByIdParams = (id: string, units: string) => {
+export const getFetchWeatherByIdParams = (id: number, units: string) => {
     const urlParams = new URLSearchParams({
-        id: id,
+        id: id.toString(),
         appid: config.apiKey!,
         lang: 'ru',
-        units: units.toString(),
+        units: units,
     })
     return urlParams
 }

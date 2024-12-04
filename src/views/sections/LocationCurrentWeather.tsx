@@ -5,31 +5,24 @@ import { symbolDegree } from '../../constants/symbols'
 import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
 import { useEffect, useState } from 'react'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
+import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 
-export default function LocationCurrentWeather({ locationData }: any ): React.JSX.Element {
-  const lat = locationData.lat
-  const lon = locationData.lon
-  const id = locationData.id
-  const area = locationData.area
-  const region = locationData.region
-  const country = locationData.country
-  const temp = locationData.temperature
-  const iconUrl = locationData.weatherIcon
+export default function LocationCurrentWeather({ ...locationData }: WholeLocationData ): React.JSX.Element {
 
-  const isFavourite = useCheckStoreIfFavourite(lat, lon)  
+  const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
 
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        const url = await fetchIcon(iconUrl)
+        const url = await fetchIcon(locationData.weatherIcon)
         setIconLocalUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)
       }
     }
     loadIcon()
-  }, [iconUrl])
+  }, [locationData.weatherIcon])
   
   return (
     <section className={`${tw.wrapper}`}>
@@ -38,17 +31,25 @@ export default function LocationCurrentWeather({ locationData }: any ): React.JS
           btnSize={btnStyles.size.lg} 
           btnStyle={btnStyles.style.contentOnly}
           isFavourite={isFavourite}
-          lat={lat}
-          lon={lon}  
-          id={id}
-          area={area}
-          region={region}
-          country={country}
+          lat={locationData.lat}
+          lon={locationData.lon}  
+          id={locationData.id}
+          area={locationData.area}
+          region={locationData.region}
+          country={locationData.country}
+          extraBtnClass={tw.favouriteBtn}
+          isSpecific={locationData.isSpecificLocation}
         />
-        <h6 className={`${tw.name}`}>{area}</h6>
+        <div className={`heading-wrapper ${tw.headingWrapper}`}>
+          <h6 className={`${tw.name}`}>{locationData.area}</h6>
+          { 
+            locationData.isSpecificLocation && 
+            <span className={`specific-location ${tw.specificLocation}`}>{locationData.specificLocation}</span>
+          }
+        </div>
       </div>
       <div className={`${tw.weatherDataWrapper}`}>
-        <span className={`${tw.degrees}`}>{temp}{symbolDegree}</span>
+        <span className={`${tw.degrees}`}>{locationData.temperature}{symbolDegree}</span>
         <img className={`${tw.pic}`} src={iconLocalUrl} alt="" />
       </div>
       <img className={`${tw.bgPic}`} src={iconLocalUrl} alt="" />

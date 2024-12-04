@@ -27,11 +27,11 @@ export default function AreaShortForecastItem({
   const [name, setName] = useState('')
   const [temp, setTemp] = useState(0)
   const [iconUrl, setIconUrl] = useState('')
-  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, locationData.overalls?.lat, locationData.overalls?.lon))
+  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, locationData.overalls?.id))
   return (
     <div className={`wrapper ${tw.wrapper}`}>
       <div className={`heading-wrapper ${tw.headingWrapper}`}>
-        <FavouriteBtn 
+        {/* <FavouriteBtn 
             btnSize={BtnStyles.size.lg} 
             btnStyle={BtnStyles.style.contentOnly} 
             isFavourite={isFavourite}
@@ -41,7 +41,7 @@ export default function AreaShortForecastItem({
             area={locationData.overalls?.area}
             region={locationData.overalls?.region}
             country={locationData.overalls?.country}
-          />
+          /> */}
         <span className={`name ${tw.name}`}>Москва</span>
       </div>
       <div className={`temp-wrapper ${tw.tempWrapper}`}>

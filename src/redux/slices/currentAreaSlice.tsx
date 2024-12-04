@@ -4,6 +4,7 @@ import { localStorageCurrentAreaActions } from '../../constants/localStorageCurr
 
 interface CurrentArea {
     id: number,
+    isSpecific: boolean,
     lat: number,
     lon: number,
     area: string,
@@ -13,6 +14,7 @@ interface CurrentArea {
 
 export const initialState: CurrentArea = {
     id: NaN,
+    isSpecific: false,
     lat: NaN,
     lon: NaN,
     area: '',
@@ -39,7 +41,6 @@ const currentAreaSlice = createSlice({
             state.region = ''
             state.country = ''
             changeLocalStorageCurrentArea(initialState, localStorageCurrentAreaActions.REMOVE)
-            console.log('current area removed')
         }
 	},
 })

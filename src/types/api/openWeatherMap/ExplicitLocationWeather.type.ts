@@ -1,12 +1,13 @@
 export type ExplicitLocationWeather = {
-    temperature: number,
-    weatherIcon: string,
-    lat: number,
-    lon: number,
+    temperature: number
+    weatherIcon: string
+    lat: number
+    lon: number
     forecast: {
-      timestamp: number,
-      temperature: number,
+      timestamp: number
+      temperature: number
       weatherIcon: string
-    }[],
-    id: string
+    }[]
+    id: number
+    specificLocation: string
   }

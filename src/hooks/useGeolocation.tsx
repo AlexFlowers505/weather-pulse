@@ -33,7 +33,6 @@ export function useGeolocation() {
             navigator.permissions
                 .query({ name: 'geolocation' })
                 .then(result => {
-                    console.log(result)
                     handlePermissionChange(result.state as statusType)
                     result.onchange = () => handlePermissionChange(result.state as statusType)
                 })

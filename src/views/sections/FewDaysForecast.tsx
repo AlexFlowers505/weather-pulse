@@ -5,7 +5,7 @@ import { ForecastByDay, groupForecastByDay } from '../../utils/groupForecastByDa
 import { fewDaysForecastConfig as config } from '../../config/components/fewDaysForecast.config'
 import { FewDaysForecastProps } from '../../types/overalls/fewDaysForecast.type'
 
-export default function FewDaysForecast({ locationData, extraStyles = '' }: FewDaysForecastProps): React.JSX.Element | null {
+export default function FewDaysForecast({ extraStyles = '', ...locationData }: FewDaysForecastProps): React.JSX.Element | null {
   if (!locationData) {
     console.error('fewDaysWeather data is missing or empty')
     return null

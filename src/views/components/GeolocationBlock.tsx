@@ -39,7 +39,7 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
                 if ('id' in res) {
                     dispatch(switchLocationAccess(states.PROMPT))
                     dispatch(removeCurrentAreaData())
-                    navigate(`/forecast/${res.id}`)
+                    navigate(`/forecast?id=${res.id}&spec=1`)
                 } else {
                     console.error('Error fetching location data')
                 }

@@ -6,19 +6,25 @@ import TodayForecast from '../sections/TodayForecast'
 import Spinner from '../components/Spinner'
 import FewDaysForecast from '../sections/FewDaysForecast'
 import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
+import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
+import { LocationInfo } from '../../types/overalls/locationInfo.type'
+
 
 export default function AreaOverviewPage(): React.JSX.Element {
-  const { id } = useParams<{ id: string }>()
+  const [searchParams] = useSearchParams()
+  const id = Number(searchParams.get("id"))
+  const isSpecificLocation = !!Number(searchParams.get("spec"))
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const storedLocation = useSelector((state: RootState) => state.currentArea)
-  const { loading, locationData } = useFetchExplicitLocationWeather(id as string, units)
-  const [locationInfo, setLocationInfo] = useState<any>(null)
+  const { loading, locationData } = useFetchExplicitLocationWeather(id as number, units)
+  const [locationInfo, setLocationInfo] = useState<LocationInfo | null>(null)
+
 
   useEffect(() => {
     const fetchLocationInfo = async () => {
@@ -31,15 +37,13 @@ export default function AreaOverviewPage(): React.JSX.Element {
       //     console.error('Error parsing stored location info:', error)
       //   }
       // } else if (locationData && locationData.lat && locationData.lon) {
-      if (locationData && locationData.lat && locationData.lon) {
+      if (locationData) {
         try {
           const fetchedData = await fetchLocationInfoByCoords(locationData.lat, locationData.lon)
           const info = {
             area: fetchedData.area,
             region: fetchedData.region,
             country: fetchedData.country,
-            lat: locationData.lat,
-            lon: locationData.lon,
           }
           setLocationInfo(info)
         } catch (error) {
@@ -47,26 +51,26 @@ export default function AreaOverviewPage(): React.JSX.Element {
         }
       }
     }
-
+    
     fetchLocationInfo()
   }, [locationData, storedLocation])
-
+  
   if (loading || !locationData || !locationInfo) {
     return <Spinner loading={loading} />
   }
-
-  const wholeLocationData = { ...locationData, ...locationInfo }
-  console.log('whole1', wholeLocationData)
+  
+  const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo, isSpecificLocation: isSpecificLocation }
+  console.log('my info', wholeLocationData)
 
   return (
     <>
       <Navbar />
       <div className={`${tw.sectionsWrapper}`}>
         <ControlPanel />
-        <LocationCurrentWeather locationData={wholeLocationData} />
-        <TodayForecast locationData={wholeLocationData} />
+        <LocationCurrentWeather {...wholeLocationData} />
+        <TodayForecast {...wholeLocationData} />
       </div>
-      <FewDaysForecast locationData={wholeLocationData} extraStyles={tw.FewDaysForecast} />
+      <FewDaysForecast {...wholeLocationData} extraStyles={tw.FewDaysForecast} />
     </>
   )
 }

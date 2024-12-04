@@ -8,6 +8,7 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     flex
     flex-col
     justify-between
+    gap-5
     items-start
     w-full
     h-full
@@ -17,17 +18,32 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     
     md:rounded-base
   `,
+  headingWrapper: `
+    flex
+    flex-col
+    justify-start
+    items-start
+    gap-2
+  `,
   nameBlock: `
     flex
     flex-row
     justify-start
-    items-center
+    items-start
     gap-baseXS
   `,
   name: `
     text-text
     text-5xl
     font-bold
+  `,
+  specificLocation: `
+    text-text
+    text-3xl
+    font-light
+    bgLinearStart
+    text-textInactive
+    pl-1
   `,
   degrees: `
     text-text
@@ -53,5 +69,9 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     -right-32
     -z-10
     opacity-20
-  `
+  `,
+  favouriteBtn: `
+    relative
+    -top-1
+  `,
 }

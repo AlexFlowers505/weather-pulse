@@ -3,7 +3,7 @@ import { overallsConfig as config } from "../../config/api/dadata/overalls.confi
 import { getFetchByCoordsOptionsConfig } from "./getFetchByCoordsOptionsConfig"
 import { SuggestionsByCoords } from "../../types/api/dadata/SuggestionsByCoords.type"
 
-export async function fetchLocationInfoByCoords(lat: number, lon: number): Promise<MappedSuggestions> {
+export async function fetchLocationInfoByCoords(lat: number, lon: number): Promise<Omit<MappedSuggestions, 'lat' | 'lon'>> {
     const fetchOptions = getFetchByCoordsOptionsConfig(lat, lon)
     
     try {
@@ -11,12 +11,10 @@ export async function fetchLocationInfoByCoords(lat: number, lon: number): Promi
       const responseJSON: SuggestionsByCoords = (await response.json())
       const data = responseJSON.suggestions[0].data
   
-      const location: MappedSuggestions = {
+      const location: Omit<MappedSuggestions, 'lat' | 'lon'> = {
           country: data.country,
           area: data.city || data.settlement,
           region: data.region_with_type,
-          lat: lat,
-          lon: lon,
       }
       
       return location
@@ -27,8 +25,6 @@ export async function fetchLocationInfoByCoords(lat: number, lon: number): Promi
         country: '',
         area: '',
         region: '',
-        lat: NaN,
-        lon: NaN,
       }
     }
   }

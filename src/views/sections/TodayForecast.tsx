@@ -6,7 +6,7 @@ import { todayForecastConfig as config } from '../../config/components/todayFore
 import { LocationWeatherData } from '../../types/overalls/locationWeatherData.type'
 import { DayHourlyWeather } from '../../types/overalls/dayHourlyWeather'
 
-export default function TodayForecast({locationData}: {locationData: WholeLocationData | null}): React.JSX.Element {
+export default function TodayForecast({...locationData}: WholeLocationData | null): React.JSX.Element {
   if (locationData === null) {
     throw new Error('locationData is null')
   } else {

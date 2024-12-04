@@ -41,11 +41,12 @@ export default function SearchResult(props: MappedLocationShortData & { request:
     request = '', 
     lon = 0, 
     lat = 0, 
-    id=NaN
+    id = NaN
   } = props
 
   const [iconUrl, setIconUrl] = useState('')
-  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, lat, lon))
+  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, id))
+
   const dispatch = useDispatch<AppDispatch>()
 
   const handleSearchResultClick = () => {
@@ -71,6 +72,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           extraBtnClass={`${tw.favouriteBtn}`}
           extraSVGClass={`${tw.favouriteBtnIcon}`}
           isFavourite={isFavourite}
+          isSpecific={false}
           lat={lat}
           lon={lon}
           id={id}
@@ -78,7 +80,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           region={region}
           country={country}
         />
-        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast/${id}`} onClick={() => handleSearchResultClick()}>
+        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast?id=${id}&spec=0`} onClick={() => handleSearchResultClick()}>
             <div className={`${tw.innerWrapper}`}>
               <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
                 <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(area, request)}</span>

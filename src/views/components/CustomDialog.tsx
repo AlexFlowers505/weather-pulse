@@ -27,7 +27,6 @@ export default function CustomDialog(): React.JSX.Element | null {
 
 
     return (
-        console.log(isOpen),
         isOpen ? (
         <div className={`outer-message-wrapper ${tw.outerWrapper}`} onClick={ (evt: React.MouseEvent) => handleCloseDialog(evt) }>
             <div className={`message-wrapper ${tw.wrapper}`}>
