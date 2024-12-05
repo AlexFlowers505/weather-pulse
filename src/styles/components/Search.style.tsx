@@ -9,7 +9,7 @@ export const searchStyle: tailwindStyleClassType = {
       group/search-block
       `,
     searchBlockNoUnits: `
-      max-w-full
+      !max-w-full
       focus-within/search-block:absolute
     `,
     searchBar: `
