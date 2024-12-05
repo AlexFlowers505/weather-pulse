@@ -45,6 +45,9 @@ module.exports = {
       borderRadius: {
         base: '20px'
       },
+      dropShadow: {
+        'base': 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+      },
       animation: {
         pulseBase: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         zoomIn: 'zoom-in 1s ease-in-out 0.25s forwards',

@@ -9,7 +9,7 @@ export const areaOverviewPageStyle: tailwindStyleClassType = {
     min-w-0
     grow
     
-    md:gap-baseXS
+    gap-baseXS
     xl:gap-base
   `,
   FewDaysForecast: `

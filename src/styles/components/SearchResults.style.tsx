@@ -9,7 +9,7 @@ export const SearchResultsStyle: tailwindStyleClassType = {
         !bg-bgPrimaryTransparent
         backdrop-blur-lg
         p-2
-        drop-shadow-2xl
+        drop-shadow-base
         top-16
         
         md:p-3

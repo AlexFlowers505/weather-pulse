@@ -7,6 +7,8 @@ export const searchStyle: tailwindStyleClassType = {
       h-full
 
       group/search-block
+
+      focus-within/search-block:absolute
     `,
     searchBar: `
       w-full
@@ -16,25 +18,27 @@ export const searchStyle: tailwindStyleClassType = {
       md:pr-24
       rounded-2xl
       text-text
-      bg-bgPrimary
-      hover:bg-hoverState
-      active:bg-activeState
-      border-solid
-      border-2
-      border-transparent
       outline-none
-      focus:border-primary
-      focus:bg-bgPrimary
       transition-colors
       placeholder:text-ellipsis
       ease-in-out
       duration-200
       text-base-mobile
-
+      
       md:text-base
       md:p-baseXS
       md:pr-14
       md:rounded-base
+      
+      bg-bgPrimary
+      hover:bg-hoverState
+      active:bg-activeState
+      
+      border-solid
+      border-2
+      border-transparent
+      focus:border-primary
+      focus:bg-bgPrimary
     `,
     searchBarNoUnitsBtn: `
       w-full

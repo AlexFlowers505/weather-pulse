@@ -37,22 +37,28 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     text-text
     font-bold
     
+    text-3xl
+    sm:text-4xl
     md:text-5xl
     lg:text-4xl
     xl:text-5xl
   `,
   specificLocation: `
     text-text
-    text-3xl
     font-light
     bgLinearStart
     text-textInactive
-    pl-1
+    p-0
+    
+    
+    md:pl-1
+    text-2xl
+    md:text-3xl
   `,
   degrees: `
     text-text
     font-extralight
-
+    text-8xl
     
     md:text-9xl
     lg:text-8xl

@@ -11,7 +11,7 @@ export const controlPanelStyle: tailwindStyleClassType = {
         z-20
         relative
         
-        md:gap-baseXS
+        gap-baseXS
         xl:gap-baseSM
     `
 }

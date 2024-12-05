@@ -7,14 +7,16 @@ export const navbarStyle: tailwindStyleClassType = {
         flex
         flex-row
         items-center
-        justify-center
-        gap-16
         p-3
         rounded-xl
         border-solid
         border-2
         border-transparent  
+        gap-0
+        justify-between
         
+        md:justify-center
+        md:gap-16
         lg:w-fit
         lg:grow-0
         lg:rounded-2xl

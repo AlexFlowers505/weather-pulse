@@ -22,14 +22,13 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       justify-center
       items-stretch
       w-full
-      max-w-lg
       h-fit
       relative
       
       lg:flex-row
       max-w-[100rem]
       
-      md:gap-baseXS
+      gap-baseXS
       xl:gap-base
     `,
   }
