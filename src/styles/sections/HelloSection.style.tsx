@@ -8,7 +8,7 @@ export const helloSectionStyle: tailwindStyleClassType = {
         items-center 
         gap-12
         pb-10
-        
+        w-full
         mt-24
     `,
     logoWrapper: `
@@ -16,52 +16,23 @@ export const helloSectionStyle: tailwindStyleClassType = {
         flex-col 
         justify-start 
         items-center 
-        w-20
-        max-w-full
+        w-fit
         gap-6
-
-        transition-all
-        ease-in-out
-        duration-200
 
         md:gap-12
         md:p-2
         md:w-xl
-
-        hover:saturate-200
-        hover:scale-110
-    `,
-    navbar: `
-        bg-bgPrimary
-        w-full
-        flex
-        flex-row
-        items-center
-        justify-center
-        gap-16
-        p-3
-        rounded-xl
-        border-solid
-        border-2
-        border-transparent  
-        
-        md:w-fit
-        md:grow-0
-        md:rounded-2xl
-        md:flex-col
-        md:justify-start
-        md:gap-12
-        md:pt-6
     `,
     logotype: `
         text-text 
         font-bold 
-        text-[2.3rem]
         text-center 
         w-max
         cursor-default
-
-        sm:text-7xl 
+        text-4xl
+        
+        sm:text-5xl
+        md:text-7xl 
         md:w-max
     `,
     interactionBlock: `
@@ -74,10 +45,8 @@ export const helloSectionStyle: tailwindStyleClassType = {
         items-center
     `,
     logo: `
-        w-72
-        max-w-full
-        
-        sm:w-96
+        max-w-52
+        md:max-w-60
     `,
     search: `
         w-full

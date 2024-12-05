@@ -19,13 +19,14 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       mx-auto
       justify-center
       items-stretch
-      max-w-7xl
       w-full
+      max-w-lg
       h-fit
       gap-baseXS
       relative
-
+      
       md:flex-row
       md:gap-base
+      md:max-w-7xl
     `,
   }

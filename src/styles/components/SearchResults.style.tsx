@@ -17,6 +17,14 @@ export const SearchResultsStyle: tailwindStyleClassType = {
         hidden
 
         group-focus-within/search-block:block
+
+        after:absolute 
+        after:top-full
+        after:left-0
+        after:w-full
+        after:h-3.5
+        after:bg-transparent
+        z-0
     `,
     list: `
         overflow-y-auto
