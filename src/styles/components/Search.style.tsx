@@ -5,9 +5,11 @@ export const searchStyle: tailwindStyleClassType = {
       relative
       w-full
       h-full
-
+      max-w-xl
       group/search-block
-
+      `,
+    searchBlockNoUnits: `
+      max-w-full
       focus-within/search-block:absolute
     `,
     searchBar: `

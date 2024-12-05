@@ -46,7 +46,7 @@ export default function Search({styles='', hasUnitsBtn = true}: searchPropsType)
 
   console.log('request', request)
   return (
-    <div className={`search-block ${tw.searchBlock} ${styles}`}>
+    <div className={`search-block ${tw.searchBlock} ${!hasUnitsBtn && tw.searchBlockNoUnits } ${styles}`}>
       <div className={`input-wrapper ${tw.inputWrapper}`}>
         <input
           className={`search-bar ${hasUnitsBtn ? tw.searchBar : tw.searchBarNoUnitsBtn}`}
