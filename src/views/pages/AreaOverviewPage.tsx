@@ -65,12 +65,12 @@ export default function AreaOverviewPage(): React.JSX.Element {
   return (
     <>
       <Navbar />
-      <div className={`${tw.sectionsWrapper}`}>
+      <div className={`sections-wrapper ${tw.sectionsWrapper}`}>
         <ControlPanel />
         <LocationCurrentWeather {...wholeLocationData} />
         <TodayForecast {...wholeLocationData} />
       </div>
-      <FewDaysForecast {...wholeLocationData} extraStyles={tw.FewDaysForecast} />
+      <FewDaysForecast {...wholeLocationData} extraStyles={`few-days-forecast ${tw.FewDaysForecast}`} />
     </>
   )
 }

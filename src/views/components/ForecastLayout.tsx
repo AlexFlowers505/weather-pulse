@@ -9,9 +9,7 @@ export default function ForecastLayout({heading, layout, extraStyles='', locatio
   return (
     <section className={`forecast container-visuals ${tw.wrapper} ${extraStyles}`}>
         <h6 className={tw.header}>{heading}</h6>
-        { itemsType === FORECAST_ITEMS.dayData && 
-          <WeatherHeaderRow />
-        }
+        { itemsType === FORECAST_ITEMS.dayData && <WeatherHeaderRow /> }
         <ForecastItems layout={layout} locationData={locationData} itemsType={itemsType} />
     </section>
   )

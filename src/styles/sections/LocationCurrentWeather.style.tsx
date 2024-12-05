@@ -4,7 +4,6 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     wrapper: `
     rounded-xl
     bg-bgPrimary
-    p-base
     flex
     flex-col
     justify-between
@@ -15,8 +14,10 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     relative
     overflow-hidden
     z-10
+    p-8
     
     md:rounded-base
+    xl:p-base
   `,
   headingWrapper: `
     flex
@@ -34,8 +35,11 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   name: `
     text-text
-    text-5xl
     font-bold
+    
+    md:text-5xl
+    lg:text-4xl
+    xl:text-5xl
   `,
   specificLocation: `
     text-text
@@ -47,14 +51,18 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   degrees: `
     text-text
-    text-9xl
     font-extralight
+
+    
+    md:text-9xl
+    lg:text-8xl
+    xl:text-9xl
   `,
   weatherDataWrapper: `
     flex
     flex-row
-    justify-start
-    items-start
+    justify-center
+    items-center
     gap-0
   `,
   pic: `
@@ -65,10 +73,19 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   bgPic: `
     absolute
     w-3/4
-    -top-48
-    -right-32
     -z-10
     opacity-20
+    -top-32
+    -right-24
+    
+    md:-top-20
+    md:-right-20
+    md:w-3/5
+    lg:-top-62
+    lg:-right-28
+    xl:-top-40
+    xl:-right-36
+    2xl:w-3/5
   `,
   favouriteBtn: `
     relative

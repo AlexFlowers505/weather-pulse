@@ -19,7 +19,7 @@ export const navbarLinkStyle: tailwindStyleClassType = {
         hover:bg-hoverState
         active:bg-activeState
 
-        md:w-full
+        w-full
     `,
     activeLink: `
         bg-slate-600

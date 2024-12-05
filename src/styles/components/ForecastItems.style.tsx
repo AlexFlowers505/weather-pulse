@@ -9,7 +9,7 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         overflow-x-auto
 
         pb-4
-        md:p-0
+        2xl:p-0
     `,
     verticalLayout: `
         flex
@@ -28,9 +28,9 @@ export const forecastItemsStyle: tailwindStyleClassType = {
 
         h-full
 
-        md:flex-col
-        md:items-start
-        md:p-0
+        lg:flex-col
+        lg:items-start
+        lg:p-0
     `,
     separator: `
         w-full
@@ -38,6 +38,6 @@ export const forecastItemsStyle: tailwindStyleClassType = {
         bg-borderColor
         hidden
         
-        md:flex
+        lg:flex
     `
 }

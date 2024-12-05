@@ -9,7 +9,7 @@ export const weatherHeaderRowStyle: tailwindStyleClassType = {
         px-4
         mt-2
 
-        md:flex
+        lg:flex
     `,
     headerIconWrapper: `
         flex

@@ -4,9 +4,7 @@ export const searchStyle: tailwindStyleClassType = {
     searchBlock: `
       relative
       w-full
-      max-w-2xl
       h-full
-      md:min-w-max
 
       group/search-block
     `,
@@ -63,7 +61,7 @@ export const searchStyle: tailwindStyleClassType = {
       md:text-base
       md:p-baseXS
       md:pr-14
-      md:rounded-base
+      rounded-base
     `,
     inputWrapper: `
       relative

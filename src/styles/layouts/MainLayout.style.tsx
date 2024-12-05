@@ -7,11 +7,13 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       min-h-fit
       h-screen
       font-montserrat
-      p-5
       bg-gradient-to-r 
       from-bgLinearStart 
       to-bgLinearEnd
       overflow-x-hidden
+      p-5
+
+      sm:p-10
     `,
     contentWrapper: `
       flex
@@ -22,11 +24,12 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       w-full
       max-w-lg
       h-fit
-      gap-baseXS
       relative
       
-      md:flex-row
-      md:gap-base
-      md:max-w-7xl
+      lg:flex-row
+      max-w-[100rem]
+      
+      md:gap-baseXS
+      xl:gap-base
     `,
   }

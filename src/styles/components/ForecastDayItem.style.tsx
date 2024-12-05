@@ -13,13 +13,13 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         gap-3
         min-w-32
 
-        md:min-w-fit
-        md:gap-0
+        lg:min-w-fit
+        lg:gap-0
     `,
     forecastItemTemp: `
         order-last
 
-        md:order-none
+        lg:order-none
     `,
     forecastItemTime: `
         grow
@@ -30,7 +30,7 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         justify-start
         items-center
 
-        md:flex-row
+        lg:flex-row
     `,
     forecastItemPic: `
         min-w-12
@@ -39,10 +39,10 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         h-12
         block
 
-        md:min-w-16
-        md:w-16
-        md:min-h-16
-        md:h-16
+        lg:min-w-16
+        lg:w-16
+        lg:min-h-16
+        lg:h-16
     `,
     innerSeparator: `
         min-w-px
@@ -50,7 +50,7 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         bg-borderColor
         flex
         
-        md:hidden
+        lg:hidden
     `,
     headerIconWrapper: `
         flex
@@ -64,6 +64,6 @@ export const forecastDayItemStyle: tailwindStyleClassType = {
         min-h-6
         mb-2
 
-        md:hidden
+        lg:hidden
     `,
 }

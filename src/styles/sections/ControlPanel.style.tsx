@@ -8,10 +8,10 @@ export const controlPanelStyle: tailwindStyleClassType = {
         flex-row
         justify-start
         items-center
-        gap-baseXS
         z-20
         relative
-
-        md:gap-baseSM
+        
+        md:gap-baseXS
+        xl:gap-baseSM
     `
 }
