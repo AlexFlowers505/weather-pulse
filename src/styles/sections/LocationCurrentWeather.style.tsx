@@ -78,20 +78,15 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   bgPic: `
     absolute
-    w-3/4
     -z-10
     opacity-20
-    -top-32
-    -right-24
     
-    md:-top-20
-    md:-right-20
-    md:w-3/5
-    lg:-top-62
-    lg:-right-28
-    xl:-top-40
-    xl:-right-36
-    2xl:w-3/5
+    w-[400px]
+    -right-24
+    -bottom-32
+    
+    md:-bottom-40
+    md:w-[540px]
   `,
   favouriteBtn: `
     relative
