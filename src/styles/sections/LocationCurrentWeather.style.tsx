@@ -14,9 +14,12 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
     relative
     overflow-hidden
     z-10
-    p-8
+    p-5
+    
+    sm:p-8
     
     md:rounded-base
+    
     xl:p-base
   `,
   headingWrapper: `
