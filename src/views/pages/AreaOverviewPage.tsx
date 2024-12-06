@@ -14,6 +14,7 @@ import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 import { LocationInfo } from '../../types/overalls/locationInfo.type'
+import { explicitForecastConfig as config } from '../../config/pages/ExplicitForecast.config'
 
 
 export default function AreaOverviewPage(): React.JSX.Element {
@@ -66,7 +67,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
     <>
       <Navbar />
       <div className={`sections-wrapper ${tw.sectionsWrapper}`}>
-        <ControlPanel />
+        <ControlPanel isSearchFocusOnLoad={config.isSearchFocusOnLoad} />
         <LocationCurrentWeather {...wholeLocationData} />
         <TodayForecast {...wholeLocationData} />
       </div>

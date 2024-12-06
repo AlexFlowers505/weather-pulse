@@ -1,7 +1,7 @@
 import React from 'react'
 import Btn from '../Btn'
-import { locateMeBtnConfig as config } from '../../../config/locateMeBtn.config'
 import { LocateMeBtnType } from '../../../types/components/locateMeBtn.type'
+import { locateMeBtnConfig as config } from '../../../config/components/locateMeBtn.config'
 
 export default function LocateMeBtn({btnSize, btnStyle, onClick, tooltipContent = config.defaultTooltipContent}: LocateMeBtnType): React.JSX.Element {
   return (

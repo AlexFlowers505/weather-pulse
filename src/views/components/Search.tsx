@@ -10,18 +10,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../redux/store/store"
 import { switchLocationAccess } from "../../redux/slices/locationAccessSlice"
 import states from "../../constants/locationAccessStates"
+import { SearchProps } from "../../types/components/search.type"
 
 const searchBarAttrs = {
   placeHolder: 'Начните вводить название населенного пункта',
   dismissBtnTooltipContent: 'Очистить поле поиска',
 }
 
-type searchPropsType = {
-  styles?: string
-  hasUnitsBtn?: boolean
-}
-
-export default function Search({styles='', hasUnitsBtn = true}: searchPropsType): React.JSX.Element {
+export default function Search({styles='', hasUnitsBtn = true, isSearchFocusOnLoad = false}: SearchProps): React.JSX.Element {
   const [request, setRequest] = useState('')
   const [repeatFetch, setRepeatFetch] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -38,10 +34,12 @@ export default function Search({styles='', hasUnitsBtn = true}: searchPropsType)
 
   const dispatch = useDispatch<AppDispatch>()
 
-  useEffect(() => inputRef.current?.focus(), [])
+  useEffect(() => {
+    isSearchFocusOnLoad && inputRef.current?.focus()
+  }, [])
 
   useEffect(() => {
-    inputRef.current?.focus()
+    isSearchFocusOnLoad && inputRef.current?.focus()
   }, [units])
 
   console.log('request', request)
