@@ -2,8 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { navbarLinkStyle as tw } from '../../styles/components/NavbarLink.style'
 
-
-type navbarLinkPropsType = {
+type NavbarLinkPropsType = {
     link: {
         url: string
         text: string
@@ -11,18 +10,14 @@ type navbarLinkPropsType = {
     }
 }
 
-export default function NavbarLink({link}: navbarLinkPropsType): React.JSX.Element {
-    const { url, text, icon } = link
+export default function NavbarLink({ link }: NavbarLinkPropsType): React.JSX.Element {
 
-    type getFinalLinkTWstylePropsType = {
-        isActive: boolean
-    }
-    const getFinalLinkTWstyle = ({isActive}: getFinalLinkTWstylePropsType): string => isActive ? `${tw.link} ${tw.activeLink}` : tw.link
-    
+    const getLinkStyle = ({ isActive }: { isActive: boolean }): string => isActive ? `${tw.link} ${tw.activeLink}` : tw.link
+
     return (
-        <NavLink className={getFinalLinkTWstyle} to={url}>
-            <svg className={tw.icon}><use href={`#${icon}`}/></svg>
-            <span>{text}</span>
+        <NavLink className={getLinkStyle} to={link.url}>
+            <svg className={tw.icon}><use href={`#${link.icon}`} /></svg>
+            <span>{link.text}</span>
         </NavLink>
     )
 }
