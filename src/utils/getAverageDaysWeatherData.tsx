@@ -6,13 +6,16 @@ import { getAverageDayNnightWeatherIcons } from "./getAverageDayNnightWeatherIco
 import { DateFormatter } from "./getDateTime"
 import { ForecastByDay } from "./groupForecastByDay"
 
-export const getAverageDaysWeatherData = (fewDaysWeather: ForecastByDay[], isTodayIncluded: boolean = true) => {
+export const getAverageDaysWeatherData = (fewDaysWeather: ForecastByDay[], isTodayIncluded: boolean = true, daysQnt: number = 5) => {
     if (!fewDaysWeather || !Array.isArray(fewDaysWeather)) {
         console.error('Invalid input: fewDaysWeather must be a non-empty array')
         return []
     }
     const averageDayWeather: AverageDayNnightWeather[] = []
     fewDaysWeather.forEach((dayWeatherByHours: ForecastByDay) => {
+        if ( averageDayWeather.length === daysQnt ) {
+            return averageDayWeather
+        }
         if (!dayWeatherByHours || !Array.isArray(dayWeatherByHours.forecast) || dayWeatherByHours.forecast.length === 0) {
             console.warn('Invalid dayWeatherByHours data, skipping...')
             return

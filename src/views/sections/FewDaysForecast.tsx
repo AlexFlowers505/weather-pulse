@@ -17,7 +17,7 @@ export default function FewDaysForecast({ extraStyles = '', ...locationData }: F
     return null
   }
 
-  const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays, false)
+  const averageDaysWeatherData = getAverageDaysWeatherData(detailedWeatherByDays, config.isTodayIncluded, config.daysQnt)
   return (
     <ForecastLayout
       heading={config.heading}

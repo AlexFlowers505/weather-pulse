@@ -7,7 +7,7 @@ export const weatherHeaderRowStyle: tailwindStyleClassType = {
         justify-between
         items-center
         px-4
-        mt-2
+        my-4
 
         lg:flex
     `,
