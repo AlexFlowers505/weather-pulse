@@ -8,13 +8,14 @@ import FewDaysForecast from '../sections/FewDaysForecast'
 import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../redux/store/store'
 import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 import { LocationInfo } from '../../types/overalls/locationInfo.type'
 import { explicitForecastConfig as config } from '../../config/pages/ExplicitForecast.config'
+import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 
 
 export default function AreaOverviewPage(): React.JSX.Element {
@@ -25,7 +26,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
   const storedLocation = useSelector((state: RootState) => state.currentArea)
   const { loading, locationData } = useFetchExplicitLocationWeather(id as number, units)
   const [locationInfo, setLocationInfo] = useState<LocationInfo | null>(null)
-
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     const fetchLocationInfo = async () => {
@@ -55,6 +56,10 @@ export default function AreaOverviewPage(): React.JSX.Element {
     
     fetchLocationInfo()
   }, [locationData, storedLocation])
+
+  useEffect(() => {
+    dispatch(setCurrentAreaData({ id: id, isSpecific: isSpecificLocation }))
+  }, [])
   
   if (loading || !locationData || !locationInfo) {
     return <Spinner loading={loading} />

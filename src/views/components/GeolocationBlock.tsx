@@ -15,7 +15,7 @@ import { toggleDialog } from '../../redux/slices/dialogSlice'
 import { switchLocationAccess } from '../../redux/slices/locationAccessSlice'
 import { fetchWeather } from '../../api/openWeatherMap/fetchWeather'
 import { geolocationBlockConfig as config } from '../../config/components/geolocationBlock.config'
-import { removeCurrentAreaData } from '../../redux/slices/currentAreaSlice'
+import { removeCurrentAreaData, setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 
 type GeolocationBlockPropsType = {
     portable?: boolean
@@ -38,7 +38,7 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
             .then( res => {
                 if ('id' in res) {
                     dispatch(switchLocationAccess(states.PROMPT))
-                    dispatch(removeCurrentAreaData())
+                    dispatch(setCurrentAreaData({ id: res.id, isSpecific: true }))
                     navigate(`/forecast?id=${res.id}&spec=1`)
                 } else {
                     console.error('Error fetching location data')

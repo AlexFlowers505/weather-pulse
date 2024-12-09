@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 import FavouriteBtn from './btns/FavouriteBtn'
 import btnStyles from '../../styles/components/btn.style'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { symbolArrow, symbolDegree } from '../../constants/symbols'
 import { checkIfFavourite } from '../../utils/utils'
 import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { MappedLocationShortData } from '../../types/api/openWeatherMap/MappedLocationShortData.type'
 import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
-
-function handleHighlightMatchText(textWithMatch: string = '', request: string): string | React.JSX.Element {
-  if (request.length) {
-    const regex = new RegExp(`(${request})`, 'gi')
-    const parts = textWithMatch.split(regex)
-
-    return (
-      <>
-        {parts.map((part: string, i: number): React.JSX.Element | string => {
-          if (part.toLowerCase() === request.toLowerCase()) {
-            return <span key={i} className={`location-name ${tw.name} ${tw.nameMatch}`}>{part}</span>
-          }
-          return part
-        })}
-      </>
-    )
-  }
-  return textWithMatch
-}
+import { getHighlightSearchMatchText } from '../../utils/getHighlightSearchMatchText'
 
 export default function SearchResult(props: MappedLocationShortData & { request: string }): React.JSX.Element {
   const { 
@@ -49,9 +31,13 @@ export default function SearchResult(props: MappedLocationShortData & { request:
 
   const dispatch = useDispatch<AppDispatch>()
 
-  const handleSearchResultClick = () => {
+  const navigate = useNavigate()
+
+  const handleSearchResultClick = useCallback(() => {
     dispatch(setCurrentAreaData({ id, isSpecific: false }))
-  }
+    navigate(`/forecast?id=${id}&spec=0`)
+  }, [dispatch, id, navigate])
+
   useEffect( () => {
     const loadIcon = async () => {
       try {
@@ -64,6 +50,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
 
     loadIcon()
   }, [weatherIcon])
+
   return (
     <li className={`${tw.externalWrapper}`}>
         <FavouriteBtn 
@@ -80,10 +67,10 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           region={region}
           country={country}
         />
-        <Link className={`${tw.wrapper}`} tabIndex={0} to={`/forecast?id=${id}&spec=0`} onClick={() => handleSearchResultClick()}>
+        <button className={`${tw.wrapper}`} tabIndex={0} type='button' onClick={handleSearchResultClick}>
             <div className={`${tw.innerWrapper}`}>
               <div className={`location-name-wrapper ${tw.locationNameWrapper}`}>
-                <span className={`location-name ${tw.name}`}>{handleHighlightMatchText(area, request)}</span>
+                <span className={`location-name ${tw.name}`}>{getHighlightSearchMatchText(area, request)}</span>
               </div>
               <div className={`location-forecast ${tw.forecastWrapper}`}>
                   <span className={`location-temp ${tw.temp}`}>{temperature}{symbolDegree}</span>
@@ -91,7 +78,8 @@ export default function SearchResult(props: MappedLocationShortData & { request:
               </div>
             </div>
             <span className={`location-info ${tw.locationInfo}`}>{!!region.length && `${region} ${symbolArrow} `}{country}</span>
-        </Link>
+        </button>
     </li>
   )
 }
+
