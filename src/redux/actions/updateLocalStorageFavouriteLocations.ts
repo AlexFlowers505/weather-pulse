@@ -1,8 +1,8 @@
 import { localStorageFavouritesActions } from "../../constants/localStorageFavouritesActions"
 import { localStorageKeys } from "../../constants/localStorageItems"
-import { FavouriteLocationType } from "../slices/favouriteLocationsSlice"
+import { FavouriteLocation } from "../../types/components/favouriteLocations.type"
 
-export function updateLocalStorageFavouriteLocations(location: FavouriteLocationType, action: localStorageFavouritesActions = localStorageFavouritesActions.ADD) {
+export function updateLocalStorageFavouriteLocations(location: FavouriteLocation, action: localStorageFavouritesActions = localStorageFavouritesActions.ADD) {
     const storageKey = localStorageKeys.favourites
     let locations = JSON.parse(localStorage.getItem(storageKey) as string)
 
@@ -11,7 +11,7 @@ export function updateLocalStorageFavouriteLocations(location: FavouriteLocation
         locations.push(location)
         localStorage.setItem(storageKey, JSON.stringify(locations))
     } else if (action === localStorageFavouritesActions.REMOVE) {
-        const index = locations.findIndex((elm: FavouriteLocationType) => elm.id === location.id)
+        const index = locations.findIndex((elm: FavouriteLocation) => elm.id === location.id)
         if (index !== -1) {
             locations.splice(index, 1)
             localStorage.setItem(storageKey, JSON.stringify(locations))

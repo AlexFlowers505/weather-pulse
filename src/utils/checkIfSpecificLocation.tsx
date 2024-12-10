@@ -1,5 +1,6 @@
-import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
+import { FavouriteLocation } from "../types/components/favouriteLocations.type"
+import { FavouriteLocationsState } from "../types/components/favouriteLocationsState.type"
 
-export const checkIfspecificLocation = (state: FavouriteLocationsStateType, id: number): boolean => {
-    return state.value.find((elm: FavouriteLocationType) => elm.id === id)?.isSpecific as boolean
+export const checkIfspecificLocation = (state: FavouriteLocationsState, id: number): boolean => {
+    return state.value.find((elm: FavouriteLocation) => elm.id === id)?.isSpecific as boolean
 }

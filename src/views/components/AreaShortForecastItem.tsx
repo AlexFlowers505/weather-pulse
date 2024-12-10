@@ -6,7 +6,7 @@ import BtnStyles from '../../styles/components/btn.style'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import { checkIfFavourite } from '../../utils/utils'
-import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
+import { FavouriteLocationsState } from '../../types/components/favouriteLocationsState.type'
 
 type areaShortForecastItemPropsType = {
   city?: string
@@ -27,7 +27,7 @@ export default function AreaShortForecastItem({
   const [name, setName] = useState('')
   const [temp, setTemp] = useState(0)
   const [iconUrl, setIconUrl] = useState('')
-  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, locationData.overalls?.id))
+  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsState, locationData.overalls?.id))
   return (
     <div className={`wrapper ${tw.wrapper}`}>
       <div className={`heading-wrapper ${tw.headingWrapper}`}>

@@ -7,11 +7,11 @@ import { AppDispatch, RootState } from '../../redux/store/store'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { symbolArrow, symbolDegree } from '../../constants/symbols'
 import { checkIfFavourite } from '../../utils/utils'
-import { FavouriteLocationsStateType } from '../../redux/slices/favouriteLocationsSlice'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { MappedLocationShortData } from '../../types/api/openWeatherMap/MappedLocationShortData.type'
 import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 import { getHighlightSearchMatchText } from '../../utils/getHighlightSearchMatchText'
+import { FavouriteLocationsState } from '../../types/components/favouriteLocationsState.type'
 
 export default function SearchResult(props: MappedLocationShortData & { request: string }): React.JSX.Element {
   const { 
@@ -27,7 +27,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
   } = props
 
   const [iconUrl, setIconUrl] = useState('')
-  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsStateType, id))
+  const isFavourite = useSelector((state: RootState) => checkIfFavourite(state.favouriteLocations as FavouriteLocationsState, id))
 
   const dispatch = useDispatch<AppDispatch>()
 

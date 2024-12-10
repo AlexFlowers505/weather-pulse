@@ -1,11 +1,12 @@
 import { localStorageKeys } from "../constants/localStorageItems"
 import searchResultsStates from "../constants/searchResultsStates"
 import { temperatureUnits } from "../constants/temperatureUnits"
-import { FavouriteLocationsStateType, FavouriteLocationType } from "../redux/slices/favouriteLocationsSlice"
 import { setStateType } from "../types/overalls/overalls"
 import { AppDispatch } from "../redux/store/store"
 import { switchLocationAccess } from "../redux/slices/locationAccessSlice"
 import locationAccessStates from "../constants/locationAccessStates"
+import { FavouriteLocation } from "../types/components/favouriteLocations.type"
+import { FavouriteLocationsState } from "../types/components/favouriteLocationsState.type"
 const { IDLE } = searchResultsStates
 
 
@@ -35,8 +36,8 @@ export function getLocalStorageTemperatureUnits() {
     }
 }
 
-export const checkIfFavourite = (state: FavouriteLocationsStateType, id: number): boolean => {
-    return state.value.some((elm: FavouriteLocationType) => elm.id === id)
+export const checkIfFavourite = (state: FavouriteLocationsState, id: number): boolean => {
+    return state.value.some((elm: FavouriteLocation) => elm.id === id)
 }
 
 // AI TYPES HERE
