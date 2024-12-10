@@ -1,4 +1,3 @@
-import React from "react"
 import MainLayout from "./views/layouts/MainLayout"
 import AreaOverviewPage from "./views/pages/AreaOverviewPage"
 import FavouriteAreasOverviewPage from "./views/pages/FavouriteAreasOverviewPage"

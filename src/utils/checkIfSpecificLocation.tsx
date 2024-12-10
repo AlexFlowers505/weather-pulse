@@ -1,4 +1,4 @@
-import { FavouriteLocation } from "../types/components/favouriteLocations.type"
+import { FavouriteLocation } from "../types/components/favouriteLocation.type"
 import { FavouriteLocationsState } from "../types/components/favouriteLocationsState.type"
 
 export const checkIfspecificLocation = (state: FavouriteLocationsState, id: number): boolean => {

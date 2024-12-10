@@ -5,8 +5,8 @@ import { setStateType } from "../types/overalls/overalls"
 import { AppDispatch } from "../redux/store/store"
 import { switchLocationAccess } from "../redux/slices/locationAccessSlice"
 import locationAccessStates from "../constants/locationAccessStates"
-import { FavouriteLocation } from "../types/components/favouriteLocations.type"
 import { FavouriteLocationsState } from "../types/components/favouriteLocationsState.type"
+import { FavouriteLocation } from "../types/components/favouriteLocation.type"
 const { IDLE } = searchResultsStates
 
 

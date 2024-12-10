@@ -1,13 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { changeLocalStorageCurrentArea } from '../actions/changeLocalStorageCurrentArea'
 import { localStorageCurrentAreaActions } from '../../constants/localStorageCurrentAreaActions'
-import { getLocalStorageCurrentArea } from '../actions/getLocalStorageCurrentArea'
 import { CurrentArea } from '../../types/utils/currentArea.type'
+import { getInitialCurrentArea } from '../actions/getInitialCurrentArea'
 
-export const initialState: CurrentArea = {
-    id: NaN,
-    isSpecific: false,
-}
+const initialState: CurrentArea = getInitialCurrentArea()
+
 
 const currentAreaSlice = createSlice({
 	name: 'currentArea',
@@ -18,11 +16,6 @@ const currentAreaSlice = createSlice({
             state.isSpecific = action.payload.isSpecific
             changeLocalStorageCurrentArea(action.payload, localStorageCurrentAreaActions.UPDATE)
         },
-        setCurrentAreaDataFromStorage: (state) => {
-            const localStorageCurrentArea = getLocalStorageCurrentArea()
-            state.id = localStorageCurrentArea.id
-            state.isSpecific = localStorageCurrentArea.isSpecific
-        },
         removeCurrentAreaData: (state) => {
             state.id = NaN
             state.isSpecific = false
@@ -31,6 +24,6 @@ const currentAreaSlice = createSlice({
 	},
 })
 
-export const { setCurrentAreaData, removeCurrentAreaData, setCurrentAreaDataFromStorage } = currentAreaSlice.actions
+export const { setCurrentAreaData, removeCurrentAreaData } = currentAreaSlice.actions
 export default currentAreaSlice.reducer
 

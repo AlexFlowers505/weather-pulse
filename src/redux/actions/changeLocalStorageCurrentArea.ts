@@ -1,6 +1,6 @@
 import { localStorageCurrentAreaActions } from "../../constants/localStorageCurrentAreaActions"
 import { localStorageKeys } from "../../constants/localStorageItems"
-import { FavouriteLocation } from "../../types/components/favouriteLocations.type"
+import { FavouriteLocation } from "../../types/components/favouriteLocation.type"
 
 export function changeLocalStorageCurrentArea(location: FavouriteLocation, action: localStorageCurrentAreaActions = localStorageCurrentAreaActions.UPDATE) {
     const storageKey = localStorageKeys.currentArea

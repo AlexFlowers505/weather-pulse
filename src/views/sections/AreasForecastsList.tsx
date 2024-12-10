@@ -4,7 +4,7 @@ import { areasForecastsListStyle as tw } from '../../styles/sections/AreasForeca
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import LocationCurrentWeather from './LocationCurrentWeather'
-import { FavouriteLocation } from '../../types/components/favouriteLocations.type'
+import { FavouriteLocation } from '../../types/components/favouriteLocation.type'
 
 export default function AreasForecastsList(): React.JSX.Element {
 
@@ -14,11 +14,11 @@ export default function AreasForecastsList(): React.JSX.Element {
   return (
     <section className={`container-visuals ${tw.base}`}>
       <div className={`favourites-inner-wrapper ${tw.innerWrapper}`}>
-        {favouriteLocations.length > 0 ?
+        {/* {favouriteLocations.length > 0 ?
           favouriteLocations.map(location => {
             return <LocationCurrentWeather {...location} />
           })
-        : <div></div> }
+        : <div></div> } */}
       </div>
     </section>
   )

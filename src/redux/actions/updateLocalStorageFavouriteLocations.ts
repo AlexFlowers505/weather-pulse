@@ -1,6 +1,6 @@
 import { localStorageFavouritesActions } from "../../constants/localStorageFavouritesActions"
 import { localStorageKeys } from "../../constants/localStorageItems"
-import { FavouriteLocation } from "../../types/components/favouriteLocations.type"
+import { FavouriteLocation } from "../../types/components/favouriteLocation.type"
 
 export function updateLocalStorageFavouriteLocations(location: FavouriteLocation, action: localStorageFavouritesActions = localStorageFavouritesActions.ADD) {
     const storageKey = localStorageKeys.favourites
