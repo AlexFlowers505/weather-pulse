@@ -2,7 +2,7 @@ import React from 'react'
 import Btn from '../Btn'
 import { btnContentType } from '../../../constants/btnContentType'
 import svgSymbolsIDs from '../../../constants/svgSymbolsIDs'
-import { BtnBasedComponentType, setStateType } from '../../../types/overalls/overalls'
+import { BtnBasedComponentType } from '../../../types/overalls/overalls'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../redux/store/store'
 import { addLocation, removeLocation } from '../../../redux/slices/favouriteLocationsSlice'
@@ -35,16 +35,16 @@ type FavouriteBtnType = BtnBasedComponentType & {
   isSpecific: boolean
 }
 
-export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, id, isSpecific}: FavouriteBtnType): React.JSX.Element {
+export default function FavouriteBtn({ btnSize, btnStyle, extraBtnClass, extraSVGClass, isFavourite, id, isSpecific, area }: FavouriteBtnType): React.JSX.Element {
   const tooltipContent = isFavourite ? tooltipTexts.removeFromFavourite : tooltipTexts.addToFavourite
   const icon = isFavourite ? content.favourite : content.notFavourite
   const dispatch = useDispatch<AppDispatch>()
 
 const handleFavouriteClick = () => {
   if (isFavourite) {
-      dispatch(removeLocation({ id, isSpecific }))
+      dispatch(removeLocation({ id, isSpecific, area }))
     } else {
-        dispatch(addLocation({ id, isSpecific }))
+        dispatch(addLocation({ id, isSpecific, area }))
     }
 }
 

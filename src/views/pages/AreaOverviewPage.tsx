@@ -6,11 +6,10 @@ import TodayForecast from '../sections/TodayForecast'
 import Spinner from '../components/Spinner'
 import FewDaysForecast from '../sections/FewDaysForecast'
 import { areaOverviewPageStyle as tw } from '../../styles/pages/AreaOverviewPage.style'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
-import { localStorageKeys } from '../../constants/localStorageItems'
 import { fetchLocationInfoByCoords } from '../../api/dadata/fetchLocationInfoByCoords'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 import { LocationInfo } from '../../types/overalls/locationInfo.type'
@@ -30,15 +29,6 @@ export default function AreaOverviewPage(): React.JSX.Element {
 
   useEffect(() => {
     const fetchLocationInfo = async () => {
-      // if (storedLocation && !isNaN(storedLocation?.id)) {
-      //   setLocationInfo(storedLocation)
-      // } else if (localStorage.getItem(localStorageKeys.currentArea)) {
-      //   try {
-      //     setLocationInfo(JSON.parse(localStorage.getItem(localStorageKeys.currentArea) as string))
-      //   } catch (error) {
-      //     console.error('Error parsing stored location info:', error)
-      //   }
-      // } else if (locationData && locationData.lat && locationData.lon) {
       if (locationData) {
         try {
           const fetchedData = await fetchLocationInfoByCoords(locationData.lat, locationData.lon)
