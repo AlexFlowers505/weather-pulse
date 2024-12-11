@@ -8,12 +8,14 @@ import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 import { tailwindStyleClassType } from '../../types/overalls/overalls'
 
-export default function LocationCurrentWeather({ ...locationData}: Omit<WholeLocationData, 'forecast'>, outerStyles: tailwindStyleClassType = {}): React.JSX.Element {
+export type LocationCurrentWeatherProps = Omit<WholeLocationData, 'forecast'> & {outerStyles?: tailwindStyleClassType}
+
+export default function LocationCurrentWeather({ outerStyles = {}, ...locationData }: LocationCurrentWeatherProps): React.JSX.Element {
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
   let styles = tw
-  if (!!outerStyles.length) styles = outerStyles
+  if (Object.keys(outerStyles).length) styles = outerStyles
 
   useEffect( () => {
     const loadIcon = async () => {

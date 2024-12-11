@@ -7,6 +7,7 @@ import { FavouriteLocation } from '../../types/components/favouriteLocation.type
 import { fetchWeather } from '../../api/openWeatherMap/fetchWeather'
 import { WeatherResponse } from '../../types/api/openWeatherMap/OpenWeatherMapResponse.type'
 import { MappedFavouriteLocation } from '../../types/components/mappedFavouriteLocation.type'
+import { locationFavouriteCurrentWeatherStyle as currentWeatherStyle } from '../../styles/sections/LocationFavouriteCurrentWeather.style'
 
 export default function AreasForecastsList(): React.JSX.Element {
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
@@ -45,7 +46,7 @@ export default function AreasForecastsList(): React.JSX.Element {
       <div className={`favourites-inner-wrapper ${tw.innerWrapper}`}>
         {favouriteLocationsMapped.length > 0 ?
           favouriteLocationsMapped.map( (location: MappedFavouriteLocation, i: number) => {
-            return <LocationCurrentWeather {...location} key={i} outerStyles={ currentWeatherStyles } />
+            return <LocationCurrentWeather {...location} key={i} outerStyles={ currentWeatherStyle } />
           })
         : <div></div> }
       </div>
