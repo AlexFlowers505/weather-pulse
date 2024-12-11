@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 
-export default function LocationCurrentWeather({ ...locationData }: WholeLocationData ): React.JSX.Element {
+export default function LocationCurrentWeather({ ...locationData }: Omit<WholeLocationData, 'forecast'> ): React.JSX.Element {
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
@@ -31,19 +31,18 @@ export default function LocationCurrentWeather({ ...locationData }: WholeLocatio
           btnSize={btnStyles.size.lg} 
           btnStyle={btnStyles.style.contentOnly}
           isFavourite={isFavourite}
-          lat={locationData.lat}
-          lon={locationData.lon}  
           id={locationData.id}
+          isSpecific={locationData.isSpecific}
+          specificLocation={locationData.specificLocation}
           area={locationData.area}
           region={locationData.region}
           country={locationData.country}
           extraBtnClass={tw.favouriteBtn}
-          isSpecific={locationData.isSpecificLocation}
         />
         <div className={`heading-wrapper ${tw.headingWrapper}`}>
           <h6 className={`${tw.name}`}>{locationData.area}</h6>
           { 
-            locationData.isSpecificLocation && 
+            locationData.isSpecific && 
             <span className={`specific-location ${tw.specificLocation}`}>{locationData.specificLocation}</span>
           }
         </div>

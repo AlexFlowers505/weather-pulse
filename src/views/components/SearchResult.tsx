@@ -60,8 +60,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           extraSVGClass={`${tw.favouriteBtnIcon}`}
           isFavourite={isFavourite}
           isSpecific={false}
-          lat={lat}
-          lon={lon}
+          specificLocation=''
           id={id}
           area={area}
           region={region}

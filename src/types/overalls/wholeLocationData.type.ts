@@ -6,5 +6,5 @@ export type WholeLocationData =
     Omit<LocationWeatherData, 'timestamp'> &
     ExplicitLocationWeather & 
     LocationInfo &
-    { isSpecificLocation: boolean } 
+    { isSpecific: boolean } 
 

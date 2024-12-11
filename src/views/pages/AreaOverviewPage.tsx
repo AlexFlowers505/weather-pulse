@@ -20,7 +20,7 @@ import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 export default function AreaOverviewPage(): React.JSX.Element {
   const [searchParams] = useSearchParams()
   const id = Number(searchParams.get("id"))
-  const isSpecificLocation = !!Number(searchParams.get("spec"))
+  const isSpecific = !!Number(searchParams.get("spec"))
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const storedLocation = useSelector((state: RootState) => state.currentArea)
   const { loading, locationData } = useFetchExplicitLocationWeather(id as number, units)
@@ -48,14 +48,14 @@ export default function AreaOverviewPage(): React.JSX.Element {
   }, [locationData, storedLocation])
 
   useEffect(() => {
-    dispatch(setCurrentAreaData({ id: id, isSpecific: isSpecificLocation }))
+    dispatch(setCurrentAreaData({ id: id, isSpecific: isSpecific }))
   }, [])
   
   if (loading || !locationData || !locationInfo) {
     return <Spinner loading={loading} />
   }
   
-  const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo, isSpecificLocation: isSpecificLocation }
+  const wholeLocationData: WholeLocationData = { ...locationData, ...locationInfo, isSpecific }
   console.log('my info', wholeLocationData)
 
   return (
