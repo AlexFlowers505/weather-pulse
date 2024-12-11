@@ -6,11 +6,14 @@ import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
 import { useEffect, useState } from 'react'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
+import { tailwindStyleClassType } from '../../types/overalls/overalls'
 
-export default function LocationCurrentWeather({ ...locationData }: Omit<WholeLocationData, 'forecast'> ): React.JSX.Element {
+export default function LocationCurrentWeather({ ...locationData}: Omit<WholeLocationData, 'forecast'>, outerStyles: tailwindStyleClassType = {}): React.JSX.Element {
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
+  let styles = tw
+  if (!!outerStyles.length) styles = outerStyles
 
   useEffect( () => {
     const loadIcon = async () => {
@@ -25,8 +28,8 @@ export default function LocationCurrentWeather({ ...locationData }: Omit<WholeLo
   }, [locationData.weatherIcon])
   
   return (
-    <section className={`${tw.wrapper}`}>
-      <div className={`${tw.nameBlock}`}>
+    <section className={`${styles.wrapper}`}>
+      <div className={`${styles.nameBlock}`}>
         <FavouriteBtn 
           btnSize={btnStyles.size.lg} 
           btnStyle={btnStyles.style.contentOnly}
@@ -39,21 +42,21 @@ export default function LocationCurrentWeather({ ...locationData }: Omit<WholeLo
           area={locationData.area}
           region={locationData.region}
           country={locationData.country}
-          extraBtnClass={tw.favouriteBtn}
+          extraBtnClass={styles.favouriteBtn}
         />
-        <div className={`heading-wrapper ${tw.headingWrapper}`}>
-          <h6 className={`${tw.name}`}>{locationData.area}</h6>
+        <div className={`heading-wrapper ${styles.headingWrapper}`}>
+          <h6 className={`${styles.name}`}>{locationData.area}</h6>
           { 
             locationData.isSpecific && 
-            <span className={`specific-location ${tw.specificLocation}`}>{locationData.specificLocation}</span>
+            <span className={`specific-location ${styles.specificLocation}`}>{locationData.specificLocation}</span>
           }
         </div>
       </div>
-      <div className={`${tw.weatherDataWrapper}`}>
-        <span className={`${tw.degrees}`}>{locationData.temperature}{symbolDegree}</span>
-        <img className={`${tw.pic}`} src={iconLocalUrl} alt="" />
+      <div className={`${styles.weatherDataWrapper}`}>
+        <span className={`${styles.degrees}`}>{locationData.temperature}{symbolDegree}</span>
+        <img className={`${styles.pic}`} src={iconLocalUrl} alt="" />
       </div>
-      <img className={`${tw.bgPic}`} src={iconLocalUrl} alt="" />
+      <img className={`${styles.bgPic}`} src={iconLocalUrl} alt="" />
     </section>
   )
 }
