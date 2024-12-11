@@ -45,7 +45,7 @@ export default function AreasForecastsList(): React.JSX.Element {
       <div className={`favourites-inner-wrapper ${tw.innerWrapper}`}>
         {favouriteLocationsMapped.length > 0 ?
           favouriteLocationsMapped.map( (location: MappedFavouriteLocation, i: number) => {
-            return <LocationCurrentWeather {...location} key={i} />
+            return <LocationCurrentWeather {...location} key={i} outerStyles={ currentWeatherStyles } />
           })
         : <div></div> }
       </div>
