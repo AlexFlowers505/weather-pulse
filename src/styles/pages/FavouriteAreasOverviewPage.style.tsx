@@ -7,6 +7,8 @@ export const favouriteAreasOverviewPageStyle: tailwindStyleClassType = {
         justify-between
         items-start
         w-full
-        gap-base
+        gap-baseXS
+
+        xl:gap-base
     `,
 }
