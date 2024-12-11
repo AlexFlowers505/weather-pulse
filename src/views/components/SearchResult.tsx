@@ -62,6 +62,8 @@ export default function SearchResult(props: MappedLocationShortData & { request:
           isSpecific={false}
           specificLocation=''
           id={id}
+          lat={lat}
+          lon={lon}
           area={area}
           region={region}
           country={country}

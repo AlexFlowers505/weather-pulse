@@ -32,6 +32,8 @@ export default function LocationCurrentWeather({ ...locationData }: Omit<WholeLo
           btnStyle={btnStyles.style.contentOnly}
           isFavourite={isFavourite}
           id={locationData.id}
+          lat={locationData.lat}
+          lon={locationData.lon}
           isSpecific={locationData.isSpecific}
           specificLocation={locationData.specificLocation}
           area={locationData.area}
