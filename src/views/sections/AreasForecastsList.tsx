@@ -26,7 +26,7 @@ export default function AreasForecastsList(): React.JSX.Element {
             area: elm.area,
             region: elm.region,
             country: elm.country,
-            temperature: fetchedWeather.main.temp,
+            temperature: Math.round(fetchedWeather.main.temp),
             weatherIcon: fetchedWeather.weather[0].icon,
             lat: fetchedWeather.coord.lat,
             lon: fetchedWeather.coord.lon,

@@ -5,7 +5,7 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     rounded-xl
     bg-bgPrimaryDark
     flex
-    flex-col
+    flex-row
     justify-between
     gap-5
     items-start
@@ -15,26 +15,30 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     overflow-hidden
     z-10
     p-5
+    min-h-20
+    h-fit
     
     sm:p-8
     
     md:rounded-base
     
-    xl:p-base
+    xl:p-3
   `,
   headingWrapper: `
     flex
     flex-col
     justify-start
     items-start
-    gap-2
+    gap-0.5
   `,
   nameBlock: `
     flex
     flex-row
     justify-start
     items-start
-    gap-baseXS
+    gap-2
+    relative
+    top-3
   `,
   name: `
     text-text
@@ -44,7 +48,7 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     sm:text-4xl
     md:text-5xl
     lg:text-4xl
-    xl:text-5xl
+    xl:text-2xl
   `,
   specificLocation: `
     text-text
@@ -54,9 +58,8 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     p-0
     
     
-    md:pl-1
     text-2xl
-    md:text-3xl
+    md:text-2xl
   `,
   degrees: `
     text-text
@@ -65,7 +68,7 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     
     md:text-9xl
     lg:text-8xl
-    xl:text-9xl
+    xl:text-5xl
   `,
   weatherDataWrapper: `
     flex
@@ -73,11 +76,14 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     justify-center
     items-center
     gap-0
+    relative
+    -top-5
   `,
   pic: `
-    w-28
+    w-24
     relative
-    -top-6
+    -top-1
+    -ml-3
   `,
   bgPic: `
     absolute
@@ -88,11 +94,13 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     -right-24
     -bottom-32
     
-    md:-bottom-40
-    md:w-[540px]
+    md:-bottom-16
+    md:w-64
   `,
   favouriteBtn: `
     relative
     -top-1
+    max-w-8
+    max-h-8
   `,
 }

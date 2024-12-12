@@ -3,12 +3,19 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 export const diverseForecastStyle: tailwindStyleClassType = {
     wrapper: `
         w-full
-        h-fit
         flex
         flex-col
         justify-start
         gap-baseSM
         relative
+
+        w-full
+        flex
+        flex-col
+        justify-start
+        gap-5
+        few-days-forecast 
+        lg:max-w-96
     `,
     header: `
         text-xl

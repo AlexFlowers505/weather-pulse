@@ -3,7 +3,8 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 export const areasForecastsListStyle: tailwindStyleClassType = {
     base: `
     w-full
-    max-h-96
+    h-fit
+    max-h-[600px]
     p-0
     overflow-hidden
     `,
@@ -18,4 +19,4 @@ export const areasForecastsListStyle: tailwindStyleClassType = {
       h-full
       p-baseXS
     `
-  }
+}
