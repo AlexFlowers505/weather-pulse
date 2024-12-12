@@ -8,21 +8,29 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     flex-row
     justify-between
     gap-5
-    items-start
+    items-center
     w-full
     h-full
     relative
     overflow-hidden
     z-10
-    p-5
-    min-h-20
     h-fit
     
-    sm:p-8
-    
     md:rounded-base
+
+    px-3
     
-    xl:p-3
+    sm:px-4
+    sm:py-0.5
+
+    md:px-6
+    md:py-3
+
+    lg:px-4
+    lg:py-10
+
+    xl:px-5
+    xl:py-12
   `,
   headingWrapper: `
     flex
@@ -38,16 +46,15 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     items-start
     gap-2
     relative
-    top-3
   `,
   name: `
     text-text
     font-bold
     
-    text-3xl
-    sm:text-4xl
-    md:text-5xl
-    lg:text-4xl
+    text-xl
+    sm:text-2xl
+    md:text-3xl
+    lg:text-xl
     xl:text-2xl
   `,
   specificLocation: `
@@ -58,16 +65,19 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     p-0
     
     
-    text-2xl
-    md:text-2xl
+    text-xl
+    sm:text-2xl
+    lg:text-xl
+    xl:text-2xl
   `,
   degrees: `
     text-text
     font-extralight
-    text-8xl
     
-    md:text-9xl
-    lg:text-8xl
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-4xl
     xl:text-5xl
   `,
   weatherDataWrapper: `
@@ -77,13 +87,15 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     items-center
     gap-0
     relative
-    -top-5
   `,
   pic: `
-    w-24
     relative
-    -top-1
-    -ml-3
+
+    w-20
+    -ml-4
+
+    sm:w-24
+    sm:-ml-3
   `,
   bgPic: `
     absolute
@@ -99,8 +111,26 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   favouriteBtn: `
     relative
-    -top-1
-    max-w-8
-    max-h-8
+    
+    max-w-7
+    max-h-7
+    -top-1.5
+    
+    sm:max-w-8
+    sm:max-h-8
+    sm:-top-1
+
+    md:max-w-9
+    md:max-h-9
+    md:-top-1
+
+    lg:max-w-7
+    lg:max-h-7
+    
+    lg:-top-1.5
+    
+    xl:max-w-8
+    xl:max-h-8
+    xl:-top-1
   `,
 }
