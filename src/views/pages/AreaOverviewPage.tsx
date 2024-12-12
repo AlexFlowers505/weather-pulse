@@ -66,7 +66,7 @@ export default function AreaOverviewPage(): React.JSX.Element {
         <LocationCurrentWeather {...wholeLocationData} />
         <TodayForecast {...wholeLocationData} />
       </div>
-      <FewDaysForecast {...wholeLocationData} extraStyles={`few-days-forecast ${tw.FewDaysForecast}`} />
+      <FewDaysForecast locationData={wholeLocationData} extraStyles={`few-days-forecast ${tw.FewDaysForecast}`} />
     </>
   )
 }

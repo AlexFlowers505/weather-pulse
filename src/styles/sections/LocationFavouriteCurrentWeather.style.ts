@@ -111,6 +111,7 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   favouriteBtn: `
     relative
+    text-favourite
     
     max-w-7
     max-h-7

@@ -11,7 +11,7 @@ import { diverseForecastStyle as tw } from '../../styles/sections/DiverseForecas
 export default function DiverseForecast(): React.JSX.Element {
   return (
     <section className={`forecast container-visuals ${tw.wrapper}`}>
-        {/* <Btn 
+        <Btn 
             extraBtnClass={tw.expandBtn}
             contentType={btnContentType.icon}
             content={svgSymbolsIDs.iconExpand}
@@ -27,13 +27,13 @@ export default function DiverseForecast(): React.JSX.Element {
         <hr />
         <div className={`block-wrapper ${tw.wrapper}`}>
             <h6 className={tw.header}>Краткий прогноз</h6>
-            <ForecastItems layout={FORECAST_LAYOUTS.horizontal} />
+            {/* <ForecastItems layout={FORECAST_LAYOUTS.horizontal} /> */}
         </div>
         <hr />
         <div className={`block-wrapper ${tw.wrapper}`}>
             <h6 className={tw.header}>Прогноз на 3 дня</h6>
-            <ForecastItems layout={FORECAST_LAYOUTS.vertical} />
-        </div> */}
+            {/* <ForecastItems layout={FORECAST_LAYOUTS.vertical} /> */}
+        </div>
     </section>  
     )
 }

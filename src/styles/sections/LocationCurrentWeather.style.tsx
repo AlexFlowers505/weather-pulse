@@ -94,5 +94,6 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   favouriteBtn: `
     relative
     -top-1
+    text-favourite
   `,
 }
