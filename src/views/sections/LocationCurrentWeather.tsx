@@ -5,12 +5,9 @@ import { symbolDegree } from '../../constants/symbols'
 import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
 import { useEffect, useState } from 'react'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
-import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
-import { tailwindStyleClassType } from '../../types/overalls/overalls'
+import { LocationCurrentWeatherProps as Props} from '../../types/components/locationCurrentWeather.type'
 
-export type LocationCurrentWeatherProps = Omit<WholeLocationData, 'forecast'> & {outerStyles?: tailwindStyleClassType}
-
-export default function LocationCurrentWeather({ outerStyles = {}, ...locationData }: LocationCurrentWeatherProps): React.JSX.Element {
+export default function LocationCurrentWeather({ outerStyles = {}, ...locationData }: Props ): React.JSX.Element {
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
