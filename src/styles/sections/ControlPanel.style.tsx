@@ -13,5 +13,8 @@ export const controlPanelStyle: tailwindStyleClassType = {
         
         gap-baseXS
         xl:gap-baseSM
-    `
+    `,
+    changeUnitsBtn: `
+        text-text
+    `,
 }

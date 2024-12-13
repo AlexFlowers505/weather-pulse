@@ -55,7 +55,7 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
     useEffect(() => {
         switch (status) {
             case states.PROMPT:
-                setBtnExtraStyle(loading ? tw.locationBtnLoading : '')
+                setBtnExtraStyle(loading ? tw.locationBtnLoading : tw.locationBtnDefault)
                 if (!portable) {
                     setBtnContent(!loading ? config.btnContent.defaultShortText : config.btnContent.gettingAccess)
                 } else {
@@ -103,7 +103,7 @@ export default function GeolocationBlock({ portable = false } : GeolocationBlock
         <LocateMeBtn 
             onClick={getCurrentPosition}
             btnSize={btnStyles.size.md}
-            extraBtnClass={btnExtraStyle}
+            extraBtnClass={tw.locateMeBtn}
             hasTooltip={true}
             tooltipContent={btnContent}
             isTooltipOpen = {isTooltipOpen}

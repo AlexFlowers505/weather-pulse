@@ -93,7 +93,7 @@ export const locationCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   favouriteBtn: `
     relative
+    text-borderColor
     -top-1
-    text-favourite
   `,
 }

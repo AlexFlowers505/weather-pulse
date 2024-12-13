@@ -6,6 +6,7 @@ import { BtnBasedComponentType } from '../../../types/overalls/overalls'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../redux/store/store'
 import { addLocation, removeLocation } from '../../../redux/slices/favouriteLocationsSlice'
+import { favouriteBtnStyle as tw } from '../../../styles/components/FavouriteBtn.style'
 
 const btnData = {
   content: {
@@ -56,7 +57,8 @@ const handleFavouriteClick = () => {
       btnSize={btnSize}
       btnStyle={btnStyle}
       extraSVGstyle={extraSVGstyle}
-      extraBtnClass={extraBtnClass}
+      extraBtnClass={`${extraBtnClass} ${isFavourite ? tw.isFavourite : tw.notFavourite}`}
+      // extraBtnClass={extraBtnClass}
       extraSVGClass={extraSVGClass}
       hasTooltip={true}
       tooltipContent={tooltipContent}

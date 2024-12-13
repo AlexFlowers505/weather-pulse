@@ -45,13 +45,11 @@ export const searchResultStyle: tailwindStyleClassType = {
       absolute 
       h-fit
       group/btn
-      `,
-      favouriteBtnIcon: `
+      text-borderColor
+    `,
+    favouriteBtnIcon: `
       !w-5 
       !h-5 
-      text-borderColor
-      group-hover/btn:text-favourite
-      group-focus/btn:text-favourite
     `,
     forecastWrapper: `
       flex

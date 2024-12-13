@@ -87,6 +87,7 @@ export const searchStyle: tailwindStyleClassType = {
     DismissBtn: `
       !p-1
       md:!p-2
+      text-text
   
       hover:scale-125
       hover:-rotate-180
@@ -105,5 +106,6 @@ export const searchStyle: tailwindStyleClassType = {
       md:!p-2
       !text-[21px]
       md:!text-[25px]
+      text-text
     `
   }

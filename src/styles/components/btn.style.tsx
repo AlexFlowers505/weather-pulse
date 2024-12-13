@@ -26,7 +26,6 @@ const BtnStyles: BtnStyleType = {
         rounded-base
         box-content
         font-semibold
-        text-text
         font-montserrat
         transition-all
         ease-in-out

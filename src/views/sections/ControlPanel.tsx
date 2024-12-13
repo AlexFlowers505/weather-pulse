@@ -11,7 +11,7 @@ export default function ControlPanel({isSearchFocusOnLoad}: ControlPanelProps): 
     <section className={`control-panel ${tw.base}`}>
         <Search hasUnitsBtn={false} isSearchFocusOnLoad={isSearchFocusOnLoad}/>
         <GeolocationBlock portable={true} />
-        <ChangeUnitsBtn  btnSize={btnStyles.size.md} btnStyle={btnStyles.style.filled} />
+        <ChangeUnitsBtn  btnSize={btnStyles.size.md} btnStyle={btnStyles.style.filled} extraBtnClass={tw.changeUnitsBtn} />
     </section>
   )
 }
