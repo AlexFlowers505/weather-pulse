@@ -5,7 +5,7 @@ import { ForecastLayoutProps } from '../../types/overalls/forecastLayoutProps.ty
 import FORECAST_ITEMS from '../../constants/forecastItems'
 import WeatherHeaderRow from './WeatherHeaderRow'
 
-export default function ForecastLayout({heading, subHeading, layout, extraStyles='', locationData, itemsType, bgIcon }: ForecastLayoutProps): React.JSX.Element {
+export default function ForecastLayout({heading, subHeading, layout, extraStyles, locationData, itemsType, bgIcon }: ForecastLayoutProps): React.JSX.Element {
   return (
     <section className={`forecast container-visuals ${tw.wrapper} ${extraStyles}`}>
         <h6 className={tw.header}>{heading}</h6>

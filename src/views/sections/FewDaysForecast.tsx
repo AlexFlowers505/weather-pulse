@@ -13,9 +13,9 @@ export default function FewDaysForecast({ extraStyles = '', locationData = null 
       subHeading={config.noDataText}
       layout={config.layout}
       locationData={null}
-      extraStyles={extraStyles}
       bgIcon = {config.noDataBgPic}
       itemsType = {config.noDataForecastItems}
+      extraStyles={config.noDataExtraStyles}
     />
     )
   }
