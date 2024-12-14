@@ -44,6 +44,7 @@ export const GeolocationDeniedInfoBlockStyle: tailwindStyleClassType = {
     unravelBtnIcon: `
         !w-16 
         !h-16
+        text-text
     `,
     animateHeightComponent: `
         before:block 

@@ -68,5 +68,6 @@ export const ContentRichInfoBlockStyle: tailwindStyleClassType = {
         ml-2 
         mt-2 
         !rounded-xl
+        text-text
     `,
 }
