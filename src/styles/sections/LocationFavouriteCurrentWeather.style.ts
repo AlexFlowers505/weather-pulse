@@ -91,29 +91,4 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     md:-bottom-32
     md:w-64
   `,
-  favouriteBtn: `
-    relative
-    text-borderColor
-    
-    max-w-7
-    max-h-7
-    -top-1.5
-    
-    sm:max-w-8
-    sm:max-h-8
-    sm:-top-1
-
-    md:max-w-9
-    md:max-h-9
-    md:-top-1
-
-    lg:max-w-7
-    lg:max-h-7
-    
-    lg:-top-1.5
-    
-    xl:max-w-8
-    xl:max-h-8
-    xl:-top-1
-  `,
 }

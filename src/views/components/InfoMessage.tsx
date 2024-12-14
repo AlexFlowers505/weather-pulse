@@ -1,6 +1,6 @@
 import React from "react"
 import Btn from "./Btn"
-import btnStyles from "../../styles/components/btn.style"
+import { btnStyles } from "../../styles/components/btn.style"
 import { btnContentType } from "../../constants/btnContentType"
 import { infoMessageStyle as tw } from "../../styles/components/InfoMessage.style"
 import DismissBtn from "./btns/DismissBtn"

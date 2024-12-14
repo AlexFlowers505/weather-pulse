@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Btn from './Btn'
 import { btnContentType } from '../../constants/btnContentType'
-import btnStyles from '../../styles/components/btn.style'
+import { btnStyles } from '../../styles/components/btn.style'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import { default as states } from '../../constants/locationAccessStates'
 import { default as codes } from '../../constants/locationAccessErrorCodes'

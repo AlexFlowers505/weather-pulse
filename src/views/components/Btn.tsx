@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import SpriteSvg from './SpriteSvg'
-import btnStyles from '../../styles/components/btn.style'
+import { btnStyles } from '../../styles/components/btn.style'
 import { btnContentType } from '../../constants/btnContentType'
 import CustomTooltip from './CustomTooltip'
 import type { BtnType } from '../../types/overalls/overalls'

@@ -1,5 +1,5 @@
 import FavouriteBtn from '../components/btns/FavouriteBtn'
-import btnStyles from '../../styles/components/btn.style'
+import { btnStyles } from '../../styles/components/btn.style'
 import { locationCurrentWeatherStyle as tw } from '../../styles/sections/LocationCurrentWeather.style'
 import { symbolDegree } from '../../constants/symbols'
 import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { LocationCurrentWeatherProps as Props} from '../../types/components/locationCurrentWeather.type'
 
-export default function LocationCurrentWeather({ outerStyles = {}, ...locationData }: Props ): React.JSX.Element {
+export default function LocationCurrentWeather({ outerStyles = {}, hasFavouriteBtn = true, ...locationData }: Props ): React.JSX.Element {
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
@@ -29,7 +29,7 @@ export default function LocationCurrentWeather({ outerStyles = {}, ...locationDa
   return (
     <section className={`${styles.wrapper}`}>
       <div className={`${styles.nameBlock}`}>
-        <FavouriteBtn 
+        { hasFavouriteBtn && <FavouriteBtn 
           btnSize={btnStyles.size.lg} 
           btnStyle={btnStyles.style.contentOnly}
           isFavourite={isFavourite}
@@ -42,7 +42,7 @@ export default function LocationCurrentWeather({ outerStyles = {}, ...locationDa
           region={locationData.region}
           country={locationData.country}
           extraBtnClass={styles.favouriteBtn}
-        />
+        />}
         <div className={`heading-wrapper ${styles.headingWrapper}`}>
           <h6 className={`${styles.name}`}>{locationData.area}</h6>
           { 

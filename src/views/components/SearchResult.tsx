@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { searchResultStyle as tw } from '../../styles/components/SearchResult.style'
 import FavouriteBtn from './btns/FavouriteBtn'
-import btnStyles from '../../styles/components/btn.style'
+import { btnStyles } from '../../styles/components/btn.style'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store/store'
 import { Link, Navigate, useNavigate } from 'react-router-dom'

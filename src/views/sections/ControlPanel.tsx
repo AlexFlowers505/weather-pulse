@@ -1,7 +1,7 @@
 import React from 'react'
 import ChangeUnitsBtn from '../components/btns/ChangeUnitsBtn'
 import Search from '../components/Search'
-import btnStyles from '../../styles/components/btn.style'
+import { btnStyles } from '../../styles/components/btn.style'
 import { controlPanelStyle as tw } from '../../styles/sections/ControlPanel.style'
 import GeolocationBlock from '../components/GeolocationBlock'
 import { ControlPanelProps } from '../../types/sections/controlPanel.config'

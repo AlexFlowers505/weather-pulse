@@ -17,7 +17,7 @@ export type BtnStyleType = {
     }
 }
 
-const BtnStyles: BtnStyleType = {
+export const btnStyles: BtnStyleType = {
     base: `
         flex
         flex-row
@@ -118,4 +118,3 @@ const BtnStyles: BtnStyleType = {
     }
 }
 
-export default BtnStyles
