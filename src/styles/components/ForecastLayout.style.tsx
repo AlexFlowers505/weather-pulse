@@ -18,11 +18,15 @@ export const forecastLayoutStyle: tailwindStyleClassType = {
         
         text-xl
         sm:text-2xl
+        relative
+        z-10
     `,
     subHeading: `
         text-text
         font-light
         text-xl
+        relative
+        z-10
     `,
     bgIcon: `
         absolute

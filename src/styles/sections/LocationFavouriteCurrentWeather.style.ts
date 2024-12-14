@@ -80,11 +80,15 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
     -z-10
     opacity-20
     
-    w-[400px]
-    -right-24
+    -right-28
     -bottom-32
+    w-[300px]
     
-    md:-bottom-16
+    sm:w-[350px]
+
+    md:w-[370px]
+    md:-right-44
+    md:-bottom-32
     md:w-64
   `,
   favouriteBtn: `
