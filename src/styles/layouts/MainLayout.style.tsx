@@ -4,7 +4,7 @@ export const mainLayoutStyle: tailwindStyleClassType = {
     mainLayout: `
       w-screen
       min-w-[348px]
-      min-h-fit
+      min-h-0
       h-screen
       font-montserrat
       bg-gradient-to-r 
@@ -23,6 +23,7 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       items-stretch
       w-full
       h-fit
+      min-h-0
       relative
       
       lg:flex-row

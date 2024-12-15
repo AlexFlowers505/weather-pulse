@@ -9,7 +9,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   return (
     <>
         <Navbar />
-        <div className={tw.wrapper}>
+        <div className={`ctrls-n-areas-list-wrapper ${tw.wrapper}`}>
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>

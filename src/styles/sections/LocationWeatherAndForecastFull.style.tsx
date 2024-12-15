@@ -1,4 +1,4 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls";
+import { tailwindStyleClassType } from "../../types/overalls/overalls"
 
 export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
     wrapper: `
@@ -6,17 +6,15 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         bg-bgPrimaryDark
 
         w-full
-        min-h-fit
+        min-h-max
         relative
         overflow-hidden
         z-10
-
 
         flex
         flex-row
         justify-start
         items-start
-        w-full
         
         gap-3
         md:gap-5
