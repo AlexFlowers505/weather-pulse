@@ -7,7 +7,6 @@ import { FavouriteLocation } from '../../types/components/favouriteLocation.type
 import { fetchWeather } from '../../api/openWeatherMap/fetchWeather'
 import { WeatherResponse } from '../../types/api/openWeatherMap/OpenWeatherMapResponse.type'
 import { MappedFavouriteLocation } from '../../types/components/mappedFavouriteLocation.type'
-import { locationFavouriteCurrentWeatherStyle as currentWeatherStyle } from '../../styles/sections/LocationFavouriteCurrentWeather.style'
 import LocationWeatherAndForecastFull from './LocationWeatherAndForecastFull'
 
 export default function AreasForecastsList(): React.JSX.Element {

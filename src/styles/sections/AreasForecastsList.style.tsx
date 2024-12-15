@@ -3,10 +3,9 @@ import { tailwindStyleClassType } from "../../types/overalls/overalls"
 export const areasForecastsListStyle: tailwindStyleClassType = {
     base: `
     w-full
-    h-fit
-    max-h-[600px]
+    h-max
     p-0
-    overflow-hidden
+    overflow-y-auto
     `,
     innerWrapper: `
       w-full

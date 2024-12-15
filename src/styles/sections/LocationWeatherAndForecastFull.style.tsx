@@ -6,22 +6,43 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         bg-bgPrimaryDark
 
         w-full
-        h-fit
+        min-h-fit
         relative
         overflow-hidden
         z-10
+
+
+        flex
+        flex-row
+        justify-start
+        items-start
+        w-full
+        
+        gap-3
+        md:gap-5
+
+        
+        md:rounded-base
+    `,
+    locationWeatherAndForecast: `
+        flex
+        flex-row
+        justify-start
+        items-start
+        w-full
+        
+        gap-3
+        md:gap-5
+
         cursor-pointer
         transition-all
         ease-in-out
         duration-200
-
-        flex
-        flex-col
-        justify-start
-        items-start
-        gap-5
         
-        md:rounded-base
+        hover:bg-hoverState
+        hover:scale-[1.025]
+
+        active:scale-[1.013]
 
         px-3
         
@@ -32,44 +53,36 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         md:py-3
 
         lg:px-4
-        lg:py-10
+        lg:py-1
 
         xl:px-5
-        xl:py-12
-
-        hover:bg-hoverState
-        hover:scale-[1.025]
-
-        active:scale-[1.013]
-    `,
-    locationCurrentWeatherWrapper: `
-        flex
-        flex-row
-        justify-start
-        items-start
-        gap-5
+        xl:py-2
     `,
     favouriteBtn: `
-        relative
+        absolute
         text-borderColor
         
         max-w-7
         max-h-7
         -top-1.5
+        mt-6
         
         sm:max-w-8
         sm:max-h-8
         sm:-top-1
-
+        sm:mt-8
+        
         md:max-w-9
         md:max-h-9
         md:-top-1
-
+        md:mt-7
+        
         lg:max-w-7
         lg:max-h-7
-        
         lg:-top-1.5
+        lg:mt-9
         
+        xl:mt-8
         xl:max-w-8
         xl:max-h-8
         xl:-top-1

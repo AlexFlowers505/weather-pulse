@@ -12,8 +12,7 @@ export default function LocationWeatherAndForecastFull({...location} : Props): R
     const isFavourite = useCheckStoreIfFavourite(location.id)    
   
   return (
-    <div className={`location-weather-and-forecast-full ${tw.wrapper}`}>
-      <div className={`location-current-weather ${tw.locationCurrentWeatherWrapper}`}>
+    <div className={`wrapper ${tw.wrapper}`}>
         <FavouriteBtn
           btnSize={btnStyles.size.lg} 
           btnStyle={btnStyles.style.contentOnly}
@@ -28,9 +27,10 @@ export default function LocationWeatherAndForecastFull({...location} : Props): R
           country={location.country}
           extraBtnClass={tw.favouriteBtn}
         />
+      <div className={`location-weather-and-forecast ${tw.locationWeatherAndForecast}`}>
         <LocationCurrentWeather {...location} outerStyles={ currentWeatherStyle } hasFavouriteBtn={false} />
-      </div>
         {/* <FewDaysForecast {...location} /> */}
+      </div>
     </div>
   )
 }
