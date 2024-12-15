@@ -22,7 +22,6 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       justify-center
       items-stretch
       w-full
-      h-fit
       min-h-0
       relative
       
@@ -30,6 +29,11 @@ export const mainLayoutStyle: tailwindStyleClassType = {
       max-w-[100rem]
       
       gap-baseXS
+      
+      h-fit
+      lg:h-fit
+      lg:max-h-[800px]
+      
       xl:gap-base
     `,
   }
