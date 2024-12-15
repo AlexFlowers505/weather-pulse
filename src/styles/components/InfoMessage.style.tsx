@@ -60,5 +60,8 @@ export const infoMessageStyle: tailwindStyleClassType = {
         top-0
         right-0
         text-text
+    `,
+    textBtn:  `
+        text-text
     `
 }

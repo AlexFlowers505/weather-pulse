@@ -38,7 +38,6 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
   specificLocation: `
     text-text
     font-light
-    bgLinearStart
     text-textInactive
     p-0
     
@@ -77,7 +76,7 @@ export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
   `,
   bgPic: `
     absolute
-    -z-10
+    z-10
     opacity-20
     
     -right-28

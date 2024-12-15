@@ -19,7 +19,6 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         gap-3
         md:gap-5
 
-        
         md:rounded-base
     `,
     locationWeatherAndForecast: `
@@ -38,7 +37,6 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         duration-200
         
         hover:bg-hoverState
-        
         active:bg-activeState
         
         pl-16
@@ -61,6 +59,9 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         xl:pl-20
         xl:pr-5
         xl:py-2
+    `,
+    activeFavouriteLocation: `
+        bg-activeState
     `,
     favouriteBtn: `
         absolute

@@ -5,6 +5,7 @@ import locationAccessReducer from '../slices/locationAccessSlice'
 import favouriteLocationsReducer from '../slices/favouriteLocationsSlice'
 import dialogReducer from '../slices/dialogSlice'
 import currentAreaReducer from '../slices/currentAreaSlice'
+import activeFavouriteLocationReducer from '../slices/activeFavouriteLocationSlice'
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         favouriteLocations: favouriteLocationsReducer,
         dialog: dialogReducer,
         currentArea: currentAreaReducer,
+        activeFavouriteLocation: activeFavouriteLocationReducer,
     }
 })  
 

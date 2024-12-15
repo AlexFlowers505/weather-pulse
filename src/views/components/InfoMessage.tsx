@@ -74,6 +74,7 @@ export default function InfoMessage({
         { hasBtn && <Btn 
                 btnSize={btnStyles.size.sm}
                 btnStyle={btnStyles.style.outlined}
+                extraBtnClass={tw.textBtn}
                 contentType={btnContentType.text}
                 content={btnText}
                 onClick={() => handleBtnClick(inputRef, setFetchState, setRepeatFetch, setRequest, request)}
