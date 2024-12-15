@@ -45,11 +45,11 @@ export default function AreasForecastsList(): React.JSX.Element {
     <section className={`container-visuals ${tw.base}`}>
       <div className={`favourites-outer-wrapper ${tw.outerWrapper}`}>
         <div className={`favourites-inner-wrapper ${tw.innerWrapper}`}>
-          {favouriteLocationsMapped.length > 0 ?
+          {favouriteLocationsMapped.length > 0 &&
             favouriteLocationsMapped.map( (location: MappedFavouriteLocation, i: number) => {
               return <LocationWeatherAndForecastFull {...location} key={i} />
             })
-          : <div></div> }
+          }
         </div>
       </div>
     </section>

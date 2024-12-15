@@ -10,7 +10,7 @@ export const areasForecastsListStyle: tailwindStyleClassType = {
     `,
     outerWrapper: `
     w-full
-    max-h-[800px]
+    lg:max-h-[800px]
     h-full
     min-h-0
     overflow-y-auto

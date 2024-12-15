@@ -14,4 +14,8 @@ export const favouriteAreasOverviewPageStyle: tailwindStyleClassType = {
 
         xl:gap-base
     `,
+    fewDaysForecast: `
+        hidden
+        lg:flex
+    `,
 }

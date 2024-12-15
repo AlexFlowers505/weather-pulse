@@ -5,7 +5,7 @@ import { ForecastByDay, groupForecastByDay } from '../../utils/groupForecastByDa
 import { fewDaysForecastConfig as config } from '../../config/components/fewDaysForecast.config'
 import { FewDaysForecastProps } from '../../types/overalls/fewDaysForecast.type'
 
-export default function FewDaysForecast({ extraStyles = '', locationData = null }: FewDaysForecastProps): React.JSX.Element | null {
+export default function FewDaysForecast({ extraStyles = '', locationData = null, outerStyles = '' }: FewDaysForecastProps): React.JSX.Element | null {
   if (locationData === null) {
     return (
       <ForecastLayout

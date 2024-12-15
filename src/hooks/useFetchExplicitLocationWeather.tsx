@@ -11,7 +11,9 @@ export const useFetchExplicitLocationWeather = (id: number, units: string) => {
     const fetchData = async () => {
       setLoading(true)
       try {
-        if (id) {
+        if (Number.isNaN(id)) {
+          setLocationData(null)
+        } else if (id) {
           const weather: OpenWeatherMapResponse = await fetchWeather({ id: id, isForecast: false, units: units})
           const forecast: OpenWeatherMapResponse = await fetchWeather({ id: id, isForecast: true, units: units})
           console.log('Weather data:', weather)

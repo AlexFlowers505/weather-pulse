@@ -23,7 +23,7 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
     `,
     locationWeatherAndForecast: `
         flex
-        flex-row
+        flex-col
         justify-start
         items-start
         w-full
@@ -93,5 +93,12 @@ export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
         xl:max-h-8
         xl:top-0.5
         xl:left-6
+  `,
+  fewDaysForecast: `
+    p-0
+    !bg-transparent
+    lg:hidden
+    -ml-10
+    w-full
   `,
 }

@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../sections/Navbar'
 import ControlPanel from '../sections/ControlPanel'
 import AreasForecastsList from '../sections/AreasForecastsList'
 import { favouriteAreasOverviewPageStyle as tw } from '../../styles/pages/FavouriteAreasOverviewPage.style'
 import FewDaysForecast from '../sections/FewDaysForecast'
+import { RootState } from '../../redux/store/store'
+import { useSelector } from 'react-redux'
+import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
+import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
 
 export default function FavouriteAreasOverviewPage(): React.JSX.Element {
+  const activeFavouriteLocation = useSelector((state: RootState) => state.activeFavouriteLocation)
+  const units = useSelector((state: RootState) => state.temperatureUnits.__type)
+  const { loading, locationData } = useFetchExplicitLocationWeather(activeFavouriteLocation.id, units)
+  const [fullweatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
+
+  useEffect( () => {
+    if (Number.isNaN(activeFavouriteLocation.id)) {
+      setFullWeatherAndForecast({locationData: null, loading: false})
+    } else {
+      setFullWeatherAndForecast({locationData: locationData as ExplicitLocationWeather | null, loading: loading})
+    }
+  }, [activeFavouriteLocation, units, loading])
+
   return (
     <>
         <Navbar />
@@ -13,7 +30,8 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>
-        <FewDaysForecast locationData={null} extraStyles={`few-days-forecast ${tw.FewDaysForecast}`} />
+        <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={`few-days-forecast ${tw.fewDaysForecast}`} />
     </>
   )
 }
+
