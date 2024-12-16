@@ -11,8 +11,9 @@ export default function LocationCurrentWeather({ outerStyles = {}, hasFavouriteB
 
   const isFavourite = useCheckStoreIfFavourite(locationData.id)  
   const [iconLocalUrl, setIconLocalUrl] = useState('')
-  let styles = tw
-  if (Object.keys(outerStyles).length) styles = outerStyles
+  
+  const isOuterStyles = Object.keys(outerStyles).length
+  const styles = isOuterStyles ? outerStyles : tw
 
   useEffect( () => {
     const loadIcon = async () => {
