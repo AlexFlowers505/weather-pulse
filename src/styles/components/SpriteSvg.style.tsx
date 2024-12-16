@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const spriteSvgStyle: tailwindStyleClassType = {
+export const spriteSvgStyle: TwStylesObject = {
     icon: `
         transition-all
         ease-in-out

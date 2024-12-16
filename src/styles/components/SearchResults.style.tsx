@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const SearchResultsStyle: tailwindStyleClassType = {
+export const SearchResultsStyle: TwStylesObject = {
     container: `
         z-10
         absolute

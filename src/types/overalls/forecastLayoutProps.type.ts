@@ -3,7 +3,7 @@ import FORECAST_LAYOUTS from "../../constants/forecastLayouts"
 import { SvgSymbolsIDs } from "../../styles/components/svgSymbolsIDs.type"
 import { AverageDayNnightWeather } from "./averageDayNnightWeather.type"
 import { DayHourlyWeather } from "./dayHourlyWeather"
-import { tailwindStyleClassType } from "./overalls"
+import { TwStylesObject } from "./overalls"
 
 export type ForecastLayoutProps = {
     heading: string
@@ -11,8 +11,8 @@ export type ForecastLayoutProps = {
     bgIcon?: SvgSymbolsIDs[keyof SvgSymbolsIDs]
     layout: FORECAST_LAYOUTS
     itemsType: FORECAST_ITEMS
-    outerStyles?: tailwindStyleClassType
-    outerItemStyles?: tailwindStyleClassType
+    outerStyles?: TwStylesObject
+    outerItemStyles?: TwStylesObject
     extraStyles?: string
     locationData: AverageDayNnightWeather[] | DayHourlyWeather[] | null
   }

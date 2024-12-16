@@ -3,7 +3,7 @@ import { btnContentType } from '../../constants/btnContentType'
 import { emoticonsType } from '../../constants/emoticons'
 import { alignTypes } from '../../constants/textLayouts'
 
-export type tailwindStyleClassType = { 
+export type TwStylesObject = { 
     [key: string]: string
 }
 

@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const navbarStyle: tailwindStyleClassType = {
+export const navbarStyle: TwStylesObject = {
     navbar: `
         bg-bgPrimary
         w-full

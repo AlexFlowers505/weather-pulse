@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const GeolocationDeniedInfoBlockStyle: tailwindStyleClassType = {
+export const GeolocationDeniedInfoBlockStyle: TwStylesObject = {
     contentWrapper: `
         flex
         flex-col

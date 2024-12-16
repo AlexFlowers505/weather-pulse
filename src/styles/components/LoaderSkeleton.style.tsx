@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const loaderSkeletonStyle: tailwindStyleClassType = {
+export const loaderSkeletonStyle: TwStylesObject = {
     skeleton: `
         h-4
         bg-text/15

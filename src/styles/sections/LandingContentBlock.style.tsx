@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const landingContentBlockStyle: tailwindStyleClassType = {
+export const landingContentBlockStyle: TwStylesObject = {
     section: `
         flex 
         flex-col 

@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const mainLayoutStyle: tailwindStyleClassType = {
+export const mainLayoutStyle: TwStylesObject = {
     mainLayout: `
       w-screen
       min-w-[348px]

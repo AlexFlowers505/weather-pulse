@@ -7,13 +7,13 @@ import FORECAST_ITEMS from "../../constants/forecastItems"
 import { DayHourlyWeather } from "../../types/overalls/dayHourlyWeather"
 import ForecastDayItem from "./ForecastDayItem"
 import { forecastItemsStyle as tw } from "../../styles/components/ForecastItems.style"
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
 type forecastItemsPropType = {
   layout: FORECAST_LAYOUTS
   locationData: AverageDayNnightWeather[] | DayHourlyWeather[] | null
   itemsType: FORECAST_ITEMS
-  outerItemStyles?: tailwindStyleClassType
+  outerItemStyles?: TwStylesObject
 }
 export default function ForecastItems({ layout, locationData, itemsType, outerItemStyles = {} }: forecastItemsPropType): React.JSX.Element {
   const layoutStyles = getLayoutStyle(layout)

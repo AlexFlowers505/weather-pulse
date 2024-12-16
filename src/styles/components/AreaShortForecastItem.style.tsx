@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const areaShortForecastItemStyle: tailwindStyleClassType = {
+export const areaShortForecastItemStyle: TwStylesObject = {
     wrapper: `
       w-full 
       flex 

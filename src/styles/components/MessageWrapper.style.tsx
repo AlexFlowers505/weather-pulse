@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const messageWrapperStyle: tailwindStyleClassType = {
+export const messageWrapperStyle: TwStylesObject = {
   outerWrapper: `
     absolute
     top-0

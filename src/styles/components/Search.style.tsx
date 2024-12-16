@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const searchStyle: tailwindStyleClassType = {
+export const searchStyle: TwStylesObject = {
     searchBlock: `
       relative
       w-full

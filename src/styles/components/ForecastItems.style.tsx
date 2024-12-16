@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const forecastItemsStyle: tailwindStyleClassType = {
+export const forecastItemsStyle: TwStylesObject = {
     horizontalLayout: `
         flex
         flex-row

@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const navbarLinkStyle: tailwindStyleClassType = {
+export const navbarLinkStyle: TwStylesObject = {
     link: `
         flex
         flex-col

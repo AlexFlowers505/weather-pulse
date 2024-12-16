@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const infoMessageStyle: tailwindStyleClassType = {
+export const infoMessageStyle: TwStylesObject = {
     wrapper: `
         w-full
         flex

@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const desktopFavouritesForecastItemStyle: tailwindStyleClassType = {
+export const desktopFavouritesForecastItemStyle: TwStylesObject = {
     forecastItemWeatherOuterWrapper: `
         flex
         flex-row

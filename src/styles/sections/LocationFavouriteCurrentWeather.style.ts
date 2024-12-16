@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const locationFavouriteCurrentWeatherStyle: tailwindStyleClassType = {
+export const locationFavouriteCurrentWeatherStyle: TwStylesObject = {
     wrapper: `
     flex
     flex-row

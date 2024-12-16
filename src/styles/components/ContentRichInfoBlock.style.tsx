@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls" 
+import { TwStylesObject } from "../../types/overalls/overalls" 
 
-export const ContentRichInfoBlockStyle: tailwindStyleClassType = {
+export const ContentRichInfoBlockStyle: TwStylesObject = {
     listItemSymbol: `
         text-borderColor
         text-base

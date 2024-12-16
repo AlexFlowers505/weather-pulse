@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const areasForecastsListStyle: tailwindStyleClassType = {
+export const areasForecastsListStyle: TwStylesObject = {
     base: `
     w-full
     h-full

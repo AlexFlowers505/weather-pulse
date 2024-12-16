@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const searchResultStyle: tailwindStyleClassType = {
+export const searchResultStyle: TwStylesObject = {
     externalWrapper: `
       flex 
       flex-row 

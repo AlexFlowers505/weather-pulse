@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const favouriteAreasOverviewPageStyle: tailwindStyleClassType = {
+export const favouriteAreasOverviewPageStyle: TwStylesObject = {
     wrapper: `
         flex
         flex-col

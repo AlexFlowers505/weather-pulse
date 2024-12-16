@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const geolocationBlockStyle: tailwindStyleClassType = {
+export const geolocationBlockStyle: TwStylesObject = {
     locationBtnDefault: `
         text-text
     `,

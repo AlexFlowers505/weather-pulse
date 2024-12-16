@@ -1,6 +1,6 @@
-import { tailwindStyleClassType } from "../../types/overalls/overalls"
+import { TwStylesObject } from "../../types/overalls/overalls"
 
-export const LocationWeatherAndForecastFullStyle: tailwindStyleClassType = {
+export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     wrapper: `
         rounded-xl
         bg-bgPrimaryDark
