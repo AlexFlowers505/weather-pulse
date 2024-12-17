@@ -29,7 +29,7 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         w-full
         -ml-3
         
-        gap-3
+        gap-0
         
         cursor-pointer
         transition-all
@@ -47,7 +47,6 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         sm:py-0.5
         
         md:-ml-5
-        md:gap-5
         md:pl-20
         md:pr-6
         md:py-3
@@ -98,6 +97,12 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     p-0
     !bg-transparent
     lg:hidden
+    -ml-10
+    w-full
+  `,
+  todayForecast: `
+    p-0
+    !bg-transparent
     -ml-10
     w-full
   `,

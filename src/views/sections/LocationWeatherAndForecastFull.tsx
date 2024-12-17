@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setActiveFavouriteLocation } from '../../redux/slices/activeFavouriteLocationSlice'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
+import TodayForecast from './TodayForecast'
 
 export default function LocationWeatherAndForecastFull(location: Props): React.JSX.Element {
     const isFavourite = useCheckStoreIfFavourite(location.id)    
@@ -44,9 +45,10 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
         <FavouriteBtn {...favouriteBtnProps} />
         <div className={`location-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.activeFavouriteLocation}`} onClick={() => handleFavouriteLocationClick()}>
           <LocationCurrentWeather {...location} outerStyles={ currentWeatherStyle } hasFavouriteBtn={false} />
-        { currentFavouriteAreaId === location.id && 
+        { currentFavouriteAreaId === location.id && <>
+          <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} />
           <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} />
-        }
+        </>}
         </div>
     </div>
   )

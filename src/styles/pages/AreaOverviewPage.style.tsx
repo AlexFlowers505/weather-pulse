@@ -12,7 +12,9 @@ export const areaOverviewPageStyle: TwStylesObject = {
     gap-baseXS
     xl:gap-base
   `,
-  FewDaysForecast: `
+  fewDaysForecast: `
     lg:max-w-96
+  `,
+  todayForecast: `
   `,
 }

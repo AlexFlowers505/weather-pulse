@@ -8,6 +8,7 @@ export const forecastLayoutStyle: TwStylesObject = {
         justify-start
         gap-5
         relative
+        container-visuals
     `,
     header: `
         text-text

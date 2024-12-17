@@ -64,9 +64,9 @@ export default function AreaOverviewPage(): React.JSX.Element {
       <div className={`sections-wrapper ${tw.sectionsWrapper}`}>
         <ControlPanel isSearchFocusOnLoad={config.isSearchFocusOnLoad} />
         <LocationCurrentWeather {...wholeLocationData} />
-        <TodayForecast {...wholeLocationData} />
+        <TodayForecast locationData={locationData} extraStyles={`today-forecast ${tw.FewDaysForecast}`} />
       </div>
-      <FewDaysForecast locationData={wholeLocationData} extraStyles={`few-days-forecast ${tw.FewDaysForecast}`} />
+      <FewDaysForecast locationData={wholeLocationData} extraStyles={`few-days-forecast ${tw.fewDaysForecast}`} />
     </>
   )
 }

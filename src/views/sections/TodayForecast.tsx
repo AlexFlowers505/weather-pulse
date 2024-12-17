@@ -5,10 +5,17 @@ import { WholeLocationData } from '../../types/overalls/wholeLocationData.type'
 import { todayForecastConfig as config } from '../../config/components/todayForecast.config'
 import { LocationWeatherData } from '../../types/overalls/locationWeatherData.type'
 import { DayHourlyWeather } from '../../types/overalls/dayHourlyWeather'
+import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
+import { TodayForecastProps } from '../../types/sections/todayForecast.type'
 
-export default function TodayForecast({...locationData}: WholeLocationData | null): React.JSX.Element {
+export default function TodayForecast({ 
+  extraStyles = '', 
+  locationData = null, 
+  outerStyles = {}, 
+  outerItemStyles = {} 
+} : TodayForecastProps): React.JSX.Element {
   if (locationData === null) {
-    throw new Error('locationData is null')
+    return <></>
   } else {
 
     let DayHourlyWeather: DayHourlyWeather[] = []
@@ -26,7 +33,13 @@ export default function TodayForecast({...locationData}: WholeLocationData | nul
       }
     })
     return (
-      <ForecastLayout heading={config.heading} layout={config.layout} locationData={DayHourlyWeather} itemsType={config.itemsType}/>
+      <ForecastLayout 
+        heading={config.heading} 
+        layout={config.layout} 
+        locationData={DayHourlyWeather} 
+        extraStyles={extraStyles}
+        itemsType={config.itemsType}
+      />
     )
   }
 }

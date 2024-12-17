@@ -11,7 +11,7 @@ export default function ForecastLayout({heading, subHeading, layout, extraStyles
   
 
   return (
-    <section className={`forecast container-visuals ${styles.wrapper} ${extraStyles}`}>
+    <section className={`forecast ${styles.wrapper} ${extraStyles}`}>
         <h6 className={styles.header}>{heading}</h6>
         { !!subHeading && <h6 className={styles.subHeading}>{subHeading}</h6> }
         { itemsType === FORECAST_ITEMS.dayData && <WeatherHeaderRow /> }
