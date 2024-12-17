@@ -27,9 +27,11 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         justify-start
         items-start
         w-full
-        -ml-3
-        
         gap-0
+        px-baseXS
+        -ml-3
+        md:-ml-5
+        box-content 
         
         cursor-pointer
         transition-all
@@ -38,9 +40,9 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         
         hover:bg-hoverState
         active:bg-activeState
-        
+    `,
+    locationCurrentWeather:`
         pl-16
-        pr-3
         
         sm:pl-20
         sm:pr-4
@@ -95,15 +97,15 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
   `,
   fewDaysForecast: `
     p-0
+    pb-2
     !bg-transparent
     lg:hidden
-    -ml-10
     w-full
   `,
   todayForecast: `
     p-0
+    pb-2
     !bg-transparent
-    -ml-10
     w-full
   `,
 }

@@ -9,14 +9,14 @@ export default function FewDaysForecast({ extraStyles = '', locationData = null,
   if (locationData === null) {
     return (
       <ForecastLayout
-      heading={config.heading}
-      subHeading={config.noDataText}
-      layout={config.layout}
-      locationData={null}
-      bgIcon = {config.noDataBgPic}
-      itemsType = {config.noDataForecastItems}
-      extraStyles={config.noDataExtraStyles}
-    />
+        heading={config.heading}
+        subHeading={config.noDataText}
+        layout={config.layout}
+        locationData={null}
+        bgIcon = {config.noDataBgPic}
+        itemsType = {config.noDataForecastItems}
+        extraStyles={config.noDataExtraStyles}
+      />
     )
   }
   if (!locationData) {

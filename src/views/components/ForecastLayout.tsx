@@ -8,7 +8,6 @@ import WeatherHeaderRow from './WeatherHeaderRow'
 export default function ForecastLayout({heading, subHeading, layout, extraStyles, locationData, itemsType, bgIcon, outerStyles = {}, outerItemStyles = {} }: ForecastLayoutProps): React.JSX.Element {
   const isOuterStyles = Object.keys(outerStyles).length
   const styles = isOuterStyles ? outerStyles : tw
-  
 
   return (
     <section className={`forecast ${styles.wrapper} ${extraStyles}`}>

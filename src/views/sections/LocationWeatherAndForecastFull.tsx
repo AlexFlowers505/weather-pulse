@@ -42,13 +42,15 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
     
   return (
     <div className={`wrapper ${tw.wrapper}`}>
-        <FavouriteBtn {...favouriteBtnProps} />
-        <div className={`location-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.activeFavouriteLocation}`} onClick={() => handleFavouriteLocationClick()}>
+      <FavouriteBtn {...favouriteBtnProps} />
+      <div className={`location-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.activeFavouriteLocation}`} onClick={() => handleFavouriteLocationClick()}>
+        <div className={`location-current-weather ${tw.locationCurrentWeather}`}>
           <LocationCurrentWeather {...location} outerStyles={ currentWeatherStyle } hasFavouriteBtn={false} />
-        { currentFavouriteAreaId === location.id && <>
-          <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} />
-          <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} />
-        </>}
+        </div>
+          { currentFavouriteAreaId === location.id && <>
+            <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} />
+            <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} />
+          </>}
         </div>
     </div>
   )
