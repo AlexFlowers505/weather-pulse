@@ -64,6 +64,7 @@ export const locationFavouriteCurrentWeatherStyle: TwStylesObject = {
     items-center
     gap-0
     relative
+    z-20
     -mr-3
     sm:-mr-8
   `,
