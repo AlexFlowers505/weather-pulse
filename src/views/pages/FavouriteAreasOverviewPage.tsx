@@ -15,14 +15,18 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const { loading, locationData } = useFetchExplicitLocationWeather(activeFavouriteLocation.id, units)
   const [fullweatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
+  const [isAnyLocationActive, setIsAnyLocationActive] = useState(true)
 
   useEffect( () => {
     if (Number.isNaN(activeFavouriteLocation.id)) {
       setFullWeatherAndForecast({locationData: null, loading: false})
+      setIsAnyLocationActive(false)
     } else {
       setFullWeatherAndForecast({locationData: locationData as ExplicitLocationWeather | null, loading: loading})
+      setIsAnyLocationActive(true)
     }
   }, [activeFavouriteLocation, units, loading])
+
 
   return (
     <>
@@ -31,7 +35,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>
-        <FewDaysForecast locationData={fullweatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraStyles={tw.fewDaysForecast} />
+        <FewDaysForecast locationData={fullweatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
     </>
   )
 }

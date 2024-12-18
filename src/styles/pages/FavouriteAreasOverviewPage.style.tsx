@@ -18,5 +18,14 @@ export const favouriteAreasOverviewPageStyle: TwStylesObject = {
     fewDaysForecast: `
         hidden
         lg:flex
+
+        transition-all
+        ease-in-out
+        duration-200
+    `,
+    fewDaysForecast__active: `
+        hidden
+        lg:flex
+        !bg-activeState
     `,
 }
