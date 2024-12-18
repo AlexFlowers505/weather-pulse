@@ -6,6 +6,7 @@ export const favouriteAreasOverviewPageStyle: TwStylesObject = {
         flex-col
         justify-between
         items-start
+        min-w-0
         w-full
         gap-baseXS
         min-h-0

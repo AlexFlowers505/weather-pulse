@@ -41,28 +41,33 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         hover:bg-hoverState
         active:bg-activeState
     `,
+    locationWeatherAndForecast__active: `
+        bg-activeState
+        pb-2
+    `,
     locationCurrentWeather:`
-        pl-16
+        w-full
+        pl-11
+
+        transition-all
+        ease-in-out
+        duration-200
         
-        sm:pl-20
-        sm:pr-4
+        sm:pl-14
         sm:py-0.5
         
-        md:-ml-5
         md:pl-20
-        md:pr-6
+        md:-ml-5
         md:py-3
 
         lg:pl-16
-        lg:pr-4
         lg:py-1
 
         xl:pl-20
-        xl:pr-5
         xl:py-2
     `,
-    activeFavouriteLocation: `
-        bg-activeState
+    locationCurrentWeather__active: `
+        pr-11
     `,
     favouriteBtn: `
         absolute
@@ -82,7 +87,7 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         
         md:max-w-9
         md:max-h-9
-        md:top-0.5
+        md:top-1
         md:left-6
         
         lg:max-w-7
@@ -94,6 +99,17 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
         xl:max-h-8
         xl:top-0.5
         xl:left-6
+  `,
+  forecastsWrapper: `
+    flex
+    flex-col
+    gap-7
+    justify-start
+    items-start
+    w-full
+    -ml-5
+    relative
+    z-10
   `,
   fewDaysForecast: `
     p-0

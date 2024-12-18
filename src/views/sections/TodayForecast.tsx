@@ -38,6 +38,7 @@ export default function TodayForecast({
         layout={config.layout} 
         locationData={DayHourlyWeather} 
         extraStyles={extraStyles}
+        outerStyles={outerStyles}
         itemsType={config.itemsType}
       />
     )

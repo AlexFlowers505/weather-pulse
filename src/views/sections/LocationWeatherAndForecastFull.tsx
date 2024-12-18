@@ -13,6 +13,7 @@ import { setActiveFavouriteLocation } from '../../redux/slices/activeFavouriteLo
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
 import TodayForecast from './TodayForecast'
+import { favouritesForecastsLayoutStyle as forecastLayoutStyle } from '../../styles/layouts/FavouritesForecastsLayout.style'
 
 export default function LocationWeatherAndForecastFull(location: Props): React.JSX.Element {
     const isFavourite = useCheckStoreIfFavourite(location.id)    
@@ -43,15 +44,17 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
   return (
     <div className={`wrapper ${tw.wrapper}`}>
       <FavouriteBtn {...favouriteBtnProps} />
-      <div className={`location-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.activeFavouriteLocation}`} onClick={() => handleFavouriteLocationClick()}>
-        <div className={`location-current-weather ${tw.locationCurrentWeather}`}>
+      <div className={`current-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.locationWeatherAndForecast__active}`} onClick={() => handleFavouriteLocationClick()}>
+        <div className={`current-weather ${tw.locationCurrentWeather} ${isActive && tw.locationCurrentWeather__active}`}>
           <LocationCurrentWeather {...location} outerStyles={ currentWeatherStyle } hasFavouriteBtn={false} />
         </div>
-          { currentFavouriteAreaId === location.id && <>
-            <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} />
-            <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} />
-          </>}
-        </div>
+          { currentFavouriteAreaId === location.id && 
+            <div className={`forecasts-wrapper ${tw.forecastsWrapper}`}>
+              <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} outerStyles={forecastLayoutStyle} />
+              <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} outerStyles={forecastLayoutStyle} />
+            </div>
+          }
+      </div>
     </div>
   )
 }
