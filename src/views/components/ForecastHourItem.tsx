@@ -7,7 +7,8 @@ import { getForecastItemLayoutStyle } from '../../utils/getForecastItemLayoutSty
 export default function ForecastHourItem({layout, weatherData}: ForecastHourItemProps): React.JSX.Element {
     const layoutStyles = getForecastItemLayoutStyle(layout)
     const { timeOrDay, temperature, icon } = weatherData
-    const iconUrl = useFetchIcon(weatherData, icon)
+    const iconUrl = `assets/images/weather-illustrations/${icon}.png`
+
     return (
         <div className={`forecast-item ${layoutStyles}`}>
             <span className={`forecast-item-time ${tw.forecastItemTime}`}>{timeOrDay}</span>

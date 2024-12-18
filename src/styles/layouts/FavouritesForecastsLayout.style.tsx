@@ -6,17 +6,17 @@ export const favouritesForecastsLayoutStyle: TwStylesObject = {
         flex
         flex-col
         justify-start
-        gap-5
+        gap-6
         relative
         container-visuals
     `,
     header: `
-        text-text
+        text-textInactive
         text-left
-        pl-5
+        pl-9
         
         font-light
-        sm:font-medium
+        sm:font-medim
         
         text-lg
         sm:text-xl

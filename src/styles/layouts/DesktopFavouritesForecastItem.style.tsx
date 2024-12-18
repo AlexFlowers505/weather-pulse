@@ -20,17 +20,13 @@ export const desktopFavouritesForecastItemStyle: TwStylesObject = {
         order-last
 
         lg:order-none
-        -mr-3
+        mr-1.5
 
-        !text-xl
-        xl:!text-2xl
         `,
     forecastItemTime: `
         grow
         !text-textInactive
 
-        !text-xl
-        xl:!text-2xl
     `,
     forecastItemWeatherWrapper: `
         flex
@@ -47,10 +43,10 @@ export const desktopFavouritesForecastItemStyle: TwStylesObject = {
         h-20
         block
 
-        lg:min-w-28
-        lg:w-28
-        lg:min-h-28
-        lg:h-28
+        lg:min-w-20
+        lg:w-20
+        lg:min-h-20
+        lg:h-20
     `,
     innerSeparator: `
         min-w-px

@@ -10,7 +10,7 @@ module.exports = function(app) {
       timeout: 20000,
       proxyTimeout: 20000
     })
-  );
+  )
 
   app.use(
     '/api/openweathermap',

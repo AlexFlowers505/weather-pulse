@@ -50,7 +50,9 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
         </div>
           { currentFavouriteAreaId === location.id && 
             <div className={`forecasts-wrapper ${tw.forecastsWrapper}`}>
+              <span className={`forecast-separator ${tw.separator}`}></span>
               <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} outerStyles={forecastLayoutStyle} />
+              <span className={`forecast-separator ${tw.separator} ${tw.separator__fewDaysForecast}`}></span>
               <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} outerStyles={forecastLayoutStyle} />
             </div>
           }

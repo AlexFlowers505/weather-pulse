@@ -18,7 +18,8 @@ export default function LocationCurrentWeather({ outerStyles = {}, hasFavouriteB
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        const url = await fetchIcon(locationData.weatherIcon)
+        // const url = await fetchIcon(locationData.weatherIcon)
+        const url = `assets/images/weather-illustrations/${locationData.weatherIcon}.png`
         setIconLocalUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)

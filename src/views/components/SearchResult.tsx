@@ -41,7 +41,9 @@ export default function SearchResult(props: MappedLocationShortData & { request:
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        const url = await fetchIcon(weatherIcon)
+        // const url = await fetchIcon(weatherIcon)
+        const url = `assets/images/weather-illustrations/${weatherIcon}.png`
+
         setIconUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)

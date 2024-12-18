@@ -11,8 +11,10 @@ export default function ForecastDayItem({ layout, weatherData, outerItemStyles =
     const layoutStyles = getForecastItemLayoutStyle(layout)
     const { timeOrDay, temperature, icon } = weatherData
 
-    const iconDayUrl = useFetchIcon(weatherData, icon.day || '')
-    const iconNightUrl = useFetchIcon(weatherData, icon.night || '')
+    // const iconDayUrl = useFetchIcon(weatherData, icon.day || '')
+    // const iconNightUrl = useFetchIcon(weatherData, icon.night || '')
+    const iconDayUrl = `assets/images/weather-illustrations/${icon.day}.png`
+    const iconNightUrl = `assets/images/weather-illustrations/${icon.day}.png`
     const temperatureDay = temperature.day
     const temperatureNight = temperature.night
 

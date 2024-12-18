@@ -18,6 +18,8 @@ export const favouriteAreasOverviewPageStyle: TwStylesObject = {
     fewDaysForecast: `
         hidden
         lg:flex
+        lg:max-w-96
+
 
         transition-all
         ease-in-out

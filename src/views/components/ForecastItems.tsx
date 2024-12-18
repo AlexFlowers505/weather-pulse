@@ -29,7 +29,7 @@ export default function ForecastItems({ layout, locationData, itemsType, outerIt
           locationData.map((elm: any, i: number) => {
             return (
               <React.Fragment key={i}>
-                {i !== 0 && <span className={`forecast-item-divider ${tw.separator}`}></span> }
+                {i !== 0 && <span className={`forecast-item-separator ${tw.separator}`}></span> }
                 <ForecastDayItem layout={layout} weatherData={elm} outerItemStyles={outerItemStyles} />
               </React.Fragment>
             )
