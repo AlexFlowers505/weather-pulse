@@ -31,7 +31,8 @@ export const mainLayoutStyle: TwStylesObject = {
       gap-baseXS
       
       h-fit
-      lg:h-fit
+      lg:min-h-0
+      lg:h-[800px]
       lg:max-h-[800px]
       
       xl:gap-base

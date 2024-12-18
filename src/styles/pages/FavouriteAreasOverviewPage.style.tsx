@@ -12,7 +12,7 @@ export const favouriteAreasOverviewPageStyle: TwStylesObject = {
         min-h-0
         h-full
         
-        lg:max-h-[800px]
+        lg:max-h-full
         xl:gap-base
     `,
     fewDaysForecast: `

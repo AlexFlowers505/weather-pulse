@@ -10,7 +10,6 @@ export const areasForecastsListStyle: TwStylesObject = {
     `,
     outerWrapper: `
     w-full
-    lg:max-h-[800px]
     h-full
     min-h-0
     overflow-y-auto
@@ -22,9 +21,8 @@ export const areasForecastsListStyle: TwStylesObject = {
     gap-baseXS 
     justify-start
     items-start
-    h-full
-    min-h-0
-    max-h-full
+    h-fit
+    max-h-unset
     p-baseXS
     `
 }
