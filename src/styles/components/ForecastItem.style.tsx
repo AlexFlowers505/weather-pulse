@@ -33,11 +33,10 @@ export const forecastItemStyle: TwStylesObject = {
         text-base
     `,
     forecastItemPic: `
-        min-w-28
-        w-28
-        min-h-28
-        h-28
-        block
+        min-w-20
+        w-20
+        min-h-20
+        h-20
     `,
     forecastItemTemp: `
         text-text
