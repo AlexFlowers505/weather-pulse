@@ -15,7 +15,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const { loading, locationData } = useFetchExplicitLocationWeather(activeFavouriteLocation.id, units)
   const [fullweatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
-  const [isAnyLocationActive, setIsAnyLocationActive] = useState(true)
+  const [isAnyLocationActive, setIsAnyLocationActive] = useState(false)
 
   useEffect( () => {
     if (Number.isNaN(activeFavouriteLocation.id)) {
