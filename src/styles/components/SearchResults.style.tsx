@@ -29,7 +29,7 @@ export const SearchResultsStyle: TwStylesObject = {
     list: `
         overflow-y-auto
         overflow-x-hidden
-        max-h-[385px]
+        max-h-[550px]
         flex
         flex-col
         gap-2

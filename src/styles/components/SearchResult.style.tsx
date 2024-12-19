@@ -42,6 +42,7 @@ export const searchResultStyle: TwStylesObject = {
     `,
     favouriteBtn: `
       !p-1.5
+      !pt-4
       absolute 
       h-fit
       group/btn
@@ -83,10 +84,10 @@ export const searchResultStyle: TwStylesObject = {
       font-light
     `,
     tempPic: `
-      min-w-6
-      w-6
-      min-h-6
-      h-6
+      min-w-12
+      w-12
+      min-h-12
+      h-12
       block
     `,
   }
