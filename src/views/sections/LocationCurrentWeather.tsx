@@ -4,8 +4,8 @@ import { locationCurrentWeatherStyle as tw } from '../../styles/sections/Locatio
 import { symbolDegree } from '../../constants/symbols'
 import { useCheckStoreIfFavourite } from '../../hooks/useCheckStoreIfFavourite'
 import { useEffect, useState } from 'react'
-import { fetchIcon } from '../../api/openWeatherMap/fetchIcon'
 import { LocationCurrentWeatherProps as Props} from '../../types/components/locationCurrentWeather.type'
+import { getWeatherImgUrl } from '../../utils/getWeatherImgUrl'
 
 export default function LocationCurrentWeather({ outerStyles = {}, hasFavouriteBtn = true, ...locationData }: Props ): React.JSX.Element {
 
@@ -18,8 +18,7 @@ export default function LocationCurrentWeather({ outerStyles = {}, hasFavouriteB
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        // const url = await fetchIcon(locationData.weatherIcon)
-        const url = `assets/images/weather-illustrations/${locationData.weatherIcon}.png`
+        const url = getWeatherImgUrl(locationData.weatherIcon)
         setIconLocalUrl(url)
       } catch (error) {
         console.error('Error fetching icon:', error)

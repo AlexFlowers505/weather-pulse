@@ -3,11 +3,12 @@ import { symbolDegree } from '../../constants/symbols'
 import { useFetchIcon } from '../../hooks/useFetchIcon'
 import { ForecastHourItemProps } from '../../types/overalls/forecastHourItemProps.type'
 import { getForecastItemLayoutStyle } from '../../utils/getForecastItemLayoutStyle'
+import { getWeatherImgUrl } from '../../utils/getWeatherImgUrl'
 
 export default function ForecastHourItem({layout, weatherData}: ForecastHourItemProps): React.JSX.Element {
     const layoutStyles = getForecastItemLayoutStyle(layout)
     const { timeOrDay, temperature, icon } = weatherData
-    const iconUrl = `assets/images/weather-illustrations/${icon}.png`
+    const iconUrl = getWeatherImgUrl(icon)
 
     return (
         <div className={`forecast-item ${layoutStyles}`}>

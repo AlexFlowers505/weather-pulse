@@ -24,6 +24,7 @@ export const locationFavouriteCurrentWeatherStyle: TwStylesObject = {
     items-start
     gap-2
     relative
+    z-20
   `,
   name: `
     text-text

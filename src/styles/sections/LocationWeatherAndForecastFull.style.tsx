@@ -48,14 +48,17 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
   `,
   locationCurrentWeather:`
     w-full
-    pl-14
-    pr-2
+    pl-11
     py-1
+    pr-2
 
     transition-all
     ease-in-out
     duration-200
     
+    xs:pl-14
+    xs:py-1
+
     sm:pl-16
     sm:py-0.5
     
@@ -80,8 +83,13 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     max-w-7
     max-h-7
     -top-2
+    left-1
     mt-8
-    left-4
+
+    xs:max-w-7
+    xs:max-h-7
+    xs:-top-2
+    xs:left-4
     
     sm:max-w-8
     sm:max-h-8

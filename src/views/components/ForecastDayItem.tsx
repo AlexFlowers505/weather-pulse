@@ -1,20 +1,18 @@
 import { forecastItemStyle as tw } from '../../styles/components/ForecastItem.style'
 import { forecastDayItemStyle as extraTw } from '../../styles/components/ForecastDayItem.style'
 import { symbolDegree } from '../../constants/symbols'
-import { useFetchIcon } from '../../hooks/useFetchIcon'
 import { ForecastDayItemProps } from '../../types/overalls/forecastDayItemProps.type'
 import { getForecastItemLayoutStyle } from '../../utils/getForecastItemLayoutStyle'
 import IconWithTooltip from './IconWithTooltip'
 import { iconWithTooltipConfig as config } from '../../config/components/iconWithTooltip'
+import { getWeatherImgUrl } from '../../utils/getWeatherImgUrl'
 
 export default function ForecastDayItem({ layout, weatherData, outerItemStyles = {} }: ForecastDayItemProps): React.JSX.Element | null {
     const layoutStyles = getForecastItemLayoutStyle(layout)
     const { timeOrDay, temperature, icon } = weatherData
-
-    // const iconDayUrl = useFetchIcon(weatherData, icon.day || '')
-    // const iconNightUrl = useFetchIcon(weatherData, icon.night || '')
-    const iconDayUrl = `assets/images/weather-illustrations/${icon.day}.png`
-    const iconNightUrl = `assets/images/weather-illustrations/${icon.day}.png`
+    
+    const iconDayUrl = getWeatherImgUrl(icon.day)
+    const iconNightUrl = getWeatherImgUrl(icon.night)
     const temperatureDay = temperature.day
     const temperatureNight = temperature.night
 

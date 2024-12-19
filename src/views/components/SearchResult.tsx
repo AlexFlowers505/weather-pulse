@@ -12,6 +12,7 @@ import { MappedLocationShortData } from '../../types/api/openWeatherMap/MappedLo
 import { setCurrentAreaData } from '../../redux/slices/currentAreaSlice'
 import { getHighlightSearchMatchText } from '../../utils/getHighlightSearchMatchText'
 import { FavouriteLocationsState } from '../../types/components/favouriteLocationsState.type'
+import { getWeatherImgUrl } from '../../utils/getWeatherImgUrl'
 
 export default function SearchResult(props: MappedLocationShortData & { request: string }): React.JSX.Element {
   const { 
@@ -41,8 +42,7 @@ export default function SearchResult(props: MappedLocationShortData & { request:
   useEffect( () => {
     const loadIcon = async () => {
       try {
-        // const url = await fetchIcon(weatherIcon)
-        const url = `assets/images/weather-illustrations/${weatherIcon}.png`
+        const url = getWeatherImgUrl(weatherIcon)
 
         setIconUrl(url)
       } catch (error) {
