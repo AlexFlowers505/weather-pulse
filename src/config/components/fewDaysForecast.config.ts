@@ -1,7 +1,7 @@
 import FORECAST_ITEMS from "../../constants/forecastItems"
 import FORECAST_LAYOUTS from "../../constants/forecastLayouts"
 import svgSymbolsIDs from "../../constants/svgSymbolsIDs"
-import { fewDaysForecastNoDataStyle } from "../../styles/components/FewDaysForecastNoData.style"
+import { favouriteAreasOverviewPageStyle } from "../../styles/pages/FavouriteAreasOverviewPage.style"
 
 const daysQnt = {
     qnt: 4,
@@ -17,5 +17,5 @@ export const fewDaysForecastConfig = {
     forecastItems: FORECAST_ITEMS.dayData,
     noDataForecastItems: FORECAST_ITEMS.noData,
     noDataBgPic: svgSymbolsIDs.iconFavourite,
-    noDataExtraStyles: fewDaysForecastNoDataStyle
+    noDataExtraStyles: favouriteAreasOverviewPageStyle.fewDaysForecast
 }

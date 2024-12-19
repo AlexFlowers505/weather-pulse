@@ -12,7 +12,8 @@ export default function TodayForecast({
   extraStyles = '', 
   locationData = null, 
   outerStyles = {}, 
-  outerItemStyles = {} 
+  outerItemStyles = {},
+  extraItemsStyles = {}
 } : TodayForecastProps): React.JSX.Element {
   if (locationData === null) {
     return <></>
@@ -39,7 +40,9 @@ export default function TodayForecast({
         locationData={DayHourlyWeather} 
         extraStyles={extraStyles}
         outerStyles={outerStyles}
+        outerItemStyles={outerItemStyles}
         itemsType={config.itemsType}
+        extraItemsStyles={extraItemsStyles}
       />
     )
   }

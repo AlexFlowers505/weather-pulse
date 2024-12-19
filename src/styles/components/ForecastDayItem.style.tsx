@@ -33,11 +33,10 @@ export const forecastDayItemStyle: TwStylesObject = {
         lg:flex-row
     `,
     forecastItemPic: `
-        min-w-20
-        w-20
-        min-h-20
-        h-20
-        block
+        min-w-24
+        w-24
+        min-h-24
+        h-24
 
         lg:min-w-16
         lg:w-16
@@ -47,7 +46,7 @@ export const forecastDayItemStyle: TwStylesObject = {
     innerSeparator: `
         min-w-px
         min-h-24
-        bg-borderColor
+        bg-hoverState
         flex
         
         lg:hidden

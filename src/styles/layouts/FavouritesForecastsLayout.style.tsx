@@ -13,13 +13,13 @@ export const favouritesForecastsLayoutStyle: TwStylesObject = {
     header: `
         text-textInactive
         text-left
-        pl-9
+        pl-5
         
         font-light
         sm:font-medim
         
         text-lg
-        sm:text-xl
+        sm:text-lg
         relative
         z-10
     `,

@@ -7,6 +7,7 @@ export const forecastItemsStyle: TwStylesObject = {
         justify-between
         items-center
         overflow-x-auto
+        gap-8
 
         pb-4
         2xl:p-0
@@ -22,6 +23,8 @@ export const forecastItemsStyle: TwStylesObject = {
         justify-between
         overflow-x-auto
         pb-4
+        gap-20
+        px-8
         
         flex-row
         items-center

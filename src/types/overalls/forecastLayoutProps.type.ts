@@ -13,6 +13,7 @@ export type ForecastLayoutProps = {
     itemsType: FORECAST_ITEMS
     outerStyles?: TwStylesObject
     outerItemStyles?: TwStylesObject
+    extraItemsStyles?: TwStylesObject
     extraStyles?: string
     locationData: AverageDayNnightWeather[] | DayHourlyWeather[] | null
   }

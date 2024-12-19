@@ -19,7 +19,7 @@ export const favouriteAreasOverviewPageStyle: TwStylesObject = {
         hidden
         lg:flex
         lg:max-w-96
-
+        overflow-hidden
 
         transition-all
         ease-in-out

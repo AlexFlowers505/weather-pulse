@@ -5,7 +5,7 @@ import { ForecastLayoutProps } from '../../types/overalls/forecastLayoutProps.ty
 import FORECAST_ITEMS from '../../constants/forecastItems'
 import WeatherHeaderRow from './WeatherHeaderRow'
 
-export default function ForecastLayout({heading, subHeading, layout, extraStyles, locationData, itemsType, bgIcon, outerStyles = {}, outerItemStyles = {} }: ForecastLayoutProps): React.JSX.Element {
+export default function ForecastLayout({heading, subHeading, layout, extraStyles, locationData, itemsType, bgIcon, outerStyles = {}, extraItemsStyles = {}, outerItemStyles = {} }: ForecastLayoutProps): React.JSX.Element {
   const isOuterStyles = Object.keys(outerStyles).length
   const styles = isOuterStyles ? outerStyles : tw
 
@@ -15,7 +15,7 @@ export default function ForecastLayout({heading, subHeading, layout, extraStyles
         { !!subHeading && <h6 className={styles.subHeading}>{subHeading}</h6> }
         { itemsType === FORECAST_ITEMS.dayData && <WeatherHeaderRow /> }
         { !!bgIcon && <svg className={styles.bgIcon}><use href={`#${bgIcon}`} /></svg> }
-        <ForecastItems layout={layout} locationData={locationData} itemsType={itemsType} outerItemStyles={outerItemStyles} />
+        <ForecastItems layout={layout} locationData={locationData} itemsType={itemsType} outerItemStyles={outerItemStyles} extraItemsStyles={extraItemsStyles} />
     </section>
   )
 }

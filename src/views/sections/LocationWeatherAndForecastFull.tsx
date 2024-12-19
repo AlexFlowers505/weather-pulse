@@ -14,6 +14,8 @@ import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLoc
 import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
 import TodayForecast from './TodayForecast'
 import { favouritesForecastsLayoutStyle as forecastLayoutStyle } from '../../styles/layouts/FavouritesForecastsLayout.style'
+import { favouritesSmFewDaysForecastItemsStyle } from '../../styles/components/FavouritesSmFewDaysForecastItems.style'
+import { favouritesSmTodayForecastItemsStyle } from '../../styles/components/FavouritesSmTodayForecastItems.style'
 
 export default function LocationWeatherAndForecastFull(location: Props): React.JSX.Element {
     const isFavourite = useCheckStoreIfFavourite(location.id)    
@@ -44,16 +46,16 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
   return (
     <div className={`wrapper ${tw.wrapper}`}>
       <FavouriteBtn {...favouriteBtnProps} />
-      <div className={`current-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive && tw.locationWeatherAndForecast__active}`} onClick={() => handleFavouriteLocationClick()}>
-        <div className={`current-weather ${tw.locationCurrentWeather} ${isActive && tw.locationCurrentWeather__active}`}>
+      <div className={`current-weather-and-forecast ${tw.locationWeatherAndForecast} ${isActive ? tw.locationWeatherAndForecast__active : ''}`} onClick={() => handleFavouriteLocationClick()}>
+        <div className={`current-weather ${tw.locationCurrentWeather} ${isActive ? tw.locationCurrentWeather__active : ''}`}>
           <LocationCurrentWeather {...location} outerStyles={ currentWeatherStyle } hasFavouriteBtn={false} />
         </div>
           { currentFavouriteAreaId === location.id && 
             <div className={`forecasts-wrapper ${tw.forecastsWrapper}`}>
               <span className={`forecast-separator ${tw.separator}`}></span>
-              <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} outerStyles={forecastLayoutStyle} />
+              <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} extraItemsStyles={favouritesSmTodayForecastItemsStyle} outerStyles={forecastLayoutStyle} />
               <span className={`forecast-separator ${tw.separator} ${tw.separator__fewDaysForecast}`}></span>
-              <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} outerStyles={forecastLayoutStyle} />
+              <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} outerStyles={forecastLayoutStyle} />
             </div>
           }
       </div>

@@ -28,7 +28,6 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     items-start
     w-full
     gap-4
-    px-baseXS
     -ml-3
     md:-ml-5
     box-content 
@@ -43,34 +42,35 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
   `,
   locationWeatherAndForecast__active: `
     bg-activeState
-    hover:bg-activeState
-    active:bg-hoverState
+    hover:!bg-activeState
+    active:bg-activeState
     pb-2
   `,
   locationCurrentWeather:`
     w-full
-    pl-11
+    pl-14
+    pr-2
     py-1
 
     transition-all
     ease-in-out
     duration-200
     
-    sm:pl-14
+    sm:pl-16
     sm:py-0.5
     
-    md:pl-20
+    md:pl-24
     md:-ml-5
     md:py-3
 
-    lg:pl-16
+    lg:pl-20
     lg:py-1
 
-    xl:pl-20
+    xl:pl-24
     xl:py-2
   `,
   locationCurrentWeather__active: `
-    pr-11
+    pr-0
   `,
   favouriteBtn: `
     absolute
@@ -79,7 +79,7 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     
     max-w-7
     max-h-7
-    -top-3
+    -top-2
     mt-8
     left-4
     
@@ -110,7 +110,6 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
     justify-start
     items-start
     w-full
-    -ml-5
     relative
     z-10
   `,
@@ -129,10 +128,17 @@ export const LocationWeatherAndForecastFullStyle: TwStylesObject = {
   separator: `
     w-11/12
     min-h-px
-    bg-borderColor    
+    bg-hoverState    
     mx-auto
+    box-content
     `,
   separator__fewDaysForecast: `
     lg:hidden
   `,
+  smFewDaysForecastItemsWrapper: `
+    !px-
+  `,
+  smTodayForecastItemsWrapper: `
+    !px-
+  `
 }

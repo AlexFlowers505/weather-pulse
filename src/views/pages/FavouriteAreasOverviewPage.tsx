@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
 import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
 import { desktopFavouritesForecastItemStyle as dtItemStyle } from '../../styles/layouts/DesktopFavouritesForecastItem.style'
+import { favouritesSmFewDaysForecastItemsStyle } from '../../styles/components/FavouritesSmFewDaysForecastItems.style'
 
 export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   const activeFavouriteLocation = useSelector((state: RootState) => state.activeFavouriteLocation)
@@ -35,7 +36,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>
-        <FewDaysForecast locationData={fullweatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
+        <FewDaysForecast locationData={fullweatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
     </>
   )
 }
