@@ -55,7 +55,7 @@ export default function LocationWeatherAndForecastFull(location: Props): React.J
               <span className={`forecast-separator ${tw.separator}`}></span>
               <TodayForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.todayForecast} extraItemsStyles={favouritesSmTodayForecastItemsStyle} outerStyles={forecastLayoutStyle} />
               <span className={`forecast-separator ${tw.separator} ${tw.separator__fewDaysForecast}`}></span>
-              <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} outerStyles={forecastLayoutStyle} />
+              <FewDaysForecast locationData={fullweatherAndForecast.locationData} extraStyles={tw.fewDaysForecast} extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} outerStyles={forecastLayoutStyle} outerItemStyles={favouritesSmFewDaysForecastItemsStyle}/>
             </div>
           }
       </div>

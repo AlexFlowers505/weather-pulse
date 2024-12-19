@@ -62,7 +62,7 @@ export const locationFavouriteCurrentWeatherStyle: TwStylesObject = {
     flex-row
     justify-center
     items-center
-    gap-0
+    gap-1.5
     relative
     z-20
     -mr-3

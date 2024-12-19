@@ -34,6 +34,7 @@ export const forecastItemsStyle: TwStylesObject = {
         lg:flex-col
         lg:items-start
         lg:p-0
+        lg:gap-0
     `,
     separator: `
         w-full

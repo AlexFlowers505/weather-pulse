@@ -46,7 +46,7 @@ export const forecastDayItemStyle: TwStylesObject = {
     innerSeparator: `
         min-w-px
         min-h-24
-        bg-hoverState
+        bg-borderColor
         flex
         
         lg:hidden
