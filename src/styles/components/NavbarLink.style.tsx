@@ -23,6 +23,7 @@ export const navbarLinkStyle: TwStylesObject = {
     `,
     activeLink: `
         bg-slate-600
+        pointer-events-none
     `,
     icon: `
         w-10
