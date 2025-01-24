@@ -15,7 +15,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   const activeFavouriteLocation = useSelector((state: RootState) => state.activeFavouriteLocation)
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
   const { loading, locationData } = useFetchExplicitLocationWeather(activeFavouriteLocation.id, units)
-  const [fullweatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
+  const [fullWeatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
   const [isAnyLocationActive, setIsAnyLocationActive] = useState(false)
 
   useEffect( () => {
@@ -36,7 +36,7 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>
-        <FewDaysForecast locationData={fullweatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
+        <FewDaysForecast locationData={fullWeatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
     </>
   )
 }

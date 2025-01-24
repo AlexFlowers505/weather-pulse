@@ -44,6 +44,12 @@ export const useFetchExplicitLocationWeather = (id: number, units: string) => {
         setLoading(false)
       }
     }
+    if (!id || Number.isNaN(id)) {
+      console.error('Invalid location id:', id);
+      setLocationData(null);
+      setLoading(false);
+      return;
+    }
     if (id) fetchData()
     else console.error('Invalid latitude or longitude')
   }, [id, units])
