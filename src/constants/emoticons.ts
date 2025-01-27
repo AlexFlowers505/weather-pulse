@@ -1,9 +1,9 @@
 export type emoticonsType = {
-    shrug: string
-    awkward: string
+    [ key: string ]: string
 }
 
 export const emoticons: emoticonsType = {
     shrug: `¯\\_(ツ)_/¯`,
     awkward: `( ⚆ _ ⚆ )`,
+    dontKnow: `¯\\(°_o)/¯`,
 } as const
