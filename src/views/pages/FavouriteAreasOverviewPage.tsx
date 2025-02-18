@@ -7,27 +7,19 @@ import FewDaysForecast from '../sections/FewDaysForecast'
 import { RootState } from '../../redux/store/store'
 import { useSelector } from 'react-redux'
 import { useFetchExplicitLocationWeather } from '../../hooks/useFetchExplicitLocationWeather'
-import { ExplicitLocationWeather } from '../../types/api/openWeatherMap/ExplicitLocationWeather.type'
 import { desktopFavouritesForecastItemStyle as dtItemStyle } from '../../styles/layouts/DesktopFavouritesForecastItem.style'
 import { favouritesSmFewDaysForecastItemsStyle } from '../../styles/components/FavouritesSmFewDaysForecastItems.style'
 
 export default function FavouriteAreasOverviewPage(): React.JSX.Element {
   const activeFavouriteLocation = useSelector((state: RootState) => state.activeFavouriteLocation)
   const units = useSelector((state: RootState) => state.temperatureUnits.__type)
-  const { loading, locationData } = useFetchExplicitLocationWeather(activeFavouriteLocation.id, units)
-  const [fullWeatherAndForecast, setFullWeatherAndForecast] = useState<{locationData: ExplicitLocationWeather | null, loading: boolean}>({locationData: null, loading: false})
-  const [isAnyLocationActive, setIsAnyLocationActive] = useState(false)
 
-  useEffect( () => {
-    if (Number.isNaN(activeFavouriteLocation.id)) {
-      setFullWeatherAndForecast({locationData: null, loading: false})
-      setIsAnyLocationActive(false)
-    } else {
-      setFullWeatherAndForecast({locationData: locationData as ExplicitLocationWeather | null, loading: loading})
-      setIsAnyLocationActive(true)
-    }
-  }, [activeFavouriteLocation, units, loading])
+  const isAnyLocationActive = activeFavouriteLocation && !Number.isNaN(activeFavouriteLocation.id)
 
+  const { loading, locationData } = useFetchExplicitLocationWeather(
+    isAnyLocationActive ? activeFavouriteLocation.id : 0, 
+    units
+  )
 
   return (
     <>
@@ -36,8 +28,15 @@ export default function FavouriteAreasOverviewPage(): React.JSX.Element {
             <ControlPanel isSearchFocusOnLoad={false}/>
             <AreasForecastsList />
         </div>
-        <FewDaysForecast locationData={fullWeatherAndForecast.locationData} outerItemStyles={ dtItemStyle } extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} extraStyles={`${tw.fewDaysForecast} ${isAnyLocationActive && tw.fewDaysForecast__active}`} />
+
+          <FewDaysForecast 
+            locationData={locationData} 
+            outerItemStyles={dtItemStyle} 
+            extraItemsStyles={favouritesSmFewDaysForecastItemsStyle} 
+            extraStyles={`${tw.fewDaysForecast} ${tw.fewDaysForecast__active}`} 
+          />
     </>
   )
 }
+
 
