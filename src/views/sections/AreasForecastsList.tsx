@@ -10,15 +10,15 @@ import { MappedFavouriteLocation } from '../../types/components/mappedFavouriteL
 import LocationWeatherAndForecastFull from './LocationWeatherAndForecastFull'
 
 export default function AreasForecastsList(): React.JSX.Element {
-  const units = useSelector((state: RootState) => state.temperatureUnits.__type)
-  const favouriteLocations: FavouriteLocation[] | [] = useSelector((state: RootState) => state.favouriteLocations.value)
-  const [ favouriteLocationsMapped, setFavouriteLocationsMapped ] = useState<MappedFavouriteLocation[]>([])
+  const units = useSelector((state: RootState) => state.temperatureUnits.__type);
+  const favouriteLocations = useSelector((state: RootState) => state.favouriteLocations.value);
+  const [favouriteLocationsMapped, setFavouriteLocationsMapped] = useState<MappedFavouriteLocation[]>([]);
 
   useEffect(() => {
     const fetchAllFavouriteLocationsForecast = async () => {
       const fetchedLocations = await Promise.all(
         favouriteLocations.map(async (elm: FavouriteLocation) => {
-          const fetchedWeather = await fetchWeather({ id: elm.id, isForecast: false, units: units }) as WeatherResponse
+          const fetchedWeather = await fetchWeather({ id: elm.id, isForecast: false, units }) as WeatherResponse;
           return {
             id: elm.id,
             isSpecific: elm.isSpecific,
@@ -30,29 +30,27 @@ export default function AreasForecastsList(): React.JSX.Element {
             weatherIcon: fetchedWeather.weather[0].icon,
             lat: fetchedWeather.coord.lat,
             lon: fetchedWeather.coord.lon,
-          }
+          };
         })
-      )
-      setFavouriteLocationsMapped(fetchedLocations)
-    }
-  
+      );
+      setFavouriteLocationsMapped(fetchedLocations);
+    };
+
     if (favouriteLocations.length > 0) {
-      fetchAllFavouriteLocationsForecast()
+      fetchAllFavouriteLocationsForecast();
     }
-  }, [])
+  }, [favouriteLocations, units]); // Add units as a dependency
 
   return (
     <section className={`container-visuals ${tw.base}`}>
       <div className={`favourites-outer-wrapper ${tw.outerWrapper}`}>
         <div className={`favourites-inner-wrapper ${tw.innerWrapper}`}>
           {favouriteLocationsMapped.length > 0 &&
-            favouriteLocationsMapped.map( (location: MappedFavouriteLocation, i: number) => {
-              return <LocationWeatherAndForecastFull {...location} key={i} />
-            })
-          }
+            favouriteLocationsMapped.map((location: MappedFavouriteLocation, i: number) => {
+              return <LocationWeatherAndForecastFull {...location} key={i} />;
+            })}
         </div>
       </div>
     </section>
-  )
+  );
 }
-
